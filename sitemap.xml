@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://NTUneillee.github.io/blog/post2/</loc>
+    <loc>https://NTUneillee.github.io/blog/musicsynthesis/</loc>
     <lastmod>2022-07-02T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/categories/</loc>
@@ -26,7 +26,7 @@
     <loc>https://NTUneillee.github.io/</loc>
     <lastmod>2022-07-02T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/blog/post1/</loc>
+    <loc>https://NTUneillee.github.io/blog/instrumenctrec/</loc>
     <lastmod>2022-07-01T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/tags/time-frequency-analysis/</loc>
@@ -43,5 +43,13 @@
   </url><url>
     <loc>https://NTUneillee.github.io/search/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/tags/image/</loc>
+  </url><url>
+    <loc>https://NTUneillee.github.io/tags/image-processing/</loc>
+  </url><url>
+    <loc>https://NTUneillee.github.io/categories/image-processing/</loc>
+  </url><url>
+    <loc>https://NTUneillee.github.io/blog/psnrvsssim/</loc>
   </url>
 </urlset>

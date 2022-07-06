@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>Yuan-Kang Lee</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PSNR and SSIM image quality assessment">
+  <meta name="author" content="Neil Lee">
+  <meta name="generator" content="Hugo 0.101.0" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://NTUneillee.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://NTUneillee.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://NTUneillee.github.io"><img class="img-fluid"
+          src="https://NTUneillee.github.io/images/logo1.png" alt="Yuan-Kang Lee"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/yunkun.lee.7"><i class="ti-facebook"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/NTUneillee"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://NTUneillee.github.io"><img class="img-fluid"
+            src="https://NTUneillee.github.io/images/logo1.png" alt="Yuan-Kang Lee"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://NTUneillee.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://NTUneillee.github.io/blog/">Post</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://NTUneillee.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/image-processing"
+          class="text-primary">Image processing</a>
+        
+        <h2>Image Quality Assessment</h2>
+        <div class="mb-3 post-meta">
+          <span>By Neil Lee</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>01 January 0001</span>
+          
+        </div>
+        
+        <img src="https://NTUneillee.github.io/images/post/image.jpg" class="img-fluid w-100 mb-4" alt="Image Quality Assessment">
+        
+        <div class="content mb-5">
+          <h2 id="introduction">Introduction</h2>
+<p><strong>Image quality</strong> can be assessed using objective or subjective methods. In the objective method, image quality assessments are performed by different algorithms that analyze the distortions and degradations introduced in an image. Subjective image quality assessments are a method based on the way in which humans experience or perceive image quality.</p>
+<blockquote>
+<p>Particularily, objective image quality assessments are the most important topic that we are currently focused on in the image processing applications. Image Quality analysis consist of two objective IQ assessment: Full Reference Image quality Assessment (FR-IQA) and No Reference Image Quality Assessment (NR-IQA).</p>
+</blockquote>
+<ul>
+<li><strong>FR-IQA</strong>: To assess the quality of a test image by comparing it with a reference image</li>
+<li><strong>NR-IQA</strong>: To assess the quality of a test image without any reference to the original one</li>
+</ul>
+<blockquote>
+<p>An image quality metric can play a variety of roles in image processing applications:</p>
+<ol>
+<li>to dynamically monitor and adjust image quality</li>
+<li>to optimize algorithm and parameter settings of image processing system</li>
+<li>to benchmark the image processing system, parameter setting and algorithm</li>
+</ol>
+</blockquote>
+<p>For the competitor analysis, I will introduce FR-IQA for benchmarking in the following experiment report. The most common image quality metric is Peak Signal-to-Noise Ratio (PSNR)。</p>
+<h2 id="psnr">PSNR</h2>
+<p><strong>Peak signal-to-noise ratio</strong> (<strong>PSNR</strong>) is the ratio between the maximum possible power of a siganl and the power of corrupting noise  that affects the fidelity of its representation. Because many signals have a very wide dynamic range.</p>
+<h2 id="psnr-code">PSNR code</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;test.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>NoiseImage = imnoise(TestImage);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>figure; imshow(TestImage);
+</span></span><span style="display:flex;"><span>figure; imshow(NoiseImage);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% if size(image,3) == 1, then the image is gray scale</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% convert the image to double-precision array directly</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(TestImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>            
+</span></span><span style="display:flex;"><span>    y1 = double(TestImage); 
+</span></span><span style="display:flex;"><span>    y2 = double(NoiseImage);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% if size(image,3) == 1, then the image is gray scale</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% convert the image from RGB to YCbCr to get luminance </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(TestImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>   
+</span></span><span style="display:flex;"><span>    TestImage_new = rgb2ycbcr(TestImage);
+</span></span><span style="display:flex;"><span>    NoiseImage_new = rgb2ycbcr(NoiseImage);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% the luminance component is in the first array</span>
+</span></span><span style="display:flex;"><span>    LuminanceTest = TestImage_new(:,:,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    LuminanceNoise = NoiseImage_new(:,:,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% then convert the image to double-precision array </span>
+</span></span><span style="display:flex;"><span>    y1 = double(LuminanceTest);  
+</span></span><span style="display:flex;"><span>    y2 = double(LuminanceNoise);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% the difference of two signals </span>
+</span></span><span style="display:flex;"><span>difference = y2 <span style="color:#f92672">-</span> y1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% array(:) convert all the array into a column vector</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% array(:) .* array(:) can calculate dot for 2 array</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% prod(size(array)) get the sum of array index  </span>
+</span></span><span style="display:flex;"><span>MSE = sum( difference(:) <span style="color:#f92672">.*</span> difference(:)) <span style="color:#f92672">/</span> prod(size(difference) );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% calculate PSNR, Xmax = 255 in an image</span>
+</span></span><span style="display:flex;"><span>psnr = <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> log10( <span style="color:#ae81ff">255</span>^<span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> MSE )
+</span></span></code></pre></div><h2 id="ssim">SSIM</h2>
+<p>However, PSNR IQ metric cannot really well matched to the human perceived visual quality.Every pixel of natural image carries important information about the structure of the objects in the visual scenes. The motivation of new approach is to find a more direct way to compare the structures of the “reference image” and the &ldquo;tested image”.</p>
+<p>Because the human visual system is highly adapted to extract structure information from the viewing field, so we now introduce the <strong>Structure Similarity Metric</strong> (SSIM) : the similarity measurement is separated into to components: luminance, contrast and structure.</p>
+<blockquote>
+<ul>
+<li>the luminance is estimated as mean intensity</li>
+<li>the contrast is estimated as standard deviations</li>
+<li>the structure is estimated by normalized standard deviations</li>
+</ul>
+</blockquote>
+<h2 id="ssim-code">SSIM code</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>clear; close all; clc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ReferenceImage = imread(<span style="color:#e6db74">&#39;821R2SD-K5.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;NDP-5512-Z30L-3.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Set the size of Test Image equal to Reference Image</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% ================================================================</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TestRow = size(TestImage,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>TestColumn = size(TestImage,<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TestRow_modified = size(ReferenceImage, <span style="color:#ae81ff">1</span>); 
+</span></span><span style="display:flex;"><span>TestColumn_modified = size(ReferenceImage, <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Create (x,y) pairs for each point in the image and define its coordinate </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% X-axis: the number of column / Y-axis: the number of row </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% [ column, row ] = meshgrid( 1 : column, 1 : row ) </span>
+</span></span><span style="display:flex;"><span>[n1, m1] = meshgrid(<span style="color:#ae81ff">1</span> : TestColumn_modified, <span style="color:#ae81ff">1</span> : TestRow_modified);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Let Sm = m / m&#39; and let m = m&#39; * Sm for m = 1,...,m&#39;     </span>
+</span></span><span style="display:flex;"><span>Sm = TestRow <span style="color:#f92672">/</span> TestRow_modified; m1 = m1 <span style="color:#f92672">*</span> Sm;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Let Sn = n / n&#39; Let nf = c&#39; * Sn for n = 1,...,n&#39;</span>
+</span></span><span style="display:flex;"><span>Sn = TestColumn <span style="color:#f92672">/</span> TestColumn_modified; n1 = n1 <span style="color:#f92672">*</span> Sn;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Let m = round(m1) and n = round(n1)</span>
+</span></span><span style="display:flex;"><span>m = round(m1);
+</span></span><span style="display:flex;"><span>n = round(n1);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Setting the values out of range </span>
+</span></span><span style="display:flex;"><span>m(m <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>) = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>n(n <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>) = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>m(m <span style="color:#f92672">&gt;</span> TestRow <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) = TestRow <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>n(n <span style="color:#f92672">&gt;</span> TestColumn <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) = TestColumn <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Setting delta_m = m1 - m, delta_n = n1 - n</span>
+</span></span><span style="display:flex;"><span>delta_m = m1 <span style="color:#f92672">-</span> m;
+</span></span><span style="display:flex;"><span>delta_n = n1 <span style="color:#f92672">-</span> n;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Get indices for each point we wish to access</span>
+</span></span><span style="display:flex;"><span>Test1_index = sub2ind([TestRow, TestColumn], m, n);
+</span></span><span style="display:flex;"><span>Test2_index = sub2ind([TestRow, TestColumn], m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, n);
+</span></span><span style="display:flex;"><span>Test3_index = sub2ind([TestRow, TestColumn], m, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>Test4_index = sub2ind([TestRow, TestColumn], m<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);       
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Interpolate: Go through each channel for the case of colour</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Create output image that is the same class as input</span>
+</span></span><span style="display:flex;"><span>ModifiedTestImage = zeros(TestRow_modified, TestColumn_modified, size(TestImage, <span style="color:#ae81ff">3</span>));
+</span></span><span style="display:flex;"><span>ModifiedTestImage = cast(ModifiedTestImage, class(TestImage));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index = <span style="color:#ae81ff">1</span> : size(TestImage, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% Get i&#39;th channel to get its color matrix</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>    channel = double(TestImage(:,:,index)); 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% Interpolate the channel</span>
+</span></span><span style="display:flex;"><span>    tmp = channel(Test1_index) <span style="color:#f92672">.*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> delta_m) <span style="color:#f92672">.*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> delta_n) <span style="color:#f92672">+</span> <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          channel(Test2_index) <span style="color:#f92672">.*</span> (delta_m) <span style="color:#f92672">.*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> delta_n) <span style="color:#f92672">+</span> <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          channel(Test3_index) <span style="color:#f92672">.*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> delta_m) <span style="color:#f92672">.*</span> (delta_n) <span style="color:#f92672">+</span> <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          channel(Test4_index) <span style="color:#f92672">.*</span> (delta_m) <span style="color:#f92672">.*</span> (delta_n);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    ModifiedTestImage(:,:,index) = cast(tmp, class(TestImage));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Implement the algorithm of SSIM </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% ===============================================================</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>c1 = input(<span style="color:#e6db74">&#39;c1: &#39;</span>); <span style="color:#75715e">% recommand: c1 = 0.01</span>
+</span></span><span style="display:flex;"><span>c2 = input(<span style="color:#e6db74">&#39;c2: &#39;</span>); <span style="color:#75715e">% recommand: c2 = 0.03</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% if size(image,3) == 1, then the image is gray scale</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% convert the image to double-precision array directly</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(ReferenceImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>            
+</span></span><span style="display:flex;"><span>    x = double(ReferenceImage); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(ModifiedTestImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>            
+</span></span><span style="display:flex;"><span>    y = double(ModifiedTestImage); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% if size(image,3) == 1, then the image is gray scale</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% convert the image from RGB to YCbCr to get luminance </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(ReferenceImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>   
+</span></span><span style="display:flex;"><span>    ReferenceImage_new = rgb2ycbcr(ReferenceImage);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% the luminance component is in the first array</span>
+</span></span><span style="display:flex;"><span>    LuminanceReference = ReferenceImage_new(:,:,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% then convert the image to double-precision array </span>
+</span></span><span style="display:flex;"><span>    x = double(LuminanceReference);  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> size(ModifiedTestImage,<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span>   
+</span></span><span style="display:flex;"><span>    TestImage_new = rgb2ycbcr(ModifiedTestImage);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% the luminance component is in the first array</span>
+</span></span><span style="display:flex;"><span>    LuminanceTest = TestImage_new(:,:,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">% then convert the image to double-precision array  </span>
+</span></span><span style="display:flex;"><span>    y = double(LuminanceTest);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mean_x = sum(sqrt( x(:)<span style="color:#f92672">.*</span>x(:) )) <span style="color:#f92672">/</span> prod(size(x));
+</span></span><span style="display:flex;"><span>mean_y = sum(sqrt( y(:)<span style="color:#f92672">.*</span>y(:) )) <span style="color:#f92672">/</span> prod(size(y));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Xdiff = x <span style="color:#f92672">-</span> mean_x;
+</span></span><span style="display:flex;"><span>variance_x = sqrt( sum( Xdiff(:)<span style="color:#f92672">.*</span>Xdiff(:) ) <span style="color:#f92672">/</span> prod(size(x) ) );
+</span></span><span style="display:flex;"><span>Ydiff = y <span style="color:#f92672">-</span> mean_y;
+</span></span><span style="display:flex;"><span>variance_y = sqrt( sum( Ydiff(:)<span style="color:#f92672">.*</span>Ydiff(:) ) <span style="color:#f92672">/</span> prod(size(y) ) );
+</span></span><span style="display:flex;"><span>variance_xy = sum( Xdiff(:)<span style="color:#f92672">.*</span>Ydiff(:) ) <span style="color:#f92672">/</span> prod(size(x) );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>L = <span style="color:#ae81ff">255</span>;
+</span></span><span style="display:flex;"><span>Component1 = ( <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>mean_x<span style="color:#f92672">*</span>mean_y <span style="color:#f92672">+</span> (c1<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) <span style="color:#f92672">/</span> ( mean_x^<span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>mean_y^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (c1<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ); 
+</span></span><span style="display:flex;"><span>Component2 = ( <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>variance_xy <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) <span style="color:#f92672">/</span> ( variance_x^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> variance_y^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>imshow(ReferenceImage)
+</span></span><span style="display:flex;"><span>imshow(ModifiedTestImage)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SSIM = Component1<span style="color:#f92672">*</span>Component2
+</span></span></code></pre></div>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="text-capitalize">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-5">
+        <a href="https://NTUneillee.github.io"><img src="https://NTUneillee.github.io/images/logo1.png" alt="Yuan-Kang Lee"></a>
+      </div>
+               
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          
+                     
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>Taipei, Taiwan</li>
+          
+                     
+          <li class="mb-3"><a class="text-dark" href="mailto:yuankang.neillee@gmail.com"><i
+                class="ti-email mr-3 text-primary"></i>yuankang.neillee@gmail.com</a>
+          
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.facebook.com/yunkun.lee.7">facebook</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/NTUneillee">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/image-processing/">Image processing</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/signal-processing/">Signal processing</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/about/">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/blog/">Post</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | copyright © 2021 <a href="https://themefisher.com/hugo-themes/">Themefisher</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://NTUneillee.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://NTUneillee.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/mark.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://NTUneillee.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+</body>
+</html>

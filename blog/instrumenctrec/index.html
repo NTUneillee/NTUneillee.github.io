@@ -146,6 +146,7 @@
 </span></span><span style="display:flex;"><span>[a, fs] = audioread(<span style="color:#e6db74">&#39;music.wav&#39;</span>);
 </span></span><span style="display:flex;"><span>segmentation = <span style="color:#ae81ff">5</span>;
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Main Algorithm of Gabor Transform</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
@@ -194,6 +195,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>y = X<span style="color:#f92672">&#39;</span>; 
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Convolution to g[n,m] and find Instantaneous Frequency</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
@@ -225,6 +227,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Connect [m,n] to create clear Instantaneous Frequency line</span>
@@ -294,6 +297,7 @@
 </span></span><span style="display:flex;"><span>xlabel(<span style="color:#e6db74">&#39;Time (Sec)&#39;</span>,<span style="color:#e6db74">&#39;Fontsize&#39;</span>,<span style="color:#ae81ff">12</span>)				
 </span></span><span style="display:flex;"><span>ylabel(<span style="color:#e6db74">&#39;Frequency (Hz)&#39;</span>,<span style="color:#e6db74">&#39;Fontsize&#39;</span>,<span style="color:#ae81ff">12</span>)	
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Find the MAX time sample number of all instantaneous frequency</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
@@ -316,6 +320,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% find the MAX time sample number of instantaneous frequency </span>
 </span></span><span style="display:flex;"><span>MAX_FreqTimeSample = max(FreqTimeSample);
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Find Real Frequency Value and its Time data of all frequency</span>
@@ -357,6 +362,7 @@
 </span></span><span style="display:flex;"><span>        FreqValueData(i,k) = FreqValue;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Find frequency energy ratio of all primary frequency region </span>
@@ -465,6 +471,7 @@
 </span></span><span style="display:flex;"><span>​    EnergyRatioOff_set = [ EnergyRatioOff_set EnergyRatioOff ];
 </span></span><span style="display:flex;"><span>​    
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ===================================================================</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Find error between Real Frequency &amp; its second-order approximation</span>
@@ -620,6 +627,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue1 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>HighFreqE2E1_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( HighFreqE2E1, <span style="color:#ae81ff">2</span> )
@@ -631,6 +639,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    HighFreqE2E1_sort_set = [ HighFreqE2E1_sort_set  HighFreqE2E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue2 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>HighFreqE3E1_sort_set = [];
@@ -644,6 +653,7 @@
 </span></span><span style="display:flex;"><span>    HighFreqE3E1_sort_set = [ HighFreqE3E1_sort_set  HighFreqE3E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue3 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>HighFreqOn_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( HighFreqOn, <span style="color:#ae81ff">2</span> )
@@ -655,6 +665,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    HighFreqOn_sort_set = [ HighFreqOn_sort_set  HighFreqOn_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue4 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>HighFreqOff_sort_set = [];
@@ -668,6 +679,7 @@
 </span></span><span style="display:flex;"><span>    HighFreqOff_sort_set = [ HighFreqOff_sort_set  HighFreqOff_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue5 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>HighFreqError_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( HighFreqError, <span style="color:#ae81ff">2</span> )
@@ -679,6 +691,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    HighFreqError_sort_set = [ HighFreqError_sort_set HighFreqError_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue6 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>MiddleFreqE2E1_sort_set = [];
@@ -692,6 +705,7 @@
 </span></span><span style="display:flex;"><span>    MiddleFreqE2E1_sort_set = [ MiddleFreqE2E1_sort_set  MiddleFreqE2E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue7 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>MiddleFreqE3E1_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( MiddleFreqE3E1, <span style="color:#ae81ff">2</span> )
@@ -703,6 +717,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    MiddleFreqE3E1_sort_set = [ MiddleFreqE3E1_sort_set  MiddleFreqE3E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue8 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>MiddleFreqOn_sort_set = [];
@@ -716,6 +731,7 @@
 </span></span><span style="display:flex;"><span>    MiddleFreqOn_sort_set = [ MiddleFreqOn_sort_set  MiddleFreqOn_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue9 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>MiddleFreqOff_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( MiddleFreqOff, <span style="color:#ae81ff">2</span> )
@@ -727,6 +743,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    MiddleFreqOff_sort_set = [ MiddleFreqOff_sort_set  MiddleFreqOff_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue10 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>MiddleFreqError_sort_set = [];
@@ -740,6 +757,7 @@
 </span></span><span style="display:flex;"><span>    MiddleFreqError_sort_set = [ MiddleFreqError_sort_set  MiddleFreqError_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue11 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>LowFreqE2E1_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( LowFreqE2E1, <span style="color:#ae81ff">2</span> )
@@ -751,6 +769,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    LowFreqE2E1_sort_set = [ LowFreqE2E1_sort_set LowFreqE2E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue12 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>LowFreqE3E1_sort_set = [];
@@ -764,6 +783,7 @@
 </span></span><span style="display:flex;"><span>    LowFreqE3E1_sort_set = [ LowFreqE3E1_sort_set LowFreqE3E1_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue13 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>LowFreqOn_sort_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size( LowFreqOn, <span style="color:#ae81ff">2</span> )
@@ -775,6 +795,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    LowFreqOn_sort_set = [ LowFreqOn_sort_set LowFreqOn_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue14 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>LowFreqOff_sort_set = [];
@@ -788,6 +809,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>    LowFreqOff_sort_set = [ LowFreqOff_sort_set  LowFreqOff_sort(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>MeanValue15 = <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>LowFreqError_sort_set = [];
@@ -827,6 +849,7 @@
 </span></span><span style="display:flex;"><span>                  LowFreqE2E1_mean, LowFreqE3E1_mean, <span style="color:#75715e">... </span>
 </span></span><span style="display:flex;"><span>                  LowFreqOn_mean, LowFreqOff_mean, LowFreqError_mean ]
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>SignalFeature_kmeans = lbgVQ( SignalFeature, <span style="color:#ae81ff">4</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_cello1.mat&#39;</span>)
@@ -837,6 +860,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d1_data = sum( d1_set )<span style="color:#f92672">/</span>size(library_cello1,<span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_cello2.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d2_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size(library_cello2,<span style="color:#ae81ff">3</span>)    
@@ -844,6 +868,7 @@
 </span></span><span style="display:flex;"><span>    d2_set = [ d2_set d2(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d2_data = sum( d2_set )<span style="color:#f92672">/</span>size(library_cello2,<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_guitar1.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d3_set = [];
@@ -853,6 +878,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d3_data = sum( d3_set )<span style="color:#f92672">/</span>size(library_guitar1,<span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_guitar2.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d4_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size(library_guitar2,<span style="color:#ae81ff">3</span>)
@@ -860,6 +886,7 @@
 </span></span><span style="display:flex;"><span>    d4_set = [ d4_set d4(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d4_data = sum( d4_set )<span style="color:#f92672">/</span>size(library_guitar2,<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_guitar3.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d5_set = [];
@@ -869,6 +896,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d5_data = sum( d5_set )<span style="color:#f92672">/</span>size(library_guitar3,<span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_piano1.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d6_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size(library_piano1,<span style="color:#ae81ff">3</span>)
@@ -876,6 +904,7 @@
 </span></span><span style="display:flex;"><span>    d6_set = [ d6_set d6(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d6_data = sum( d6_set )<span style="color:#f92672">/</span>size(library_piano1,<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_piano2.mat&#39;</span>)
 </span></span><span style="display:flex;"><span>d7_set = [];
@@ -885,6 +914,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d7_data = sum( d7_set )<span style="color:#f92672">/</span>size(library_piano2,<span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>load(<span style="color:#e6db74">&#39;library_piano3.mat&#39;</span>) <span style="color:#75715e">% electro piano </span>
 </span></span><span style="display:flex;"><span>d8_set = [];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i = <span style="color:#ae81ff">1</span> : size(library_piano3,<span style="color:#ae81ff">3</span>)
@@ -892,6 +922,7 @@
 </span></span><span style="display:flex;"><span>    d8_set = [ d8_set d8(i) ];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>d8_data = sum( d8_set )<span style="color:#f92672">/</span>size(library_piano3,<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Recoginition</span>
 </span></span><span style="display:flex;"><span>RecogData = [ d1_data d2_data d3_data d4_data d5_data d6_data d7_data d8_data ]
@@ -952,6 +983,9 @@
       <div class="col-lg-3 col-sm-6 mb-5">
         <h6 class="mb-4">Categories</h6>
         <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/image-processing/">Image processing</a>
+          </li>
           <li class="mb-3"><a class="text-dark"
               href="/categories/signal-processing/">Signal processing</a>
           </li>
