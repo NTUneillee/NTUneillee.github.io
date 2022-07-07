@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PSNR and SSIM image quality assessment">
+  <meta name="description" content="Image Quality Assessment implementation">
   <meta name="author" content="Neil Lee">
   <meta name="generator" content="Hugo 0.101.0" />
 
@@ -124,38 +124,31 @@
         <a href="/categories/image-processing"
           class="text-primary">Image processing</a>
         
-        <h2>Image Quality Assessment</h2>
+        <h2>PSNR and SSIM</h2>
         <div class="mb-3 post-meta">
           <span>By Neil Lee</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>01 January 0001</span>
+          <span>30 June 2022</span>
           
         </div>
         
-        <img src="https://NTUneillee.github.io/images/post/image.jpg" class="img-fluid w-100 mb-4" alt="Image Quality Assessment">
+        <img src="https://NTUneillee.github.io/images/post/imagequality.jpg" class="img-fluid w-100 mb-4" alt="PSNR and SSIM">
         
         <div class="content mb-5">
           <h2 id="introduction">Introduction</h2>
-<p><strong>Image quality</strong> can be assessed using objective or subjective methods. In the objective method, image quality assessments are performed by different algorithms that analyze the distortions and degradations introduced in an image. Subjective image quality assessments are a method based on the way in which humans experience or perceive image quality.</p>
 <blockquote>
-<p>Particularily, objective image quality assessments are the most important topic that we are currently focused on in the image processing applications. Image Quality analysis consist of two objective IQ assessment: Full Reference Image quality Assessment (FR-IQA) and No Reference Image Quality Assessment (NR-IQA).</p>
+<p><strong>Image quality</strong> can be assessed using objective or subjective methods. In the objective method, image quality assessments are performed by different algorithms that analyze the distortions and degradations introduced in an image. Subjective image quality assessments are a method based on the way in which humans experience or perceive image quality.</p>
 </blockquote>
+<p>Particularily, objective image quality assessments are the most important topic that we are currently focused on in image processing applications. Image Quality analysis consist of two objective IQ metric: Full Reference Image quality Assessment (FR-IQA) and No Reference Image Quality Assessment (NR-IQA).</p>
 <ul>
 <li><strong>FR-IQA</strong>: To assess the quality of a test image by comparing it with a reference image</li>
 <li><strong>NR-IQA</strong>: To assess the quality of a test image without any reference to the original one</li>
 </ul>
-<blockquote>
-<p>An image quality metric can play a variety of roles in image processing applications:</p>
-<ol>
-<li>to dynamically monitor and adjust image quality</li>
-<li>to optimize algorithm and parameter settings of image processing system</li>
-<li>to benchmark the image processing system, parameter setting and algorithm</li>
-</ol>
-</blockquote>
-<p>For the competitor analysis, I will introduce FR-IQA for benchmarking in the following experiment report. The most common image quality metric is Peak Signal-to-Noise Ratio (PSNR)。</p>
+<p>An image quality metric can play a variety of roles in image processing applications: to dynamically monitor and adjust image quality, optimize algorithm and parameter settings of image processing system and to benchmark the image processing system, parameter setting and algorithm.</p>
+<p>For the competitor analysis, the most common image quality metric is FR-IQA: Peak Signal-to-Noise Ratio.</p>
 <h2 id="psnr">PSNR</h2>
-<p><strong>Peak signal-to-noise ratio</strong> (<strong>PSNR</strong>) is the ratio between the maximum possible power of a siganl and the power of corrupting noise  that affects the fidelity of its representation. Because many signals have a very wide dynamic range.</p>
+<p><strong>Peak signal-to-noise ratio</strong> (<strong>PSNR</strong>) is the ratio between the maximum possible power of a siganl and the power of corrupting noise  that affects the fidelity of its representation. PSNR is usually expressed as a logarithmic quantity using the db scale because many signals have a very wide dynamic range.</p>
 <h2 id="psnr-code">PSNR code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;test.jpg&#39;</span>);
 </span></span><span style="display:flex;"><span>NoiseImage = imnoise(TestImage);
@@ -196,20 +189,21 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% calculate PSNR, Xmax = 255 in an image</span>
 </span></span><span style="display:flex;"><span>psnr = <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> log10( <span style="color:#ae81ff">255</span>^<span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> MSE )
 </span></span></code></pre></div><h2 id="ssim">SSIM</h2>
-<p>However, PSNR IQ metric cannot really well matched to the human perceived visual quality.Every pixel of natural image carries important information about the structure of the objects in the visual scenes. The motivation of new approach is to find a more direct way to compare the structures of the “reference image” and the &ldquo;tested image”.</p>
-<p>Because the human visual system is highly adapted to extract structure information from the viewing field, so we now introduce the <strong>Structure Similarity Metric</strong> (SSIM) : the similarity measurement is separated into to components: luminance, contrast and structure.</p>
 <blockquote>
-<ul>
-<li>the luminance is estimated as mean intensity</li>
-<li>the contrast is estimated as standard deviations</li>
-<li>the structure is estimated by normalized standard deviations</li>
-</ul>
+<p>However, PSNR IQ metric cannot really well matched to the human perceived visual quality. Every pixel of natural image carries important information about the structure of the objects in the visual scenes. The motivation of new approach is to find a more direct way to compare the structures of the “reference image” and the &ldquo;test image”.</p>
 </blockquote>
+<p>Because the human visual system is highly adapted to extract structure information from the viewing field,  <strong>Structure Similarity Metric</strong> (SSIM) turns out to be an important metric that quantifies image quality compared to a reference image. The similarity measurement is separated into three components: <strong>Luminance</strong>, <strong>Contrast</strong> and <strong>Structure</strong>.</p>
+<ul>
+<li>The luminance is estimated as <em>mean intensity</em></li>
+<li>The contrast is estimated as <em>standard deviations</em></li>
+<li>The structure is estimated by <em>normalized standard deviations</em></li>
+</ul>
+<p>SSIM actually measures the <strong>perceptual difference</strong> between two similar images. It cannot judge which of the two is better, but it can provide some competitor analysis information (the quality of contrast in the test image compared to the reference).</p>
 <h2 id="ssim-code">SSIM code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>clear; close all; clc;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ReferenceImage = imread(<span style="color:#e6db74">&#39;821R2SD-K5.jpg&#39;</span>);
-</span></span><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;NDP-5512-Z30L-3.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>ReferenceImage = imread(<span style="color:#e6db74">&#39;reference.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;test.jpg&#39;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% Set the size of Test Image equal to Reference Image</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% ================================================================</span>
