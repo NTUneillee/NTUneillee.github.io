@@ -150,7 +150,7 @@
 <h2 id="psnr">PSNR</h2>
 <p><strong>Peak signal-to-noise ratio</strong> (<strong>PSNR</strong>) is the ratio between the maximum possible power of a siganl and the power of corrupting noise  that affects the fidelity of its representation. PSNR is usually expressed as a logarithmic quantity using the db scale because many signals have a very wide dynamic range.</p>
 <h2 id="psnr-definition">PSNR definition</h2>
-<p>PSNR is defined by Mean Square Error (MSE). Suppose x[m,n] is the reference image and the y[m,n] is the test image, then MSE is represented by the equation below:
+<p>PSNR index is defined by Mean Square Error (MSE). Suppose x[m,n] is the reference image and the y[m,n] is the test image, then MSE is represented by the equation below:
 $$
 MSE = \frac{1}{MN}\sum_{i=0}^{M-1}\sum_{j=0}^{N-1}\left|y[m,n]-x[m,n]\right|^2
 $$
@@ -158,7 +158,7 @@ Consequently, PSNR is represented by</p>
 <p>$$
 PSNR = 10·log{_1}{_0}{ \left(\frac{X{_m}{_a}{_x}^2}{MSE}\right)}=20·log{_1}{_0}{ \left(\frac{X{_m}{_a}{_x}}{\sqrt{MSE}}\right)}
 $$
-When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is 255, the maximum pixel value in the image. More generally, when samples are represented with B bits per sample, X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is 2<!-- raw HTML omitted -->B<!-- raw HTML omitted -->-1 in the equation.</p>
+When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is 255, the maximum pixel value in the image. More generally, when samples are represented with B bits per sample, X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is (2^B)-1 in the formula.</p>
 <h2 id="psnr-code">PSNR code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;test.jpg&#39;</span>);
 </span></span><span style="display:flex;"><span>NoiseImage = imnoise(TestImage);
@@ -198,9 +198,14 @@ When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">% calculate PSNR, Xmax = 255 in an image</span>
 </span></span><span style="display:flex;"><span>psnr = <span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> log10( <span style="color:#ae81ff">255</span>^<span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> MSE )
-</span></span></code></pre></div><h2 id="ssim">SSIM</h2>
+</span></span></code></pre></div><h2 id="psnr-disadvantage">PSNR disadvantage</h2>
+<p>However, PSNR index cannot really well matched to the human perceived visual quality. The following images below are Picture 1, Picture 2, and Picture 3, respectively.</p>
+<p><img src="/images/post/PSNR.jpg" alt="PSNR.jpg"></p>
+<p><em>Reference: Jian-Jiun Ding, Advanced Digital SIgnal Processing class note, the Department of Electrical Engineering, National Taiwan University (NTU), Taipei, Taiwan.</em></p>
+<p>Logically speaking, Picture 1 and Picture 3 are more similar, but the MSE between Picture 1 and 2 is <strong>0.4411</strong>, and the MSE between Picture 1 and 3 is <strong>0.4460</strong>. Consequently, PSNR image quality assessment has its limitation.</p>
+<h2 id="ssim">SSIM</h2>
 <blockquote>
-<p>However, PSNR IQ metric cannot really well matched to the human perceived visual quality. Every pixel of natural image carries important information about the structure of the objects in the visual scenes. The motivation of new approach is to find a more direct way to compare the structures of the “reference image” and the &ldquo;test image”.</p>
+<p>Every pixel of natural image carries important information about the structure of the objects in the visual scenes. The motivation of new approach is to find a more direct way to compare the structures of the “reference image” and the &ldquo;test image”.</p>
 </blockquote>
 <p>Because the human visual system is highly adapted to extract structure information from the viewing field,  <strong>Structure Similarity Metric</strong> (SSIM) turns out to be an important metric that quantifies image quality compared to a reference image. The similarity measurement is separated into three components: <strong>Luminance</strong>, <strong>Contrast</strong> and <strong>Structure</strong>.</p>
 <ul>
@@ -209,6 +214,22 @@ When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted
 <li>The structure is estimated by <em>normalized standard deviations</em></li>
 </ul>
 <p>SSIM actually measures the <strong>perceptual difference</strong> between two similar images. It cannot judge which of the two is better, but it can provide some benchmark analysis information (the quality of contrast in the test image compared to the reference).</p>
+<h2 id="ssim-definition">SSIM definition</h2>
+<p>SSIM index is calculated between two windows x and y by the following algorithm:
+$$
+SSIM = \left(\frac{2μ{_x}μ{_y}+c{_1}}{ μ{_x}^2+ μ{_y}^2+c{_1}}\right)\left(\frac{2σ{_x}σ{_y}+c{_2}}{σ{_x}^2+σ{_y}^2+c{_2}}\right)
+$$</p>
+<ol>
+<li>μx, μy: means of x and y  /  σx, σy: variances of x and y</li>
+<li>σxy: covariance of x and y  / c1, c2: adjustable constant parameters</li>
+<li>L: ( the maximal possible value of x ) - ( the minimal possible value if x ) = 255</li>
+</ol>
+<h2 id="ssim-component">SSIM component</h2>
+<p>There are three comparison measuremtent between the reference image (x) and the test image (y) in the SSIM algorithm: Luminance (l), Contrast (c), structure (s):
+$$
+l(x,y) = \frac{2μ{_x}μ{_y}+(c{_1}L)^2}{ μ{_x}^2+ μ{_y}^2+(c{_1}L)^2}, \quad c(x,y) = \frac{2σ{_x}σ{_y}+(c{_2}L)^2}{σ{_x}^2+σ{_y}^2+(c{_2}L)^2}, \quad s(x,y) = \frac{σ{_x}{_y}+(c{_3}L)^2}{σ{_x}σ{_y}+(c{_3}L)^2}
+$$
+SSIM is the weighted combination of these three components, by setting their weights to the same, the SSIM formula the can be simplified to the form shown above.</p>
 <h2 id="ssim-code">SSIM code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>clear; close all; clc;
 </span></span><span style="display:flex;"><span>
@@ -327,17 +348,19 @@ When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted
 </span></span><span style="display:flex;"><span>imshow(ReferenceImage)
 </span></span><span style="display:flex;"><span>imshow(ModifiedTestImage)
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>luminance_component = ( <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>mean_x<span style="color:#f92672">*</span>mean_y <span style="color:#f92672">+</span> (c1<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) <span style="color:#f92672">/</span> ( mean_x^<span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>mean_y^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (c1<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) 
+</span></span><span style="display:flex;"><span>contrast_component = ( <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>variance_xy <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) <span style="color:#f92672">/</span> ( variance_x^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> variance_y^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> )
 </span></span><span style="display:flex;"><span>SSIM = Component1<span style="color:#f92672">*</span>Component2
 </span></span></code></pre></div><h2 id="benchmark-analysis">Benchmark Analysis</h2>
-<p>There are 8 pictures photoed in the same scene. Each picture has same luminance and structure information but different contrast information.</p>
-<p><img src="/images/post/1.jpg" alt="1.jpg" title="contrast-80">contrast-80 (1.jpg)</p>
-<p><img src="/images/post/2.jpg" alt="2.jpg" title="contrast-80">contrast-60 (2.jpg)</p>
-<p><img src="/images/post/3.jpg" alt="3.jpg" title="contrast-80">contrast-40 (3.jpg)</p>
-<p><img src="/images/post/4.jpg" alt="4.jpg" title="contrast-80">contrast-20 (4.jpg)</p>
-<p><img src="/images/post/5.jpg" alt="5.jpg" title="contrast-80">contrast 0 (5.jpg)</p>
-<p><img src="/images/post/6.jpg" alt="6.jpg" title="contrast-80">contrast+20 (6.jpg)</p>
-<p><img src="/images/post/7.jpg" alt="7.jpg" title="contrast-80">contrast+40 (7.jpg)</p>
-<p><img src="/images/post/8.jpg" alt="8.jpg" title="contrast-80">contrast+60 (8.jpg)</p>
+<p>There are 8 pictures photoed in the same scene. Each picture has same luminance and structure information but different contrast information. By setting luminace and stucture function to the same between the reference and test image, we can use SSIM index to objectivly evaluate the Contrast quality bewteen them.</p>
+<p><img src="/images/post/1.jpg" alt="1.jpg">contrast-80 (1.jpg)</p>
+<p><img src="/images/post/2.jpg" alt="2.jpg">contrast-60 (2.jpg)</p>
+<p><img src="/images/post/3.jpg" alt="3.jpg">contrast-40 (3.jpg)</p>
+<p><img src="/images/post/4.jpg" alt="4.jpg">contrast-20 (4.jpg)</p>
+<p><img src="/images/post/5.jpg" alt="5.jpg">contrast 0 (5.jpg)</p>
+<p><img src="/images/post/6.jpg" alt="6.jpg">contrast+20 (6.jpg)</p>
+<p><img src="/images/post/7.jpg" alt="7.jpg">contrast+40 (7.jpg)</p>
+<p><img src="/images/post/8.jpg" alt="8.jpg">contrast+60 (8.jpg)</p>
 <h2 id="benchmark-analysis-result">Benchmark Analysis Result</h2>
 <p>Because the picture of &ldquo;contrast+60&rdquo; seems like the highest contrast picture, let&rsquo;s take &ldquo;contrast+60&rdquo; as the reference image in this SSIM benchmark analysis.</p>
 <p>This project is assessed and benchmarked by SSIM index to rank each picture&rsquo;s contrast assessment.</p>
@@ -345,16 +368,36 @@ When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted
 <thead>
 <tr>
 <th></th>
-<th>8 vs 7</th>
-<th>8 vs 6</th>
-<th>8 vs5</th>
-<th>8 vs 4</th>
-<th>8 vs 3</th>
-<th>8 vs 2</th>
-<th>8 vs 1</th>
+<th>7 vs 8</th>
+<th>6 vs 8</th>
+<th>5 vs 8</th>
+<th>4 vs 8</th>
+<th>3 vs 8</th>
+<th>2 vs 8</th>
+<th>1 vs 8</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>luminance component</td>
+<td>0.9999</td>
+<td>0.9997</td>
+<td>0.9991</td>
+<td>0.9985</td>
+<td>0.9978</td>
+<td>0.9969</td>
+<td>0.9961</td>
+</tr>
+<tr>
+<td>contrast component</td>
+<td>0.8941</td>
+<td>0.7844</td>
+<td>0.7700</td>
+<td>0.7437</td>
+<td>0.7167</td>
+<td>0.6798</td>
+<td>0.6367</td>
+</tr>
 <tr>
 <td>SSIM</td>
 <td>0.8941</td>
@@ -367,6 +410,8 @@ When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted
 </tr>
 </tbody>
 </table>
+<p>For contrast quality benchmark, we can assume that the contrast quality ranking of those images is 7, 6, 5, 4, 3, 2, 1 from good to bad.</p>
+<h2 id="ssim-disadvantage">SSIM disadvantage</h2>
 
         </div>
 
