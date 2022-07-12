@@ -352,18 +352,18 @@ SSIM is the weighted combination of these three components, by setting their wei
 </span></span><span style="display:flex;"><span>contrast_component = ( <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>variance_xy <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> ) <span style="color:#f92672">/</span> ( variance_x^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> variance_y^<span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (c2<span style="color:#f92672">*</span>L)^<span style="color:#ae81ff">2</span> )
 </span></span><span style="display:flex;"><span>SSIM = Component1<span style="color:#f92672">*</span>Component2
 </span></span></code></pre></div><h2 id="benchmark-analysis">Benchmark Analysis</h2>
-<p>There are 8 pictures photoed in the same scene. Each picture has same luminance and structure information but different contrast information. By setting luminace and stucture function to the same between the reference and test image, we can use SSIM index to objectivly evaluate the Contrast quality bewteen them.</p>
-<p><img src="/images/post/1.jpg" alt="1.jpg">contrast-80 (1.jpg)</p>
-<p><img src="/images/post/2.jpg" alt="2.jpg">contrast-60 (2.jpg)</p>
-<p><img src="/images/post/3.jpg" alt="3.jpg">contrast-40 (3.jpg)</p>
-<p><img src="/images/post/4.jpg" alt="4.jpg">contrast-20 (4.jpg)</p>
-<p><img src="/images/post/5.jpg" alt="5.jpg">contrast 0 (5.jpg)</p>
-<p><img src="/images/post/6.jpg" alt="6.jpg">contrast+20 (6.jpg)</p>
-<p><img src="/images/post/7.jpg" alt="7.jpg">contrast+40 (7.jpg)</p>
-<p><img src="/images/post/8.jpg" alt="8.jpg">contrast+60 (8.jpg)</p>
+<p>Here are 8 pictures photographed using the same scene. Each picture has the same luminance and structure but different contrast information. By setting luminance and structure parameters of the reference and the test image to an approximate identity, we can use the SSIM index to objectively compare the contrast quality between them.</p>
+<p><img src="/images/post/1.jpg" alt="1.jpg">contrast-80 (image 1)</p>
+<p><img src="/images/post/2.jpg" alt="2.jpg">contrast-60 (image 2)</p>
+<p><img src="/images/post/3.jpg" alt="3.jpg">contrast-40 (image 3)</p>
+<p><img src="/images/post/4.jpg" alt="4.jpg">contrast-20 (image 4)</p>
+<p><img src="/images/post/5.jpg" alt="5.jpg">contrast 0 (image 5)</p>
+<p><img src="/images/post/6.jpg" alt="6.jpg">contrast+20 (image 6)</p>
+<p><img src="/images/post/7.jpg" alt="7.jpg">contrast+40 (image 7)</p>
+<p><img src="/images/post/8.jpg" alt="8.jpg">contrast+60 (image 8)</p>
 <h2 id="benchmark-analysis-result">Benchmark Analysis Result</h2>
-<p>Because the picture of &ldquo;contrast+60&rdquo; seems like the highest contrast picture, let&rsquo;s take &ldquo;contrast+60&rdquo; as the reference image in this SSIM benchmark analysis.</p>
-<p>This project is assessed and benchmarked by SSIM index to rank each picture&rsquo;s contrast assessment.</p>
+<p>Because &ldquo;image 8&rdquo; (contrast+60) seems like the picture with the highest contrast, let&rsquo;s take &ldquo;image 8&rdquo; (contrast+60) as the reference image for this SSIM benchmark analysis.</p>
+<p>In order to rank each picture&rsquo;s contrast quality, this project is assessed and benchmarked by SSIM index.</p>
 <table>
 <thead>
 <tr>
@@ -410,7 +410,7 @@ SSIM is the weighted combination of these three components, by setting their wei
 </tr>
 </tbody>
 </table>
-<p>For contrast quality benchmark, we can assume that the contrast quality ranking of those images is 7, 6, 5, 4, 3, 2, 1 from good to bad.</p>
+<p>Based on the data shown above, we can assume that the contrast quality decreases from image 7 to image 1.</p>
 <h2 id="ssim-disadvantage">SSIM disadvantage</h2>
 
         </div>
