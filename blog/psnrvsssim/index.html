@@ -149,6 +149,16 @@
 <p>For the competitor analysis, the most common image quality metric is FR-IQA: Peak Signal-to-Noise Ratio.</p>
 <h2 id="psnr">PSNR</h2>
 <p><strong>Peak signal-to-noise ratio</strong> (<strong>PSNR</strong>) is the ratio between the maximum possible power of a siganl and the power of corrupting noise  that affects the fidelity of its representation. PSNR is usually expressed as a logarithmic quantity using the db scale because many signals have a very wide dynamic range.</p>
+<h2 id="psnr-definition">PSNR definition</h2>
+<p>PSNR is defined by Mean Square Error (MSE). Suppose x[m,n] is the reference image and the y[m,n] is the test image, then MSE is represented by the equation below:
+$$
+MSE = \frac{1}{MN}\sum_{i=0}^{M-1}\sum_{j=0}^{N-1}\left|y[m,n]-x[m,n]\right|^2
+$$
+Consequently, PSNR is represented by</p>
+<p>$$
+PSNR = 10·log{_1}{_0}{ \left(\frac{X{_m}{_a}{_x}^2}{MSE}\right)}=20·log{_1}{_0}{ \left(\frac{X{_m}{_a}{_x}}{\sqrt{MSE}}\right)}
+$$
+When the samples are represented with 8 bits per sample,  X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is 255, the maximum pixel value in the image. More generally, when samples are represented with B bits per sample, X<!-- raw HTML omitted -->max<!-- raw HTML omitted --> is 2<!-- raw HTML omitted -->B<!-- raw HTML omitted -->-1 in the equation.</p>
 <h2 id="psnr-code">PSNR code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>TestImage = imread(<span style="color:#e6db74">&#39;test.jpg&#39;</span>);
 </span></span><span style="display:flex;"><span>NoiseImage = imnoise(TestImage);
@@ -198,7 +208,7 @@
 <li>The contrast is estimated as <em>standard deviations</em></li>
 <li>The structure is estimated by <em>normalized standard deviations</em></li>
 </ul>
-<p>SSIM actually measures the <strong>perceptual difference</strong> between two similar images. It cannot judge which of the two is better, but it can provide some competitor analysis information (the quality of contrast in the test image compared to the reference).</p>
+<p>SSIM actually measures the <strong>perceptual difference</strong> between two similar images. It cannot judge which of the two is better, but it can provide some benchmark analysis information (the quality of contrast in the test image compared to the reference).</p>
 <h2 id="ssim-code">SSIM code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span>clear; close all; clc;
 </span></span><span style="display:flex;"><span>
@@ -318,7 +328,46 @@
 </span></span><span style="display:flex;"><span>imshow(ModifiedTestImage)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>SSIM = Component1<span style="color:#f92672">*</span>Component2
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="benchmark-analysis">Benchmark Analysis</h2>
+<p>There are 8 pictures photoed in the same scene. Each picture has same luminance and structure information but different contrast information.</p>
+<p><img src="/images/post/1.jpg" alt="1.jpg" title="contrast-80">contrast-80 (1.jpg)</p>
+<p><img src="/images/post/2.jpg" alt="2.jpg" title="contrast-80">contrast-60 (2.jpg)</p>
+<p><img src="/images/post/3.jpg" alt="3.jpg" title="contrast-80">contrast-40 (3.jpg)</p>
+<p><img src="/images/post/4.jpg" alt="4.jpg" title="contrast-80">contrast-20 (4.jpg)</p>
+<p><img src="/images/post/5.jpg" alt="5.jpg" title="contrast-80">contrast 0 (5.jpg)</p>
+<p><img src="/images/post/6.jpg" alt="6.jpg" title="contrast-80">contrast+20 (6.jpg)</p>
+<p><img src="/images/post/7.jpg" alt="7.jpg" title="contrast-80">contrast+40 (7.jpg)</p>
+<p><img src="/images/post/8.jpg" alt="8.jpg" title="contrast-80">contrast+60 (8.jpg)</p>
+<h2 id="benchmark-analysis-result">Benchmark Analysis Result</h2>
+<p>Because the picture of &ldquo;contrast+60&rdquo; seems like the highest contrast picture, let&rsquo;s take &ldquo;contrast+60&rdquo; as the reference image in this SSIM benchmark analysis.</p>
+<p>This project is assessed and benchmarked by SSIM index to rank each picture&rsquo;s contrast assessment.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>8 vs 7</th>
+<th>8 vs 6</th>
+<th>8 vs5</th>
+<th>8 vs 4</th>
+<th>8 vs 3</th>
+<th>8 vs 2</th>
+<th>8 vs 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSIM</td>
+<td>0.8941</td>
+<td>0.7841</td>
+<td>0.7694</td>
+<td>0.7426</td>
+<td>0.7151</td>
+<td>0.6777</td>
+<td>0.6342</td>
+</tr>
+</tbody>
+</table>
+
         </div>
 
         
@@ -389,6 +438,9 @@
     </div>
   </div>
 </footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script>
   var indexURL = "https://NTUneillee.github.io/index.json"
