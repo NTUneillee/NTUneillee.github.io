@@ -353,64 +353,70 @@ SSIM is the weighted combination of these three components, by setting their wei
 </span></span><span style="display:flex;"><span>SSIM = Component1<span style="color:#f92672">*</span>Component2
 </span></span></code></pre></div><h2 id="benchmark-analysis">Benchmark Analysis</h2>
 <p>Here are 8 pictures photographed using the same scene. Each picture has the same luminance and structure but different contrast information. By setting luminance and structure parameters of the reference and the test image to an approximate identity, we can use the SSIM index to objectively compare the contrast quality between them.</p>
-<p><img src="/images/post/1.jpg" alt="1.jpg">contrast-80 (image 1)</p>
-<p><img src="/images/post/2.jpg" alt="2.jpg">contrast-60 (image 2)</p>
-<p><img src="/images/post/3.jpg" alt="3.jpg">contrast-40 (image 3)</p>
-<p><img src="/images/post/4.jpg" alt="4.jpg">contrast-20 (image 4)</p>
+<p><img src="/images/post/1.jpg" alt="1.jpg">contrast+80 (image 1)</p>
+<p><img src="/images/post/2.jpg" alt="2.jpg">contrast+60 (image 2)</p>
+<p><img src="/images/post/3.jpg" alt="3.jpg">contrast+40 (image 3)</p>
+<p><img src="/images/post/4.jpg" alt="4.jpg">contrast+20 (image 4)</p>
 <p><img src="/images/post/5.jpg" alt="5.jpg">contrast 0 (image 5)</p>
-<p><img src="/images/post/6.jpg" alt="6.jpg">contrast+20 (image 6)</p>
-<p><img src="/images/post/7.jpg" alt="7.jpg">contrast+40 (image 7)</p>
-<p><img src="/images/post/8.jpg" alt="8.jpg">contrast+60 (image 8)</p>
+<p><img src="/images/post/6.jpg" alt="6.jpg">contrast-20 (image 6)</p>
+<p><img src="/images/post/7.jpg" alt="7.jpg">contrast-40 (image 7)</p>
+<p><img src="/images/post/8.jpg" alt="8.jpg">contrast-60 (image 8)</p>
+<p><img src="/images/post/9.jpg" alt="9.jpg">contrast-60 (image 9)</p>
 <h2 id="benchmark-analysis-result">Benchmark Analysis Result</h2>
-<p>Because &ldquo;image 8&rdquo; (contrast+60) seems like the picture with the highest contrast, let&rsquo;s take &ldquo;image 8&rdquo; (contrast+60) as the reference image for this SSIM benchmark analysis.</p>
+<p>Because &ldquo;image 5&rdquo; (contrast 0) seems like the picture with the greatest contrast for our human visual system, let&rsquo;s take &ldquo;image 5&rdquo; (contrast 0) as the reference image for this SSIM benchmark analysis.</p>
 <p>In order to rank each picture&rsquo;s contrast quality, this project is assessed and benchmarked by SSIM index.</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>7 vs 8</th>
-<th>6 vs 8</th>
-<th>5 vs 8</th>
-<th>4 vs 8</th>
-<th>3 vs 8</th>
-<th>2 vs 8</th>
-<th>1 vs 8</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">1 vs 5</th>
+<th style="text-align:center">2 vs 5</th>
+<th style="text-align:center">3 vs 5</th>
+<th style="text-align:center">4 vs 5</th>
+<th style="text-align:center">6 vs 5</th>
+<th style="text-align:center">7 vs 5</th>
+<th style="text-align:center">8 vs 5</th>
+<th style="text-align:center">9 vs 5</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>luminance component</td>
-<td>0.9999</td>
-<td>0.9997</td>
-<td>0.9991</td>
-<td>0.9985</td>
-<td>0.9978</td>
-<td>0.9969</td>
-<td>0.9961</td>
+<td style="text-align:center">l(x,y)</td>
+<td style="text-align:center">0.9995</td>
+<td style="text-align:center">0.9997</td>
+<td style="text-align:center">0.9998</td>
+<td style="text-align:center">1.0000</td>
+<td style="text-align:center">1.0000</td>
+<td style="text-align:center">0.9999</td>
+<td style="text-align:center">0.9997</td>
+<td style="text-align:center">0.9996</td>
 </tr>
 <tr>
-<td>contrast component</td>
-<td>0.8941</td>
-<td>0.7844</td>
-<td>0.7700</td>
-<td>0.7437</td>
-<td>0.7167</td>
-<td>0.6798</td>
-<td>0.6367</td>
+<td style="text-align:center">c(x,y)</td>
+<td style="text-align:center">0.9473</td>
+<td style="text-align:center">0.9669</td>
+<td style="text-align:center">0.9832</td>
+<td style="text-align:center">0.9946</td>
+<td style="text-align:center">0.9937</td>
+<td style="text-align:center">0.9773</td>
+<td style="text-align:center">0.9468</td>
+<td style="text-align:center">0.9017</td>
 </tr>
 <tr>
-<td>SSIM</td>
-<td>0.8941</td>
-<td>0.7841</td>
-<td>0.7694</td>
-<td>0.7426</td>
-<td>0.7151</td>
-<td>0.6777</td>
-<td>0.6342</td>
+<td style="text-align:center">SSIM</td>
+<td style="text-align:center">0.9468</td>
+<td style="text-align:center">0.9665</td>
+<td style="text-align:center">0.9831</td>
+<td style="text-align:center">0.9946</td>
+<td style="text-align:center">0.9936</td>
+<td style="text-align:center">0.9772</td>
+<td style="text-align:center">0.9465</td>
+<td style="text-align:center">0.9013</td>
 </tr>
 </tbody>
 </table>
-<p>Based on the data shown above, we can assume that the contrast quality decreases from image 7 to image 1.</p>
+<p>Based on the data shown above, we can assume that the contrast quality ranking, from good to bad, becomes image 4, 6, 3, 7, 2, 1, 8, 5.</p>
+<p><img src="/images/post/SSIMplot.jpg" alt=""></p>
 <h2 id="ssim-disadvantage">SSIM disadvantage</h2>
 
         </div>
