@@ -6,22 +6,31 @@
     <description>Recent content in Matlab on Yuan-Kang Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Camera Tuning Project: Chroma Test </title>
+      <link>https://NTUneillee.github.io/blog/chromatest/</link>
+      <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
+      
+      <guid>https://NTUneillee.github.io/blog/chromatest/</guid>
+      <description>Introduction The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and gray scale colored squares in a wide range of colors.</description>
+    </item>
+    
+    <item>
+      <title> Music Instrument Recognition Project</title>
+      <link>https://NTUneillee.github.io/blog/instrumenctrec/</link>
+      <pubDate>Sun, 03 Jul 2022 00:00:00 +0800</pubDate>
+      
+      <guid>https://NTUneillee.github.io/blog/instrumenctrec/</guid>
+      <description>Introduction The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.</description>
+    </item>
+    
     <item>
       <title>Basic Music Synthesis Project</title>
       <link>https://NTUneillee.github.io/blog/musicsynthesis/</link>
       <pubDate>Sat, 02 Jul 2022 00:00:00 +0800</pubDate>
       
       <guid>https://NTUneillee.github.io/blog/musicsynthesis/</guid>
-      <description>Introduction The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.</description>
-    </item>
-    
-    <item>
-      <title>Instrument Recognition Project</title>
-      <link>https://NTUneillee.github.io/blog/instrumenctrec/</link>
-      <pubDate>Fri, 01 Jul 2022 00:00:00 +0800</pubDate>
-      
-      <guid>https://NTUneillee.github.io/blog/instrumenctrec/</guid>
       <description>Introduction The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.</description>
     </item>
     

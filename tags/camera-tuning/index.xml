@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Camera Tuning on Yuan-Kang Lee</title>
+    <link>https://NTUneillee.github.io/tags/camera-tuning/</link>
+    <description>Recent content in Camera Tuning on Yuan-Kang Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/tags/camera-tuning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Camera Tuning Project: Chroma Test </title>
+      <link>https://NTUneillee.github.io/blog/chromatest/</link>
+      <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
+      
+      <guid>https://NTUneillee.github.io/blog/chromatest/</guid>
+      <description>Introduction The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and gray scale colored squares in a wide range of colors.</description>
+    </item>
+    
+  </channel>
+</rss>
