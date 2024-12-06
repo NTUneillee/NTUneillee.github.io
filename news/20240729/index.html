@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ColorChecker and Color/Tone setup algorithms and implementation for camera tuning">
+  <meta name="description" content="Image Engineer Yuan-Kang Lee&#39;s Website">
   <meta name="author" content="Neil Lee">
   <meta name="generator" content="Hugo 0.139.3">
 
@@ -133,59 +133,17 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
         
-        <a href="/categories/image-processing"
-          class="text-primary">Image processing</a>
-        
-        <h2>Camera Tuning Project: Chroma Test</h2>
+        <h2>Research Paper Acceptance</h2>
         <div class="mb-3 post-meta">
           <span>By Neil Lee</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>19 July 2022</span>
+          <span>29 July 2024</span>
           
         </div>
         
-        <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="img-fluid w-100 mb-4" alt="Camera Tuning Project: Chroma Test">
-        
         <div class="content mb-5">
-          <h2 id="introduction">Introduction</h2>
-<blockquote>
-<p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and gray scale colored squares in a wide range of colors. By positioning the ColorChecker in the test image, the resulting image&rsquo;s output captured by cameras can be compared to the original chart (reference measurements).</p>
-</blockquote>
-<p><img src="/images/post/colorchecker.jpg" alt="colorchecker.png"></p>
-<h2 id="colorchecker-application">ColorChecker Application</h2>
-<ol>
-<li>To analyze images for color accuracy, white balance, SNR and ISO sensitivity.</li>
-<li>To color correct with the chart in the test pictures  for camera&rsquo;s image tuning.</li>
-</ol>
-<p><img src="/images/post/cielab.png" alt="colorchecker.png"></p>
-<p><em>Reference: CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
-<h2 id="color-difference">Color Difference</h2>
-<blockquote>
-<p>When it comes to Color Accuracy and Color Difference (error) Measurement, the most important essence is accurate color is not necessarily the same as pleasing color.</p>
-</blockquote>
-<p>How to tune colors to make them more pleasing? By increasing Chroma (Saturation). With colorchecker to calculate the cameras&rsquo;s image color error, we can substitute our own enhanced values.</p>
-<p>Color Difference are represented in CIELAB color space, where L* is luminance, a* is color on a green-red scale, and b* on a blue-yellow scale.</p>
-<h4 id="1-absolute-color-differences">1. Absolute Color Differences</h4>
-<p>The absolute color difference is calculated with luminance. Since the CIELAB color space was designed to be relatively perceptually uniform, we can calculate the color difference by the method of calculating Eucliean distance (the formula below is the abosolute color difference CIE 1976):
-$$
-ΔE*=\sqrt{(L2* - L1*)^2+(a2*-a1*)^2+(b2*-b1*)^2}
-$$</p>
-<h4 id="2-chroma-differences">2. Chroma Differences</h4>
-<p>The chroma difference is calculated without luminance. Since it is useful to look at color errors independently of exposure error, we define color differences that omit ΔL*:
-$$
-ΔC*=\sqrt{(a2*-a1*)^2+(b2*-b1*)^2}=\sqrt{(ΔE*)^2+(L2*-L1*)^2}
-$$</p>
-<h2 id="chroma-boost">Chroma Boost</h2>
-<blockquote>
-<p>Chroma is the colorfulness of an area judged as a proportion of the brightness of a similarly illuminated area that appears white or highly transmitting. To correct colors for making them more pleasing, we need to boost chroma (saturation) to enhance image appearance in cameras.</p>
-</blockquote>
-<p>The mean chroma percentage is calculated:
-$$
-Chroma(％) = 100％ * \frac{Measured\quad\sqrt{ai*^2+bi*^2}}{ColorChecker\quad\sqrt{ai*^2+bi*^2}}
-$$
-The first three rows of the ColorChecker is calculated 1 ≤ <em>i</em> ≤ 18, the last row of the ColorChecker is not included in computing the mean chroma percentage.</p>
-<p>Chroma, which is closely related to the perception of saturation, is boosted when <em>Chroma(%)</em> &gt; 100. Chroma boost increases ΔE* and ΔC* color error measurements. Since it is easy to remove chroma boost in image editors (with saturation settings), it is useful to measure the color error after the mean chroma has been corrected (normalized) to 100%.</p>
+          <p>Yuan-Kang Lee, Yu-Chieh Yu, and Jian-Jiun Ding, “Efficient Motion Blur Detection and Extraction from A Single Image in HVS-based Gradient Domain”</p>
 
         </div>
 
