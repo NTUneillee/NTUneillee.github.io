@@ -4,71 +4,58 @@
     <title>Tags on Yuan-Kang Lee</title>
     <link>https://NTUneillee.github.io/tags/</link>
     <description>Recent content in Tags on Yuan-Kang Lee</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Camera Tuning</title>
       <link>https://NTUneillee.github.io/tags/camera-tuning/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/camera-tuning/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Image</title>
       <link>https://NTUneillee.github.io/tags/image/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/image/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Image Processing</title>
       <link>https://NTUneillee.github.io/tags/image-processing/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/image-processing/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Matlab</title>
       <link>https://NTUneillee.github.io/tags/matlab/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/matlab/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Signal Processing</title>
       <link>https://NTUneillee.github.io/tags/signal-processing/</link>
       <pubDate>Sun, 03 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/signal-processing/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Time Frequency Analysis</title>
       <link>https://NTUneillee.github.io/tags/time-frequency-analysis/</link>
       <pubDate>Sun, 03 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/time-frequency-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Music</title>
       <link>https://NTUneillee.github.io/tags/music/</link>
       <pubDate>Sat, 02 Jul 2022 00:00:00 +0800</pubDate>
-      
       <guid>https://NTUneillee.github.io/tags/music/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
