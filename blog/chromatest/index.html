@@ -74,6 +74,10 @@
               <a class="nav-link" href="https://github.com/NTUneillee"><i class="ti-github"></i></a>
             </li>
             
+            <li class="nav-item">
+              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en"><i class="ti-book"></i></a>
+            </li>
+            
           </ul>
         </div>
 
@@ -126,6 +130,7 @@
     </nav>
   </div>
 </header>
+
 <!-- /navigation -->
 
 <section class="section-sm">
@@ -133,8 +138,8 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
         
-        <a href="/categories/image-processing"
-          class="text-primary">Image processing</a>
+        <a href="/categories/camera-image-quality"
+          class="text-primary">Camera image quality</a>
         
         <h2>Camera Tuning Project: Chroma Test</h2>
         <div class="mb-3 post-meta">
@@ -152,17 +157,17 @@
 <blockquote>
 <p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and gray scale colored squares in a wide range of colors. By positioning the ColorChecker in the test image, the resulting image&rsquo;s output captured by cameras can be compared to the original chart (reference measurements).</p>
 </blockquote>
-<p><img src="/images/post/colorchecker.jpg" alt="colorchecker.png"></p>
+<p><img src="/images/post/colorchecker.png" alt="colorchecker.png"></p>
 <h2 id="colorchecker-application">ColorChecker Application</h2>
 <ol>
 <li>To analyze images for color accuracy, white balance, SNR and ISO sensitivity.</li>
 <li>To color correct with the chart in the test pictures  for camera&rsquo;s image tuning.</li>
 </ol>
-<p><img src="/images/post/cielab.png" alt="colorchecker.png"></p>
-<p><em>Reference: CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
+<p><img src="/images/post/ColorCheckerDataD65.png" alt="colorchecker.png"></p>
+<p><em>Figure 1. CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
 <h2 id="color-difference">Color Difference</h2>
 <blockquote>
-<p>When it comes to Color Accuracy and Color Difference (error) Measurement, the most important essence is accurate color is not necessarily the same as pleasing color.</p>
+<p>Accurate color does not always equate to pleasing color, which is a key consideration when measuring color accuracy and color differences.</p>
 </blockquote>
 <p>How to tune colors to make them more pleasing? By increasing Chroma (Saturation). With colorchecker to calculate the cameras&rsquo;s image color error, we can substitute our own enhanced values.</p>
 <p>Color Difference are represented in CIELAB color space, where L* is luminance, a* is color on a green-red scale, and b* on a blue-yellow scale.</p>
@@ -224,15 +229,20 @@ The first three rows of the ColorChecker is calculated 1 ≤ <em>i</em> ≤ 18, 
         <h6 class="mb-4">Social Contacts</h6>
         <ul class="list-unstyled">
           
-          <li class="mb-3"><a class="text-dark" href="https://www.linkedin.com/in/yuankanglee">linkedin</a></li>
+          <li class="mb-3"><a class="text-dark" href="https://www.linkedin.com/in/yuankanglee">Linkedin</a></li>
           
-          <li class="mb-3"><a class="text-dark" href="https://github.com/NTUneillee">github</a></li>
+          <li class="mb-3"><a class="text-dark" href="https://github.com/NTUneillee">Github</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en">Google Scholar</a></li>
           
         </ul>
       </div>
       <div class="col-lg-3 col-sm-6 mb-5">
         <h6 class="mb-4">Categories</h6>
         <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/camera-image-quality/">Camera image quality</a>
+          </li>
           <li class="mb-3"><a class="text-dark"
               href="/categories/image-processing/">Image processing</a>
           </li>
@@ -247,7 +257,11 @@ The first three rows of the ColorChecker is calculated 1 ≤ <em>i</em> ≤ 18, 
           
           <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/about/">About</a></li>
           
-          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/blog/">Post</a></li>
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/news/">News</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/blog/">Project</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/research/">Research</a></li>
           
         </ul>
       </div>

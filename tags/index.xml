@@ -9,17 +9,10 @@
     <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Camera Tuning</title>
-      <link>https://NTUneillee.github.io/tags/camera-tuning/</link>
+      <title>Camera Image Quality</title>
+      <link>https://NTUneillee.github.io/tags/camera-image-quality/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/tags/camera-tuning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Image</title>
-      <link>https://NTUneillee.github.io/tags/image/</link>
-      <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/tags/image/</guid>
+      <guid>https://NTUneillee.github.io/tags/camera-image-quality/</guid>
       <description></description>
     </item>
     <item>
@@ -32,7 +25,7 @@
     <item>
       <title>Matlab</title>
       <link>https://NTUneillee.github.io/tags/matlab/</link>
-      <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 03 Jul 2022 00:00:00 +0800</pubDate>
       <guid>https://NTUneillee.github.io/tags/matlab/</guid>
       <description></description>
     </item>
@@ -55,6 +48,13 @@
       <link>https://NTUneillee.github.io/tags/music/</link>
       <pubDate>Sat, 02 Jul 2022 00:00:00 +0800</pubDate>
       <guid>https://NTUneillee.github.io/tags/music/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Image</title>
+      <link>https://NTUneillee.github.io/tags/image/</link>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0800</pubDate>
+      <guid>https://NTUneillee.github.io/tags/image/</guid>
       <description></description>
     </item>
   </channel>
