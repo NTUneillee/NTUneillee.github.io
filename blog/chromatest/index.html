@@ -156,7 +156,7 @@
         <a href="/categories/camera-image-quality"
           class="text-primary">Camera image quality</a>
         
-        <h2>Camera Tuning Project: Chroma Test</h2>
+        <h2>Color Difference Algorithm for Camera Quality Tuning</h2>
         <div class="mb-3 post-meta">
           <span>By Neil Lee</span>
           
@@ -165,36 +165,52 @@
           
         </div>
         
-        <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="img-fluid w-100 mb-4" alt="Camera Tuning Project: Chroma Test">
+        <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="img-fluid w-100 mb-4" alt="Color Difference Algorithm for Camera Quality Tuning">
         
         <div class="content mb-5">
           <h2 id="introduction">Introduction</h2>
 <blockquote>
-<p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and gray scale colored squares in a wide range of colors. By positioning the ColorChecker in the test image, the resulting image&rsquo;s output captured by cameras can be compared to the original chart (reference measurements).</p>
+<p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and grayscale colored squares. These calibrated patches cover a broad spectrum of colors. When included in a test image, the ColorChecker serves as a reliable reference for comparing the captured output of cameras to the original chart’s accurate color measurements, ensuring precise color reproduction and consistency.</p>
 </blockquote>
-<p><img src="/images/post/colorchecker.png" alt="colorchecker.png"></p>
+<p><img src="/images/post/colorchecker.png" alt="colorchecker.png">
+<em>Figure 1. The ground-truth RGB pixel values for each color patch in the The ColorChecker®.</em></p>
 <h2 id="colorchecker-application">ColorChecker Application</h2>
 <ol>
-<li>To analyze images for color accuracy, white balance, SNR and ISO sensitivity.</li>
-<li>To color correct with the chart in the test pictures  for camera&rsquo;s image tuning.</li>
+<li>Provides a standard for camera calibration in image color accuracy and auto white balance.</li>
+<li>Enables an accurate calculation of ΔE* and ΔC* to quantify the image color difference.</li>
 </ol>
 <p><img src="/images/post/ColorCheckerDataD65.png" alt="colorchecker.png"></p>
-<p><em>Figure 1. CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
+<p><em>Figure 2. CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
 <h2 id="color-difference">Color Difference</h2>
+<p>Calculating the color difference of images with the ColorChecker serves as a quantitative measure of a camera’s color reproduction accuracy.</p>
+<p>The CIE Lab color space was specifically designed to model human vision and is widely ised for calculating color differences due to the perceptual uniformity: equal distances in the Lab space correspond to equal perceived color differences. In the Lab color space, L*, a*, and b* are represented as the luminance, the color on a green-red scale, and the color on a blue-uellow scale.</p>
+<h4 id="1-the-cie-1976-standard">1. The CIE 1976 standard</h4>
+<p>The absolute difference of color ΔE and chroma ΔC are calculated by measuring the Eucliean distance of two Lab coordinates. Compared to the ΔE formula, the chroma difference ΔC is calculated without considering luminance for better focusing on the color errors independently of camera exposure error.</p>
+<p>$$
+ΔE^* = \sqrt{(L2^* - L1^*)^2 + (a2^* - a1^*)^2 + (b2^* - b1^*)^2}
+$$</p>
+<p>$$
+ΔC^*=\sqrt{(a2^*-a1^*)^2+(b2^*-b1^*)^2}=\sqrt{(ΔE^*)^2+(L2^*-L1^*)^2}
+$$</p>
 <blockquote>
 <p>Accurate color does not always equate to pleasing color, which is a key consideration when measuring color accuracy and color differences.</p>
 </blockquote>
 <p>How to tune colors to make them more pleasing? By increasing Chroma (Saturation). With colorchecker to calculate the cameras&rsquo;s image color error, we can substitute our own enhanced values.</p>
-<p>Color Difference are represented in CIELAB color space, where L* is luminance, a* is color on a green-red scale, and b* on a blue-yellow scale.</p>
+<h4 id="2-the-cie-2000-standard">2. The CIE 2000 standard</h4>
+<p>The formulas of ΔE and ΔC are revised to better address the perceptual non-uniformity problem. The CIE 2000 standard introuduced two major improvements in the color difference calculation:
+(1) using new color space LCh model instead of Lab model.
+(1) adding a weighting factor to balance lightness, chroma, and hue components.
+(2) including a rotational term to account for interactions between chroma and hue.</p>
+<p>The CIE LCh color model is an alternative representation of Lab coordinates. In the LCh color space, L*, C*, and h* are represented as the luminance, chroma (the saturation of the color), and hue (hue angle from 0° to 360° represent the color’s type). Chroma is calculated by the Eucliean distance from the center (neutral gray), and hue angle is calculated by h = arctan( b/a ). The comprehensive calculation of the color difference in CIE 2000 standard can be found in <a href="https://en.wikipedia.org/wiki/Color_difference#:~:text=In%20color%20science%2C%20color%20difference,only%20be%20described%20with%20adjectives.">[here]</a>.</p>
 <h4 id="1-absolute-color-differences">1. Absolute Color Differences</h4>
 <p>The absolute color difference is calculated with luminance. Since the CIELAB color space was designed to be relatively perceptually uniform, we can calculate the color difference by the method of calculating Eucliean distance (the formula below is the abosolute color difference CIE 1976):
 $$
-ΔE*=\sqrt{(L2* - L1*)^2+(a2*-a1*)^2+(b2*-b1*)^2}
+ΔE^* = \sqrt{(L2^* - L1^*)^2 + (a2^* - a1^*)^2 + (b2^* - b1^*)^2}
 $$</p>
 <h4 id="2-chroma-differences">2. Chroma Differences</h4>
 <p>The chroma difference is calculated without luminance. Since it is useful to look at color errors independently of exposure error, we define color differences that omit ΔL*:
 $$
-ΔC*=\sqrt{(a2*-a1*)^2+(b2*-b1*)^2}=\sqrt{(ΔE*)^2+(L2*-L1*)^2}
+ΔC^*=\sqrt{(a2^*-a1^*)^2+(b2^*-b1^*)^2}=\sqrt{(ΔE^*)^2+(L2^*-L1^*)^2}
 $$</p>
 <h2 id="chroma-boost">Chroma Boost</h2>
 <blockquote>
