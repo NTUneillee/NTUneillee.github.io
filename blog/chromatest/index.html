@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ColorChecker and Color/Tone setup algorithms and implementation for camera tuning">
+  <meta name="description" content="Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.">
   <meta name="author" content="Neil Lee">
   <meta name="generator" content="Hugo 0.139.3">
 
@@ -156,7 +156,7 @@
         <a href="/categories/camera-image-quality"
           class="text-primary">Camera image quality</a>
         
-        <h2>Color Difference Algorithm Research</h2>
+        <h2>Color and Chroma Difference Algorithm Research</h2>
         <div class="mb-3 post-meta">
           <span>By Neil Lee</span>
           
@@ -165,11 +165,11 @@
           
         </div>
         
-        <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="img-fluid w-100 mb-4" alt="Color Difference Algorithm Research">
+        <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="img-fluid w-100 mb-4" alt="Color and Chroma Difference Algorithm Research">
         
         <div class="content mb-5">
           <blockquote>
-<p>Professional image qualuty analysis softwares such as <strong>Imatest</strong> and <strong>IQ-analyzer</strong> provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that <strong>different software employs varying algorithms for calculating the color difference</strong>. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.</p>
+<p>Professional image qualuty analysis softwares such as <strong>Imatest</strong> and <strong>iQ-analyzer</strong> provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that <strong>different software employs varying algorithms for calculating the color difference</strong>. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.</p>
 </blockquote>
 <h2 id="introduction">Introduction</h2>
 <p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and grayscale colored squares. These calibrated patches cover a broad spectrum of colors. When included in a test image, the ColorChecker serves as a reliable reference for comparing the captured output of cameras to the original chart’s accurate color measurements, ensuring precise color reproduction and consistency.</p>
@@ -181,7 +181,7 @@
 <li>Enables an accurate calculation of ΔE* and ΔC* to quantify the image color difference.</li>
 </ol>
 <p><img src="/images/post/ColorCheckerDataD65.png" alt="colorchecker.png"></p>
-<p><em>Figure 2. CIELAB values in illuminate D65 for The ColorChecker® Patch Classic</em></p>
+<p><em>Figure 2. CIELAB values in illuminate D50 for The ColorChecker® Patch Classic</em></p>
 <h2 id="color--chroma-difference">Color &amp; Chroma Difference</h2>
 <p>Calculating the color and chroma difference of images with the ColorChecker serves as a quantitative measure of a camera’s color reproduction accuracy.</p>
 <p>The <strong>CIE Lab</strong> color space was specifically designed to model human vision and is widely ised for calculating color differences due to the perceptual uniformity: equal distances in the Lab space correspond to equal perceived color differences. In the Lab color space, L*, a*, and b* are represented as the luminance, the color on a green-red scale, and the color on a blue-uellow scale.</p>
@@ -204,7 +204,7 @@ $$</p>
 <h4 id="3-industrial-color-difference-algorithm">3. Industrial Color Difference Algorithm</h4>
 <p>The first step in calculating ΔE* and ΔC* involves converting the RGB color space to the Lab color space, which requires <strong>an intermediate transformation to the XYZ color space</strong>. As the source and target color spaces may have different reference white points, <strong>chromatic adaptation</strong> is necessary to ensure an accurate conversion.</p>
 <p>Since the Lab reference white point of both Imatest and IQ-analyer is D50 and the RGB2XYZ transformation matrix is based on D65 illumination, <strong>the D50 chroma adaption</strong> needs to be applied in the calculation. However, in our experiments, we found that Imatest ignore the D50 Chorma Adaption in its color difference calculation.</p>
-<p>Denoted <strong>M1</strong> as the <strong>RGB2XYZ transformation matrix</strong> and <strong>M2</strong> as the <strong>Bradford matrix</strong> used for chroma adaption. The overall Lab conversion flowchart of Imatest and IQ-analyzer are shown below.
+<p>Denoted <strong>M1</strong> as the <strong>RGB2XYZ transformation matrix</strong> and <strong>M2</strong> as the <strong>Bradford matrix</strong> used for chroma adaption. The overall Lab conversion flowchart of Imatest and iQ-analyzer are shown below.
 $$
 M_1 =
 \begin{bmatrix}
@@ -223,11 +223,11 @@ M_2 =
 $$</p>
 <ol>
 <li>Imatest: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ Lab</li>
-<li>IQ-analyzer: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ <strong>D50XYZ (M2)</strong> ➝ Lab</li>
+<li>iQ-analyzer: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ <strong>D50XYZ (M2)</strong> ➝ Lab</li>
 </ol>
 <p><img src="/images/post/LABconversion.svg" alt="LABconversion.svg">
 <em>Figure 3. Overall Lab conversion flowchart. Reference: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/col.20070?casa_token=jdK8lHgpgG8AAAAA%3A5W14hHVFCYE72OGe7KB-hbr-cIoQCZDQj3YGtQWKTs0_2iOjJb0iuDYwalwzqkGhx8YFiwbhecOzn3EF">[Paper]</a></em></p>
-<p>In our research, we revealed that the chroma coordinates of Imatest and IQ-analyzer&rsquo;s algorithms are different,</p>
+<p>In our research, we revealed that the chroma coordinates of Imatest and iQ-analyzer&rsquo;s algorithms are different,</p>
 <ol>
 <li>Imatest:
 The chroma difference calculated by Imatest is shown below, which is represented in the <strong>rectangular coordinate</strong>.
@@ -239,8 +239,8 @@ $$</li>
 ΔC_{00}^*= ΔE_{00}^* \ \ without \ \ \left( \frac{\Delta L&rsquo;}{K_L S_L} \right)^2
 $$</p>
 <ol start="2">
-<li>IQ-analyzer:
-The chroma difference calculated by IQ-analyzer is shown below, which is represented in the <strong>polar coordinate</strong>.
+<li>iQ-analyzer:
+The chroma difference calculated by iQ-analyzer is shown below, which is represented in the <strong>polar coordinate</strong>.
 $$
 ΔC_{ab}^*= \sqrt{(a_2^*+a_1^*)^2} - \sqrt{(b_2^*+b_1^*)^2}
 $$</li>
@@ -248,7 +248,14 @@ $$</li>
 <p>$$
 ΔC_{00}^*= \frac{\Delta C&rsquo;}{K_C S_C}
 $$</p>
-<p>The difference of chroma coordinates is the main reason why the chroma difference calculated by IQ-Analyzer may have <strong>negative values</strong>.</p>
+<p>The difference of chroma coordinates is the main reason why the chroma difference calculated by iQ-Analyzer may have <strong>negative values</strong>.</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li>ColorChecker reference table: <a href="https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf">https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf</a></li>
+<li>Imatest ColorChecker application: <a href="https://www.imatest.com/support/docs/22-1/colorcheck_ref/">https://www.imatest.com/support/docs/22-1/colorcheck_ref/</a></li>
+<li>iQ-analyzer ColorChecker application: <a href="https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle">https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle</a></li>
+<li>The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations: <a href="https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf">https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf</a></li>
+</ol>
 
         </div>
 

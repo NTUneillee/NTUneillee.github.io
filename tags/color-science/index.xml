@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Camera Image Quality on Yuan-Kang Lee</title>
-    <link>https://NTUneillee.github.io/tags/camera-image-quality/</link>
-    <description>Recent content in Camera Image Quality on Yuan-Kang Lee</description>
+    <title>Color Science on Yuan-Kang Lee</title>
+    <link>https://NTUneillee.github.io/tags/color-science/</link>
+    <description>Recent content in Color Science on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://NTUneillee.github.io/tags/camera-image-quality/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://NTUneillee.github.io/tags/color-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Color and Chroma Difference Algorithm Research</title>
       <link>https://NTUneillee.github.io/blog/chromatest/</link>

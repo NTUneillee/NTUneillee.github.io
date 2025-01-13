@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 19 Jul 2022 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://NTUneillee.github.io/tags/image-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Color Difference Algorithm Research</title>
+      <title>Color and Chroma Difference Algorithm Research</title>
       <link>https://NTUneillee.github.io/blog/chromatest/</link>
       <pubDate>Tue, 19 Jul 2022 00:00:00 +0800</pubDate>
       <guid>https://NTUneillee.github.io/blog/chromatest/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Professional image qualuty analysis softwares such as &lt;strong&gt;Imatest&lt;/strong&gt; and &lt;strong&gt;IQ-analyzer&lt;/strong&gt; provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that &lt;strong&gt;different software employs varying algorithms for calculating the color difference&lt;/strong&gt;. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.&lt;/p&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Professional image qualuty analysis softwares such as &lt;strong&gt;Imatest&lt;/strong&gt; and &lt;strong&gt;iQ-analyzer&lt;/strong&gt; provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that &lt;strong&gt;different software employs varying algorithms for calculating the color difference&lt;/strong&gt;. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PSNR and SSIM</title>
