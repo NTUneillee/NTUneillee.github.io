@@ -57,8 +57,9 @@
     
     <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
       
-      <a class="navbar-brand mobile-view" href="https://NTUneillee.github.io/">
-        <img class="img-fluid" src="https://NTUneillee.github.io/images/home.svg" alt="Yuan-Kang Lee">
+      <a class="navbar-brand mobile-view home-link" href="https://NTUneillee.github.io/">
+        <i class="ti-home"></i>
+        <span class="ml-2">Yuan-Kang Lee</span>
       </a>
       
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
@@ -67,24 +68,26 @@
 
       <div class="collapse navbar-collapse text-center" id="navigation">
         
-        <a class="navbar-brand desktop-view" href="https://NTUneillee.github.io/">
-          <img class="img-fluid" src="https://NTUneillee.github.io/images/home.svg" alt="Yuan-Kang Lee">
-        </a>
-
-        
         <div class="desktop-view">
           <ul class="navbar-nav mr-auto">
             
             <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee"><i class="ti-linkedin"></i></a>
+              <a class="nav-link home-link" href="https://NTUneillee.github.io/" title="Home">
+                <i class="ti-home"></i>
+              </a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin"><i class="ti-linkedin"></i></a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/NTUneillee"><i class="ti-github"></i></a>
+              <a class="nav-link" href="https://github.com/NTUneillee" title="Github"><i class="ti-github"></i></a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en"><i class="ti-book"></i></a>
+              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar"><i class="ti-book"></i></a>
             </li>
             
           </ul>
@@ -127,18 +130,9 @@
 </ul>
 
         
-        
-        <!-- search -->
-        <div class="search pl-lg-4">
-          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
-          <div class="search-wrapper">
-            <form action="https://NTUneillee.github.io//search" class="h-100">
-              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
-            </form>
-            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
-          </div>
-        </div>
-        
+        <button id="darkModeToggle" class="btn btn-sm ml-lg-2 dark-mode-toggle">
+          <i class="ti-shine"></i>
+        </button>
 
         
         
@@ -149,87 +143,72 @@
 <!-- /navigation -->
 
 
-<section class="news-section py-5">
+<section class="section">
   <div class="container">
     <h2 class="mb-4">News</h2>
-    <div class="row">
+    <ul class="list-unstyled">
       
-       
-      <div class="col-md-6 mb-4">
-        <article class="card">
-          
-          <div class="card-body px-0">
-            <div class="d-flex align-items-center mb-3"> 
-              <a href="https://NTUneillee.github.io/news/20241101/" class="h5 mb-0 mr-3">Conference Award</a>
-              <span class="text-muted small">2024-11-01</span>
-            </div>
-            <p class="card-text">Our presentation is selected as the best in Advanced Image Processing Session at <strong>IEEE GCCE2024</strong>!</p>
-            <a href="https://NTUneillee.github.io/news/20241101/" class="btn btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-       
-      <div class="col-md-6 mb-4">
-        <article class="card">
-          
-          <div class="card-body px-0">
-            <div class="d-flex align-items-center mb-3"> 
-              <a href="https://NTUneillee.github.io/news/20240729/" class="h5 mb-0 mr-3">Research Paper Acceptance</a>
-              <span class="text-muted small">2024-07-29</span>
-            </div>
-            <p class="card-text">One research paper is accpeted to <strong>IEEE GCCE2024</strong>!</p>
-            <a href="https://NTUneillee.github.io/news/20240729/" class="btn btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-       
-      <div class="col-md-6 mb-4">
-        <article class="card">
-          
-          <div class="card-body px-0">
-            <div class="d-flex align-items-center mb-3"> 
-              <a href="https://NTUneillee.github.io/news/20240720/" class="h5 mb-0 mr-3">Conference Award</a>
-              <span class="text-muted small">2024-07-20</span>
-            </div>
-            <p class="card-text">Our presentation is selected as the best in Image Analysis Session at <strong>IEEE ICISPC2024</strong>!</p>
-            <a href="https://NTUneillee.github.io/news/20240720/" class="btn btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-       
-      <div class="col-md-6 mb-4">
-        <article class="card">
-          
-          <div class="card-body px-0">
-            <div class="d-flex align-items-center mb-3"> 
-              <a href="https://NTUneillee.github.io/news/20240329/" class="h5 mb-0 mr-3">Research Paper Acceptance</a>
-              <span class="text-muted small">2024-03-29</span>
-            </div>
-            <p class="card-text">One research paper is accpeted to <strong>IEEE ICISPC2024</strong>!</p>
-            <a href="https://NTUneillee.github.io/news/20240329/" class="btn btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-       
-      <div class="col-md-6 mb-4">
-        <article class="card">
-          
-          <div class="card-body px-0">
-            <div class="d-flex align-items-center mb-3"> 
-              <a href="https://NTUneillee.github.io/news/20240301/" class="h5 mb-0 mr-3">Research Paper Acceptance</a>
-              <span class="text-muted small">2024-03-01</span>
-            </div>
-            <p class="card-text">Our three research papers are accpeted to <strong>ICGSP2024</strong>!</p>
-            <a href="https://NTUneillee.github.io/news/20240301/" class="btn btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
       
-    </div>
+      <li class="media mb-4">
+        
+        <div class="media-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/news/20241101/" class="h5 mb-0">Conference Award</a>
+            <span class="text-muted small ml-3 flex-shrink-0">2024-11-01</span>
+          </div>
+          <p class="mb-2">Our presentation is selected as the best in Advanced Image Processing Session at <strong>IEEE GCCE2024</strong>!</p>
+        </div>
+      </li>
+      
+      <li class="media mb-4">
+        
+        <div class="media-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/news/20240729/" class="h5 mb-0">Research Paper Acceptance</a>
+            <span class="text-muted small ml-3 flex-shrink-0">2024-07-29</span>
+          </div>
+          <p class="mb-2">One research paper is accpeted to <strong>IEEE GCCE2024</strong>!</p>
+        </div>
+      </li>
+      
+      <li class="media mb-4">
+        
+        <div class="media-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/news/20240720/" class="h5 mb-0">Conference Award</a>
+            <span class="text-muted small ml-3 flex-shrink-0">2024-07-20</span>
+          </div>
+          <p class="mb-2">Our presentation is selected as the best in Image Analysis Session at <strong>IEEE ICISPC2024</strong>!</p>
+        </div>
+      </li>
+      
+      <li class="media mb-4">
+        
+        <div class="media-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/news/20240329/" class="h5 mb-0">Research Paper Acceptance</a>
+            <span class="text-muted small ml-3 flex-shrink-0">2024-03-29</span>
+          </div>
+          <p class="mb-2">One research paper is accpeted to <strong>IEEE ICISPC2024</strong>!</p>
+        </div>
+      </li>
+      
+      <li class="media mb-4">
+        
+        <div class="media-body">
+          <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/news/20240301/" class="h5 mb-0">Research Paper Acceptance</a>
+            <span class="text-muted small ml-3 flex-shrink-0">2024-03-01</span>
+          </div>
+          <p class="mb-2">Our three research papers are accpeted to <strong>ICGSP2024</strong>!</p>
+        </div>
+      </li>
+      
+    </ul>
   </div>
 </section>
 
-  
+
 
 <footer class="text-capitalize">
   <div class="container">

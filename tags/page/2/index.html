@@ -57,8 +57,9 @@
     
     <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
       
-      <a class="navbar-brand mobile-view" href="https://NTUneillee.github.io/">
-        <img class="img-fluid" src="https://NTUneillee.github.io/images/home.svg" alt="Yuan-Kang Lee">
+      <a class="navbar-brand mobile-view home-link" href="https://NTUneillee.github.io/">
+        <i class="ti-home"></i>
+        <span class="ml-2">Yuan-Kang Lee</span>
       </a>
       
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
@@ -67,24 +68,26 @@
 
       <div class="collapse navbar-collapse text-center" id="navigation">
         
-        <a class="navbar-brand desktop-view" href="https://NTUneillee.github.io/">
-          <img class="img-fluid" src="https://NTUneillee.github.io/images/home.svg" alt="Yuan-Kang Lee">
-        </a>
-
-        
         <div class="desktop-view">
           <ul class="navbar-nav mr-auto">
             
             <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee"><i class="ti-linkedin"></i></a>
+              <a class="nav-link home-link" href="https://NTUneillee.github.io/" title="Home">
+                <i class="ti-home"></i>
+              </a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin"><i class="ti-linkedin"></i></a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/NTUneillee"><i class="ti-github"></i></a>
+              <a class="nav-link" href="https://github.com/NTUneillee" title="Github"><i class="ti-github"></i></a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en"><i class="ti-book"></i></a>
+              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar"><i class="ti-book"></i></a>
             </li>
             
           </ul>
@@ -127,18 +130,9 @@
 </ul>
 
         
-        
-        <!-- search -->
-        <div class="search pl-lg-4">
-          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
-          <div class="search-wrapper">
-            <form action="https://NTUneillee.github.io//search" class="h-100">
-              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
-            </form>
-            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
-          </div>
-        </div>
-        
+        <button id="darkModeToggle" class="btn btn-sm ml-lg-2 dark-mode-toggle">
+          <i class="ti-shine"></i>
+        </button>
 
         
         
@@ -152,72 +146,41 @@
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      
-      <div class="col-lg-4">
-  <div class="widgets">
+      <div class="col-12 mb-5 mb-lg-0">
+        <ul class="list-unstyled">
+          
+          
+          <li class="media mb-4">
     
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="https://NTUneillee.github.io/images/profile2.JPG" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p><p>Yuan-Kang (Neil) Lee is a graduate student in the Graduate Institute of Communication Engineering at National Taiwan University. He is currently working as a Camera Imaging Engineer at Logitech. His work focuses specifically on image quality algorithm, image processing, and computer vision.</p></p>
-      <a href="https://NTUneillee.github.io/about/" class="btn btn-outline-primary">Know More</a>
-      
+    <div class="media-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/tags/music/" class="h5 mb-0">Music</a>
+            
+            <span class="text-muted small ml-3 flex-shrink-0">2022-07-02</span>
+            
+        </div>
+        
+        <p class="mb-2"></p>
     </div>
-
+</li>
+          
+          <li class="media mb-4">
     
-  </div>
-</div>
-
-      
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
-          
-          
-          <div class="col-md-6 mb-4">
-    <article class="card">
-        
-        <div class="card-body px-0">
-        
-        <a href="https://NTUneillee.github.io/tags/music/" class="h5 d-block my-3">Music</a>
-        <div class="mb-3 post-meta">
-            <span>By Neil Lee</span>
+    <div class="media-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="https://NTUneillee.github.io/tags/image/" class="h5 mb-0">Image</a>
             
-            <span class="border-bottom border-primary px-2 mx-1"></span>
-            <span>02 July 2022</span>
+            <span class="text-muted small ml-3 flex-shrink-0">2022-06-30</span>
             
         </div>
-        <p class="card-text"></p>
-        <a href="https://NTUneillee.github.io/tags/music/" class="btn btn-outline-primary">read more</a>
-        </div>
-    </article>
-</div>
-          
-          <div class="col-md-6 mb-4">
-    <article class="card">
         
-        <div class="card-body px-0">
-        
-        <a href="https://NTUneillee.github.io/tags/image/" class="h5 d-block my-3">Image</a>
-        <div class="mb-3 post-meta">
-            <span>By Neil Lee</span>
-            
-            <span class="border-bottom border-primary px-2 mx-1"></span>
-            <span>30 June 2022</span>
-            
-        </div>
-        <p class="card-text"></p>
-        <a href="https://NTUneillee.github.io/tags/image/" class="btn btn-outline-primary">read more</a>
-        </div>
-    </article>
-</div>
+        <p class="mb-2"></p>
+    </div>
+</li>
           
-        </div>
+        </ul>
       </div>
-      
+
       
       <div class="col-12 mt-5">
         
