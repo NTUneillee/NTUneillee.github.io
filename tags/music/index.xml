@@ -10,9 +10,16 @@
     <atom:link href="https://NTUneillee.github.io/tags/music/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Music Synthesis Project</title>
-      <link>https://NTUneillee.github.io/blog/musicsynthesis/</link>
+      <link>https://NTUneillee.github.io/projects/musicsynthesis/</link>
       <pubDate>Sat, 02 Jul 2022 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/blog/musicsynthesis/</guid>
+      <guid>https://NTUneillee.github.io/projects/musicsynthesis/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Basic Music Synthesis Project</title>
+      <link>https://NTUneillee.github.io/research/musicsynthesis/</link>
+      <pubDate>Sat, 02 Jul 2022 00:00:00 +0800</pubDate>
+      <guid>https://NTUneillee.github.io/research/musicsynthesis/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://NTUneillee.github.io/news/20241101/</loc>
-    <lastmod>2024-11-01T10:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://NTUneillee.github.io/news/</loc>
-    <lastmod>2024-11-01T10:00:00+00:00</lastmod>
+    <lastmod>2025-08-15T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/news/20250815/</loc>
+    <lastmod>2025-08-15T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/</loc>
+    <lastmod>2025-08-15T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/news/20241101/</loc>
     <lastmod>2024-11-01T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/news/20240729/</loc>
@@ -32,7 +35,10 @@
     <loc>https://NTUneillee.github.io/categories/</loc>
     <lastmod>2023-05-19T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/blog/chromatest/</loc>
+    <loc>https://NTUneillee.github.io/projects/chromatest/</loc>
+    <lastmod>2023-05-19T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/research/chromatest/</loc>
     <lastmod>2023-05-19T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/tags/color-science/</loc>
@@ -44,7 +50,10 @@
     <loc>https://NTUneillee.github.io/tags/</loc>
     <lastmod>2023-05-19T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/blog/instrumenctrec/</loc>
+    <loc>https://NTUneillee.github.io/projects/instrumenctrec/</loc>
+    <lastmod>2022-07-03T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/research/instrumenctrec/</loc>
     <lastmod>2022-07-03T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/tags/matlab/</loc>
@@ -59,7 +68,10 @@
     <loc>https://NTUneillee.github.io/tags/time-frequency-analysis/</loc>
     <lastmod>2022-07-03T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/blog/musicsynthesis/</loc>
+    <loc>https://NTUneillee.github.io/projects/musicsynthesis/</loc>
+    <lastmod>2022-07-02T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/research/musicsynthesis/</loc>
     <lastmod>2022-07-02T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/tags/music/</loc>
@@ -71,19 +83,25 @@
     <loc>https://NTUneillee.github.io/categories/image-processing/</loc>
     <lastmod>2022-06-30T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/blog/psnrvsssim/</loc>
+    <loc>https://NTUneillee.github.io/projects/psnrvsssim/</loc>
+    <lastmod>2022-06-30T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/research/psnrvsssim/</loc>
     <lastmod>2022-06-30T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/about/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
-    <loc>https://NTUneillee.github.io/research/</loc>
-    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
-  </url><url>
-    <loc>https://NTUneillee.github.io/blog/</loc>
+    <loc>https://NTUneillee.github.io/publications/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/contact/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/projects/</loc>
+    <lastmod>2019-10-29T13:49:23+06:00</lastmod>
+  </url><url>
+    <loc>https://NTUneillee.github.io/research/</loc>
     <lastmod>2019-10-29T13:49:23+06:00</lastmod>
   </url><url>
     <loc>https://NTUneillee.github.io/search/</loc>

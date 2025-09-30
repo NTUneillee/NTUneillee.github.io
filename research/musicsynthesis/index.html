@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>Yuan-Kang Lee</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Basic Music Synthesis by key generating">
+  <meta name="author" content="Neil Lee">
+  <meta name="generator" content="Hugo 0.139.3">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://NTUneillee.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://NTUneillee.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://NTUneillee.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      
+      <a class="navbar-brand mobile-view home-link" href="https://NTUneillee.github.io/">
+        <i class="ti-home"></i>
+        <span class="ml-2" style="font-size: 1.2rem;">Yuan-Kang Lee</span>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link home-link" href="https://NTUneillee.github.io/" title="Home">
+                <i class="ti-home"></i>
+              </a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin"><i class="ti-linkedin"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/NTUneillee" title="Github"><i class="ti-github"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar"><i class="ti-book"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        
+
+<ul class="navbar-nav mx-auto">
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://NTUneillee.github.io/about/">About</a>
+    </li>
+    
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://NTUneillee.github.io/news/">News</a>
+    </li>
+    
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://NTUneillee.github.io/research/">Research</a>
+    </li>
+    
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://NTUneillee.github.io/projects/">Project</a>
+    </li>
+    
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://NTUneillee.github.io/publications/">Publications</a>
+    </li>
+    
+  
+    
+    <li class="nav-item">
+      <a class="nav-link" href="https://drive.google.com/file/d/17aKxiAUYYfJppU1WrzZr0WLfpsXFmCg2/view">Resume</a>
+    </li>
+    
+  
+</ul>
+
+        
+        <button id="darkModeToggle" class="btn btn-sm ml-lg-2 dark-mode-toggle">
+          <i class="ti-shine"></i>
+        </button>
+
+        
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/signal-processing"
+          class="text-primary">Signal processing</a>
+        
+        <h2>Basic Music Synthesis Project</h2>
+        <div class="mb-3 post-meta">
+          <span>By Neil Lee</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>02 July 2022</span>
+          
+        </div>
+        
+        <img src="https://NTUneillee.github.io/images/post/synthesis.jpg" class="img-fluid w-100 mb-4" alt="Basic Music Synthesis Project">
+        
+        <div class="content mb-5">
+          <h2 id="introduction">Introduction</h2>
+<p>The project is an Instrument Recognition Program with Matlab, featuring Time-Frequency Analysis method, Gabor Transform algorithm, Signal Feature Extraction, LBG Vector Quantization and K-means algorithm to achieve up to 80% recognition in musical instruments including Piano, Guitar, and Cello.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-matlab" data-lang="matlab"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> note = <span style="color:#a6e22e">KeyGenerate</span>(KeyNumber,tempo,beat,fs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Set the t-axis of a note and the sampling interval 1/fs</span>
+</span></span><span style="display:flex;"><span>t = [<span style="color:#ae81ff">0</span> : <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>fs : (<span style="color:#ae81ff">60</span><span style="color:#f92672">/</span>tempo)<span style="color:#f92672">*</span>beat];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% The equation gives the frequency f of the nth key number </span>
+</span></span><span style="display:flex;"><span>f = <span style="color:#ae81ff">440</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>^( (KeyNumber<span style="color:#f92672">-</span><span style="color:#ae81ff">49</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">12</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Simulate the tone quality by &#34;triangle decreasing&#34;</span>
+</span></span><span style="display:flex;"><span>middle = ( t(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">+</span>t(<span style="color:#66d9ef">end</span>) )<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>triangle = middle <span style="color:#f92672">-</span> abs(t<span style="color:#f92672">-</span>middle);
+</span></span><span style="display:flex;"><span>triangle = triangle <span style="color:#f92672">./</span> max(triangle);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Using sin(2*pi*f*t) to be the basis of tone quality</span>
+</span></span><span style="display:flex;"><span>note = (sin(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>pi<span style="color:#f92672">*</span>f<span style="color:#f92672">*</span>t))<span style="color:#f92672">.*</span>triangle;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MusicSynthesis</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>name = input(<span style="color:#e6db74">&#39;Music Name: &#39;</span>,&#34;s&#34;);
+</span></span><span style="display:flex;"><span>fs = input(<span style="color:#e6db74">&#39;Sampling Rate fs: &#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Tempo: Lento 60, Adagio 80, Moderato 100, Allegro 120 </span>
+</span></span><span style="display:flex;"><span>tempo = input(<span style="color:#e6db74">&#39;Tempo(60, 80, 100, 120): &#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Generate all the paino notes with 1 and 2 beat </span>
+</span></span><span style="display:flex;"><span>La0_1  = KeyGenerate( <span style="color:#ae81ff">1</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La0_2  = KeyGenerate( <span style="color:#ae81ff">1</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A0</span>
+</span></span><span style="display:flex;"><span>La_0_1 = KeyGenerate( <span style="color:#ae81ff">2</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_0_2 = KeyGenerate( <span style="color:#ae81ff">2</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#0</span>
+</span></span><span style="display:flex;"><span>Si0_1  = KeyGenerate( <span style="color:#ae81ff">3</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si0_2  = KeyGenerate( <span style="color:#ae81ff">3</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B0</span>
+</span></span><span style="display:flex;"><span>Do0_1  = KeyGenerate( <span style="color:#ae81ff">4</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do0_2  = KeyGenerate( <span style="color:#ae81ff">4</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C0</span>
+</span></span><span style="display:flex;"><span>Do_0_1 = KeyGenerate( <span style="color:#ae81ff">5</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_0_2 = KeyGenerate( <span style="color:#ae81ff">5</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#0</span>
+</span></span><span style="display:flex;"><span>Re0_1  = KeyGenerate( <span style="color:#ae81ff">6</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re0_2  = KeyGenerate( <span style="color:#ae81ff">6</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D0</span>
+</span></span><span style="display:flex;"><span>Re_0_1 = KeyGenerate( <span style="color:#ae81ff">7</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_0_2 = KeyGenerate( <span style="color:#ae81ff">7</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#0</span>
+</span></span><span style="display:flex;"><span>Mi0_1  = KeyGenerate( <span style="color:#ae81ff">8</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi0_2  = KeyGenerate( <span style="color:#ae81ff">8</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E0</span>
+</span></span><span style="display:flex;"><span>Fa0_1  = KeyGenerate( <span style="color:#ae81ff">9</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa0_2  = KeyGenerate( <span style="color:#ae81ff">9</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F0</span>
+</span></span><span style="display:flex;"><span>Fa_0_1 = KeyGenerate(<span style="color:#ae81ff">10</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_0_2 = KeyGenerate(<span style="color:#ae81ff">10</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#0</span>
+</span></span><span style="display:flex;"><span>So0_1  = KeyGenerate(<span style="color:#ae81ff">11</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So0_2  = KeyGenerate(<span style="color:#ae81ff">11</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G0</span>
+</span></span><span style="display:flex;"><span>So_0_1 = KeyGenerate(<span style="color:#ae81ff">12</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_0_2 = KeyGenerate(<span style="color:#ae81ff">12</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La1_1  = KeyGenerate(<span style="color:#ae81ff">13</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La1_2  = KeyGenerate(<span style="color:#ae81ff">13</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A1</span>
+</span></span><span style="display:flex;"><span>La_1_1 = KeyGenerate(<span style="color:#ae81ff">14</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_1_2 = KeyGenerate(<span style="color:#ae81ff">14</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#1</span>
+</span></span><span style="display:flex;"><span>Si1_1  = KeyGenerate(<span style="color:#ae81ff">15</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si1_2  = KeyGenerate(<span style="color:#ae81ff">15</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B1</span>
+</span></span><span style="display:flex;"><span>Do1_1  = KeyGenerate(<span style="color:#ae81ff">16</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do1_2  = KeyGenerate(<span style="color:#ae81ff">16</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C1</span>
+</span></span><span style="display:flex;"><span>Do_1_1 = KeyGenerate(<span style="color:#ae81ff">17</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_1_2 = KeyGenerate(<span style="color:#ae81ff">17</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#1</span>
+</span></span><span style="display:flex;"><span>Re1_1  = KeyGenerate(<span style="color:#ae81ff">18</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re1_2  = KeyGenerate(<span style="color:#ae81ff">18</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D1</span>
+</span></span><span style="display:flex;"><span>Re_1_1 = KeyGenerate(<span style="color:#ae81ff">19</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_1_2 = KeyGenerate(<span style="color:#ae81ff">19</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#1</span>
+</span></span><span style="display:flex;"><span>Mi1_1  = KeyGenerate(<span style="color:#ae81ff">20</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi1_2  = KeyGenerate(<span style="color:#ae81ff">20</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E1</span>
+</span></span><span style="display:flex;"><span>Fa1_1  = KeyGenerate(<span style="color:#ae81ff">21</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa1_2  = KeyGenerate(<span style="color:#ae81ff">21</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F1</span>
+</span></span><span style="display:flex;"><span>Fa_1_1 = KeyGenerate(<span style="color:#ae81ff">22</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_1_2 = KeyGenerate(<span style="color:#ae81ff">22</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#1</span>
+</span></span><span style="display:flex;"><span>So1_1  = KeyGenerate(<span style="color:#ae81ff">23</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So1_2  = KeyGenerate(<span style="color:#ae81ff">23</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G1</span>
+</span></span><span style="display:flex;"><span>So_1_1 = KeyGenerate(<span style="color:#ae81ff">24</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_1_2 = KeyGenerate(<span style="color:#ae81ff">24</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#1</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>La2_1  = KeyGenerate(<span style="color:#ae81ff">25</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La2_2  = KeyGenerate(<span style="color:#ae81ff">25</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A2</span>
+</span></span><span style="display:flex;"><span>La_2_1 = KeyGenerate(<span style="color:#ae81ff">26</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_2_2 = KeyGenerate(<span style="color:#ae81ff">26</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#2</span>
+</span></span><span style="display:flex;"><span>Si2_1  = KeyGenerate(<span style="color:#ae81ff">27</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si2_2  = KeyGenerate(<span style="color:#ae81ff">27</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B2</span>
+</span></span><span style="display:flex;"><span>Do2_1  = KeyGenerate(<span style="color:#ae81ff">28</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do2_2  = KeyGenerate(<span style="color:#ae81ff">28</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C2</span>
+</span></span><span style="display:flex;"><span>Do_2_1 = KeyGenerate(<span style="color:#ae81ff">29</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_2_2 = KeyGenerate(<span style="color:#ae81ff">29</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#2</span>
+</span></span><span style="display:flex;"><span>Re2_1  = KeyGenerate(<span style="color:#ae81ff">30</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re2_2  = KeyGenerate(<span style="color:#ae81ff">30</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D2</span>
+</span></span><span style="display:flex;"><span>Re_2_1 = KeyGenerate(<span style="color:#ae81ff">31</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_2_2 = KeyGenerate(<span style="color:#ae81ff">31</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#2</span>
+</span></span><span style="display:flex;"><span>Mi2_1  = KeyGenerate(<span style="color:#ae81ff">32</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi2_2  = KeyGenerate(<span style="color:#ae81ff">32</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E2</span>
+</span></span><span style="display:flex;"><span>Fa2_1  = KeyGenerate(<span style="color:#ae81ff">33</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa2_2  = KeyGenerate(<span style="color:#ae81ff">33</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F2</span>
+</span></span><span style="display:flex;"><span>Fa_2_1 = KeyGenerate(<span style="color:#ae81ff">34</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_2_2 = KeyGenerate(<span style="color:#ae81ff">34</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#2</span>
+</span></span><span style="display:flex;"><span>So2_1  = KeyGenerate(<span style="color:#ae81ff">35</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So2_2  = KeyGenerate(<span style="color:#ae81ff">35</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G2</span>
+</span></span><span style="display:flex;"><span>So_2_1 = KeyGenerate(<span style="color:#ae81ff">36</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_2_2 = KeyGenerate(<span style="color:#ae81ff">36</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La3_1  = KeyGenerate(<span style="color:#ae81ff">37</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La3_2  = KeyGenerate(<span style="color:#ae81ff">37</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A3</span>
+</span></span><span style="display:flex;"><span>La_3_1 = KeyGenerate(<span style="color:#ae81ff">38</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_3_2 = KeyGenerate(<span style="color:#ae81ff">38</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#3</span>
+</span></span><span style="display:flex;"><span>Si3_1  = KeyGenerate(<span style="color:#ae81ff">39</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si3_2  = KeyGenerate(<span style="color:#ae81ff">39</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B3</span>
+</span></span><span style="display:flex;"><span>Do3_1  = KeyGenerate(<span style="color:#ae81ff">40</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do3_2  = KeyGenerate(<span style="color:#ae81ff">40</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C3</span>
+</span></span><span style="display:flex;"><span>Do_3_1 = KeyGenerate(<span style="color:#ae81ff">41</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_3_2 = KeyGenerate(<span style="color:#ae81ff">41</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#3</span>
+</span></span><span style="display:flex;"><span>Re3_1  = KeyGenerate(<span style="color:#ae81ff">42</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re3_2  = KeyGenerate(<span style="color:#ae81ff">42</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D3</span>
+</span></span><span style="display:flex;"><span>Re_3_1 = KeyGenerate(<span style="color:#ae81ff">43</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_3_2 = KeyGenerate(<span style="color:#ae81ff">43</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#3</span>
+</span></span><span style="display:flex;"><span>Mi3_1  = KeyGenerate(<span style="color:#ae81ff">44</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi3_2  = KeyGenerate(<span style="color:#ae81ff">44</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E3</span>
+</span></span><span style="display:flex;"><span>Fa3_1  = KeyGenerate(<span style="color:#ae81ff">45</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa3_2  = KeyGenerate(<span style="color:#ae81ff">45</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F3</span>
+</span></span><span style="display:flex;"><span>Fa_3_1 = KeyGenerate(<span style="color:#ae81ff">46</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_3_2 = KeyGenerate(<span style="color:#ae81ff">46</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#3</span>
+</span></span><span style="display:flex;"><span>So3_1  = KeyGenerate(<span style="color:#ae81ff">47</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So3_2  = KeyGenerate(<span style="color:#ae81ff">47</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G3</span>
+</span></span><span style="display:flex;"><span>So_3_1 = KeyGenerate(<span style="color:#ae81ff">48</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_3_2 = KeyGenerate(<span style="color:#ae81ff">48</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La4_1  = KeyGenerate(<span style="color:#ae81ff">49</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La4_2  = KeyGenerate(<span style="color:#ae81ff">49</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A4</span>
+</span></span><span style="display:flex;"><span>La_4_1 = KeyGenerate(<span style="color:#ae81ff">50</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_4_2 = KeyGenerate(<span style="color:#ae81ff">50</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#4</span>
+</span></span><span style="display:flex;"><span>Si4_1  = KeyGenerate(<span style="color:#ae81ff">51</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si4_2  = KeyGenerate(<span style="color:#ae81ff">51</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B4</span>
+</span></span><span style="display:flex;"><span>Do4_1  = KeyGenerate(<span style="color:#ae81ff">52</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do4_2  = KeyGenerate(<span style="color:#ae81ff">52</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C4 # middle C</span>
+</span></span><span style="display:flex;"><span>Do_4_1 = KeyGenerate(<span style="color:#ae81ff">53</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_4_2 = KeyGenerate(<span style="color:#ae81ff">53</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#4</span>
+</span></span><span style="display:flex;"><span>Re4_1  = KeyGenerate(<span style="color:#ae81ff">54</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re4_2  = KeyGenerate(<span style="color:#ae81ff">54</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D4</span>
+</span></span><span style="display:flex;"><span>Re_4_1 = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_4_2 = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#4</span>
+</span></span><span style="display:flex;"><span>Mi4_1  = KeyGenerate(<span style="color:#ae81ff">56</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi4_2  = KeyGenerate(<span style="color:#ae81ff">56</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E4</span>
+</span></span><span style="display:flex;"><span>Fa4_1  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa4_2  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F4</span>
+</span></span><span style="display:flex;"><span>Fa_4_1 = KeyGenerate(<span style="color:#ae81ff">58</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_4_2 = KeyGenerate(<span style="color:#ae81ff">58</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#4</span>
+</span></span><span style="display:flex;"><span>So4_1  = KeyGenerate(<span style="color:#ae81ff">59</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So4_2  = KeyGenerate(<span style="color:#ae81ff">59</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G4</span>
+</span></span><span style="display:flex;"><span>So_4_1 = KeyGenerate(<span style="color:#ae81ff">60</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_4_2 = KeyGenerate(<span style="color:#ae81ff">60</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La5_1  = KeyGenerate(<span style="color:#ae81ff">61</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La5_2  = KeyGenerate(<span style="color:#ae81ff">61</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A5</span>
+</span></span><span style="display:flex;"><span>La_5_1 = KeyGenerate(<span style="color:#ae81ff">62</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_5_2 = KeyGenerate(<span style="color:#ae81ff">62</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#5</span>
+</span></span><span style="display:flex;"><span>Si5_1  = KeyGenerate(<span style="color:#ae81ff">63</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si5_2  = KeyGenerate(<span style="color:#ae81ff">63</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B5</span>
+</span></span><span style="display:flex;"><span>Do5_1  = KeyGenerate(<span style="color:#ae81ff">64</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do5_2  = KeyGenerate(<span style="color:#ae81ff">64</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C5</span>
+</span></span><span style="display:flex;"><span>Do_5_1 = KeyGenerate(<span style="color:#ae81ff">65</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_5_2 = KeyGenerate(<span style="color:#ae81ff">65</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#5</span>
+</span></span><span style="display:flex;"><span>Re5_1  = KeyGenerate(<span style="color:#ae81ff">66</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re5_2  = KeyGenerate(<span style="color:#ae81ff">66</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D5</span>
+</span></span><span style="display:flex;"><span>Re_5_1 = KeyGenerate(<span style="color:#ae81ff">67</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_5_2 = KeyGenerate(<span style="color:#ae81ff">67</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#5</span>
+</span></span><span style="display:flex;"><span>Mi5_1  = KeyGenerate(<span style="color:#ae81ff">68</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi5_2  = KeyGenerate(<span style="color:#ae81ff">68</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E5</span>
+</span></span><span style="display:flex;"><span>Fa5_1  = KeyGenerate(<span style="color:#ae81ff">69</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa5_2  = KeyGenerate(<span style="color:#ae81ff">69</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F5</span>
+</span></span><span style="display:flex;"><span>Fa_5_1 = KeyGenerate(<span style="color:#ae81ff">70</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_5_2 = KeyGenerate(<span style="color:#ae81ff">70</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#5</span>
+</span></span><span style="display:flex;"><span>So5_1  = KeyGenerate(<span style="color:#ae81ff">71</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So5_2  = KeyGenerate(<span style="color:#ae81ff">71</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G5</span>
+</span></span><span style="display:flex;"><span>So_5_1 = KeyGenerate(<span style="color:#ae81ff">72</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_5_2 = KeyGenerate(<span style="color:#ae81ff">72</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La6_1  = KeyGenerate(<span style="color:#ae81ff">73</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La6_2  = KeyGenerate(<span style="color:#ae81ff">73</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A6</span>
+</span></span><span style="display:flex;"><span>La_6_1 = KeyGenerate(<span style="color:#ae81ff">74</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_6_2 = KeyGenerate(<span style="color:#ae81ff">74</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#6</span>
+</span></span><span style="display:flex;"><span>Si6_1  = KeyGenerate(<span style="color:#ae81ff">75</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si6_2  = KeyGenerate(<span style="color:#ae81ff">75</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B6</span>
+</span></span><span style="display:flex;"><span>Do6_1  = KeyGenerate(<span style="color:#ae81ff">76</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do6_2  = KeyGenerate(<span style="color:#ae81ff">76</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C6</span>
+</span></span><span style="display:flex;"><span>Do_6_1 = KeyGenerate(<span style="color:#ae81ff">77</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_6_2 = KeyGenerate(<span style="color:#ae81ff">77</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#6</span>
+</span></span><span style="display:flex;"><span>Re6_1  = KeyGenerate(<span style="color:#ae81ff">78</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re6_2  = KeyGenerate(<span style="color:#ae81ff">78</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D6</span>
+</span></span><span style="display:flex;"><span>Re_6_1 = KeyGenerate(<span style="color:#ae81ff">79</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_6_2 = KeyGenerate(<span style="color:#ae81ff">79</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#6</span>
+</span></span><span style="display:flex;"><span>Mi6_1  = KeyGenerate(<span style="color:#ae81ff">80</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi6_2  = KeyGenerate(<span style="color:#ae81ff">80</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E6</span>
+</span></span><span style="display:flex;"><span>Fa6_1  = KeyGenerate(<span style="color:#ae81ff">81</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa6_2  = KeyGenerate(<span style="color:#ae81ff">81</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F6</span>
+</span></span><span style="display:flex;"><span>Fa_6_1 = KeyGenerate(<span style="color:#ae81ff">82</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_6_2 = KeyGenerate(<span style="color:#ae81ff">82</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#6</span>
+</span></span><span style="display:flex;"><span>So6_1  = KeyGenerate(<span style="color:#ae81ff">83</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So6_2  = KeyGenerate(<span style="color:#ae81ff">83</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G6</span>
+</span></span><span style="display:flex;"><span>So_6_1 = KeyGenerate(<span style="color:#ae81ff">84</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_6_2 = KeyGenerate(<span style="color:#ae81ff">84</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La7_1  = KeyGenerate(<span style="color:#ae81ff">85</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La7_2  = KeyGenerate(<span style="color:#ae81ff">85</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A7</span>
+</span></span><span style="display:flex;"><span>La_7_1 = KeyGenerate(<span style="color:#ae81ff">86</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_7_2 = KeyGenerate(<span style="color:#ae81ff">86</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#7</span>
+</span></span><span style="display:flex;"><span>Si7_1  = KeyGenerate(<span style="color:#ae81ff">87</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si7_2  = KeyGenerate(<span style="color:#ae81ff">87</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B7</span>
+</span></span><span style="display:flex;"><span>Do7_1  = KeyGenerate(<span style="color:#ae81ff">88</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do7_2  = KeyGenerate(<span style="color:#ae81ff">88</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C7</span>
+</span></span><span style="display:flex;"><span>Do_7_1 = KeyGenerate(<span style="color:#ae81ff">89</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_7_2 = KeyGenerate(<span style="color:#ae81ff">89</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#7</span>
+</span></span><span style="display:flex;"><span>Re7_1  = KeyGenerate(<span style="color:#ae81ff">90</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re7_2  = KeyGenerate(<span style="color:#ae81ff">90</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D7</span>
+</span></span><span style="display:flex;"><span>Re_7_1 = KeyGenerate(<span style="color:#ae81ff">91</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_7_2 = KeyGenerate(<span style="color:#ae81ff">91</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#7</span>
+</span></span><span style="display:flex;"><span>Mi7_1  = KeyGenerate(<span style="color:#ae81ff">92</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi7_2  = KeyGenerate(<span style="color:#ae81ff">92</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E7</span>
+</span></span><span style="display:flex;"><span>Fa7_1  = KeyGenerate(<span style="color:#ae81ff">93</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa7_2  = KeyGenerate(<span style="color:#ae81ff">93</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F7</span>
+</span></span><span style="display:flex;"><span>Fa_7_1 = KeyGenerate(<span style="color:#ae81ff">94</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_7_2 = KeyGenerate(<span style="color:#ae81ff">94</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#7</span>
+</span></span><span style="display:flex;"><span>So7_1  = KeyGenerate(<span style="color:#ae81ff">95</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So7_2  = KeyGenerate(<span style="color:#ae81ff">95</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G7</span>
+</span></span><span style="display:flex;"><span>So_7_1 = KeyGenerate(<span style="color:#ae81ff">96</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_7_2 = KeyGenerate(<span style="color:#ae81ff">96</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La8_1  = KeyGenerate( <span style="color:#ae81ff">97</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La8_2  = KeyGenerate( <span style="color:#ae81ff">97</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A8</span>
+</span></span><span style="display:flex;"><span>La_8_1 = KeyGenerate( <span style="color:#ae81ff">98</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  La_8_2 = KeyGenerate( <span style="color:#ae81ff">98</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#8</span>
+</span></span><span style="display:flex;"><span>Si8_1  = KeyGenerate( <span style="color:#ae81ff">99</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Si8_2  = KeyGenerate( <span style="color:#ae81ff">99</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B8</span>
+</span></span><span style="display:flex;"><span>Do8_1  = KeyGenerate(<span style="color:#ae81ff">100</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do8_2  = KeyGenerate(<span style="color:#ae81ff">100</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C8</span>
+</span></span><span style="display:flex;"><span>Do_8_1 = KeyGenerate(<span style="color:#ae81ff">101</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Do_8_2 = KeyGenerate(<span style="color:#ae81ff">101</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#8</span>
+</span></span><span style="display:flex;"><span>Re8_1  = KeyGenerate(<span style="color:#ae81ff">102</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re8_2  = KeyGenerate(<span style="color:#ae81ff">102</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D8</span>
+</span></span><span style="display:flex;"><span>Re_8_1 = KeyGenerate(<span style="color:#ae81ff">103</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Re_8_2 = KeyGenerate(<span style="color:#ae81ff">103</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#8</span>
+</span></span><span style="display:flex;"><span>Mi8_1  = KeyGenerate(<span style="color:#ae81ff">104</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Mi8_2  = KeyGenerate(<span style="color:#ae81ff">104</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E8</span>
+</span></span><span style="display:flex;"><span>Fa8_1  = KeyGenerate(<span style="color:#ae81ff">105</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa8_2  = KeyGenerate(<span style="color:#ae81ff">105</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F8</span>
+</span></span><span style="display:flex;"><span>Fa_8_1 = KeyGenerate(<span style="color:#ae81ff">106</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  Fa_8_2 = KeyGenerate(<span style="color:#ae81ff">106</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#8</span>
+</span></span><span style="display:flex;"><span>So8_1  = KeyGenerate(<span style="color:#ae81ff">107</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So8_2  = KeyGenerate(<span style="color:#ae81ff">107</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G8</span>
+</span></span><span style="display:flex;"><span>So_8_1 = KeyGenerate(<span style="color:#ae81ff">108</span>, tempo, <span style="color:#ae81ff">1</span>, fs);  So_8_2 = KeyGenerate(<span style="color:#ae81ff">108</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La4_0  = KeyGenerate(<span style="color:#ae81ff">49</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  La4_2  = KeyGenerate(<span style="color:#ae81ff">49</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A4</span>
+</span></span><span style="display:flex;"><span>La_4_0 = KeyGenerate(<span style="color:#ae81ff">50</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  La_4_2 = KeyGenerate(<span style="color:#ae81ff">50</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#4</span>
+</span></span><span style="display:flex;"><span>Si4_0  = KeyGenerate(<span style="color:#ae81ff">51</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Si4_2  = KeyGenerate(<span style="color:#ae81ff">51</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B4</span>
+</span></span><span style="display:flex;"><span>Do4_0  = KeyGenerate(<span style="color:#ae81ff">52</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Do4_2  = KeyGenerate(<span style="color:#ae81ff">52</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C4 # middle C</span>
+</span></span><span style="display:flex;"><span>Do_4_0 = KeyGenerate(<span style="color:#ae81ff">53</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Do_4_2 = KeyGenerate(<span style="color:#ae81ff">53</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#4</span>
+</span></span><span style="display:flex;"><span>Re4_0  = KeyGenerate(<span style="color:#ae81ff">54</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Re4_2  = KeyGenerate(<span style="color:#ae81ff">54</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D4</span>
+</span></span><span style="display:flex;"><span>Re_4_0 = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Re_4_2 = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#4</span>
+</span></span><span style="display:flex;"><span>Mi4_0  = KeyGenerate(<span style="color:#ae81ff">56</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Mi4_2  = KeyGenerate(<span style="color:#ae81ff">56</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E4</span>
+</span></span><span style="display:flex;"><span>Fa4_0  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Fa4_2  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F4</span>
+</span></span><span style="display:flex;"><span>Fa_4_0 = KeyGenerate(<span style="color:#ae81ff">58</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Fa_4_2 = KeyGenerate(<span style="color:#ae81ff">58</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#4</span>
+</span></span><span style="display:flex;"><span>So4_0  = KeyGenerate(<span style="color:#ae81ff">59</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  So4_2  = KeyGenerate(<span style="color:#ae81ff">59</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G4</span>
+</span></span><span style="display:flex;"><span>So_4_0 = KeyGenerate(<span style="color:#ae81ff">60</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  So_4_2 = KeyGenerate(<span style="color:#ae81ff">60</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>La5_0  = KeyGenerate(<span style="color:#ae81ff">61</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  La5_2  = KeyGenerate(<span style="color:#ae81ff">61</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A5</span>
+</span></span><span style="display:flex;"><span>La_5_0 = KeyGenerate(<span style="color:#ae81ff">62</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  La_5_2 = KeyGenerate(<span style="color:#ae81ff">62</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% A#5</span>
+</span></span><span style="display:flex;"><span>Si5_0  = KeyGenerate(<span style="color:#ae81ff">63</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Si5_2  = KeyGenerate(<span style="color:#ae81ff">63</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% B5</span>
+</span></span><span style="display:flex;"><span>Do5_0  = KeyGenerate(<span style="color:#ae81ff">64</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Do5_2  = KeyGenerate(<span style="color:#ae81ff">64</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C5</span>
+</span></span><span style="display:flex;"><span>Do_5_0 = KeyGenerate(<span style="color:#ae81ff">65</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Do_5_2 = KeyGenerate(<span style="color:#ae81ff">65</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% C#5</span>
+</span></span><span style="display:flex;"><span>Re5_0  = KeyGenerate(<span style="color:#ae81ff">66</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Re5_2  = KeyGenerate(<span style="color:#ae81ff">66</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D5</span>
+</span></span><span style="display:flex;"><span>Re_5_0 = KeyGenerate(<span style="color:#ae81ff">67</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Re_5_2 = KeyGenerate(<span style="color:#ae81ff">67</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% D#5</span>
+</span></span><span style="display:flex;"><span>Mi5_0  = KeyGenerate(<span style="color:#ae81ff">68</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Mi5_2  = KeyGenerate(<span style="color:#ae81ff">68</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% E5</span>
+</span></span><span style="display:flex;"><span>Fa5_0  = KeyGenerate(<span style="color:#ae81ff">69</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Fa5_2  = KeyGenerate(<span style="color:#ae81ff">69</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F5</span>
+</span></span><span style="display:flex;"><span>Fa_5_0 = KeyGenerate(<span style="color:#ae81ff">70</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  Fa_5_2 = KeyGenerate(<span style="color:#ae81ff">70</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% F#5</span>
+</span></span><span style="display:flex;"><span>So5_0  = KeyGenerate(<span style="color:#ae81ff">71</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  So5_2  = KeyGenerate(<span style="color:#ae81ff">71</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G5</span>
+</span></span><span style="display:flex;"><span>So_5_0 = KeyGenerate(<span style="color:#ae81ff">72</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, fs);  So_5_2 = KeyGenerate(<span style="color:#ae81ff">72</span>, tempo, <span style="color:#ae81ff">2</span>, fs); <span style="color:#75715e">% G#5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Fa4_01  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">4</span>, fs);
+</span></span><span style="display:flex;"><span>Re_4_01  = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">4</span>, fs);
+</span></span><span style="display:flex;"><span>So4_4  = KeyGenerate(<span style="color:#ae81ff">59</span>, tempo, <span style="color:#ae81ff">4</span>, fs);
+</span></span><span style="display:flex;"><span>Re_4_4 = KeyGenerate(<span style="color:#ae81ff">55</span>, tempo, <span style="color:#ae81ff">4</span>, fs);
+</span></span><span style="display:flex;"><span>Fa4_4  = KeyGenerate(<span style="color:#ae81ff">57</span>, tempo, <span style="color:#ae81ff">4</span>, fs);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">% Attack on titan: The Rumbling</span>
+</span></span><span style="display:flex;"><span>song = [ Re_4_0,  Fa4_0, So_4_1,  So4_0, So4_2, So_4_0, La_5_1,  Fa4_2, <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          Fa4_0, Re_4_0,  Fa4_0, Re_4_0, Fa4_0,  So4_0,  So4_4 <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>         Re_4_0,  Fa4_0, So_4_1,  So4_0, So4_2, So_4_1,  So4_0,  So4_2, Fa4_1, Re_4_0, Re_4_4, <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>         Re_4_0,  Fa4_0, So_4_1,  So4_0, So4_2, So_4_0, La_5_1,  Fa4_2, <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          Fa4_0, Re_4_0,  Fa4_0, Re_4_0, Fa4_0,  So4_0,  So4_4, <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          Fa4_0, Re_4_0,  Fa4_0, Re_4_0, Fa4_1, Re_4_0,  Fa4_1, Re_4_0, Fa4_1, Fa_4_1,  Fa4_4, <span style="color:#75715e">...</span>
+</span></span><span style="display:flex;"><span>          So4_1,  Do4_2,  So4_1,  Do4_2, Do4_0, La_5_1, So_4_1,  So4_1, Do4_2,  So4_1,  Do4_0,  So4_0,  So4_1];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>sound(song, fs);
+</span></span><span style="display:flex;"><span>audiowrite(strcat(name, <span style="color:#e6db74">&#39;.wav&#39;</span>), song, fs);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="text-capitalize">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-1">
+        
+      </div>
+               
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          
+                     
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>Taipei, Taiwan</li>
+          
+                     
+          <li class="mb-3"><a class="text-dark" href="mailto:yuankang.neillee@gmail.com"><i
+                class="ti-email mr-3 text-primary"></i>yuankang.neillee@gmail.com</a>
+          
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.linkedin.com/in/yuankanglee">Linkedin</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/NTUneillee">Github</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en">Google Scholar</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/about/">About</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/news/">News</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/research/">Research</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/projects/">Project</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://NTUneillee.github.io/publications/">Publications</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | © 2025 Yuan Kang Lee All Rights Reserved  |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  var indexURL = "https://NTUneillee.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://NTUneillee.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/mark.js"></script>
+
+<script src="https://NTUneillee.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://NTUneillee.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+
+</body>
+</html>
