@@ -1,0 +1,263 @@
+body {
+    font-family: "Noto Sans", sans-serif;
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+    font-variant: small-caps;
+}
+
+.teaser .hero-body {
+    padding-top: 0;
+    padding-bottom: 3rem;
+}
+
+.teaser {
+    font-family: "Google Sans", sans-serif;
+}
+
+.publication-banner {
+    max-height: parent;
+}
+
+.publication-banner video {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    object-fit: fit;
+}
+
+.publication-title {
+    font-family: "Google Sans", sans-serif;
+}
+
+.publication-authors {
+    font-family: "Google Sans", sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors a {
+    color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+    display: inline-block;
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.results-carousel {
+    overflow: hidden;
+}
+
+.results-carousel .item {
+    margin: 5px;
+    overflow: hidden;
+    padding: 20px;
+    font-size: 0;
+}
+
+.results-carousel video {
+    margin: 0;
+}
+
+.slider-pagination .slider-page {
+    background: #000000;
+}
+
+.eql-cntrb {
+    font-size: smaller;
+}
+
+.conference-block {
+    color: rgb(150, 0, 0);
+}
+
+/* Custom styles for SPF website */
+.table.is-bordered th,
+.table.is-bordered td {
+    border: 1px solid #dbdbdb;
+    text-align: center;
+}
+
+.table tbody tr.has-text-weight-bold {
+    background-color: #f5f5f5;
+}
+
+.figure img {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+}
+
+.title.is-3 {
+    margin-bottom: 1.5rem !important;
+}
+
+.section {
+    padding: 3rem 1.5rem;
+}
+
+.columns.is-centered {
+    align-items: stretch;
+}
+
+.button.is-disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Image Comparison Slider Styles */
+img-comparison-slider {
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1rem;
+
+    position: relative;
+}
+
+img-comparison-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Floating Method Indicators */
+img-comparison-slider::before,
+img-comparison-slider::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    padding: 12px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    border-radius: 4px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Left side indicator - SPF (Our Method) */
+img-comparison-slider::before {
+    content: "SPF (Ours)";
+    left: 10px;
+    background: rgba(0, 209, 100, 0.8);
+}
+
+/* Right side indicator - varies by comparison type */
+img-comparison-slider.comparison-pivot::after {
+    content: "PIVOT";
+    right: 10px;
+    background: rgba(50, 115, 220, 0.8);
+}
+
+img-comparison-slider.comparison-typefly::after {
+    content: "TypeFly";
+    right: 10px;
+    background: rgba(184, 107, 255, 0.8);
+}
+
+.card-container {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #e8e8e8;
+}
+
+.card-container h3,
+.card-container h4 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #363636;
+}
+
+/* Responsive adjustments for comparison sliders */
+@media screen and (max-width: 768px) {
+    .columns.is-multiline .column.is-half {
+        flex: none;
+        width: 100%;
+    }
+
+    img-comparison-slider {
+        margin-bottom: 2rem;
+    }
+
+    .card-container {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .card-container h3,
+    .card-container h4 {
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive floating indicators for mobile */
+    img-comparison-slider::before,
+    img-comparison-slider::after {
+        top: 15px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    img-comparison-slider::before {
+        left: 15px;
+    }
+
+    img-comparison-slider.comparison-pivot::after,
+    img-comparison-slider.comparison-typefly::after {
+        right: 15px;
+    }
+}

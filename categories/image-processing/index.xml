@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Image Processing on Yuan-Kang Lee</title>
-    <link>https://NTUneillee.github.io/categories/image-processing/</link>
+    <link>http://localhost:59073/categories/image-processing/</link>
     <description>Recent content in Image Processing on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Thu, 30 Jun 2022 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://NTUneillee.github.io/categories/image-processing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59073/categories/image-processing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PSNR and SSIM</title>
-      <link>https://NTUneillee.github.io/projects/psnrvsssim/</link>
+      <link>http://localhost:59073/projects/psnrvsssim/</link>
       <pubDate>Thu, 30 Jun 2022 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/projects/psnrvsssim/</guid>
+      <guid>http://localhost:59073/projects/psnrvsssim/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Image quality&lt;/strong&gt; can be assessed using objective or subjective methods. In the objective method, image quality assessments are performed by different algorithms that analyze the distortions and degradations introduced in an image. Subjective image quality assessments are a method based on the way in which humans experience or perceive image quality.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PSNR and SSIM</title>
-      <link>https://NTUneillee.github.io/research/psnrvsssim/</link>
+      <link>http://localhost:59073/research/psnrvsssim/</link>
       <pubDate>Thu, 30 Jun 2022 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/research/psnrvsssim/</guid>
+      <guid>http://localhost:59073/research/psnrvsssim/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Image quality&lt;/strong&gt; can be assessed using objective or subjective methods. In the objective method, image quality assessments are performed by different algorithms that analyze the distortions and degradations introduced in an image. Subjective image quality assessments are a method based on the way in which humans experience or perceive image quality.&lt;/p&gt;</description>
     </item>
   </channel>
