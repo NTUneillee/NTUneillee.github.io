@@ -6,21 +6,21 @@
     <description>Recent content in Camera Image Quality on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 19 May 2023 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://NTUneillee.github.io/categories/camera-image-quality/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</title>
+      <link>https://NTUneillee.github.io/research/friereniqa/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0800</pubDate>
+      <guid>https://NTUneillee.github.io/research/friereniqa/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Color and Chroma Difference Algorithm Research</title>
       <link>https://NTUneillee.github.io/projects/chromatest/</link>
       <pubDate>Fri, 19 May 2023 00:00:00 +0800</pubDate>
       <guid>https://NTUneillee.github.io/projects/chromatest/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Professional image qualuty analysis softwares such as &lt;strong&gt;Imatest&lt;/strong&gt; and &lt;strong&gt;iQ-analyzer&lt;/strong&gt; provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that &lt;strong&gt;different software employs varying algorithms for calculating the color difference&lt;/strong&gt;. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</title>
-      <link>https://NTUneillee.github.io/research/friereniqa/</link>
-      <pubDate>Fri, 19 May 2023 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/research/friereniqa/</guid>
-      <description>&lt;p&gt;FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation, effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity,&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
