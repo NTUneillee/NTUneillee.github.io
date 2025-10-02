@@ -71,79 +71,118 @@
             }
 
              
+            .container.is-max-desktop {
+                max-width: 960px;
+            }
+
+            .columns.is-centered {
+                justify-content: center;
+            }
+
+             
+            #BibTeX pre {
+                overflow-x: auto;
+                white-space: pre;
+                word-wrap: normal;
+                max-width: 100%;
+                display: block;
+            }
+
+            #BibTeX code {
+                white-space: pre;
+                word-wrap: normal;
+            }
+
+             
             @media screen and (max-width: 768px) {
                  
                 html {
-                    font-size: 16px !important;
+                    font-size: 18px !important;
                 }
 
                 body {
-                    font-size: 1rem !important;
-                    line-height: 1.6 !important;
+                    font-size: 1.125rem !important;
+                    line-height: 1.7 !important;
                 }
 
                 .back-to-research {
                     top: 10px;
                     left: 10px;
-                    padding: 6px 12px;
-                    font-size: 0.875rem;
+                    padding: 8px 14px;
+                    font-size: 1rem;
                 }
 
                 .hero-body {
-                    padding: 2rem 1rem !important;
+                    padding: 2.5rem 1.5rem !important;
                 }
 
                 .title.is-1 {
-                    font-size: 1.875rem !important;
-                    line-height: 1.3 !important;
+                    font-size: 2.25rem !important;
+                    line-height: 1.25 !important;
+                    margin-bottom: 1.25rem !important;
                 }
 
                 .title.is-3 {
-                    font-size: 1.625rem !important;
+                    font-size: 2rem !important;
                     line-height: 1.3 !important;
-                    margin-bottom: 1rem !important;
+                    margin-bottom: 1.5rem !important;
                 }
 
                 .title.is-5 {
-                    font-size: 1.25rem !important;
+                    font-size: 1.5rem !important;
                     line-height: 1.4 !important;
                 }
 
                 .is-size-4 {
-                    font-size: 1.375rem !important;
+                    font-size: 1.625rem !important;
                     line-height: 1.4 !important;
                 }
 
                 .is-size-5 {
-                    font-size: 1.125rem !important;
+                    font-size: 1.375rem !important;
                     line-height: 1.5 !important;
                 }
 
                 .subtitle {
-                    font-size: 1.125rem !important;
+                    font-size: 1.375rem !important;
                     line-height: 1.6 !important;
                 }
 
                 .content,
                 .content p,
                 .content li {
-                    font-size: 1.0625rem !important;
-                    line-height: 1.7 !important;
+                    font-size: 1.25rem !important;
+                    line-height: 1.8 !important;
+                }
+
+                .content h3 {
+                    font-size: 1.75rem !important;
+                    margin-top: 2rem !important;
+                    margin-bottom: 1rem !important;
                 }
 
                 .content h4 {
-                    font-size: 1.25rem !important;
-                    margin-top: 1.5rem !important;
-                    margin-bottom: 0.75rem !important;
+                    font-size: 1.5rem !important;
+                    margin-top: 1.75rem !important;
+                    margin-bottom: 0.875rem !important;
                 }
 
                 .container.is-max-desktop {
-                    padding-left: 1.25rem;
-                    padding-right: 1.25rem;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                    max-width: 100% !important;
                 }
 
                 .section {
-                    padding: 2rem 1rem !important;
+                    padding: 2.5rem 1.5rem !important;
+                }
+
+                .columns {
+                    margin: 0 !important;
+                }
+
+                .column {
+                    padding: 0 1.5rem !important;
                 }
 
                 .column.is-half {
@@ -156,13 +195,13 @@
 
                 .publication-links .link-block {
                     display: block;
-                    margin-bottom: 0.5rem;
+                    margin-bottom: 0.75rem;
                 }
 
                 .publication-links .button {
                     width: 100%;
-                    font-size: 1rem !important;
-                    padding: 0.75rem 1rem !important;
+                    font-size: 1.125rem !important;
+                    padding: 0.875rem 1.25rem !important;
                 }
 
                 iframe {
@@ -172,32 +211,48 @@
                 }
 
                 pre {
-                    font-size: 0.875rem;
+                    font-size: 1rem;
                     overflow-x: auto;
-                    padding: 1rem !important;
+                    padding: 1.25rem !important;
+                    margin-left: -1.5rem !important;
+                    margin-right: -1.5rem !important;
+                    border-radius: 0 !important;
                 }
 
                 pre code {
-                    font-size: 0.875rem !important;
+                    font-size: 1rem !important;
                 }
 
                 .card-container {
-                    padding: 1.25rem !important;
-                    margin-bottom: 1.5rem !important;
+                    padding: 1.5rem !important;
+                    margin-bottom: 2rem !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
                 }
 
                 .card-container h4 {
-                    font-size: 1.25rem !important;
+                    font-size: 1.5rem !important;
                 }
 
                 .card-container p,
                 .card-container li {
-                    font-size: 1.0625rem !important;
+                    font-size: 1.25rem !important;
                 }
 
                  
                 .has-text-justified {
                     text-align: left !important;
+                }
+
+                 
+                .hero,
+                .section {
+                    overflow-x: hidden !important;
+                }
+
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
                 }
             }
         </style>
@@ -385,7 +440,7 @@
         <section class="section" id="BibTeX">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
-                    <div class="column content">
+                    <div class="column">
                         <h2 class="title is-3 has-text-centered">BibTeX</h2>
                         <pre><code>@inproceedings{frieren2025,
   title={FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness},
