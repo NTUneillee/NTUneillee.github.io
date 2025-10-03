@@ -11,13 +11,17 @@
 
   <!-- plugins -->
   
-  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.css ">
+  <link rel="preload" href="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.css"></noscript>
   
-  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/slick/slick.css ">
+  <link rel="preload" href="https://NTUneillee.github.io/plugins/slick/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://NTUneillee.github.io/plugins/slick/slick.css"></noscript>
   
-  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/themify-icons/themify-icons.css ">
+  <link rel="preload" href="https://NTUneillee.github.io/plugins/themify-icons/themify-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://NTUneillee.github.io/plugins/themify-icons/themify-icons.css"></noscript>
   
-  <link rel="stylesheet" href="https://NTUneillee.github.io/plugins/venobox/venobox.css ">
+  <link rel="preload" href="https://NTUneillee.github.io/plugins/venobox/venobox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://NTUneillee.github.io/plugins/venobox/venobox.css"></noscript>
   
 
   <!-- Main Stylesheet -->
@@ -35,7 +39,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'Your ID');
+    gtag('config', 'Your ID', {'send_page_view': false});
+    window.addEventListener('load', function() {
+      gtag('event', 'page_view');
+    });
   </script>
   
 
@@ -307,7 +314,7 @@
               
               <li class="media mb-4 home-research-item">
                 
-                <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto;">
+                <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto;" loading="lazy">
                 
                 <div class="media-body">
                   <div class="d-flex align-items-center justify-content-between" style="margin-bottom: 0.5rem;">
@@ -365,7 +372,7 @@
               
               <li class="media mb-4 home-project-item">
                 
-                <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto;">
+                <img src="https://NTUneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto;" loading="lazy">
                 
                 <div class="media-body">
                   <div class="d-flex align-items-center justify-content-between" style="margin-bottom: 0.25rem;">
@@ -389,7 +396,7 @@
           
             <p class="text-muted mb-3">Last updated: Dec 2024</p>
             
-            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=8-WHBrayP-2dmMb1hUEosPHOk__04NXeYa8qEFbfIdw&cl=ffffff&w=a" defer></script>
+            <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=8-WHBrayP-2dmMb1hUEosPHOk__04NXeYa8qEFbfIdw&cl=ffffff&w=a" async></script>
           </div>
         </div>
 
@@ -471,28 +478,28 @@
 
 <!-- JS Plugins -->
 
-<script src="https://NTUneillee.github.io/plugins/jQuery/jquery.min.js"></script>
+<script src="https://NTUneillee.github.io/plugins/jQuery/jquery.min.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="https://NTUneillee.github.io/plugins/bootstrap/bootstrap.min.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/slick/slick.min.js"></script>
+<script src="https://NTUneillee.github.io/plugins/slick/slick.min.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/venobox/venobox.min.js"></script>
+<script src="https://NTUneillee.github.io/plugins/venobox/venobox.min.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/search/fuse.min.js"></script>
+<script src="https://NTUneillee.github.io/plugins/search/fuse.min.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/search/mark.js"></script>
+<script src="https://NTUneillee.github.io/plugins/search/mark.js" defer></script>
 
-<script src="https://NTUneillee.github.io/plugins/search/search.js"></script>
+<script src="https://NTUneillee.github.io/plugins/search/search.js" defer></script>
 
 <!-- Main Script -->
 
-<script src="https://NTUneillee.github.io/js/script.min.js"></script>
+<script src="https://NTUneillee.github.io/js/script.min.js" defer></script>
 
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" defer></script>
 <div id="js-cookie-box" class="cookie-box cookie-box-hide">
 	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
 </div>
