@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research on Yuan-Kang Lee</title>
-    <link>http://localhost:1313/research/</link>
+    <link>https://NTUneillee.github.io/research/</link>
     <description>Recent content in Research on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/research/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://NTUneillee.github.io/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</title>
-      <link>http://localhost:1313/research/friereniqa/</link>
+      <link>https://NTUneillee.github.io/research/friereniqa/</link>
       <pubDate>Wed, 01 Oct 2025 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/research/friereniqa/</guid>
+      <guid>https://NTUneillee.github.io/research/friereniqa/</guid>
       <description></description>
     </item>
   </channel>

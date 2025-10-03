@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Search Result on Yuan-Kang Lee</title>
-    <link>http://localhost:1313/search/</link>
+    <link>https://NTUneillee.github.io/search/</link>
     <description>Recent content in Search Result on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/search/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://NTUneillee.github.io/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
