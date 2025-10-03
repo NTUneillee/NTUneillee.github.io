@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Yuan-Kang Lee</title>
-    <link>https://NTUneillee.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Camera Image Quality</title>
-      <link>https://NTUneillee.github.io/tags/camera-image-quality/</link>
+      <link>http://localhost:1313/tags/camera-image-quality/</link>
       <pubDate>Wed, 01 Oct 2025 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/tags/camera-image-quality/</guid>
+      <guid>http://localhost:1313/tags/camera-image-quality/</guid>
       <description></description>
     </item>
     <item>
       <title>Color Science</title>
-      <link>https://NTUneillee.github.io/tags/color-science/</link>
+      <link>http://localhost:1313/tags/color-science/</link>
       <pubDate>Wed, 01 Oct 2025 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/tags/color-science/</guid>
+      <guid>http://localhost:1313/tags/color-science/</guid>
       <description></description>
     </item>
     <item>
       <title>Image Processing</title>
-      <link>https://NTUneillee.github.io/tags/image-processing/</link>
+      <link>http://localhost:1313/tags/image-processing/</link>
       <pubDate>Wed, 01 Oct 2025 00:00:00 +0800</pubDate>
-      <guid>https://NTUneillee.github.io/tags/image-processing/</guid>
+      <guid>http://localhost:1313/tags/image-processing/</guid>
       <description></description>
     </item>
   </channel>
