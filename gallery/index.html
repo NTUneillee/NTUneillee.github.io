@@ -203,30 +203,35 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
     margin-top: 2rem;
   }
 
   @media (min-width: 768px) {
     .gallery-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 3rem;
     }
   }
 
   .gallery-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     aspect-ratio: 3/2;
     background: #f0f0f0;
+    margin-bottom: 1rem;
   }
 
-  .gallery-item img {
+  .gallery-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.35s ease;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -234,39 +239,21 @@
     -webkit-touch-callout: none;
   }
 
-  .gallery-item:hover img {
-    transform: scale(1.04);
-  }
-
-  .gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    padding: 1.5rem 1rem 1rem;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-  }
-
-  .gallery-caption {
-    color: white;
-    margin: 0;
-    font-size: 0.9rem;
+  .gallery-info {
+    padding: 0.5rem 0;
   }
 
   .gallery-title {
+    font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
+    color: inherit;
   }
 
   .gallery-meta {
-    font-size: 0.85rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    line-height: 1.5;
   }
 
   .gallery-section .content {
@@ -277,26 +264,9 @@
     font-size: 1rem !important;
   }
 
-   
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-item img {
-      transition: none;
-    }
-    .gallery-item:hover img {
-      transform: none;
-    }
-    .gallery-overlay {
-      transition: none;
-    }
-  }
-
-   
-  .gallery-item {
-    touch-action: pan-y;
-  }
 </style>
 
-<section class="section gallery-section" onclick="void(0);">
+<section class="section gallery-section">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -311,87 +281,51 @@
 
         <div class="gallery-grid">
           
-          <div class="gallery-item" data-no-lightbox="true">
-            <img src="https://NTUneillee.github.io/images/ItsukushimaShrine.jpg" alt="Itsukushima Shrine, Hiroshima" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
-            <div class="gallery-overlay">
-              <p class="gallery-caption">
-                <span class="gallery-title">Itsukushima Shrine, Hiroshima</span><br>
-                
-                <span class="gallery-meta">FUJIFILM X-T30 II</span><br>
-                
-                
-                <span class="gallery-meta">Tamron 17.0-70.0 mm f/2.8</span><br>
-                
-                
-                <span class="gallery-meta">ISO 160, f/5.0, 1/500s</span>
-                
-                
-                <span class="gallery-meta"> • 2025-05</span>
-                
-              </p>
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="https://NTUneillee.github.io/images/ItsukushimaShrine.jpg" alt="Itsukushima Shrine, Hiroshima" loading="lazy" draggable="false" oncontextmenu="return false;">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-title">Itsukushima Shrine, Hiroshima</div>
+              <div class="gallery-meta">
+                FUJIFILM X-T30 II · Tamron 17.0-70.0 mm f/2.8 · ISO 160, f/5.0, 1/500s · 2025-05
+              </div>
             </div>
           </div>
           
-          <div class="gallery-item" data-no-lightbox="true">
-            <img src="https://NTUneillee.github.io/images/kyotoKamoRiver.jpg" alt="Kamo River, Kyoto" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
-            <div class="gallery-overlay">
-              <p class="gallery-caption">
-                <span class="gallery-title">Kamo River, Kyoto</span><br>
-                
-                <span class="gallery-meta">FUJIFILM X-T30 II</span><br>
-                
-                
-                <span class="gallery-meta">Tamron 17.0-70.0 mm f/2.8</span><br>
-                
-                
-                <span class="gallery-meta">ISO 320, f/5.0, 1/750s</span>
-                
-                
-                <span class="gallery-meta"> • 2025-02</span>
-                
-              </p>
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="https://NTUneillee.github.io/images/kyotoKamoRiver.jpg" alt="Kamo River, Kyoto" loading="lazy" draggable="false" oncontextmenu="return false;">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-title">Kamo River, Kyoto</div>
+              <div class="gallery-meta">
+                FUJIFILM X-T30 II · Tamron 17.0-70.0 mm f/2.8 · ISO 320, f/5.0, 1/750s · 2025-02
+              </div>
             </div>
           </div>
           
-          <div class="gallery-item" data-no-lightbox="true">
-            <img src="https://NTUneillee.github.io/images/sakurajima.jpg" alt="Sakurajima, Kagoshima" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
-            <div class="gallery-overlay">
-              <p class="gallery-caption">
-                <span class="gallery-title">Sakurajima, Kagoshima</span><br>
-                
-                <span class="gallery-meta">FUJIFILM X-T30 II</span><br>
-                
-                
-                <span class="gallery-meta">Tamron 17.0-70.0 mm f/2.8</span><br>
-                
-                
-                <span class="gallery-meta">ISO 320, f/4.0, 1/1700s</span>
-                
-                
-                <span class="gallery-meta"> • 2024-12</span>
-                
-              </p>
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="https://NTUneillee.github.io/images/sakurajima.jpg" alt="Sakurajima, Kagoshima" loading="lazy" draggable="false" oncontextmenu="return false;">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-title">Sakurajima, Kagoshima</div>
+              <div class="gallery-meta">
+                FUJIFILM X-T30 II · Tamron 17.0-70.0 mm f/2.8 · ISO 320, f/4.0, 1/1700s · 2024-12
+              </div>
             </div>
           </div>
           
-          <div class="gallery-item" data-no-lightbox="true">
-            <img src="https://NTUneillee.github.io/images/tokyo_tower.JPG" alt="Tokyo Tower, Tokyo" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
-            <div class="gallery-overlay">
-              <p class="gallery-caption">
-                <span class="gallery-title">Tokyo Tower, Tokyo</span><br>
-                
-                <span class="gallery-meta">FUJIFILM X-T30 II</span><br>
-                
-                
-                <span class="gallery-meta">Tamron 17.0-70.0 mm f/2.8</span><br>
-                
-                
-                <span class="gallery-meta">ISO 160, f/3.6, 5s</span>
-                
-                
-                <span class="gallery-meta"> • 2024-06</span>
-                
-              </p>
+          <div class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="https://NTUneillee.github.io/images/tokyo_tower.JPG" alt="Tokyo Tower, Tokyo" loading="lazy" draggable="false" oncontextmenu="return false;">
+            </div>
+            <div class="gallery-info">
+              <div class="gallery-title">Tokyo Tower, Tokyo</div>
+              <div class="gallery-meta">
+                FUJIFILM X-T30 II · Tamron 17.0-70.0 mm f/2.8 · ISO 160, f/3.6, 5s · 2024-06
+              </div>
             </div>
           </div>
           
