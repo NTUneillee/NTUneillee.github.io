@@ -289,9 +289,14 @@
       transition: none;
     }
   }
+
+   
+  .gallery-item {
+    touch-action: pan-y;
+  }
 </style>
 
-<section class="section gallery-section">
+<section class="section gallery-section" onclick="void(0);">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -306,8 +311,8 @@
 
         <div class="gallery-grid">
           
-          <div class="gallery-item">
-            <img src="https://NTUneillee.github.io/images/ItsukushimaShrine.jpg" alt="Itsukushima Shrine, Hiroshima" loading="lazy" draggable="false" oncontextmenu="return false;">
+          <div class="gallery-item" data-no-lightbox="true">
+            <img src="https://NTUneillee.github.io/images/ItsukushimaShrine.jpg" alt="Itsukushima Shrine, Hiroshima" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
             <div class="gallery-overlay">
               <p class="gallery-caption">
                 <span class="gallery-title">Itsukushima Shrine, Hiroshima</span><br>
@@ -327,8 +332,8 @@
             </div>
           </div>
           
-          <div class="gallery-item">
-            <img src="https://NTUneillee.github.io/images/kyotoKamoRiver.jpg" alt="Kamo River, Kyoto" loading="lazy" draggable="false" oncontextmenu="return false;">
+          <div class="gallery-item" data-no-lightbox="true">
+            <img src="https://NTUneillee.github.io/images/kyotoKamoRiver.jpg" alt="Kamo River, Kyoto" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
             <div class="gallery-overlay">
               <p class="gallery-caption">
                 <span class="gallery-title">Kamo River, Kyoto</span><br>
@@ -348,8 +353,8 @@
             </div>
           </div>
           
-          <div class="gallery-item">
-            <img src="https://NTUneillee.github.io/images/sakurajima.jpg" alt="Sakurajima, Kagoshima" loading="lazy" draggable="false" oncontextmenu="return false;">
+          <div class="gallery-item" data-no-lightbox="true">
+            <img src="https://NTUneillee.github.io/images/sakurajima.jpg" alt="Sakurajima, Kagoshima" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
             <div class="gallery-overlay">
               <p class="gallery-caption">
                 <span class="gallery-title">Sakurajima, Kagoshima</span><br>
@@ -369,8 +374,8 @@
             </div>
           </div>
           
-          <div class="gallery-item">
-            <img src="https://NTUneillee.github.io/images/tokyo_tower.JPG" alt="Tokyo Tower, Tokyo" loading="lazy" draggable="false" oncontextmenu="return false;">
+          <div class="gallery-item" data-no-lightbox="true">
+            <img src="https://NTUneillee.github.io/images/tokyo_tower.JPG" alt="Tokyo Tower, Tokyo" loading="lazy" draggable="false" oncontextmenu="return false;" onclick="event.preventDefault(); event.stopPropagation(); return false;">
             <div class="gallery-overlay">
               <p class="gallery-caption">
                 <span class="gallery-title">Tokyo Tower, Tokyo</span><br>
