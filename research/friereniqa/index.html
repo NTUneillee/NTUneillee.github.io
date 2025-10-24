@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="description" content="FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation, effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity." />
+        <meta name="description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         <meta property="og:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta property="og:description" content="FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation, effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity." />
+        <meta property="og:description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         <meta property="og:url" content="https://NTUneillee.github.io/research/friereniqa/" />
         
         <meta property="og:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
@@ -14,7 +14,7 @@
         <meta property="og:image:height" content="630" />
 
         <meta name="twitter:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta name="twitter:description" content="FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation, effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity." />
+        <meta name="twitter:description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         
         <meta name="twitter:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
         
@@ -37,18 +37,63 @@
                 tex: {
                     inlineMath: [["$", "$"]],
                 },
+                chtml: {
+                    scale: 1.1,
+                    mtextInheritFont: true,
+                },
+                svg: {
+                    fontCache: 'global'
+                }
             };
         </script>
         <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" integrity="sha256-qoRlVrS5NAnXSSSiMfFXwK8C9obG11Iybe4h2+bQYR4=" crossorigin="anonymous"></script>
 
         <style>
+             
+            mjx-container {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            mjx-container svg {
+                shape-rendering: geometricPrecision;
+            }
+
+             
+            .method-image-container,
+            .results-image-container {
+                display: inline-block;
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 1rem;
+                background-color: #f5f5f5;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                margin: 1.5rem 0;
+            }
+
+             
+            .hero.is-light .method-image-container,
+            .hero.is-light .results-image-container {
+                border: 1px solid #e0e0e0;
+                background-color: #ffffff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .method-image-container img,
+            .results-image-container img {
+                border-radius: 8px;
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
             .publication-title {
                 line-height: 1.5 !important;
             }
 
              
             .container.is-max-desktop {
-                max-width: 960px;
+                max-width: 1080px;
             }
 
             .columns.is-centered {
@@ -108,7 +153,8 @@
                 box-sizing: border-box;
                 margin: 0;
                 padding: 1.25rem;
-                background-color: #f5f5f5;
+                background-color: #ffffff;
+                border: 1px solid #e0e0e0;
                 border-radius: 4px;
             }
 
@@ -120,6 +166,40 @@
 
             #BibTeX .column {
                 width: 100%;
+            }
+
+             
+            .content mjx-container[jax="CHTML"][display="false"] {
+                display: inline !important;
+                vertical-align: baseline !important;
+                margin: 0 !important;
+            }
+
+            .content mjx-container {
+                line-height: 0 !important;
+            }
+
+             
+            .content mjx-container[jax="CHTML"][display="true"] {
+                overflow-x: auto;
+                overflow-y: hidden;
+                max-width: 100%;
+                display: block !important;
+            }
+
+             
+            @media screen and (min-width: 769px) {
+                .hero.teaser .subtitle.content {
+                    font-size: 1.125rem !important;
+                    line-height: 1.7 !important;
+                }
+
+                .content,
+                .content p,
+                .content li {
+                    font-size: 1.125rem !important;
+                    line-height: 1.7 !important;
+                }
             }
 
              
@@ -179,13 +259,13 @@
                 }
 
                 .content h3 {
-                    font-size: 1.5rem !important;
+                    font-size: 1.25rem !important;
                     margin-top: 1.5rem !important;
                     margin-bottom: 0.75rem !important;
                 }
 
                 .content h4 {
-                    font-size: 1.25rem !important;
+                    font-size: 1.125rem !important;
                     margin-top: 1.25rem !important;
                     margin-bottom: 0.75rem !important;
                 }
@@ -376,11 +456,11 @@
                     <div class="column">
                         <div class="hero-body">
                             
-                            <img src="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
+                            <img src="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 100%; display: block;" />
                             
-                            <h2 class="subtitle has-text-centered">
-                                FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation, effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity.
-                            </h2>
+                            <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 1.5rem; line-height: 1.7;">
+                                <strong>FRIEREN</strong>, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: <strong>Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor</strong> interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -394,8 +474,36 @@
                     <div class="column">
                         <h2 class="title is-3">Abstract</h2>
                         <div class="content has-text-justified">
-                            <p>FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness) is a novel image quality assessment (IQA) system specifically designed for evaluating detail quality in face images. This lightweight system effectively and accurately assesses face image detail quality when scaled using different interpolation methods, while maintaining low computational complexity.</p>
-<p>Traditional IQA metrics often fail to capture the perceptual quality of face images after resizing operations. FRIEREN addresses this gap by focusing on robust estimation of image naturalness, providing a more accurate evaluation framework for face image processing pipelines.</p>
+                            In real-time video conferencing systems, webcams often apply image resizing methods, such as nearest-neighbor, bilinear, bicubic, and Lanczos interpolation, to highlight facial regions and enhance user experience. However, interpolations introduce significant high-frequency artifacts that distort perceived image quality. Our work discovered that existing state-of-the-art image quality assessments (IQA) greatly overestimate the sharpness in images resized by nearest-neighbor interpolation, failing to extract useful information in the image’s high-frequency components. To address this, we propose FRIEREN (Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness), a novel IQA for detail quality evaluation that integrates measures of image naturalness, including motion noise, spatial noise, and HVS-based sharpness. Designed features are fed to Kolmogorov-Arnold Networks (KANs) for quality prediction. Experimental results show that FRIEREN effectively and accurately evaluates the face image detail quality scaled by different interpolations with low computational complexity,making it suitable for quality-aware vision systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        
+        <section class="section">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h2 class="title is-3 has-text-centered">Problem Formulation</h2>
+                        <div class="content has-text-justified">
+                            <p>It can be observed that the
+face image enlarged by the nearest-neighbor method is heavily
+affected by severe block artifacts. Existing advanced IQAs
+mistakenly interpret noise-related high-frequency components as textures, underscoring a critical limitation in their ability
+to distinguish useful high-frequency information in images. To overcome this drawback, FRIEREN is based on two main observations of the human visual system:</p>
+<ul>
+<li>
+<p>Edge-related high-frequency elements are the most important factors in how humans evaluate image sharpness.</p>
+</li>
+<li>
+<p>For the HVS perception, the ranking of detail quality
+levels in facial images after applying different interpolations is as follows: Lanczos, bicubic, bilinear, and nearest-neighbor method (from the best to the worst).</p>
+</li>
+</ul>
+<p>To the best of our knowledge, our work is the first one that addresses interpolation effects on facial image quality. The detail quality degradation induced by interpolation can be quantified using our proposed motion and spatial noises and HVS-based sharpness calculation effectively.</p>
 
                         </div>
                     </div>
@@ -407,25 +515,55 @@
         
 
         
-        <section class="section">
+        <section class="section hero is-light">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column">
-                        <h2 class="title is-3 has-text-centered">Method</h2>
+                        <h2 class="title is-3 has-text-centered">Method Overview</h2>
                         <div class="content has-text-justified">
-                            <h3 id="system-architecture">System Architecture</h3>
-<p>FRIEREN employs a robust estimation framework that analyzes multiple aspects of image naturalness:</p>
-<ol>
-<li><strong>Feature Extraction</strong>: The system extracts key features from face regions that are sensitive to interpolation artifacts</li>
-<li><strong>Naturalness Estimation</strong>: Uses machine learning models trained on human perception data to estimate image naturalness</li>
-<li><strong>Detail Quality Scoring</strong>: Combines multiple quality indicators to produce a comprehensive detail quality score</li>
-</ol>
-<h3 id="technical-approach">Technical Approach</h3>
-<ul>
-<li><strong>Lightweight Design</strong>: Optimized for real-time processing with minimal computational overhead</li>
-<li><strong>Interpolation Robustness</strong>: Tested across various interpolation methods (nearest neighbor, bilinear, bicubic, Lanczos)</li>
-<li><strong>Perceptual Alignment</strong>: Strongly correlated with human subjective quality assessments</li>
-</ul>
+                            <h3 id="quality-evaluation-using-kans">Quality Evaluation using KANs</h3>
+<p>Predicting image quality requires a regression model that maps features to quality scores to enhance alignment with human visual judgment. We employ Kolmogorov-Arnold Networks (KANs) for the regression in FRIEREN. KANs,
+based on the Kolmogorov-Arnold theorem, differ from MLPs by avoiding linear outputs. It enables KANs to effectively capture non-linear relationships, making them a way better regression model for simulating human perception. We use
+the Adam (Adaptive moment estimation) optimizer with $\beta_1$ = 0.9 and $\beta_2$ = 0.999 to update the model parameters for optimal quality prediction performance. To train the quality prediction model, 64% of the images were randomly selected for training, with 16% used for validation and the remaining 20% for testing. The proposed image features: motion noise, spatial noise, and HVS-based sharpness measure in FRIEREN are introduced in the following sections.</p>
+<h3 id="feature-motion-noise-estimation">Feature: Motion Noise Estimation</h3>
+<p>High-level temporal noise disrupts visual understanding of
+multimedia content. It cannot be completely eliminated due
+to the sensor limitations and environmental conditions. Hence,
+determining the effect of temporal noise is essential to quantify
+the facial details that a camera can reproduce in images. To
+adapt FRIEREN into a no-reference method, motion noise
+is introduced to calculate the temporal noise influence using
+only one single image frame. Frame modification is applied
+for motion noise estimation. Denoted $I$ as the original image
+frame. By discarding the last row and column of pixels from
+$I$, the new image frame $I’$ with slightly different content is
+created. Then, image frames $I$ and $I’$ are both enlarged to the
+same dimensions, simulating motion variations typically seen
+in a video sequence. Let $D$ be denoted as the absolute pixel-wise difference between the two frames. The motion noise of the image frame, $\sigma_m$, is calculated as:</p>
+<p>$$ \sigma_m = \sqrt{ \frac{1}{M \cdot N} \sum_{i=1}^{M} \sum_{j=1}^{N} (D_{ij} - \mu_D)^2 } $$</p>
+<p>where $\mu_D$ represents the average of the frame difference and $M$ and $N$ are the height and width of $I$, respectively.</p>
+<h3 id="feature-spatial-noise-estimation">Feature: Spatial Noise Estimation</h3>
+
+  <div class="has-text-centered" style="margin: 1.5rem 0;">
+      <div class="method-image-container">
+          <img src="https://NTUneillee.github.io/academic-assets/images/ProposedNoiseEst.webp" alt="**Spatial noise estimation framework in FRIEREN**: By excluding the edge-related components in high frequency layers, the DWT-based spatial noise estimation enables FRIEREN to quantify the level of noise in an image effectively and accurately." />
+          
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Spatial noise estimation framework in FRIEREN</strong>: By excluding the edge-related components in high frequency layers, the DWT-based spatial noise estimation enables FRIEREN to quantify the level of noise in an image effectively and accurately.</p>
+          
+      </div>
+  </div>
+
+<p>The 2D Discrete Wavelet Transform (DWT) decomposes an image into LL, LH, HL, and HH sub-bands, capturing varying detail levels. High-frequency information, including noise and edges, is contained in the LH, HL, and HH sub-bands. Effective noise estimation depends on the ability to distinguish noise from these high-frequency components. By removing edges in the LH, HL, and HH layers, the noisy components can be identified. Denote $LL_i$, $LH_i$, $HL_i$, and $HH_i$ as frequency layers obtained at decomposition level $i$ in the 2D DWT process. Let $EM$ be the edge detection result applied to the $LL_i$ layer, and $IEM$ be the inverted edge mask. The noise energy map $NEM$ is expressed as</p>
+<p>$$IEM = 1 - EM$$
+$$NEM = \sqrt{a \cdot LH_i^2 + b \cdot HL_i^2 + c \cdot HH_i^2} \cdot IEM$$</p>
+<p>where $a$, $b$, and $c$ are weighting parameters for regulating the influence of $LH_i$, $HL_i$, and $HH_i$ coefficients, respectively.</p>
+<p>Noise dominates the edges when an image suffers from severe noise, causing underestimation in the noise influence evaluation. Our proposed approach addresses this problem by recognizing that varying noise energy distributions require different quantiles to identify the most representative energy data for estimation. In real-world scenarios such as video conferencing, image enlargement is commonly applied when a face appears in a frame to make the subject more visually prominent. Since faces before the enlargement are relatively small in the scene, they inherently contain a constrained amount of visual details. Higher decomposition levels can reveal subtle features that might be missed at lower levels, improving the noise estimation performance within small face images. We use the decomposition level of 3 in our method. The edge mask $EM$ is obtained by applying the Sobel operator on the $LL_3$ layer.</p>
+<h3 id="feature-hvs-based-sharpness-measure">Feature: HVS-based Sharpness Measure</h3>
+<p>Sharpness determines how well-defined the textures and
+edges of objects appear in images. Inspired by the previous
+task of spatial noise estimation, our proposed image sharpness measure integrates the spatial-domain and transform-domain methods. We employ edge detection on the image’s low-frequency sub-band to effectively capture the edge-related high-frequency components that contain the critical sharpness information. Three levels of DWT edge-related high-frequency sub-bands are then incorpo-
+rated into the sharpness calculation. The method, which combines spatial and transform domain information, minimizes the impact of noise as much as possible while emphasizing the importance of edge features when calculating image clarity.</p>
+
                         </div>
                         
                     </div>
@@ -435,13 +573,30 @@
         
 
         
-        <section class="section hero is-light">
+        <section class="section">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column">
                         <h2 class="title is-3 has-text-centered">Results</h2>
                         <div class="content has-text-justified">
-                            <h3 id="performance-evaluation">Performance Evaluation</h3>
+                            
+<div class="has-text-centered" style="margin: 1.5rem 0;">
+    <div class="method-image-container">
+        <img src="https://NTUneillee.github.io/academic-assets/images/TestScene.webp" alt="**Mannequin dataset**: Three realistic mannequins are used in part of our experiments. To prevent any impact from post-processing on facial details, all images are captured in RAW format using a Sony IMX383-AAQK image sensor." />
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Mannequin dataset</strong>: Three realistic mannequins are used in part of our experiments. To prevent any impact from post-processing on facial details, all images are captured in RAW format using a Sony IMX383-AAQK image sensor.</p>
+        
+    </div>
+</div>
+
+<p>We utilize two face image datasets in our experiments: our
+collected mannequin face images and the MS1MV2 dataset. Our dataset validates quality degradation due to interpolation, while MS1MV2 demonstrates FRIEREN’s effectiveness compared to other IQA methods. In our dataset, gamma
+correction is applied to generate additional face images, which
+are enlarged using nearest-neighbor, bilinear, bicubic, and
+Lanczos interpolation at scales from 2× to 5× (step 0.5). For
+MS1MV2, 10,000 randomly selected images are upscaled to
+2× using all four methods.</p>
+<h3 id="performance-evaluation">Performance Evaluation</h3>
 <p>FRIEREN demonstrates superior performance compared to existing IQA methods:</p>
 <ul>
 <li><strong>Accuracy</strong>: High correlation with human subjective scores (PLCC &gt; 0.90)</li>
@@ -454,6 +609,7 @@
 <li>Low computational complexity makes it suitable for real-time applications</li>
 <li>Robust across various scaling factors and interpolation methods</li>
 </ol>
+
                         </div>
                         
                     </div>
@@ -463,33 +619,20 @@
         
 
         
-        <section class="section" id="BibTeX">
+        <section class="section hero is-light" id="BibTeX">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column">
                         <h2 class="title is-3 has-text-centered">BibTeX</h2>
                         <pre><code>@inproceedings{frieren2025,
-  title={FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness},
-  author={Yuan-Kang Lee and Kuan-Lin Chen and Jian-Jiun Ding},
-  booktitle={IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)},
-  year={2025}
+  title = {FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness},
+  author = {Yuan-Kang Lee and Kuan-Lin Chen and Jian-Jiun Ding},
+  booktitle = {IEEE Asia Pacific Conference on Circuits and Systems (APCCAS)},
+  year = {2025},
+  pages = {to appear},
+  url = {https://ntuneillee.github.io/research/friereniqa/}
 }
 </code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-
-        
-        <section class="section hero is-light">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                    <div class="column">
-                        <h2 class="title is-3">Acknowledgements</h2>
-                        <div class="content">
-                            This research was conducted at the Graduate Institute of Communication Engineering, National Taiwan University. We thank all contributors for their valuable feedback and support.
-                        </div>
                     </div>
                 </div>
             </div>
