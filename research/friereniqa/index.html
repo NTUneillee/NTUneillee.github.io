@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta name="description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         <meta property="og:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta property="og:description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta property="og:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         <meta property="og:url" content="https://NTUneillee.github.io/research/friereniqa/" />
         
         <meta property="og:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
@@ -14,7 +14,7 @@
         <meta property="og:image:height" content="630" />
 
         <meta name="twitter:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta name="twitter:description" content="**FRIEREN**, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: **Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor** interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta name="twitter:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
         
         <meta name="twitter:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
         
@@ -68,7 +68,7 @@
                 padding: 1rem;
                 background-color: #f5f5f5;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                margin: 1.5rem 0;
+                margin: 1.0rem 0;
             }
 
              
@@ -202,6 +202,29 @@
                 .content {
                     overflow-x: auto;
                     -webkit-overflow-scrolling: touch;
+                }
+
+                .content table {
+                    display: block;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                    white-space: nowrap;
+                }
+
+                .content table thead,
+                .content table tbody {
+                    display: table;
+                    width: 100%;
+                }
+
+                .content table tr {
+                    display: table-row;
+                }
+
+                .content table th,
+                .content table td {
+                    display: table-cell;
+                    white-space: nowrap;
                 }
             }
 
@@ -473,7 +496,7 @@
                             <img src="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 100%; display: block;" />
                             
                             <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 1.5rem; line-height: 1.7;">
-                                <strong>FRIEREN</strong>, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: <strong>Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor</strong> interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations.
+                                FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations.
                             </div>
                         </div>
                     </div>
@@ -593,30 +616,35 @@ rated into the sharpness calculation. The method, which combines spatial and tra
                     <div class="column">
                         <h2 class="title is-3 has-text-centered">Results</h2>
                         <div class="content has-text-justified">
-                            
+                            <p>We utilize two face image datasets in our experiments: our
+collected mannequin face images and the MS1MV2 dataset. Our dataset validates quality degradation due to interpolation, while MS1MV2 demonstrates FRIEREN’s effectiveness compared to other IQA methods.</p>
+
 <div class="has-text-centered" style="margin: 1.5rem 0;">
     <div class="method-image-container">
-        <img src="https://NTUneillee.github.io/academic-assets/images/TestScene.webp" alt="**Mannequin dataset**: Three realistic mannequins are used in part of our experiments. To prevent any impact from post-processing on facial details, all images are captured in RAW format using a Sony IMX383-AAQK image sensor." />
+        <img src="https://NTUneillee.github.io/academic-assets/images/TestScene1.webp" alt="**Mannequin dataset**: Three realistic mannequins are used in part of our experiments. To prevent any impact from post-processing on facial details, all images are captured in RAW format using a Sony IMX383-AAQK image sensor." />
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Mannequin dataset</strong>: Three realistic mannequins are used in part of our experiments. To prevent any impact from post-processing on facial details, all images are captured in RAW format using a Sony IMX383-AAQK image sensor.</p>
         
     </div>
 </div>
 
-<p>We utilize two face image datasets in our experiments: our
-collected mannequin face images and the MS1MV2 dataset. Our dataset validates quality degradation due to interpolation, while MS1MV2 demonstrates FRIEREN’s effectiveness compared to other IQA methods. In our dataset, gamma
-correction is applied to generate additional face images, which
-are enlarged using nearest-neighbor, bilinear, bicubic, and
-Lanczos interpolation at scales from 2× to 5× (step 0.5). For
-MS1MV2, 10,000 randomly selected images are upscaled to
-2× using all four methods.</p>
+
+<div class="has-text-centered" style="margin: 1.5rem 0;">
+    <div class="method-image-container">
+        <img src="https://NTUneillee.github.io/academic-assets/images/TestScene2.webp" alt="**Mannequin dataset**: In our dataset, gamma correction is applied to generate additional face images, which are enlarged using nearest-neighbor, bilinear, bicubic, and Lanczos interpolation at scales from 2× to 5× (step 0.5). For MS1MV2, 10,000 randomly selected images are upscaled to 2× using all four methods. " />
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Mannequin dataset</strong>: In our dataset, gamma correction is applied to generate additional face images, which are enlarged using nearest-neighbor, bilinear, bicubic, and Lanczos interpolation at scales from 2× to 5× (step 0.5). For MS1MV2, 10,000 randomly selected images are upscaled to 2× using all four methods.</p>
+        
+    </div>
+</div>
+
 <p>Currently, there are no mean opinion scores (MOS) evaluated by the human subjective judgment for face images enlarged using different interpolations. Since adopting full-reference image quality assessments (FRIQAs) to generate credible pseudo-MOS has proven highly effective, we adopt PSNR as our target metric. Suppose that an original face image is scaled up by a factor of $β$
 using each of the four interpolations. To produce the PSNR
 value, we first resize the original face image to $1/β$ % of its
 size. Next, we enlarge its size by a factor of $β$, restoring
 it to the original dimensions. Finally, the PSNR value is
 calculated using the original image and the interpolated image.</p>
-<p>To target MOS values for each interpolation, we scale the MOSs in proportion to the relative PSNR values. That is, the relationship between the MOS values mirrors the ratio of their corresponding PSNRs. We use CLIB-FIQA [13], the most advanced face image quality assessment method, to evaluate face images enlarged using Lanczos interpolation. These scores serve as the reference MOS values. After that, all the corresponding target MOS values of each image both in our dataset and in the MS1MV2 dataset are calculated for further regression.</p>
+<p>To target MOS values for each interpolation, we scale the MOSs in proportion to the relative PSNR values. That is, the relationship between the MOS values mirrors the ratio of their corresponding PSNRs. We use CLIB-FIQA, the most advanced face image quality assessment method, to evaluate face images enlarged using Lanczos interpolation. These scores serve as the reference MOS values. After that, all the corresponding target MOS values of each image both in our dataset and in the MS1MV2 dataset are calculated for further regression.</p>
 <h3 id="noise-analysis">Noise Analysis</h3>
 <p>We hypothesize that the negative influence caused by the nearest-neighbor interpolation can be calculated by the estimations of motion and spatial noise. Temporal noise is calculated using all previous frames in our dataset. For the MS1MV2 dataset, frame modifications are applied for motion noise estimation. The mean estimations of σm and σs for each enlarged face
 image in our dataset and the MS1MV2 dataset are listed in Table I and Table II, respectively. The highest results are shown in bold. The results support our theory regarding the side effects of the nearest interpolation on face image quality.</p>
