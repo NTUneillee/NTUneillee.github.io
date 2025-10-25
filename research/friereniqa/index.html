@@ -188,6 +188,24 @@
             }
 
              
+            .content table {
+                border-collapse: collapse;
+                width: auto;
+                min-width: 100%;
+                display: table;
+                border-top: 2px solid #666666;
+                border-bottom: 2px solid #666666;
+            }
+
+             
+            @media screen and (max-width: 768px) {
+                .content {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+            }
+
+             
             @media screen and (min-width: 769px) {
                 .hero.teaser .subtitle.content {
                     font-size: 1.125rem !important;
@@ -393,7 +411,7 @@
                                 
                                 <span class="author-block">
                                     
-                                    <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee*</a>
+                                    <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
                                     
                                     
                                     ,
@@ -401,7 +419,7 @@
                                 
                                 <span class="author-block">
                                     
-                                    <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen*</a>
+                                    <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
                                     
                                     
                                     ,
@@ -427,10 +445,6 @@
                                 
                             </div>
 
-                            
-                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.25rem;">
-                                <span class="eql-cntrb"><small><sup>*</sup>Indicates Equal Contribution</small></span>
-                            </div>
                             
 
                             <div class="column has-text-centered" style="margin-top: 0; padding-top: 0.5rem;">
@@ -596,19 +610,191 @@ are enlarged using nearest-neighbor, bilinear, bicubic, and
 Lanczos interpolation at scales from 2× to 5× (step 0.5). For
 MS1MV2, 10,000 randomly selected images are upscaled to
 2× using all four methods.</p>
-<h3 id="performance-evaluation">Performance Evaluation</h3>
-<p>FRIEREN demonstrates superior performance compared to existing IQA methods:</p>
-<ul>
-<li><strong>Accuracy</strong>: High correlation with human subjective scores (PLCC &gt; 0.90)</li>
-<li><strong>Efficiency</strong>: Processing time reduced by 60% compared to state-of-the-art methods</li>
-<li><strong>Robustness</strong>: Consistent performance across different interpolation algorithms</li>
-</ul>
-<h3 id="key-findings">Key Findings</h3>
-<ol>
-<li>The system accurately identifies quality degradation in resized face images</li>
-<li>Low computational complexity makes it suitable for real-time applications</li>
-<li>Robust across various scaling factors and interpolation methods</li>
-</ol>
+<p>Currently, there are no mean opinion scores (MOS) evaluated by the human subjective judgment for face images enlarged using different interpolations. Since adopting full-reference image quality assessments (FRIQAs) to generate credible pseudo-MOS has proven highly effective, we adopt PSNR as our target metric. Suppose that an original face image is scaled up by a factor of $β$
+using each of the four interpolations. To produce the PSNR
+value, we first resize the original face image to $1/β$ % of its
+size. Next, we enlarge its size by a factor of $β$, restoring
+it to the original dimensions. Finally, the PSNR value is
+calculated using the original image and the interpolated image.</p>
+<p>To target MOS values for each interpolation, we scale the MOSs in proportion to the relative PSNR values. That is, the relationship between the MOS values mirrors the ratio of their corresponding PSNRs. We use CLIB-FIQA [13], the most advanced face image quality assessment method, to evaluate face images enlarged using Lanczos interpolation. These scores serve as the reference MOS values. After that, all the corresponding target MOS values of each image both in our dataset and in the MS1MV2 dataset are calculated for further regression.</p>
+<h3 id="noise-analysis">Noise Analysis</h3>
+<p>We hypothesize that the negative influence caused by the nearest-neighbor interpolation can be calculated by the estimations of motion and spatial noise. Temporal noise is calculated using all previous frames in our dataset. For the MS1MV2 dataset, frame modifications are applied for motion noise estimation. The mean estimations of σm and σs for each enlarged face
+image in our dataset and the MS1MV2 dataset are listed in Table I and Table II, respectively. The highest results are shown in bold. The results support our theory regarding the side effects of the nearest interpolation on face image quality.</p>
+<p><strong>TABLE I:</strong> Average Temporal And Spatial Noise Estimations For Each Type Of Enlarged Image In Our Mannequin Dataset</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>Nearest</strong></th>
+          <th style="text-align: center"><strong>Bilinear</strong></th>
+          <th style="text-align: center"><strong>Bicubic</strong></th>
+          <th style="text-align: center"><strong>Lanczos</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Temporal Noise</td>
+          <td style="text-align: center"><strong>0.6178</strong></td>
+          <td style="text-align: center">0.4880</td>
+          <td style="text-align: center">0.5150</td>
+          <td style="text-align: center">0.5141</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Spatial Noise</td>
+          <td style="text-align: center"><strong>18.4668</strong></td>
+          <td style="text-align: center">14.7780</td>
+          <td style="text-align: center">17.6856</td>
+          <td style="text-align: center">17.7233</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>TABLE II:</strong> Average Motion And Spatial Noise Estimations For Each Type Of Enlarged Image In The MS1MV2 Dataset</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>Nearest</strong></th>
+          <th style="text-align: center"><strong>Bilinear</strong></th>
+          <th style="text-align: center"><strong>Bicubic</strong></th>
+          <th style="text-align: center"><strong>Lanczos</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Motion Noise</td>
+          <td style="text-align: center"><strong>4.3453</strong></td>
+          <td style="text-align: center">3.2759</td>
+          <td style="text-align: center">3.5767</td>
+          <td style="text-align: center">3.5807</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Spatial Noise</td>
+          <td style="text-align: center"><strong>25.8520</strong></td>
+          <td style="text-align: center">24.1216</td>
+          <td style="text-align: center">25.1551</td>
+          <td style="text-align: center">25.0978</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="quality-score-prediction">Quality Score Prediction</h3>
+<p>Table III and Table IV demonstrate the average PSNR values for each enlarged face image in our dataset and the MS1MV2 dataset, respectively. The highest values are shown in bold. The results also support the subjective human perception of the detail quality rankings in facial images after applying different interpolations: Lanczos, bicubic, bilinear, and nearest-neighbor method (from the best to the worst).</p>
+<p><strong>TABLE III:</strong> Average PSNR Results For Each Type Of Enlarged Face Images In Our Mannequin Dataset</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>Nearest</strong></th>
+          <th style="text-align: center"><strong>Bilinear</strong></th>
+          <th style="text-align: center"><strong>Bicubic</strong></th>
+          <th style="text-align: center"><strong>Lanczos</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Mean PSNR</td>
+          <td style="text-align: center">28.6731</td>
+          <td style="text-align: center">29.1761</td>
+          <td style="text-align: center">29.3089</td>
+          <td style="text-align: center"><strong>29.3140</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>TABLE IV:</strong> Average PSNR Results For Each Type Of Enarged Face Images In The MS1MV2 Dataset</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>Nearest</strong></th>
+          <th style="text-align: center"><strong>Bilinear</strong></th>
+          <th style="text-align: center"><strong>Bicubic</strong></th>
+          <th style="text-align: center"><strong>Lanczos</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Mean PSNR</td>
+          <td style="text-align: center">29.9370</td>
+          <td style="text-align: center">31.7721</td>
+          <td style="text-align: center">33.5590</td>
+          <td style="text-align: center"><strong>33.5791</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>In addition to the three proposed image features, CLIB-FIQA scores on the original unenlarged images are also used in the regression. Quality prediction performance is assessed using Pearson linear correlation coefficient (PLCC) and Spearman rank order correlation coefficient (SROCC). To
+ensure FRIEREN’s robustness, train-validation-test operations are repeated randomly 10 times, with median PLCC and SROCC values reported as final results. The prediction in the MS1MV2 dataset, assessed with FRIEREN and other existing state-of-the-art no-reference IQA methods such as MGVG
+(2017), CDV (2024), and CLIB-FIQA (2024), are illustrated in Table
+V. The average predicted quality scores for all methods are illustrated in Table VI. The highest values are shown in bold. It is worth noting that CLIB-FIQA is specifically designed for the quality evaluation of face images and trained on the MS1MV2 dataset. FRIEREN’s quality prediction best reflects
+the trend of target MOS values across enlarged face images.</p>
+<p><strong>TABLE V:</strong> Performance Comparison of Quality Prediction on Testing Face Images in the MS1MV2 Dataset</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>Nearest</strong></th>
+          <th style="text-align: center"><strong>Bilinear</strong></th>
+          <th style="text-align: center"><strong>Bicubic</strong></th>
+          <th style="text-align: center"><strong>Lanczos</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">PLCC</td>
+          <td style="text-align: center">-0.6411</td>
+          <td style="text-align: center">-0.6860</td>
+          <td style="text-align: center">0.7816</td>
+          <td style="text-align: center"><strong>0.8954</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">SROCC</td>
+          <td style="text-align: center">-0.6905</td>
+          <td style="text-align: center">-0.6434</td>
+          <td style="text-align: center">0.7327</td>
+          <td style="text-align: center"><strong>0.8723</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>TABLE VI:</strong> Average Quality Scores of Different IQA Methods in the MS1MV2 Dataset. HVS-preferred Quality Ranking: Lanczos &gt; Bicubic &gt; Bilinear &gt; Nearest-neighbor.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center"><strong>MGVG</strong></th>
+          <th style="text-align: center"><strong>CDV</strong></th>
+          <th style="text-align: center"><strong>CLIB-FIQA</strong></th>
+          <th style="text-align: center"><strong>FRIEREN</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Nearest</td>
+          <td style="text-align: center"><strong>56.2486</strong></td>
+          <td style="text-align: center"><strong>32.4979</strong></td>
+          <td style="text-align: center"><strong>0.7511</strong></td>
+          <td style="text-align: center">0.6176</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Bilinear</td>
+          <td style="text-align: center">28.9318</td>
+          <td style="text-align: center">16.5068</td>
+          <td style="text-align: center">0.7361</td>
+          <td style="text-align: center">0.6615</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Bicubic</td>
+          <td style="text-align: center">33.4192</td>
+          <td style="text-align: center">19.1522</td>
+          <td style="text-align: center">0.7443</td>
+          <td style="text-align: center">0.6621</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Lanczos</td>
+          <td style="text-align: center">31.9301</td>
+          <td style="text-align: center">18.2963</td>
+          <td style="text-align: center">0.7441</td>
+          <td style="text-align: center"><strong>0.6629</strong></td>
+      </tr>
+  </tbody>
+</table>
 
                         </div>
                         
