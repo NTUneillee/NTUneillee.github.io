@@ -6,8 +6,15 @@
     <description>Recent content in Research on Yuan-Kang Lee</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://NTUneillee.github.io/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</title>
+      <link>https://NTUneillee.github.io/research/rl-awb/</link>
+      <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      <guid>https://NTUneillee.github.io/research/rl-awb/</guid>
+      <description></description>
+    </item>
     <item>
       <title>FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</title>
       <link>https://NTUneillee.github.io/research/friereniqa/</link>

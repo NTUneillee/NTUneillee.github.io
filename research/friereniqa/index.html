@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta name="description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity." />
         <meta property="og:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta property="og:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta property="og:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity." />
         <meta property="og:url" content="https://NTUneillee.github.io/research/friereniqa/" />
         
         <meta property="og:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
@@ -14,7 +14,7 @@
         <meta property="og:image:height" content="630" />
 
         <meta name="twitter:title" content="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" />
-        <meta name="twitter:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations." />
+        <meta name="twitter:description" content="FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity." />
         
         <meta name="twitter:image" content="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" />
         
@@ -92,6 +92,19 @@
             }
 
              
+            .publication-authors .author-block sup {
+                margin-left: 0.1em !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+            }
+
+             
+            .publication-authors .author-block a + sup,
+            .publication-authors .author-block span + sup {
+                margin-left: 0.1em !important;
+            }
+
+             
             .container.is-max-desktop {
                 max-width: 1080px;
             }
@@ -144,7 +157,7 @@
             }
 
              
-            #BibTeX pre {
+            section#BibTeX pre {
                 overflow-x: auto;
                 white-space: pre;
                 word-wrap: normal;
@@ -153,9 +166,18 @@
                 box-sizing: border-box;
                 margin: 0;
                 padding: 1.25rem;
-                background-color: #ffffff;
                 border: 1px solid #e0e0e0;
                 border-radius: 4px;
+            }
+
+             
+            section.hero.is-light#BibTeX pre {
+                background-color: #ffffff;
+            }
+
+             
+            section#BibTeX:not(.is-light) pre {
+                background-color: #f5f5f5;
             }
 
             #BibTeX code {
@@ -413,28 +435,13 @@
                             <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
                                 
                                 
-                                <span class="author-block">
-                                    
-                                    <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
-                                    
-                                    
-                                    ,
+                                <span class="author-block"><strong><a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a></strong><sup>1</sup>,
                                 </span>
                                 
-                                <span class="author-block">
-                                    
-                                    <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
-                                    
-                                    
-                                    ,
+                                <span class="author-block"><a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a><sup>1</sup>,
                                 </span>
                                 
-                                <span class="author-block">
-                                    
-                                    <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
-                                    
-                                    
-                                    
+                                <span class="author-block"><a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a><sup>1</sup>
                                 </span>
                                 
                                 
@@ -443,8 +450,7 @@
                             <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
                                 
                                 
-                                <span class="author-block">Graduate Institute of Communication Engineering, National Taiwan University</span>
-                                
+                                <span class="author-block"><sup>1</sup>Graduate Institute of Communication Engineering, National Taiwan University</span>
                                 
                                 
                             </div>
@@ -476,9 +482,11 @@
                             
                             <img src="https://NTUneillee.github.io/images/post/FRIERENlogo.webp" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 100%; display: block;" />
                             
+                            
                             <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 1.5rem; line-height: 1.7;">
                                 FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity. From human perception, the ranking of detail qualities should be: Lanczos &gt; bicubic &gt; bilinear &gt; nearest-neighbor interpolation. It is recommended to zoom in on-screen to observe the different visual effects of different interpolations.
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -501,13 +509,13 @@
         
 
         
-        <section class="section">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column">
-                        <h2 class="title is-3 has-text-centered">Problem Formulation</h2>
-                        <div class="content has-text-justified">
-                            <p>It can be observed that the
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <h2 class="title is-3 has-text-centered">Contributions</h2>
+                            <div class="content has-text-justified">
+                                <p>It can be observed that the
 face image enlarged by the nearest-neighbor method is heavily
 affected by severe block artifacts. Existing advanced IQAs
 mistakenly interpret noise-related high-frequency components as textures, underscoring a critical limitation in their ability
@@ -523,23 +531,21 @@ levels in facial images after applying different interpolations is as follows: L
 </ul>
 <p>To the best of our knowledge, our work is the first one that addresses interpolation effects on facial image quality. The detail quality degradation induced by interpolation can be quantified using our proposed motion and spatial noises and HVS-based sharpness calculation effectively.</p>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        
+            </section>
+            
 
-        
-
-        
-        <section class="section hero is-light">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column">
-                        <h2 class="title is-3 has-text-centered">Method Overview</h2>
-                        <div class="content has-text-justified">
-                            <h3 id="quality-evaluation-using-kans">Quality Evaluation using KANs</h3>
+            
+            <section class="section hero is-light">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <h2 class="title is-3 has-text-centered">Method Overview</h2>
+                            <div class="content has-text-justified">
+                                <h3 id="quality-evaluation-using-kans">Quality Evaluation using KANs</h3>
 <p>Predicting image quality requires a regression model that maps features to quality scores to enhance alignment with human visual judgment. We employ Kolmogorov-Arnold Networks (KANs) for the regression in FRIEREN. KANs,
 based on the Kolmogorov-Arnold theorem, differ from MLPs by avoiding linear outputs. It enables KANs to effectively capture non-linear relationships, making them a way better regression model for simulating human perception. We use
 the Adam (Adaptive moment estimation) optimizer with $\beta_1$ = 0.9 and $\beta_2$ = 0.999 to update the model parameters for optimal quality prediction performance. To train the quality prediction model, 64% of the images were randomly selected for training, with 16% used for validation and the remaining 20% for testing. The proposed image features: motion noise, spatial noise, and HVS-based sharpness measure in FRIEREN are introduced in the following sections.</p>
@@ -582,22 +588,22 @@ edges of objects appear in images. Inspired by the previous
 task of spatial noise estimation, our proposed image sharpness measure integrates the spatial-domain and transform-domain methods. We employ edge detection on the image’s low-frequency sub-band to effectively capture the edge-related high-frequency components that contain the critical sharpness information. Three levels of DWT edge-related high-frequency sub-bands are then incorpo-
 rated into the sharpness calculation. The method, which combines spatial and transform domain information, minimizes the impact of noise as much as possible while emphasizing the importance of edge features when calculating image clarity.</p>
 
+                            </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-        </section>
-        
+            </section>
+            
 
-        
-        <section class="section">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column">
-                        <h2 class="title is-3 has-text-centered">Results</h2>
-                        <div class="content has-text-justified">
-                            <p>We utilize two face image datasets in our experiments: our
+            
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <h2 class="title is-3 has-text-centered">Results</h2>
+                            <div class="content has-text-justified">
+                                <p>We utilize two face image datasets in our experiments: our
 collected mannequin face images and the MS1MV2 dataset. Our dataset validates quality degradation due to interpolation, while MS1MV2 demonstrates FRIEREN’s effectiveness compared to other IQA methods.</p>
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
@@ -805,16 +811,13 @@ the trend of target MOS values across enlarged face images.</p>
   </tbody>
 </table>
 
+                            </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-        </section>
-        
-
-        
-        <section class="section hero is-light" id="BibTeX">
+            </section>
+            <section class="section hero is-light" id="BibTeX">
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column">
