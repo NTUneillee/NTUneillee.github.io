@@ -8,7 +8,7 @@
         <meta property="og:description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
         <meta property="og:url" content="https://NTUneillee.github.io/research/rl-awb/" />
         
-        <meta property="og:image" content="https://NTUneillee.github.io/academic-assets/images/RLAWBlogo.webp" />
+        <meta property="og:image" content="https://NTUneillee.github.io/academic-assets/images/RLAWB_logo.webp" />
         
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -16,7 +16,7 @@
         <meta name="twitter:title" content="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" />
         <meta name="twitter:description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
         
-        <meta name="twitter:image" content="https://NTUneillee.github.io/academic-assets/images/RLAWBlogo.webp" />
+        <meta name="twitter:image" content="https://NTUneillee.github.io/academic-assets/images/RLAWB_logo.webp" />
         
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="keywords" content="Camera Image Quality, Image Processing, Color Science, Deep Learning" />
@@ -439,10 +439,10 @@
                             <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
                                 
                                 
-                                <span class="author-block"><strong><a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a></strong><sup>1*</sup>,
+                                <span class="author-block"><strong><a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a></strong><sup>1,3*</sup>,
                                 </span>
                                 
-                                <span class="author-block"><a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a><sup>2*</sup>,
+                                <span class="author-block"><a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a><sup>2,3*</sup>,
                                 </span>
                                 
                                 <span class="author-block"><a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a><sup>1</sup>,
@@ -459,7 +459,9 @@
                                 
                                 <span class="author-block"><sup>1</sup>MediaTek</span>, 
                                 
-                                <span class="author-block"><sup>2</sup>National Yang Ming Chiao Tung University</span>
+                                <span class="author-block"><sup>2</sup>National Taiwan University</span>, 
+                                
+                                <span class="author-block"><sup>3</sup>National Yang Ming Chiao Tung University</span>
                                 
                                 
                             </div>
@@ -507,7 +509,7 @@
                     <div class="column">
                         <div class="hero-body">
                             
-                            <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBlogo.webp" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 100%; display: block;" />
+                            <img src="https://NTUneillee.github.io/academic-assets/images/RLAWB_logo.webp" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 100%; display: block;" />
                             
                             
                             <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 1.5rem; line-height: 1.7;">
@@ -619,9 +621,9 @@
                                     
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
-        <img src="https://NTUneillee.github.io/academic-assets/images/VisualizationResults.webp" alt="**Qualitative comparison of cross-dataset performance**. Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        <img src="https://NTUneillee.github.io/academic-assets/images/IndomainResults1.webp" alt="**In-dataset evaluation results on the NCC and LEVI datasets.** Angular error in degrees." />
         
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance</strong>. Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>In-dataset evaluation results on the NCC and LEVI datasets.</strong> Angular error in degrees.</p>
         
     </div>
 </div>
@@ -629,9 +631,29 @@
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
-        <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBsteps.webp" alt="**Qualitative comparison of cross-dataset performance**. Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        <img src="https://NTUneillee.github.io/academic-assets/images/CrossResults1.webp" alt="**Cross-dataset evaluation results between the NCC and LEVI datasets.** Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets" />
         
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance</strong>. Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Cross-dataset evaluation results between the NCC and LEVI datasets.</strong> Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        <img src="https://NTUneillee.github.io/academic-assets/images/VisualizationResults.webp" alt="**Qualitative comparison of cross-dataset performance.** Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBsteps.webp" alt="**Qualitative comparison of cross-dataset performance.** Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
         
     </div>
 </div>
@@ -646,11 +668,11 @@
                 <div class="columns is-centered">
                     <div class="column">
                         <h2 class="title is-3 has-text-centered">BibTeX</h2>
-                        <pre><code>@inproceedings{rlawb2025,
+                        <pre><code>@inproceedings{rlawb2026,
   title = {RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes},
   author = {Yuan-Kang Lee and Kuan-Lin Chen and Chia-Che Chang and Yu-Lun Liu},
   booktitle = {under review},
-  year = {2025},
+  year = {2026},
   pages = {to appear}
 }
 </code></pre>
