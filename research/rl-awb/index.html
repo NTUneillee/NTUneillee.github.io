@@ -538,7 +538,9 @@
                         <div class="content has-text-justified">
                             <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBteaser.webp" alt="Figure" />
+        
         
     </div>
 </div>
@@ -577,7 +579,9 @@
                                     
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBflowchart1.webp" alt="**Overview of the proposed RL-AWB framework.** (A) Given an input image, the proposed nighttime color constancy algorithm SGP-LRD estimates the scene illuminant conditioned on two hyper-parameters (gray-pixel sampling percentage N and Minkowski order p). (B) A SAC agent selects parameter updates based on image statistics and current AWB settings. (C) The policy outputs one action per parameter; actions are sampled, squashed by tanh to [−1, 1], and rescaled to valid ranges. (D) The rescaled actions update the two hyper-parameters and are applied to SGP-LRD to produce the illuminant estimate. Repeat until the termination criterion is met." />
+        
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Overview of the proposed RL-AWB framework.</strong> (A) Given an input image, the proposed nighttime color constancy algorithm SGP-LRD estimates the scene illuminant conditioned on two hyper-parameters (gray-pixel sampling percentage N and Minkowski order p). (B) A SAC agent selects parameter updates based on image statistics and current AWB settings. (C) The policy outputs one action per parameter; actions are sampled, squashed by tanh to [−1, 1], and rescaled to valid ranges. (D) The rescaled actions update the two hyper-parameters and are applied to SGP-LRD to produce the illuminant estimate. Repeat until the termination criterion is met.</p>
         
@@ -597,7 +601,9 @@
                                 <div class="content has-text-justified">
                                     <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/LEVI%20full.webp" alt="**Sample images from the proposed LEVI dataset with their corresponding Color Checker mask annotations.** The dataset captures diverse nighttime scenes with complex mixed lighting, low illumination, and high ISO conditions." />
+        
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Sample images from the proposed LEVI dataset with their corresponding Color Checker mask annotations.</strong> The dataset captures diverse nighttime scenes with complex mixed lighting, low illumination, and high ISO conditions.</p>
         
@@ -607,7 +613,9 @@
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/LEVINCCcomparison.webp" alt="**Illuminant distribution and normalized mean luminance histogram over all the collected nighttime images in the LEVI and NCC datasets.** LEVI complements NCC by covering broader lighting conditions and containing more low- luminance nighttime images, offering a new benchmark for low-light color constancy evaluation." />
+        
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Illuminant distribution and normalized mean luminance histogram over all the collected nighttime images in the LEVI and NCC datasets.</strong> LEVI complements NCC by covering broader lighting conditions and containing more low- luminance nighttime images, offering a new benchmark for low-light color constancy evaluation.</p>
         
@@ -628,19 +636,11 @@
                                     
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
-        <img src="https://NTUneillee.github.io/academic-assets/images/IndomainResults1.webp" alt="**In-dataset evaluation results on the NCC and LEVI datasets.** Angular error in degrees." />
         
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>In-dataset evaluation results on the NCC and LEVI datasets.</strong> Angular error in degrees.</p>
+        <img src="https://NTUneillee.github.io/academic-assets/images/IndomainResults1.webp" alt="**In-dataset evaluation results on the NCC and LEVI datasets.** Angular error in degrees. Note that images shown are gamma-corrected for visualization." />
         
-    </div>
-</div>
-
-
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        <img src="https://NTUneillee.github.io/academic-assets/images/CrossResults1.webp" alt="**Cross-dataset evaluation results between the NCC and LEVI datasets.** Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets" />
         
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Cross-dataset evaluation results between the NCC and LEVI datasets.</strong> Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>In-dataset evaluation results on the NCC and LEVI datasets.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
         
     </div>
 </div>
@@ -648,7 +648,33 @@
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
+        <img src="https://NTUneillee.github.io/academic-assets/images/CrossResults1.webp" alt="**Cross-dataset evaluation results between the NCC and LEVI datasets.** Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets." />
+        
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Cross-dataset evaluation results between the NCC and LEVI datasets.</strong> Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets.</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
+        <img src="https://NTUneillee.github.io/academic-assets/images/GehlerResults1.webp" alt="**Evaluation results on the Gehler-Shi dataset.** Angular error in degrees. $C^4$, $C^5$, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler–Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9\% in the median angular error and 9.8\% in the best-25\% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images." />
+        
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Evaluation results on the Gehler-Shi dataset.</strong> Angular error in degrees. $C^4$, $C^5$, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler–Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/VisualizationResults.webp" alt="**Qualitative comparison of cross-dataset performance.** Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
         
@@ -658,7 +684,9 @@
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
+        
         <img src="https://NTUneillee.github.io/academic-assets/images/RLAWBsteps.webp" alt="**Qualitative comparison of cross-dataset performance.** Angular error in degrees. Note that images shown are gamma-corrected for visualization. " />
+        
         
         <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison of cross-dataset performance.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
         
