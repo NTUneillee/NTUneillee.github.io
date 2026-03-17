@@ -4,37 +4,44 @@
     <title>Tags on Yuan-Kang Lee</title>
     <link>https://NTUneillee.github.io/tags/</link>
     <description>Recent content in Tags on Yuan-Kang Lee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Camera Image Quality</title>
       <link>https://NTUneillee.github.io/tags/camera-image-quality/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      
       <guid>https://NTUneillee.github.io/tags/camera-image-quality/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Color Science</title>
       <link>https://NTUneillee.github.io/tags/color-science/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      
       <guid>https://NTUneillee.github.io/tags/color-science/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Deep Learning</title>
       <link>https://NTUneillee.github.io/tags/deep-learning/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      
       <guid>https://NTUneillee.github.io/tags/deep-learning/</guid>
       <description></description>
     </item>
+    
     <item>
       <title>Image Processing</title>
       <link>https://NTUneillee.github.io/tags/image-processing/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      
       <guid>https://NTUneillee.github.io/tags/image-processing/</guid>
       <description></description>
     </item>
+    
   </channel>
 </rss>

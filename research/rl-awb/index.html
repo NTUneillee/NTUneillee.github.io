@@ -571,7 +571,7 @@
     </div>
 </div>
 
-<p>Nighttime color constancy remains a challenging problem in computational photography due to low-light noise and complex illumination conditions that limit cross-sensor generalization. We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. Our method begins with a statistical algorithm tailored for nighttime scenes, integrating salient gray pixel detection with novel illumination estimation. Building on this foundation, we develop the first deep reinforcement learning approach for color constancy that leverages the statistical algorithm as its core, mimicking professional AWB tuning experts by dynamically optimizing parameters for each image without knowing its ground-truth illumination. To facilitate cross-sensor evaluation, we introduce the first multi-sensor nighttime color constancy dataset. Experiment results demonstrate that our method achieve superior generalization capability across low-light and well-illuminated images.</p>
+<p>Nighttime color constancy remains a challenging problem in computational photography due to low-light noise and complex illumination conditions that limit cross-sensor generalization. We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. Our method begins with a statistical algorithm tailored for nighttime scenes, integrating salient gray pixel detection with novel illumination estimation. Building on this foundation, we develop the first deep reinforcement learning approach for color constancy that leverages the statistical algorithm as its core, mimicking professional AWB tuning experts by dynamically optimizing parameters for each image without knowing its ground-truth illumination. To facilitate cross-sensor evaluation, we introduce the first multi-sensor nighttime color constancy dataset. Experiment results demonstrate that our method achieve superior generalization capability across low-light and well-illuminated images.
                         </div>
                     </div>
                 </div>
@@ -625,7 +625,8 @@
                             <div class="column">
                                 <h2 class="title is-3 has-text-centered">LEVI Dataset</h2>
                                 <div class="content has-text-justified">
-                                    <div class="has-text-centered" style="margin: 1.0rem 0;">
+                                    
+<div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
         
         <img src="https://NTUneillee.github.io/academic-assets/images/LEVI%20full.webp" alt="**Sample images from the proposed LEVI dataset with their corresponding Color Checker mask annotations.** The dataset captures diverse nighttime scenes with complex mixed lighting, low illumination, and high ISO conditions." />
@@ -649,6 +650,7 @@
 </div>
 
 <p>Prior to our work, the NCC dataset was the only public nighttime color constancy benchmark, containing 513 images from a single camera. To enable cross-sensor evaluation, we introduce the Low-light Evening Vision Illumination (LEVI) dataset—the first multi-camera nighttime bench- mark comprising 700 linear RAW images from two systems: iPhone 16 Pro (images #1–370, 4320×2160, 12-bit) and Sony ILCE-6400 (images #371–700, 6000×4000, 14-bit), with ISO ranging from 500 to 16,000. Each scene contains a Macbeth Color Checker with manual annotations. Groundtruth illuminants are computed as median RGB values of non-saturated achromatic patches. All images are black-level corrected and converted to linear RGB.</p>
+
                                 </div>
                             </div>
                         </div>

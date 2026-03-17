@@ -4,16 +4,17 @@
     <title>Categories on Yuan-Kang Lee</title>
     <link>https://NTUneillee.github.io/categories/</link>
     <description>Recent content in Categories on Yuan-Kang Lee</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://NTUneillee.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Dec 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://NTUneillee.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Camera Image Quality</title>
       <link>https://NTUneillee.github.io/categories/camera-image-quality/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>
+      
       <guid>https://NTUneillee.github.io/categories/camera-image-quality/</guid>
       <description></description>
     </item>
+    
   </channel>
 </rss>

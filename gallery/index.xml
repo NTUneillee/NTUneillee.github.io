@@ -4,8 +4,7 @@
     <title>Gallery on Yuan-Kang Lee</title>
     <link>https://NTUneillee.github.io/gallery/</link>
     <description>Recent content in Gallery on Yuan-Kang Lee</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    <atom:link href="https://NTUneillee.github.io/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language><atom:link href="https://NTUneillee.github.io/gallery/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
