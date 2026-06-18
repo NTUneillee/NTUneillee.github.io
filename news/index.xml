@@ -2,89 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>News on Yuan-Kang Lee</title>
-    <link>https://NTUneillee.github.io/news/</link>
+    <link>https://ntuneillee.github.io/news/</link>
     <description>Recent content in News on Yuan-Kang Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 15 Aug 2025 10:00:00 +0000</lastBuildDate><atom:link href="https://NTUneillee.github.io/news/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://ntuneillee.github.io/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paper Acceptance</title>
-      <link>https://NTUneillee.github.io/news/20250815/</link>
+      <link>https://ntuneillee.github.io/news/20260618/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://ntuneillee.github.io/news/20260618/</guid>
+      <description>Our paper &lt;a href=&#34;https://ntuneillee.github.io/research/rl-awb/&#34;&gt;RL-AWB&lt;/a&gt; is accepted to &lt;strong&gt;ECCV 2026&lt;/strong&gt;! See you in Malmö!</description>
+    </item>
+    
+    <item>
+      <title>Paper Acceptance</title>
+      <link>https://ntuneillee.github.io/news/20250815/</link>
       <pubDate>Fri, 15 Aug 2025 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20250815/</guid>
+      <guid>https://ntuneillee.github.io/news/20250815/</guid>
       <description>One research paper is accpeted to &lt;strong&gt;IEEE APCCAS 2025&lt;/strong&gt;!</description>
     </item>
     
     <item>
       <title>Career Update</title>
-      <link>https://NTUneillee.github.io/news/20250315/</link>
+      <link>https://ntuneillee.github.io/news/20250315/</link>
       <pubDate>Sat, 15 Mar 2025 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20250315/</guid>
+      <guid>https://ntuneillee.github.io/news/20250315/</guid>
       <description>Start a new position as an Image Quality Algorithm Engineer at MediaTek Inc.</description>
     </item>
     
     <item>
       <title>Conference Award</title>
-      <link>https://NTUneillee.github.io/news/20241101/</link>
+      <link>https://ntuneillee.github.io/news/20241101/</link>
       <pubDate>Fri, 01 Nov 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20241101/</guid>
+      <guid>https://ntuneillee.github.io/news/20241101/</guid>
       <description>Our presentation is selected as the best in Advanced Image Processing Session at &lt;strong&gt;IEEE GCCE 2024&lt;/strong&gt;!</description>
     </item>
     
     <item>
       <title>Paper Acceptance</title>
-      <link>https://NTUneillee.github.io/news/20240729/</link>
+      <link>https://ntuneillee.github.io/news/20240729/</link>
       <pubDate>Mon, 29 Jul 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20240729/</guid>
+      <guid>https://ntuneillee.github.io/news/20240729/</guid>
       <description>One research paper is accpeted to &lt;strong&gt;IEEE GCCE 2024&lt;/strong&gt;!</description>
     </item>
     
     <item>
       <title>Conference Award</title>
-      <link>https://NTUneillee.github.io/news/20240720/</link>
+      <link>https://ntuneillee.github.io/news/20240720/</link>
       <pubDate>Sat, 20 Jul 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20240720/</guid>
+      <guid>https://ntuneillee.github.io/news/20240720/</guid>
       <description>Our presentation is selected as the best in Image Analysis Session at &lt;strong&gt;IEEE ICISPC 2024&lt;/strong&gt;!</description>
     </item>
     
     <item>
       <title>Career Update</title>
-      <link>https://NTUneillee.github.io/news/20240701/</link>
+      <link>https://ntuneillee.github.io/news/20240701/</link>
       <pubDate>Mon, 01 Jul 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20240701/</guid>
+      <guid>https://ntuneillee.github.io/news/20240701/</guid>
       <description>Start a new position as an Camera Imaging Engineer Intern at Logitech.</description>
     </item>
     
     <item>
       <title>Paper Acceptance</title>
-      <link>https://NTUneillee.github.io/news/20240329/</link>
+      <link>https://ntuneillee.github.io/news/20240329/</link>
       <pubDate>Fri, 29 Mar 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20240329/</guid>
+      <guid>https://ntuneillee.github.io/news/20240329/</guid>
       <description>One research paper is accpeted to &lt;strong&gt;IEEE ICISPC 2024&lt;/strong&gt;!</description>
     </item>
     
     <item>
       <title>Paper Acceptance</title>
-      <link>https://NTUneillee.github.io/news/20240301/</link>
+      <link>https://ntuneillee.github.io/news/20240301/</link>
       <pubDate>Fri, 01 Mar 2024 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20240301/</guid>
+      <guid>https://ntuneillee.github.io/news/20240301/</guid>
       <description>Three research papers are accpeted to &lt;strong&gt;ICGSP 2024&lt;/strong&gt;!&amp;quot;</description>
     </item>
     
     <item>
       <title>Career Update</title>
-      <link>https://NTUneillee.github.io/news/20230415/</link>
+      <link>https://ntuneillee.github.io/news/20230415/</link>
       <pubDate>Sat, 15 Apr 2023 10:00:00 +0000</pubDate>
       
-      <guid>https://NTUneillee.github.io/news/20230415/</guid>
+      <guid>https://ntuneillee.github.io/news/20230415/</guid>
       <description>Start a new position as an Image Processing Engineer Intern at Robert Bosch GmbH.</description>
     </item>
     
