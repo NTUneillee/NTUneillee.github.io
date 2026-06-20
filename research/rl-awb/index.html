@@ -444,6 +444,108 @@
                     height: auto !important;
                 }
             }
+
+             
+            :root {
+                --rt-best:   #fddede;
+                --rt-second: #ffdfbf;
+                --rt-third:  #fef0c6;
+                --rt-border: #000;        
+            }
+            .results-table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                margin: 1.2rem 0;
+                text-align: center;        
+            }
+            .results-table-wrapper .table-caption {
+                font-size: 0.85rem;
+                color: #555;
+                text-align: center;
+                margin: 0 0 0.5rem;
+            }
+            .results-table-wrapper .table-caption strong {
+                color: #222;
+            }
+            .results-table-wrapper .rank-legend {
+                text-align: center;
+                font-size: 0.8rem;
+                color: #666;
+                margin: 0.2rem 0 0.6rem;
+            }
+            .results-table-wrapper .rank-legend span {
+                padding: 1px 6px;
+                border-radius: 3px;
+                margin: 0 2px;
+            }
+            .results-table-wrapper .rank-legend .best   { background: var(--rt-best); }
+            .results-table-wrapper .rank-legend .second { background: var(--rt-second); }
+            .results-table-wrapper .rank-legend .third  { background: var(--rt-third); }
+            .results-table {
+                border-collapse: collapse;
+                display: inline-table;        
+                margin: 0 auto;
+                font-size: 0.85rem;
+                max-width: 100%;
+                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            }
+            .results-table th,
+            .results-table td,
+            .content .results-table th,
+            .content .results-table td {
+                padding: 7px 10px;
+                border-bottom: 1px solid #000;
+                text-align: center;
+                vertical-align: middle !important;    
+                white-space: nowrap;
+                color: #000;
+            }
+             
+            .results-table td:first-child {
+                text-align: left;
+                padding-left: 14px;
+            }
+            .results-table th {
+                background: #e3edf8;              
+                font-weight: 600;
+                border-top: 2px solid #000;
+                font-size: 0.82rem;
+                color: #000;
+            }
+            .results-table thead tr:first-child th {
+                border-bottom: 1px solid #000;
+            }
+             
+            .results-table tbody td,
+            .content .results-table tbody td {
+                border-bottom: 1px solid #ccc;
+            }
+             
+            .results-table tbody tr:last-child td,
+            .content .results-table tbody tr:last-child td {
+                border-bottom: 2px solid #000;
+            }
+             
+            .results-table th.method-col,
+            .results-table tbody td:first-child {
+                border-right: 1px solid #000;
+            }
+             
+            .results-table tbody tr.separator-top td,
+            .content .results-table tbody tr.separator-top td {
+                border-top: 1px solid #888;
+            }
+            .results-table .best   { background: var(--rt-best); }
+            .results-table .second { background: var(--rt-second); }
+            .results-table .third  { background: var(--rt-third); }
+             
+            .results-table .ours-row td {
+                font-weight: 700;
+                color: #000;
+            }
+            .results-table .group-divider {
+                border-left: 1px solid #000;
+            }
         </style>
     </head>
 
@@ -666,42 +768,151 @@
                             <div class="column">
                                 <h2 class="title is-3 has-text-centered">Results</h2>
                                 <div class="content has-text-justified">
-                                    
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/IndomainResults1.webp" alt="**In-dataset evaluation results on the NCC and LEVI datasets.** Angular error in degrees. Note that images shown are gamma-corrected for visualization." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>In-dataset evaluation results on the NCC and LEVI datasets.</strong> Angular error in degrees. Note that images shown are gamma-corrected for visualization.</p>
-        
-    </div>
+                                    <div class="results-table-wrapper">
+  <p class="table-caption"><strong>Evaluation of the statistical-based methods on nighttime NCC and LEVI datasets.</strong> Angular error in degrees.</p>
+  <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th rowspan="2" class="method-col">Method</th>
+        <th colspan="5">NCC</th>
+        <th colspan="5" class="group-divider">LEVI</th>
+      </tr>
+      <tr>
+        <th>Med.</th><th>Mean</th><th>Tri.</th><th>B-25</th><th>W-25</th>
+        <th class="group-divider">Med.</th><th>Mean</th><th>Tri.</th><th>B-25</th><th>W-25</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GE-1st</td>
+        <td>4.14</td><td>5.17</td><td>4.35</td><td>1.25</td><td>10.87</td>
+        <td class="group-divider">3.94</td><td>4.31</td><td>3.97</td><td>1.82</td><td>7.45</td>
+      </tr>
+      <tr>
+        <td>GE-2nd</td>
+        <td>3.58</td><td>4.64</td><td>3.78</td><td>1.11</td><td>9.93</td>
+        <td class="group-divider">4.17</td><td>4.49</td><td>4.19</td><td>1.80</td><td>7.76</td>
+      </tr>
+      <tr>
+        <td>MSGP</td>
+        <td class="third">2.48</td><td class="third">3.52</td><td class="third">2.70</td><td class="third">0.80</td><td>8.02</td>
+        <td class="third group-divider">3.12</td><td class="second">3.34</td><td class="second">3.14</td><td class="third">1.54</td><td class="second">5.52</td>
+      </tr>
+      <tr>
+        <td>GI</td>
+        <td>3.13</td><td>4.52</td><td>3.40</td><td>0.91</td><td>10.60</td>
+        <td class="second group-divider">3.10</td><td class="third">3.42</td><td class="third">3.15</td><td class="second">1.49</td><td class="third">5.91</td>
+      </tr>
+      <tr>
+        <td>BCC</td>
+        <td>3.06</td><td>3.81</td><td>3.23</td><td>1.05</td><td class="second">7.78</td>
+        <td class="group-divider">4.23</td><td>4.53</td><td>4.28</td><td>2.52</td><td>7.06</td>
+      </tr>
+      <tr>
+        <td>RGP</td>
+        <td class="second">2.22</td><td class="second">3.33</td><td class="second">2.44</td><td class="best">0.68</td><td class="third">7.81</td>
+        <td class="group-divider">3.21</td><td>3.56</td><td>3.29</td><td>1.63</td><td>6.12</td>
+      </tr>
+      <tr class="ours-row">
+        <td>SGP-LRD (Ours)</td>
+        <td class="best">2.12</td><td class="best">3.11</td><td class="best">2.29</td><td class="best">0.68</td><td class="best">7.22</td>
+        <td class="best group-divider">3.08</td><td class="best">3.25</td><td class="best">3.07</td><td class="best">1.40</td><td class="best">5.46</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/CrossResults1.webp" alt="**Cross-dataset evaluation results between the NCC and LEVI datasets.** Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Cross-dataset evaluation results between the NCC and LEVI datasets.</strong> Angular error in degrees. Note that $C^5$ (5) and $C^5$ (full) are both trained using the official implementation. $C^5$ (5) denotes the few-shot setting with only five training images per dataset, whereas $C^5$ (full) follows the original 3-fold protocol using all available training images in the datasets.</p>
-        
-    </div>
+<div class="results-table-wrapper">
+  <p class="table-caption"><strong>Cross-dataset evaluation of the learning-based methods between the nighttime NCC and LEVI datasets.</strong> All learning-based baselines are implemented using three-fold cross-validation protocols and trained on the complete dataset.</p>
+  <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th class="method-col">Train &rarr; Test</th>
+        <th colspan="5">NCC &rarr; LEVI</th>
+        <th colspan="5" class="group-divider">LEVI &rarr; NCC</th>
+      </tr>
+      <tr>
+        <th class="method-col">Method</th>
+        <th>Med.</th><th>Mean</th><th>Tri.</th><th>B-25</th><th>W-25</th>
+        <th class="group-divider">Med.</th><th>Mean</th><th>Tri.</th><th>B-25</th><th>W-25</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>FC<sup>4</sup></td>
+        <td>11.8</td><td>12.3</td><td>11.9</td><td>6.36</td><td>19.2</td>
+        <td class="group-divider">13.2</td><td>14.4</td><td>13.8</td><td>6.17</td><td>24.1</td>
+      </tr>
+      <tr>
+        <td>FFCC</td>
+        <td class="third">4.44</td><td class="third">7.12</td><td class="third">5.17</td><td class="third">1.96</td><td class="third">16.7</td>
+        <td class="group-divider">7.54</td><td>8.51</td><td>7.60</td><td>4.36</td><td>14.8</td>
+      </tr>
+      <tr>
+        <td>C<sup>4</sup></td>
+        <td class="second">3.09</td><td class="second">3.47</td><td class="second">3.18</td><td class="best">1.18</td><td class="second">6.37</td>
+        <td class="third group-divider">5.85</td><td class="third">6.73</td><td class="third">6.04</td><td>2.86</td><td class="third">12.2</td>
+      </tr>
+      <tr>
+        <td>C<sup>5</sup></td>
+        <td>9.12</td><td>11.7</td><td>9.85</td><td>3.76</td><td>23.4</td>
+        <td class="second group-divider">4.47</td><td class="second">5.46</td><td class="second">4.68</td><td class="second">1.70</td><td class="second">10.9</td>
+      </tr>
+      <tr>
+        <td>PCC</td>
+        <td>11.1</td><td>12.5</td><td>11.7</td><td>7.36</td><td>19.7</td>
+        <td class="group-divider">8.96</td><td>10.4</td><td>9.35</td><td>6.24</td><td>16.7</td>
+      </tr>
+      <tr>
+        <td>GCC</td>
+        <td>28.1</td><td>43.0</td><td>40.5</td><td>12.2</td><td>90.0</td>
+        <td class="group-divider">9.77</td><td>41.1</td><td>28.1</td><td class="third">2.26</td><td>90.0</td>
+      </tr>
+      <tr>
+        <td>ePCC</td>
+        <td>9.64</td><td>10.2</td><td>9.72</td><td>7.04</td><td>14.6</td>
+        <td class="group-divider">7.89</td><td>8.93</td><td>8.17</td><td>5.46</td><td>14.0</td>
+      </tr>
+      <tr class="ours-row">
+        <td>RL-AWB (Ours)</td>
+        <td class="best">3.03</td><td class="best">3.24</td><td class="best">3.04</td><td class="second">1.45</td><td class="best">5.36</td>
+        <td class="best group-divider">1.99</td><td class="best">3.12</td><td class="best">2.25</td><td class="best">0.67</td><td class="best">7.39</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/GehlerResults1.webp" alt="**Evaluation results on the Gehler-Shi dataset.** Angular error in degrees. $C^4$, $C^5$, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler–Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9\% in the median angular error and 9.8\% in the best-25\% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Evaluation results on the Gehler-Shi dataset.</strong> Angular error in degrees. $C^4$, $C^5$, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler–Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
-        
-    </div>
+<div class="results-table-wrapper">
+  <p class="table-caption"><strong>Evaluation results on Gehler-Shi dataset trained on NCC dataset.</strong> FC<sup>4</sup>, C<sup>4</sup>, C<sup>5</sup>, PCC, GCC, ePCC, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler&ndash;Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
+  <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th class="method-col">Method</th>
+        <th>Med.</th><th>Mean</th><th>Tri.</th><th>B-25</th><th>W-25</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>FC<sup>4</sup></td><td>13.8</td><td>15.8</td><td>14.6</td><td>6.38</td><td>18.8</td></tr>
+      <tr><td>C<sup>4</sup></td><td>5.62</td><td>6.52</td><td>5.84</td><td>2.43</td><td>12.0</td></tr>
+      <tr>
+        <td>C<sup>5</sup></td>
+        <td class="third">3.34</td><td class="third">3.97</td><td class="third">3.43</td><td class="third">1.32</td><td class="best">7.80</td>
+      </tr>
+      <tr><td>PCC</td><td>4.97</td><td>8.50</td><td>6.07</td><td>1.64</td><td>20.9</td></tr>
+      <tr><td>GCC</td><td>8.44</td><td>20.2</td><td>9.68</td><td>3.06</td><td>58.9</td></tr>
+      <tr><td>ePCC</td><td>3.93</td><td>5.16</td><td>4.17</td><td>2.00</td><td>10.5</td></tr>
+      <tr class="ours-row separator-top">
+        <td>SGP-LRD (Ours)</td>
+        <td class="second">2.38</td><td class="second">3.64</td><td class="second">2.64</td><td class="second">0.51</td><td class="third">8.89</td>
+      </tr>
+      <tr class="ours-row">
+        <td>RL-AWB (Ours)</td>
+        <td class="best">2.24</td><td class="best">3.50</td><td class="best">2.51</td><td class="best">0.46</td><td class="second">8.67</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">

@@ -444,6 +444,108 @@
                     height: auto !important;
                 }
             }
+
+             
+            :root {
+                --rt-best:   #fddede;
+                --rt-second: #ffdfbf;
+                --rt-third:  #fef0c6;
+                --rt-border: #000;        
+            }
+            .results-table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                margin: 1.2rem 0;
+                text-align: center;        
+            }
+            .results-table-wrapper .table-caption {
+                font-size: 0.85rem;
+                color: #555;
+                text-align: center;
+                margin: 0 0 0.5rem;
+            }
+            .results-table-wrapper .table-caption strong {
+                color: #222;
+            }
+            .results-table-wrapper .rank-legend {
+                text-align: center;
+                font-size: 0.8rem;
+                color: #666;
+                margin: 0.2rem 0 0.6rem;
+            }
+            .results-table-wrapper .rank-legend span {
+                padding: 1px 6px;
+                border-radius: 3px;
+                margin: 0 2px;
+            }
+            .results-table-wrapper .rank-legend .best   { background: var(--rt-best); }
+            .results-table-wrapper .rank-legend .second { background: var(--rt-second); }
+            .results-table-wrapper .rank-legend .third  { background: var(--rt-third); }
+            .results-table {
+                border-collapse: collapse;
+                display: inline-table;        
+                margin: 0 auto;
+                font-size: 0.85rem;
+                max-width: 100%;
+                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            }
+            .results-table th,
+            .results-table td,
+            .content .results-table th,
+            .content .results-table td {
+                padding: 7px 10px;
+                border-bottom: 1px solid #000;
+                text-align: center;
+                vertical-align: middle !important;    
+                white-space: nowrap;
+                color: #000;
+            }
+             
+            .results-table td:first-child {
+                text-align: left;
+                padding-left: 14px;
+            }
+            .results-table th {
+                background: #e3edf8;              
+                font-weight: 600;
+                border-top: 2px solid #000;
+                font-size: 0.82rem;
+                color: #000;
+            }
+            .results-table thead tr:first-child th {
+                border-bottom: 1px solid #000;
+            }
+             
+            .results-table tbody td,
+            .content .results-table tbody td {
+                border-bottom: 1px solid #ccc;
+            }
+             
+            .results-table tbody tr:last-child td,
+            .content .results-table tbody tr:last-child td {
+                border-bottom: 2px solid #000;
+            }
+             
+            .results-table th.method-col,
+            .results-table tbody td:first-child {
+                border-right: 1px solid #000;
+            }
+             
+            .results-table tbody tr.separator-top td,
+            .content .results-table tbody tr.separator-top td {
+                border-top: 1px solid #888;
+            }
+            .results-table .best   { background: var(--rt-best); }
+            .results-table .second { background: var(--rt-second); }
+            .results-table .third  { background: var(--rt-third); }
+             
+            .results-table .ours-row td {
+                font-weight: 700;
+                color: #000;
+            }
+            .results-table .group-divider {
+                border-left: 1px solid #000;
+            }
         </style>
     </head>
 
