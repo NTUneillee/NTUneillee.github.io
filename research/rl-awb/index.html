@@ -454,9 +454,15 @@
             }
             .results-table-wrapper {
                 width: 100%;
-                overflow-x: auto;
                 margin: 1.2rem 0;
                 text-align: center;        
+            }
+             
+            .results-table-wrapper .table-scroll {
+                width: 100%;
+                overflow-x: auto;
+                text-align: center;
+                -webkit-overflow-scrolling: touch;
             }
             .results-table-wrapper .table-caption {
                 font-size: 0.85rem;
@@ -769,9 +775,10 @@
                                 <h2 class="title is-3 has-text-centered">Results</h2>
                                 <div class="content has-text-justified">
                                     <div class="results-table-wrapper">
-  <p class="table-caption"><strong>Evaluation of the statistical-based methods on nighttime NCC and LEVI datasets.</strong> Angular error in degrees.</p>
+  <p class="table-caption"><strong>Evaluation of the statistical-based methods on both NCC and LEVI datasets.</strong> Angular error in degrees.</p>
   <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
-  <table class="results-table">
+  <div class="table-scroll">
+    <table class="results-table">
     <thead>
       <tr>
         <th rowspan="2" class="method-col">Method</th>
@@ -821,11 +828,13 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 <div class="results-table-wrapper">
-  <p class="table-caption"><strong>Cross-dataset evaluation of the learning-based methods between the nighttime NCC and LEVI datasets.</strong> All learning-based baselines are implemented using three-fold cross-validation protocols and trained on the complete dataset.</p>
+  <p class="table-caption"><strong>Cross-dataset evaluation of the learning-based methods between NCC and LEVI datasets.</strong> All learning-based baselines are implemented using three-fold cross-validation protocols and trained on the complete dataset.</p>
   <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
-  <table class="results-table">
+  <div class="table-scroll">
+    <table class="results-table">
     <thead>
       <tr>
         <th class="method-col">Train &rarr; Test</th>
@@ -881,11 +890,13 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 <div class="results-table-wrapper">
-  <p class="table-caption"><strong>Evaluation results on Gehler-Shi dataset trained on NCC dataset.</strong> FC<sup>4</sup>, C<sup>4</sup>, C<sup>5</sup>, PCC, GCC, ePCC, and the proposed RL-AWB are trained on the NCC dataset and evaluated on the Gehler&ndash;Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
+  <p class="table-caption"><strong>Evaluation results on Gehler-Shi dataset trained on NCC dataset.</strong> FC<sup>4</sup>, C<sup>4</sup>, C<sup>5</sup>, PCC, GCC, ePCC and the proposed RL-AWB are trained on NCC dataset and evaluated on Gehler&ndash;Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
   <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
-  <table class="results-table">
+  <div class="table-scroll">
+    <table class="results-table">
     <thead>
       <tr>
         <th class="method-col">Method</th>
@@ -912,6 +923,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 
 <div class="has-text-centered" style="margin: 1.0rem 0;">
