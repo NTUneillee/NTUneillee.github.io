@@ -230,93 +230,9 @@
 <!-- /navigation -->
 
 <style>
-  @media (max-width: 767px) {
-    .home-research-item, .home-project-item {
-      flex-direction: column !important;
-    }
-    .home-research-item img, .home-project-item img {
-      margin-right: 0 !important;
-      margin-bottom: 1rem;
-      width: 100% !important;
-      max-width: 100%;
-    }
-    .research-links a {
-      margin-bottom: 0.75rem !important;
-    }
-     
-    .home-research-item .research-links + p {
-      margin-top: 0.1rem !important;
-    }
-  }
-
+   
   .news-item {
     transition: all 0.3s ease-in-out;
-  }
-
-  .conference-name {
-    color: #000000 !important;
-  }
-
-  body.dark-mode .conference-name {
-    color: #b0b0b0 !important;
-  }
-
-  .research-authors {
-    color: #5b8fc4 !important;
-  }
-
-  .research-authors a {
-    color: #5b8fc4 !important;
-    text-decoration: none;
-  }
-
-  .research-authors a:hover {
-    text-decoration: underline;
-  }
-
-  body.dark-mode .research-authors {
-    color: #7ba5d1 !important;
-  }
-
-  body.dark-mode .research-authors a {
-    color: #7ba5d1 !important;
-  }
-
-  .research-links {
-    margin-top: 0.5rem;
-  }
-
-  .research-links a {
-    display: inline-block;
-    margin-right: 0.35rem;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-    color: #5b8fc4 !important;
-    text-decoration: none;
-    border: 1px solid #5b8fc4;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-
-  .research-links a:hover {
-    background-color: #5b8fc4;
-    color: white !important;
-  }
-
-  body.dark-mode .research-links a {
-    color: #b0b0b0 !important;
-    border-color: #b0b0b0;
-  }
-
-  body.dark-mode .research-links a:hover {
-    background-color: #b0b0b0;
-    color: #000000 !important;
-  }
-
-  .research-links i {
-    margin-right: 0.25rem;
-    font-size: 0.85rem;
   }
 
   .news-summary-text {
@@ -613,95 +529,180 @@
           <div class="col-12">
             <h2 style="font-size: 1.75rem; margin-bottom: 0;">Research</h2>
             <hr style="border-top: 1px solid #dee2e6; margin-top: 0.5rem; margin-bottom: 1rem;">
+            <style>
+   
+  @media (max-width: 767px) {
+    .research-item {
+      flex-direction: column !important;
+    }
+    .research-item img {
+      margin-right: 0 !important;
+      margin-bottom: 1rem;
+      width: 100% !important;
+      max-width: 100%;
+    }
+    .research-links a {
+      margin-bottom: 0.75rem !important;
+    }
+     
+    .research-item .research-links + p {
+      margin-top: 0.1rem !important;
+    }
+  }
+
+  .conference-name {
+    color: #000000 !important;
+  }
+
+  .research-authors {
+    color: #5b8fc4 !important;
+  }
+  .research-authors a {
+    color: #5b8fc4 !important;
+    text-decoration: none;
+  }
+  .research-authors a:hover {
+    text-decoration: underline;
+  }
+
+  .research-links {
+    margin-top: 0.5rem;
+  }
+  .research-links a {
+    display: inline-block;
+    margin-right: 0.35rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: #5b8fc4 !important;
+    text-decoration: none;
+    border: 1px solid #5b8fc4;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .research-links a:hover {
+    background-color: #5b8fc4;
+    color: white !important;
+  }
+  .research-links i {
+    margin-right: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+   
+  body.dark-mode .conference-name {
+    color: #b0b0b0 !important;
+  }
+  body.dark-mode .research-desc {
+    color: #b0b0b0 !important;
+  }
+  body.dark-mode .research-authors {
+    color: #7ba5d1 !important;
+  }
+  body.dark-mode .research-authors a {
+    color: #7ba5d1 !important;
+  }
+  body.dark-mode .research-links a {
+    color: #b0b0b0 !important;
+    border-color: #b0b0b0;
+  }
+  body.dark-mode .research-links a:hover {
+    background-color: #b0b0b0;
+    color: #000000 !important;
+  }
+</style>
+
             <ul class="list-unstyled">
               
               
-              <li class="media mb-3 home-research-item">
-                
-                <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" class="mr-3" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
-                
-                <div class="media-body">
-                  <div style="margin-bottom: 0.15rem;">
-                    <a href="https://ntuneillee.github.io/research/rl-awb/" class="h6 mb-0" style="font-size: 1.1rem;">RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</a>
-                  </div>
-                  
-                  <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
-                    
-                    <strong>
-                        <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
-                      </strong>, 
-                    
-                        <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
-                      , 
-                    
-                        <a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a>
-                      , 
-                    
-                        <a href="https://yulunalexliu.github.io" target="_blank">Yu-Lun Liu</a>
-                      
-                    
-                  </p>
-                  
-                  
-                  <p class="mb-0 font-weight-bold conference-name" style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">ECCV 2026</p>
-                  
-                  <div class="research-links">
-                    <a href="https://ntuneillee.github.io/research/rl-awb/">Project Page</a>
-                    
-                    
-                    <a href="https://arxiv.org/abs/2601.05249" target="_blank">arXiv</a>
-                    
-                    
-                    <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank">Code</a>
-                    
-                    
-                    <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank">Dataset</a>
-                    
-                    
-                  </div>
-                  <p class="mb-0" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work.</p>
-                </div>
-              </li>
+              <li class="media mb-3 research-item">
+  
+  <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" class="mr-3" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div style="margin-bottom: 0.15rem;">
+      <a href="https://ntuneillee.github.io/research/rl-awb/" class="h5 mb-0" style="font-size: 1.1rem;">RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</a>
+    </div>
+    
+    <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
+      
+      <strong>
+          <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
+        </strong>, 
+      
+          <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
+        , 
+      
+          <a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a>
+        , 
+      
+          <a href="https://yulunalexliu.github.io" target="_blank">Yu-Lun Liu</a>
+        
+      
+    </p>
+    
+    
+    <p class="mb-0 font-weight-bold conference-name" style="margin-top: 0.25rem; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">ECCV 2026</p>
+    
+    <div class="research-links">
+      <a href="https://ntuneillee.github.io/research/rl-awb/">Project Page</a>
+      
+      
+      <a href="https://arxiv.org/abs/2601.05249" target="_blank">arXiv</a>
+      
+      
+      <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank">Code</a>
+      
+      
+      <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank">Dataset</a>
+      
+      
+    </div>
+    <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work.</p>
+  </div>
+</li>
+
               
-              <li class="media mb-3 home-research-item">
-                
-                <img src="https://ntuneillee.github.io/academic-assets/images/FRIERENlogo.webp" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
-                
-                <div class="media-body">
-                  <div style="margin-bottom: 0.15rem;">
-                    <a href="https://ntuneillee.github.io/research/friereniqa/" class="h6 mb-0" style="font-size: 1.1rem;">FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</a>
-                  </div>
-                  
-                  <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
-                    
-                    <strong>
-                        <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
-                      </strong>, 
-                    
-                        <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
-                      , 
-                    
-                        <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
-                      
-                    
-                  </p>
-                  
-                  
-                  <p class="mb-0 font-weight-bold conference-name" style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">IEEE APCCAS 2025</p>
-                  
-                  <div class="research-links">
-                    <a href="https://ntuneillee.github.io/research/friereniqa/">Project Page</a>
-                    
-                    <a href="https://ieeexplore.ieee.org/document/11377160" target="_blank">Paper</a>
-                    
-                    
-                    
-                    
-                    
-                  </div>
-                  <p class="mb-0" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity.</p>
-                </div>
-              </li>
+              <li class="media mb-3 research-item">
+  
+  <img src="https://ntuneillee.github.io/academic-assets/images/FRIERENlogo.webp" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div style="margin-bottom: 0.15rem;">
+      <a href="https://ntuneillee.github.io/research/friereniqa/" class="h5 mb-0" style="font-size: 1.1rem;">FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</a>
+    </div>
+    
+    <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
+      
+      <strong>
+          <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
+        </strong>, 
+      
+          <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
+        , 
+      
+          <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
+        
+      
+    </p>
+    
+    
+    <p class="mb-0 font-weight-bold conference-name" style="margin-top: 0.25rem; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">IEEE APCCAS 2025</p>
+    
+    <div class="research-links">
+      <a href="https://ntuneillee.github.io/research/friereniqa/">Project Page</a>
+      
+      <a href="https://ieeexplore.ieee.org/document/11377160" target="_blank">Paper</a>
+      
+      
+      
+      
+      
+    </div>
+    <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity.</p>
+  </div>
+</li>
+
               
             </ul>
           </div>
@@ -713,20 +714,73 @@
           <div class="col-12">
             <h2 style="font-size: 1.75rem; margin-bottom: 0;">Projects</h2>
             <hr style="border-top: 1px solid #dee2e6; margin-top: 0.5rem; margin-bottom: 1rem;">
+            <style>
+   
+  @media (max-width: 767px) {
+    .project-item {
+      flex-direction: column !important;
+    }
+    .project-item img {
+      margin-right: 0 !important;
+      margin-bottom: 1rem;
+      width: 100% !important;
+      max-width: 100%;
+    }
+    .project-item .h5 {
+      font-size: 1.125rem !important;
+    }
+    .project-item p {
+      font-size: 1rem !important;
+      line-height: 1.6 !important;
+    }
+  }
+
+  .project-item .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.25rem;
+  }
+  .project-item .project-meta .project-date {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    margin-right: 4px;
+  }
+  .project-item .project-meta .tag-chip {
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(169, 139, 115, 0.10);
+    color: #A98B73;
+    border: 1px solid rgba(169, 139, 115, 0.25);
+    white-space: nowrap;
+  }
+
+   
+  body.dark-mode .project-item .project-desc { color: #b0b0b0 !important; }
+  body.dark-mode .project-item .project-meta .project-date { color: #b0b0b0; }
+</style>
+
             <ul class="list-unstyled">
               
               
-              <li class="media mb-3 home-project-item">
-                
-                <img src="https://ntuneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
-                
-                <div class="media-body">
-                  <div style="margin-bottom: 0.25rem;">
-                    <a href="https://ntuneillee.github.io/projects/chromatest/" class="h6 mb-0" style="font-size: 1.1rem;">Color and Chroma Difference Algorithm Research</a>
-                  </div>
-                  <p class="mb-0" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.</p>
-                </div>
-              </li>
+              <li class="media mb-3 project-item">
+  
+  <img src="https://ntuneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div class="mb-2">
+      <a href="https://ntuneillee.github.io/projects/chromatest/" class="h5 mb-0" style="font-size: 1.1rem;">Color and Chroma Difference Algorithm Research</a>
+    </div>
+    <p class="mb-2 project-desc" style="font-size: 1rem; line-height: 1.5;">Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.</p>
+    <div class="project-meta">
+      <span class="project-date">May 2023</span>
+      <span class="tag-chip">Camera Image Quality</span><span class="tag-chip">Image Processing</span><span class="tag-chip">Color Science</span>
+    </div>
+  </div>
+</li>
+
               
             </ul>
           </div>

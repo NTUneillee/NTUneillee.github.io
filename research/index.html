@@ -230,6 +230,7 @@
 <!-- /navigation -->
 
 <style>
+   
   @media (max-width: 767px) {
     .research-item {
       flex-direction: column !important;
@@ -243,41 +244,30 @@
     .research-links a {
       margin-bottom: 0.75rem !important;
     }
+     
+    .research-item .research-links + p {
+      margin-top: 0.1rem !important;
+    }
   }
 
   .conference-name {
     color: #000000 !important;
   }
 
-  body.dark-mode .conference-name {
-    color: #b0b0b0 !important;
-  }
-
   .research-authors {
     color: #5b8fc4 !important;
   }
-
   .research-authors a {
     color: #5b8fc4 !important;
     text-decoration: none;
   }
-
   .research-authors a:hover {
     text-decoration: underline;
-  }
-
-  body.dark-mode .research-authors {
-    color: #7ba5d1 !important;
-  }
-
-  body.dark-mode .research-authors a {
-    color: #7ba5d1 !important;
   }
 
   .research-links {
     margin-top: 0.5rem;
   }
-
   .research-links a {
     display: inline-block;
     margin-right: 0.35rem;
@@ -290,27 +280,38 @@
     border-radius: 4px;
     transition: all 0.2s ease;
   }
-
   .research-links a:hover {
     background-color: #5b8fc4;
     color: white !important;
   }
-
-  body.dark-mode .research-links a {
-    color: #b0b0b0 !important;
-    border-color: #b0b0b0;
-  }
-
-  body.dark-mode .research-links a:hover {
-    background-color: #b0b0b0;
-    color: #000000 !important;
-  }
-
   .research-links i {
     margin-right: 0.25rem;
     font-size: 0.85rem;
   }
+
+   
+  body.dark-mode .conference-name {
+    color: #b0b0b0 !important;
+  }
+  body.dark-mode .research-desc {
+    color: #b0b0b0 !important;
+  }
+  body.dark-mode .research-authors {
+    color: #7ba5d1 !important;
+  }
+  body.dark-mode .research-authors a {
+    color: #7ba5d1 !important;
+  }
+  body.dark-mode .research-links a {
+    color: #b0b0b0 !important;
+    border-color: #b0b0b0;
+  }
+  body.dark-mode .research-links a:hover {
+    background-color: #b0b0b0;
+    color: #000000 !important;
+  }
 </style>
+
 
 
 <section class="section" style="padding-top: 24px;">
@@ -319,91 +320,93 @@
       
       
       <li class="media mb-3 research-item">
+  
+  <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" class="mr-3" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div style="margin-bottom: 0.15rem;">
+      <a href="https://ntuneillee.github.io/research/rl-awb/" class="h5 mb-0" style="font-size: 1.1rem;">RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</a>
+    </div>
+    
+    <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
+      
+      <strong>
+          <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
+        </strong>, 
+      
+          <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
+        , 
+      
+          <a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a>
+        , 
+      
+          <a href="https://yulunalexliu.github.io" target="_blank">Yu-Lun Liu</a>
         
-        <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" class="mr-3" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 200px; height: auto; border-radius: 8px;">
-        
-        <div class="media-body">
-          <div style="margin-bottom: 0.5rem;">
-            <a href="https://ntuneillee.github.io/research/rl-awb/" class="h5 mb-0" style="font-size: 1.1rem;">RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</a>
-          </div>
-          
-          <p class="mb-0 research-authors" style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">
-            
-            <strong>
-                <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
-              </strong>, 
-            
-                <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
-              , 
-            
-                <a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a>
-              , 
-            
-                <a href="https://yulunalexliu.github.io" target="_blank">Yu-Lun Liu</a>
-              
-            
-          </p>
-          
-          
-          <p class="mb-0 font-weight-bold conference-name" style="margin-bottom: 0.50rem; font-size: 1rem; line-height: 1.5;">ECCV 2026</p>
-          
-          <div class="research-links">
-            <a href="https://ntuneillee.github.io/research/rl-awb/">Project Page</a>
-            
-            
-            <a href="https://arxiv.org/abs/2601.05249" target="_blank">arXiv</a>
-            
-            
-            <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank">Code</a>
-            
-            
-            <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank">Dataset</a>
-            
-            
-          </div>
-          <p class="mb-0" style="line-height: 1.5; font-size: 1rem; margin-top: 0.5rem;">We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work.</p>
-        </div>
-      </li>
+      
+    </p>
+    
+    
+    <p class="mb-0 font-weight-bold conference-name" style="margin-top: 0.25rem; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">ECCV 2026</p>
+    
+    <div class="research-links">
+      <a href="https://ntuneillee.github.io/research/rl-awb/">Project Page</a>
+      
+      
+      <a href="https://arxiv.org/abs/2601.05249" target="_blank">arXiv</a>
+      
+      
+      <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank">Code</a>
+      
+      
+      <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank">Dataset</a>
+      
+      
+    </div>
+    <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work.</p>
+  </div>
+</li>
+
       
       <li class="media mb-3 research-item">
+  
+  <img src="https://ntuneillee.github.io/academic-assets/images/FRIERENlogo.webp" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div style="margin-bottom: 0.15rem;">
+      <a href="https://ntuneillee.github.io/research/friereniqa/" class="h5 mb-0" style="font-size: 1.1rem;">FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</a>
+    </div>
+    
+    <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
+      
+      <strong>
+          <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
+        </strong>, 
+      
+          <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
+        , 
+      
+          <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
         
-        <img src="https://ntuneillee.github.io/academic-assets/images/FRIERENlogo.webp" class="mr-3" alt="FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness" style="width: 200px; height: auto; border-radius: 8px;">
-        
-        <div class="media-body">
-          <div style="margin-bottom: 0.5rem;">
-            <a href="https://ntuneillee.github.io/research/friereniqa/" class="h5 mb-0" style="font-size: 1.1rem;">FRIEREN: A Lightweight System for Face Resizing Image Detail Quality Evaluation via Robust Estimation of Image Naturalness</a>
-          </div>
-          
-          <p class="mb-0 research-authors" style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">
-            
-            <strong>
-                <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
-              </strong>, 
-            
-                <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
-              , 
-            
-                <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
-              
-            
-          </p>
-          
-          
-          <p class="mb-0 font-weight-bold conference-name" style="margin-bottom: 0.50rem; font-size: 1rem; line-height: 1.5;">IEEE APCCAS 2025</p>
-          
-          <div class="research-links">
-            <a href="https://ntuneillee.github.io/research/friereniqa/">Project Page</a>
-            
-            <a href="https://ieeexplore.ieee.org/document/11377160" target="_blank">Paper</a>
-            
-            
-            
-            
-            
-          </div>
-          <p class="mb-0" style="line-height: 1.5; font-size: 1rem; margin-top: 0.5rem;">FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity.</p>
-        </div>
-      </li>
+      
+    </p>
+    
+    
+    <p class="mb-0 font-weight-bold conference-name" style="margin-top: 0.25rem; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">IEEE APCCAS 2025</p>
+    
+    <div class="research-links">
+      <a href="https://ntuneillee.github.io/research/friereniqa/">Project Page</a>
+      
+      <a href="https://ieeexplore.ieee.org/document/11377160" target="_blank">Paper</a>
+      
+      
+      
+      
+      
+    </div>
+    <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">FRIEREN, a novel no-reference image quality assessment, effectively and accurately evaluates the face detail quality scaled by different interpolations with low computational complexity.</p>
+  </div>
+</li>
+
       
     </ul>
 

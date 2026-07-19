@@ -230,6 +230,7 @@
 <!-- /navigation -->
 
 <style>
+   
   @media (max-width: 767px) {
     .project-item {
       flex-direction: column !important;
@@ -240,22 +241,42 @@
       width: 100% !important;
       max-width: 100%;
     }
-
-     
     .project-item .h5 {
       font-size: 1.125rem !important;
     }
-
     .project-item p {
       font-size: 1rem !important;
       line-height: 1.6 !important;
     }
-
-    .project-item .text-muted {
-      font-size: 0.9rem !important;
-    }
   }
+
+  .project-item .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.25rem;
+  }
+  .project-item .project-meta .project-date {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    margin-right: 4px;
+  }
+  .project-item .project-meta .tag-chip {
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(169, 139, 115, 0.10);
+    color: #A98B73;
+    border: 1px solid rgba(169, 139, 115, 0.25);
+    white-space: nowrap;
+  }
+
+   
+  body.dark-mode .project-item .project-desc { color: #b0b0b0 !important; }
+  body.dark-mode .project-item .project-meta .project-date { color: #b0b0b0; }
 </style>
+
 
 
 <section class="section" style="padding-top: 24px;">
@@ -264,16 +285,21 @@
       
       
       <li class="media mb-3 project-item">
-        
-        <img src="https://ntuneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto; border-radius: 8px;">
-        
-        <div class="media-body">
-          <div class="mb-2">
-            <a href="https://ntuneillee.github.io/projects/chromatest/" class="h5 mb-0" style="font-size: 1.1rem;">Color and Chroma Difference Algorithm Research</a>
-          </div>
-          <p class="mb-2">Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.</p>
-        </div>
-      </li>
+  
+  <img src="https://ntuneillee.github.io/images/post/cameratuning.jpg" class="mr-3" alt="Color and Chroma Difference Algorithm Research" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
+  
+  <div class="media-body">
+    <div class="mb-2">
+      <a href="https://ntuneillee.github.io/projects/chromatest/" class="h5 mb-0" style="font-size: 1.1rem;">Color and Chroma Difference Algorithm Research</a>
+    </div>
+    <p class="mb-2 project-desc" style="font-size: 1rem; line-height: 1.5;">Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.</p>
+    <div class="project-meta">
+      <span class="project-date">May 2023</span>
+      <span class="tag-chip">Camera Image Quality</span><span class="tag-chip">Image Processing</span><span class="tag-chip">Color Science</span>
+    </div>
+  </div>
+</li>
+
       
     </ul>
 
