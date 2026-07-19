@@ -396,6 +396,41 @@
   body.dark-mode .proj-content img { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4); }
 
    
+  .proj-wrap { overflow-x: hidden; }
+  .proj-content { min-width: 0; max-width: 100%; }
+
+   
+  .proj-content mjx-container {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 0;
+  }
+  .proj-content mjx-container[display="true"] {
+    margin: 1rem 0 !important;
+  }
+
+   
+  .proj-content a {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+  }
+  .proj-content p,
+  .proj-content li {
+    overflow-wrap: break-word;
+  }
+
+   
+  .proj-content table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+   
   @media (max-width: 991px) {
     .proj-layout {
       grid-template-columns: minmax(0, 1fr);
