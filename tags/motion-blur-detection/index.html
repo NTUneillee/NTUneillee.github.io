@@ -246,23 +246,39 @@
 </header>
 <!-- /navigation -->
 
-<section class="section">
+
+<section class="section-sm">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div id="search-results"></div>
-        <script id="search-result-template" type="text/x-js-template">
-          <div class="py-4 border-bottom" id="summary-${key}">
-            <h4><a href="${link}">${title}</a></h4>
-            <p>${snippet}</p>
-            ${ isset tags }<p>Tags: ${tags}</p>${ end }
-            ${ isset categories }<p>Categories: ${categories}</p>${ end }
-          </div>
-        </script>
+    <div class="row">
+      <div class="col-12 mb-5 mb-lg-0">
+        <ul class="list-unstyled">
+          
+          
+          <li class="media mb-4">
+    
+    <div class="media-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="" class="h5 mb-0">BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</a>
+            
+            <span class="text-muted small ml-3 flex-shrink-0">2026-07-14</span>
+            
+        </div>
+        
+        <p class="mb-2">We present BOCCHI, a real-captured local motion blur detection benchmark of 633 pixel-annotated images featuring textured blurred regions that defeat gradient-based shortcuts. We also propose MSDCT-UNet, a frequency-aware encoder–decoder that reads blur in the DCT domain via multi-scale DCT attention and FiLM modulation.</p>
+    </div>
+</li>
+          
+        </ul>
+      </div>
+
+      
+      <div class="col-12 mt-5">
+        
       </div>
     </div>
   </div>
 </section>
+
 
 
 

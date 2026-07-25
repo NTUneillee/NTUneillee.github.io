@@ -8,6 +8,15 @@
     <language>zh-tw</language>
     <lastBuildDate>Tue, 29 Oct 2019 13:49:23 +0600</lastBuildDate><atom:link href="https://ntuneillee.github.io/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</title>
+      <link></link>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 +0800</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</title>
       <link>https://ntuneillee.github.io/research/rl-awb/</link>
       <pubDate>Mon, 22 Dec 2025 00:00:00 +0800</pubDate>

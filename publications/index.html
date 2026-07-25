@@ -80,15 +80,32 @@
   }
 
    
-  .nav-link .ai,
-  .mobile-icon-link .ai {
-    font-size: 1.4em !important;
+  .desktop-view .navbar-nav .nav-link,
+  .mobile-icon-link {
+    display: flex;
+    align-items: center;
+  }
+  .desktop-view .navbar-nav .nav-link i,
+  .mobile-icon-link i {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
     line-height: 1 !important;
+    font-size: 18px !important;
     vertical-align: middle !important;
   }
-
-  .ai.ai-google-scholar {
-    font-size: 1.5em !important;
+   
+  .desktop-view .navbar-nav .nav-link i.ti-github,
+  .mobile-icon-link i.ti-github {
+    font-size: 18px !important;
+    transform: translateY(1px);
+  }
+  .desktop-view .navbar-nav .nav-link i.ai,
+  .mobile-icon-link i.ai {
+    font-size: 21px !important;
+    transform: translateY(1px);
   }
 </style>
 <header class="navigation">
@@ -288,6 +305,7 @@
         <div class="content text-left publications-content">
           <ul>
 <li><strong>Yuan-Kang Lee</strong>, Kuan-Lin Chen, Chia-Che Chang, and Yu-Lun Liu, &ldquo;<strong>RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</strong>&rdquo;, <em>European Conference on Computer Vision (ECCV)</em>, Malmö, Sweden, 2026 <a href="https://arxiv.org/abs/2601.05249">[Paper]</a></li>
+<li>Kuan-Lin Chen, <strong>Yuan-Kang Lee</strong>, Cheng-Yuan Chiang, and Jian-Jiun Ding, &ldquo;<strong>BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</strong>&rdquo;, <em>arXiv preprint arXiv:2607.10427</em>, 2026 <a href="https://arxiv.org/abs/2607.10427">[Paper]</a></li>
 </ul>
 
         </div>

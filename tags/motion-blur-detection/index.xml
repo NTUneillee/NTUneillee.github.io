@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Motion Blur Detection on Yuan-Kang Lee</title>
+    <link>https://ntuneillee.github.io/tags/motion-blur-detection/</link>
+    <description>Recent content in Motion Blur Detection on Yuan-Kang Lee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://ntuneillee.github.io/tags/motion-blur-detection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</title>
+      <link></link>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 +0800</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

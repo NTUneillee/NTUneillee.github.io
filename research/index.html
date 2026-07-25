@@ -80,15 +80,32 @@
   }
 
    
-  .nav-link .ai,
-  .mobile-icon-link .ai {
-    font-size: 1.4em !important;
+  .desktop-view .navbar-nav .nav-link,
+  .mobile-icon-link {
+    display: flex;
+    align-items: center;
+  }
+  .desktop-view .navbar-nav .nav-link i,
+  .mobile-icon-link i {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
     line-height: 1 !important;
+    font-size: 18px !important;
     vertical-align: middle !important;
   }
-
-  .ai.ai-google-scholar {
-    font-size: 1.5em !important;
+   
+  .desktop-view .navbar-nav .nav-link i.ti-github,
+  .mobile-icon-link i.ti-github {
+    font-size: 18px !important;
+    transform: translateY(1px);
+  }
+  .desktop-view .navbar-nav .nav-link i.ai,
+  .mobile-icon-link i.ai {
+    font-size: 21px !important;
+    transform: translateY(1px);
   }
 </style>
 <header class="navigation">
@@ -235,7 +252,8 @@
     .research-item {
       flex-direction: column !important;
     }
-    .research-item img {
+    .research-item img,
+    .research-item video {
       margin-right: 0 !important;
       margin-bottom: 1rem;
       width: 100% !important;
@@ -321,6 +339,56 @@
       
       <li class="media mb-3 research-item">
   
+  <video src="https://ntuneillee.github.io/academic-assets/images/BOCCHIteaser.mp4" class="mr-3" autoplay loop muted playsinline
+         style="width: 200px; height: auto; border-radius: 8px;" aria-label="BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet"></video>
+  
+  <div class="media-body">
+    <div style="margin-bottom: 0.15rem;">
+      <a href="https://brianchen1120.github.io/project/bocchi/" target="_blank" rel="noopener" class="h5 mb-0" style="font-size: 1.1rem;">BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</a>
+    </div>
+    
+    <p class="mb-0 research-authors" style="margin-bottom: 0.75rem; font-size: 1rem; line-height: 1.5;">
+      
+      
+          <a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a>
+        , 
+      <strong>
+          <a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a>
+        </strong>, 
+      
+          Cheng-Yuan Chiang
+        , 
+      
+          <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a>
+        
+      
+    </p>
+    
+    
+    <p class="mb-0 font-weight-bold conference-name" style="margin-top: 0.25rem; margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.5;">arXiv 2026</p>
+    
+    <div class="research-links">
+      <a href="https://brianchen1120.github.io/project/bocchi/" target="_blank" rel="noopener">Project Page</a>
+      
+      
+      <a href="https://arxiv.org/abs/2607.10427" target="_blank">arXiv</a>
+      
+      
+      
+      <a href="https://huggingface.co/datasets/BrianChen54923/BOCCHI" target="_blank">Dataset</a>
+      
+      
+      <a href="https://huggingface.co/BrianChen54923/msdct-unet" target="_blank">Model</a>
+      
+      
+    </div>
+    <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">We present BOCCHI, a real-captured local motion blur detection benchmark of 633 pixel-annotated images featuring textured blurred regions that defeat gradient-based shortcuts. We also propose MSDCT-UNet, a frequency-aware encoder–decoder that reads blur in the DCT domain via multi-scale DCT attention and FiLM modulation.</p>
+  </div>
+</li>
+
+      
+      <li class="media mb-3 research-item">
+  
   <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" class="mr-3" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 200px; height: auto; border-radius: 8px;" loading="lazy">
   
   <div class="media-body">
@@ -361,6 +429,7 @@
       <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank">Dataset</a>
       
       
+      
     </div>
     <p class="mb-0 research-desc" style="font-size: 1rem; line-height: 1.5; margin-top: 0.5rem;">We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work.</p>
   </div>
@@ -397,6 +466,7 @@
       <a href="https://ntuneillee.github.io/research/friereniqa/">Project Page</a>
       
       <a href="https://ieeexplore.ieee.org/document/11377160" target="_blank">Paper</a>
+      
       
       
       

@@ -80,15 +80,32 @@
   }
 
    
-  .nav-link .ai,
-  .mobile-icon-link .ai {
-    font-size: 1.4em !important;
+  .desktop-view .navbar-nav .nav-link,
+  .mobile-icon-link {
+    display: flex;
+    align-items: center;
+  }
+  .desktop-view .navbar-nav .nav-link i,
+  .mobile-icon-link i {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
     line-height: 1 !important;
+    font-size: 18px !important;
     vertical-align: middle !important;
   }
-
-  .ai.ai-google-scholar {
-    font-size: 1.5em !important;
+   
+  .desktop-view .navbar-nav .nav-link i.ti-github,
+  .mobile-icon-link i.ti-github {
+    font-size: 18px !important;
+    transform: translateY(1px);
+  }
+  .desktop-view .navbar-nav .nav-link i.ai,
+  .mobile-icon-link i.ai {
+    font-size: 21px !important;
+    transform: translateY(1px);
   }
 </style>
 <header class="navigation">
@@ -236,6 +253,20 @@
       <div class="col-12 mb-5 mb-lg-0">
         <ul class="list-unstyled">
           
+          
+          <li class="media mb-4">
+    
+    <div class="media-body">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+            <a href="" class="h5 mb-0">BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</a>
+            
+            <span class="text-muted small ml-3 flex-shrink-0">2026-07-14</span>
+            
+        </div>
+        
+        <p class="mb-2">We present BOCCHI, a real-captured local motion blur detection benchmark of 633 pixel-annotated images featuring textured blurred regions that defeat gradient-based shortcuts. We also propose MSDCT-UNet, a frequency-aware encoder–decoder that reads blur in the DCT domain via multi-scale DCT attention and FiLM modulation.</p>
+    </div>
+</li>
           
           <li class="media mb-4">
     
