@@ -28,9 +28,6 @@
   
   <link rel="stylesheet" href="https://ntuneillee.github.io/scss/style.min.css" media="screen">
 
-  <!-- Academicons for Google Scholar icon -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
   <!--Favicon-->
   <link rel="shortcut icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
   <link rel="icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
@@ -59,7 +56,8 @@
   </script>
   <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" integrity="sha256-qoRlVrS5NAnXSSSiMfFXwK8C9obG11Iybe4h2+bQYR4=" crossorigin="anonymous"></script>
 
-</head><body>
+</head>
+<body>
 <!-- preloader start -->
 <div class="preloader">
   
@@ -102,9 +100,12 @@
     font-size: 18px !important;
     transform: translateY(1px);
   }
-  .desktop-view .navbar-nav .nav-link i.ai,
-  .mobile-icon-link i.ai {
-    font-size: 21px !important;
+  .scholar-cap-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    flex: 0 0 22px;
     transform: translateY(1px);
   }
 </style>
@@ -120,15 +121,23 @@
         
         
         <a class="mobile-icon-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin">
+          
           <i class="ti-linkedin"></i>
+          
         </a>
         
         <a class="mobile-icon-link" href="https://github.com/NTUneillee" title="Github">
+          
           <i class="ti-github"></i>
+          
         </a>
         
         <a class="mobile-icon-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar">
-          <i class="ai ai-google-scholar"></i>
+          
+          <svg class="scholar-cap-icon" viewBox="0 0 512 512" role="img" aria-label="Google Scholar">
+            <path d="M256 64 16 176l240 112 192-89.6V352h32V184L256 64zm-144 192v96c0 53 64 96 144 96s144-43 144-96v-96l-144 67.2L112 256z"/>
+          </svg>
+          
         </a>
         
       </div>
@@ -158,15 +167,29 @@
             
             
             <li class="nav-item">
-              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin"><i class="ti-linkedin"></i></a>
+              <a class="nav-link" href="https://www.linkedin.com/in/yuankanglee" title="Linkedin">
+                
+                <i class="ti-linkedin"></i>
+                
+              </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/NTUneillee" title="Github"><i class="ti-github"></i></a>
+              <a class="nav-link" href="https://github.com/NTUneillee" title="Github">
+                
+                <i class="ti-github"></i>
+                
+              </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+              <a class="nav-link" href="https://scholar.google.com/citations?user=CSHORSwAAAAJ&amp;hl=en" title="Google Scholar">
+                
+                <svg class="scholar-cap-icon" viewBox="0 0 512 512" role="img" aria-label="Google Scholar">
+                  <path d="M256 64 16 176l240 112 192-89.6V352h32V184L256 64zm-144 192v96c0 53 64 96 144 96s144-43 144-96v-96l-144 67.2L112 256z"/>
+                </svg>
+                
+              </a>
             </li>
             
           </ul>
@@ -245,6 +268,7 @@
   </div>
 </header>
 <!-- /navigation -->
+
 
 <section class="section">
   <div class="container">
