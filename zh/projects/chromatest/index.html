@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="Implementation details of color and chroma difference algorithms in Imatest and iQ-Analyzer.">
+  <meta name="description" content="Imatest 與 iQ-Analyzer 色差和彩度差異演算法的實作細節與比較。">
   <meta name="author" content="Neil Lee">
   <meta name="generator" content="Hugo 0.111.3">
 
@@ -645,31 +645,31 @@
 
     <header class="proj-header">
       
-      <span class="proj-category">Camera Image Quality</span>
+      <span class="proj-category">相機影像品質</span>
       
-      <h1 class="proj-title">Color and Chroma Difference Algorithm</h1>
+      <h1 class="proj-title">色彩與彩度差異演算法</h1>
       <div class="proj-meta">
         
-        <span>May 2023</span>
+        <span>2023 年 5 月</span>
         
         
-        <span class="tag-chip">Camera Image Quality</span>
         
-        <span class="tag-chip">Image Processing</span>
+        <span class="tag-chip">相機影像品質</span>
         
-        <span class="tag-chip">Color Science</span>
+        <span class="tag-chip">影像處理</span>
         
+        <span class="tag-chip">色彩科學</span>
         
       </div>
       
       
-      <nav class="proj-language-switcher" aria-label="Article language">
+      <nav class="proj-language-switcher" aria-label="文章語言">
         
-        <span class="proj-language-option is-active" aria-current="page">English</span>
+        <a class="proj-language-option" href="/projects/chromatest/" lang="en" hreflang="en">English</a>
         
 
         
-        <a class="proj-language-option" href="/zh/projects/chromatest/" lang="zh-Hant" hreflang="zh-Hant">中文</a>
+        <span class="proj-language-option is-active" aria-current="page">中文</span>
         
       </nav>
       
@@ -677,83 +677,74 @@
     </header>
 
     <div class="proj-layout">
-      <article class="proj-content content" data-language="en">
+      <article class="proj-content content" data-language="zh">
         <blockquote>
-<p>Professional image quality analysis software such as <strong>Imatest</strong> and <strong>iQ-Analyzer</strong> provides objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that <strong>different software employs varying algorithms for calculating the color difference</strong>. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by different software packages. This work discusses the advantages, disadvantages, and implementation details of the two algorithms.</p>
+<p><strong>Imatest</strong> 與 <strong>iQ-Analyzer</strong> 等專業影像品質分析軟體，能以客觀、一致且完整的方式評估相機影像品質。然而，我們在實務工作中發現，<strong>不同軟體計算色差時採用的演算法並不相同</strong>。為了建立高效率的自動化影像分析流程，我們透過大量實驗反推各套軟體實際採用的彩度差異演算法。本文將說明兩種演算法的實作方式、核心差異，以及各自的優點與限制。</p>
 </blockquote>
-<h2 id="1-introduction">1. Introduction</h2>
-<p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and grayscale colored squares. These calibrated patches cover a broad spectrum of colors. When included in a test image, the ColorChecker serves as a reliable reference for comparing the captured output of cameras to the original chart’s accurate color measurements, ensuring precise color reproduction and consistency.</p>
-<h2 id="2-colorchecker-application">2. ColorChecker Application</h2>
+<h2 id="1-簡介">1. 簡介</h2>
+<p>ColorChecker® Classic 是由 24 個經過科學校準的色塊組成，涵蓋自然色、彩色、三原色與灰階色。拍攝測試影像時，只要將 ColorChecker 放入畫面，就能以色卡的標準色彩量測值作為參考，將相機輸出與標準值比較，進而評估相機的色彩還原準確度與一致性。</p>
+<h2 id="2-colorchecker-的用途">2. ColorChecker 的用途</h2>
 <ol>
-<li>Provides a standard for camera calibration in color reproduction accuracy and auto white balance.</li>
-<li>Enables an accurate calculation of ΔE* and ΔC* to quantify the image color difference.</li>
+<li>提供色彩還原與自動白平衡的相機校準標準。</li>
+<li>透過 ΔE* 與 ΔC* 量化影像的色彩差異。</li>
 </ol>
 <div class="colorchecker-table-wrapper">
-  <div class="table-scroll" role="region" aria-label="ColorChecker Classic sRGB and CIELAB reference values" tabindex="0">
+  <div class="table-scroll" role="region" aria-label="ColorChecker Classic 的 sRGB 與 CIELAB 參考值" tabindex="0">
     <table class="colorchecker-table">
       <thead>
-        <tr>
-          <th rowspan="2">No.</th>
-          <th colspan="2">Color</th>
-          <th colspan="3" class="group-divider">sRGB</th>
-          <th colspan="3" class="group-divider">CIE L*a*b*</th>
-        </tr>
-        <tr>
-          <th>Patch</th><th>Sample</th>
-          <th class="group-divider">R</th><th>G</th><th>B</th>
-          <th class="group-divider">L*</th><th>a*</th><th>b*</th>
-        </tr>
+        <tr><th rowspan="2">編號</th><th colspan="2">色彩</th><th colspan="3" class="group-divider">sRGB</th><th colspan="3" class="group-divider">CIE L*a*b*</th></tr>
+        <tr><th>色塊名稱</th><th>色樣</th><th class="group-divider">R</th><th>G</th><th>B</th><th class="group-divider">L*</th><th>a*</th><th>b*</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td>Dark Skin</td><td><span class="color-swatch" style="background:rgb(115,82,68)" aria-label="Dark Skin color sample"></span></td><td class="group-divider">115</td><td>82</td><td>68</td><td class="group-divider">37.986</td><td>13.555</td><td>14.059</td></tr>
-        <tr><td>2</td><td>Light Skin</td><td><span class="color-swatch" style="background:rgb(194,150,130)" aria-label="Light Skin color sample"></span></td><td class="group-divider">194</td><td>150</td><td>130</td><td class="group-divider">65.711</td><td>18.13</td><td>17.81</td></tr>
-        <tr><td>3</td><td>Blue Sky</td><td><span class="color-swatch" style="background:rgb(98,122,157)" aria-label="Blue Sky color sample"></span></td><td class="group-divider">98</td><td>122</td><td>157</td><td class="group-divider">49.927</td><td>-4.88</td><td>-21.925</td></tr>
-        <tr><td>4</td><td>Foliage</td><td><span class="color-swatch" style="background:rgb(87,108,67)" aria-label="Foliage color sample"></span></td><td class="group-divider">87</td><td>108</td><td>67</td><td class="group-divider">43.119</td><td>-13.095</td><td>21.905</td></tr>
-        <tr><td>5</td><td>Blue Flower</td><td><span class="color-swatch" style="background:rgb(133,128,177)" aria-label="Blue Flower color sample"></span></td><td class="group-divider">133</td><td>128</td><td>177</td><td class="group-divider">55.112</td><td>8.844</td><td>-25.399</td></tr>
-        <tr><td>6</td><td>Bluish Green</td><td><span class="color-swatch" style="background:rgb(103,189,170)" aria-label="Bluish Green color sample"></span></td><td class="group-divider">103</td><td>189</td><td>170</td><td class="group-divider">70.719</td><td>-33.397</td><td>-0.199</td></tr>
-        <tr><td>7</td><td>Orange</td><td><span class="color-swatch" style="background:rgb(214,126,44)" aria-label="Orange color sample"></span></td><td class="group-divider">214</td><td>126</td><td>44</td><td class="group-divider">62.661</td><td>36.067</td><td>57.096</td></tr>
-        <tr><td>8</td><td>Purplish Blue</td><td><span class="color-swatch" style="background:rgb(80,91,166)" aria-label="Purplish Blue color sample"></span></td><td class="group-divider">80</td><td>91</td><td>166</td><td class="group-divider">40.02</td><td>10.41</td><td>-45.964</td></tr>
-        <tr><td>9</td><td>Moderate Red</td><td><span class="color-swatch" style="background:rgb(193,90,99)" aria-label="Moderate Red color sample"></span></td><td class="group-divider">193</td><td>90</td><td>99</td><td class="group-divider">51.124</td><td>48.239</td><td>16.248</td></tr>
-        <tr><td>10</td><td>Purple</td><td><span class="color-swatch" style="background:rgb(94,60,108)" aria-label="Purple color sample"></span></td><td class="group-divider">94</td><td>60</td><td>108</td><td class="group-divider">30.325</td><td>22.976</td><td>-21.587</td></tr>
-        <tr><td>11</td><td>Yellow Green</td><td><span class="color-swatch" style="background:rgb(157,188,64)" aria-label="Yellow Green color sample"></span></td><td class="group-divider">157</td><td>188</td><td>64</td><td class="group-divider">72.532</td><td>-23.709</td><td>57.255</td></tr>
-        <tr><td>12</td><td>Orange Yellow</td><td><span class="color-swatch" style="background:rgb(224,163,46)" aria-label="Orange Yellow color sample"></span></td><td class="group-divider">224</td><td>163</td><td>46</td><td class="group-divider">71.941</td><td>19.363</td><td>67.857</td></tr>
-        <tr><td>13</td><td>Blue</td><td><span class="color-swatch" style="background:rgb(56,61,150)" aria-label="Blue color sample"></span></td><td class="group-divider">56</td><td>61</td><td>150</td><td class="group-divider">28.778</td><td>14.179</td><td>-50.297</td></tr>
-        <tr><td>14</td><td>Green</td><td><span class="color-swatch" style="background:rgb(70,148,73)" aria-label="Green color sample"></span></td><td class="group-divider">70</td><td>148</td><td>73</td><td class="group-divider">55.261</td><td>-38.342</td><td>31.37</td></tr>
-        <tr><td>15</td><td>Red</td><td><span class="color-swatch" style="background:rgb(175,54,60)" aria-label="Red color sample"></span></td><td class="group-divider">175</td><td>54</td><td>60</td><td class="group-divider">42.101</td><td>53.378</td><td>28.19</td></tr>
-        <tr><td>16</td><td>Yellow</td><td><span class="color-swatch" style="background:rgb(231,199,31)" aria-label="Yellow color sample"></span></td><td class="group-divider">231</td><td>199</td><td>31</td><td class="group-divider">81.733</td><td>4.039</td><td>79.819</td></tr>
-        <tr><td>17</td><td>Magenta</td><td><span class="color-swatch" style="background:rgb(187,86,149)" aria-label="Magenta color sample"></span></td><td class="group-divider">187</td><td>86</td><td>149</td><td class="group-divider">51.935</td><td>49.986</td><td>-14.574</td></tr>
-        <tr><td>18</td><td>Cyan</td><td><span class="color-swatch" style="background:rgb(8,133,161)" aria-label="Cyan color sample"></span></td><td class="group-divider">8</td><td>133</td><td>161</td><td class="group-divider">51.038</td><td>-28.631</td><td>-28.638</td></tr>
-        <tr class="separator-top"><td>19</td><td>White</td><td><span class="color-swatch" style="background:rgb(243,243,242)" aria-label="White color sample"></span></td><td class="group-divider">243</td><td>243</td><td>242</td><td class="group-divider">96.539</td><td>-0.425</td><td>1.186</td></tr>
-        <tr><td>20</td><td>Neutral 8</td><td><span class="color-swatch" style="background:rgb(200,200,200)" aria-label="Neutral 8 color sample"></span></td><td class="group-divider">200</td><td>200</td><td>200</td><td class="group-divider">81.257</td><td>-0.638</td><td>-0.335</td></tr>
-        <tr><td>21</td><td>Neutral 6.5</td><td><span class="color-swatch" style="background:rgb(160,160,160)" aria-label="Neutral 6.5 color sample"></span></td><td class="group-divider">160</td><td>160</td><td>160</td><td class="group-divider">66.766</td><td>-0.734</td><td>-0.504</td></tr>
-        <tr><td>22</td><td>Neutral 5</td><td><span class="color-swatch" style="background:rgb(122,122,121)" aria-label="Neutral 5 color sample"></span></td><td class="group-divider">122</td><td>122</td><td>121</td><td class="group-divider">50.867</td><td>-0.153</td><td>-0.27</td></tr>
-        <tr><td>23</td><td>Neutral 3.5</td><td><span class="color-swatch" style="background:rgb(85,85,85)" aria-label="Neutral 3.5 color sample"></span></td><td class="group-divider">85</td><td>85</td><td>85</td><td class="group-divider">35.656</td><td>-0.421</td><td>-1.231</td></tr>
-        <tr><td>24</td><td>Black</td><td><span class="color-swatch" style="background:rgb(52,52,52)" aria-label="Black color sample"></span></td><td class="group-divider">52</td><td>52</td><td>52</td><td class="group-divider">20.461</td><td>-0.079</td><td>-0.973</td></tr>
+        <tr><td>1</td><td>深膚色</td><td><span class="color-swatch" style="background:rgb(115,82,68)" aria-label="深膚色色樣"></span></td><td class="group-divider">115</td><td>82</td><td>68</td><td class="group-divider">37.986</td><td>13.555</td><td>14.059</td></tr>
+        <tr><td>2</td><td>淺膚色</td><td><span class="color-swatch" style="background:rgb(194,150,130)" aria-label="淺膚色色樣"></span></td><td class="group-divider">194</td><td>150</td><td>130</td><td class="group-divider">65.711</td><td>18.13</td><td>17.81</td></tr>
+        <tr><td>3</td><td>藍天</td><td><span class="color-swatch" style="background:rgb(98,122,157)" aria-label="藍天色樣"></span></td><td class="group-divider">98</td><td>122</td><td>157</td><td class="group-divider">49.927</td><td>-4.88</td><td>-21.925</td></tr>
+        <tr><td>4</td><td>葉綠</td><td><span class="color-swatch" style="background:rgb(87,108,67)" aria-label="葉綠色樣"></span></td><td class="group-divider">87</td><td>108</td><td>67</td><td class="group-divider">43.119</td><td>-13.095</td><td>21.905</td></tr>
+        <tr><td>5</td><td>藍花</td><td><span class="color-swatch" style="background:rgb(133,128,177)" aria-label="藍花色樣"></span></td><td class="group-divider">133</td><td>128</td><td>177</td><td class="group-divider">55.112</td><td>8.844</td><td>-25.399</td></tr>
+        <tr><td>6</td><td>藍綠</td><td><span class="color-swatch" style="background:rgb(103,189,170)" aria-label="藍綠色樣"></span></td><td class="group-divider">103</td><td>189</td><td>170</td><td class="group-divider">70.719</td><td>-33.397</td><td>-0.199</td></tr>
+        <tr><td>7</td><td>橘色</td><td><span class="color-swatch" style="background:rgb(214,126,44)" aria-label="橘色色樣"></span></td><td class="group-divider">214</td><td>126</td><td>44</td><td class="group-divider">62.661</td><td>36.067</td><td>57.096</td></tr>
+        <tr><td>8</td><td>紫藍</td><td><span class="color-swatch" style="background:rgb(80,91,166)" aria-label="紫藍色樣"></span></td><td class="group-divider">80</td><td>91</td><td>166</td><td class="group-divider">40.02</td><td>10.41</td><td>-45.964</td></tr>
+        <tr><td>9</td><td>中度紅</td><td><span class="color-swatch" style="background:rgb(193,90,99)" aria-label="中度紅色樣"></span></td><td class="group-divider">193</td><td>90</td><td>99</td><td class="group-divider">51.124</td><td>48.239</td><td>16.248</td></tr>
+        <tr><td>10</td><td>紫色</td><td><span class="color-swatch" style="background:rgb(94,60,108)" aria-label="紫色色樣"></span></td><td class="group-divider">94</td><td>60</td><td>108</td><td class="group-divider">30.325</td><td>22.976</td><td>-21.587</td></tr>
+        <tr><td>11</td><td>黃綠</td><td><span class="color-swatch" style="background:rgb(157,188,64)" aria-label="黃綠色樣"></span></td><td class="group-divider">157</td><td>188</td><td>64</td><td class="group-divider">72.532</td><td>-23.709</td><td>57.255</td></tr>
+        <tr><td>12</td><td>橙黃</td><td><span class="color-swatch" style="background:rgb(224,163,46)" aria-label="橙黃色樣"></span></td><td class="group-divider">224</td><td>163</td><td>46</td><td class="group-divider">71.941</td><td>19.363</td><td>67.857</td></tr>
+        <tr><td>13</td><td>藍色</td><td><span class="color-swatch" style="background:rgb(56,61,150)" aria-label="藍色色樣"></span></td><td class="group-divider">56</td><td>61</td><td>150</td><td class="group-divider">28.778</td><td>14.179</td><td>-50.297</td></tr>
+        <tr><td>14</td><td>綠色</td><td><span class="color-swatch" style="background:rgb(70,148,73)" aria-label="綠色色樣"></span></td><td class="group-divider">70</td><td>148</td><td>73</td><td class="group-divider">55.261</td><td>-38.342</td><td>31.37</td></tr>
+        <tr><td>15</td><td>紅色</td><td><span class="color-swatch" style="background:rgb(175,54,60)" aria-label="紅色色樣"></span></td><td class="group-divider">175</td><td>54</td><td>60</td><td class="group-divider">42.101</td><td>53.378</td><td>28.19</td></tr>
+        <tr><td>16</td><td>黃色</td><td><span class="color-swatch" style="background:rgb(231,199,31)" aria-label="黃色色樣"></span></td><td class="group-divider">231</td><td>199</td><td>31</td><td class="group-divider">81.733</td><td>4.039</td><td>79.819</td></tr>
+        <tr><td>17</td><td>洋紅</td><td><span class="color-swatch" style="background:rgb(187,86,149)" aria-label="洋紅色樣"></span></td><td class="group-divider">187</td><td>86</td><td>149</td><td class="group-divider">51.935</td><td>49.986</td><td>-14.574</td></tr>
+        <tr><td>18</td><td>青色</td><td><span class="color-swatch" style="background:rgb(8,133,161)" aria-label="青色色樣"></span></td><td class="group-divider">8</td><td>133</td><td>161</td><td class="group-divider">51.038</td><td>-28.631</td><td>-28.638</td></tr>
+        <tr class="separator-top"><td>19</td><td>白色</td><td><span class="color-swatch" style="background:rgb(243,243,242)" aria-label="白色色樣"></span></td><td class="group-divider">243</td><td>243</td><td>242</td><td class="group-divider">96.539</td><td>-0.425</td><td>1.186</td></tr>
+        <tr><td>20</td><td>中性灰 8</td><td><span class="color-swatch" style="background:rgb(200,200,200)" aria-label="中性灰 8 色樣"></span></td><td class="group-divider">200</td><td>200</td><td>200</td><td class="group-divider">81.257</td><td>-0.638</td><td>-0.335</td></tr>
+        <tr><td>21</td><td>中性灰 6.5</td><td><span class="color-swatch" style="background:rgb(160,160,160)" aria-label="中性灰 6.5 色樣"></span></td><td class="group-divider">160</td><td>160</td><td>160</td><td class="group-divider">66.766</td><td>-0.734</td><td>-0.504</td></tr>
+        <tr><td>22</td><td>中性灰 5</td><td><span class="color-swatch" style="background:rgb(122,122,121)" aria-label="中性灰 5 色樣"></span></td><td class="group-divider">122</td><td>122</td><td>121</td><td class="group-divider">50.867</td><td>-0.153</td><td>-0.27</td></tr>
+        <tr><td>23</td><td>中性灰 3.5</td><td><span class="color-swatch" style="background:rgb(85,85,85)" aria-label="中性灰 3.5 色樣"></span></td><td class="group-divider">85</td><td>85</td><td>85</td><td class="group-divider">35.656</td><td>-0.421</td><td>-1.231</td></tr>
+        <tr><td>24</td><td>黑色</td><td><span class="color-swatch" style="background:rgb(52,52,52)" aria-label="黑色色樣"></span></td><td class="group-divider">52</td><td>52</td><td>52</td><td class="group-divider">20.461</td><td>-0.079</td><td>-0.973</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="table-caption"><em>Figure 2. CIELAB values under illuminant D50 for the ColorChecker® Classic.</em></p>
+  <p class="table-caption"><em>圖 2：ColorChecker® Classic 在 D50 光源下的 CIELAB 參考值。</em></p>
 </div>
-<h2 id="3-color--chroma-difference">3. Color &amp; Chroma Difference</h2>
-<p>Calculating the color and chroma difference of images with the ColorChecker serves as a quantitative measure of a camera’s color reproduction accuracy.</p>
-<p>The <strong>CIE Lab</strong> color space was designed to be approximately perceptually uniform and is widely used for calculating color differences. In the Lab color space, L*, a*, and b* represent lightness, the color on a green-red scale, and the color on a blue-yellow scale, respectively.</p>
-<h4 id="31-the-cie-1976-standard">3.1 The CIE 1976 standard</h4>
-<p>The total color difference ΔE* is calculated by measuring the Euclidean distance between two Lab coordinates:</p>
+<h2 id="3-色差與彩度差異">3. 色差與彩度差異</h2>
+<p>利用 ColorChecker 計算影像的色差與彩度差異，可以量化相機的色彩還原準確度。</p>
+<p><strong>CIE Lab</strong> 色彩空間的設計目標是近似感知均勻，因此廣泛應用於色差計算。在 Lab 空間中，L* 表示明度，a* 表示綠色到紅色的色彩軸，b* 則表示藍色到黃色的色彩軸。</p>
+<h4 id="31-cie-1976-標準">3.1 CIE 1976 標準</h4>
+<p>總色差 ΔE* 是兩個 Lab 座標之間的歐氏距離：</p>
 <p>$$
 ΔE_{ab}^* = \sqrt{(L_2^* - L_1^*)^2 + (a_2^* - a_1^*)^2 + (b_2^* - b_1^*)^2}
 $$</p>
-<p>The conventional CIELAB chroma difference is the <strong>signed difference between two chroma coordinates</strong>:</p>
+<p>傳統 CIELAB 彩度差異的定義，是兩個彩度座標之間的<strong>有號差值</strong>：</p>
 <p>$$
 \Delta C_{ab}^*=C_{ab,2}^*-C_{ab,1}^*
 =\sqrt{a_2^{*2}+b_2^{*2}}-\sqrt{a_1^{*2}+b_1^{*2}}
 $$</p>
-<p>Here, $C_{ab,i}^*=\sqrt{a_i^{*2}+b_i^{*2}}$. Color 1 denotes the reference and color 2 denotes the camera sample. Therefore, $\Delta C_{ab}^*&lt;0$ indicates lower chroma than the reference, while $\Delta C_{ab}^*&gt;0$ indicates higher chroma. Reversing the sample and reference reverses the sign.</p>
-<p>Another useful quantity is the <strong>lightness-excluded chromatic-plane distance</strong>:</p>
+<p>其中 $C_{ab,i}^*=\sqrt{a_i^{*2}+b_i^{*2}}$。本文將色彩 1 定義為參考值，色彩 2 定義為相機量測值。因此，$\Delta C_{ab}^*&lt;0$ 表示相機彩度低於參考值，$\Delta C_{ab}^*&gt;0$ 則表示彩度高於參考值。若交換參考值與量測值，符號也會隨之反轉。</p>
+<p>另一個常用的量是<strong>排除明度後的色彩平面距離</strong>：</p>
 <p>$$
 D_{ab}=\sqrt{(\Delta a^*)^2+(\Delta b^*)^2}
 =\sqrt{(\Delta E_{ab}^*)^2-(\Delta L^*)^2}
 $$</p>
-<p>$D_{ab}$ and $\Delta C_{ab}^*$ are not the same statistical object. The first is a non-negative Euclidean norm in the $a^*b^*$ plane; the second is a signed difference between radial chroma coordinates. Their exact relationship is</p>
+<p>$D_{ab}$ 與 $\Delta C_{ab}^*$ 並不是同一種統計量。前者是 $a^*b^*$ 平面中的非負歐氏範數，後者則是兩個徑向彩度座標的有號差值。兩者具有以下精確關係：</p>
 <p>$$
 (\Delta a^*)^2+(\Delta b^*)^2
 =(\Delta C_{ab}^*)^2+(\Delta H_{ab}^*)^2,
@@ -761,20 +752,20 @@ $$</p>
 <p>$$
 \Delta H_{ab}^*=2\sqrt{C_1^*C_2^*}\sin\left(\frac{\Delta h_{ab}}{2}\right).
 $$</p>
-<p>Consequently, $|\Delta C_{ab}^*|\leq D_{ab}$. This distinction is more fundamental than simply describing the methods as rectangular versus polar coordinates: it is a comparison between a <strong>norm</strong> and a <strong>signed radial-coordinate difference</strong>.</p>
-<h4 id="32-the-cie-2000-standard">3.2 The CIE 2000 standard</h4>
-<p>The formulas of ΔE* are revised to better address the perceptual non-uniformity problem. The CIEDE2000 standard introduced three major improvements in the color difference calculation:</p>
+<p>因此，$|\Delta C_{ab}^*|\leq D_{ab}$。這項差異的本質不只是直角座標與極座標的不同，而是<strong>範數</strong>與<strong>有號徑向座標差值</strong>之間的差別。</p>
+<h4 id="32-ciede2000-標準">3.2 CIEDE2000 標準</h4>
+<p>CIEDE2000 重新設計 ΔE* 公式，以改善色彩空間感知不均勻的問題，主要包含三項改進：</p>
 <ol>
-<li>decomposing the difference into <strong>lightness, chroma, and hue-related components</strong>;</li>
-<li>adding <strong>location-dependent weighting factors</strong> to balance these components; and</li>
-<li>including a <strong>rotation term</strong> to account for the interaction between chroma and hue in the blue region.</li>
+<li>將色差分解為<strong>明度、彩度與色相相關分量</strong>；</li>
+<li>使用<strong>隨色彩位置改變的加權因子</strong>，平衡各分量的感知影響；</li>
+<li>加入<strong>旋轉項</strong>，修正藍色區域中彩度與色相的交互作用。</li>
 </ol>
-<p>The CIE LCh model is a cylindrical representation of Lab coordinates. In LCh, L*, C*, and h* represent <strong>lightness</strong>, <strong>chroma</strong>, and <strong>hue angle</strong>, respectively. Chroma is the radial distance from the neutral axis, and hue is computed with the four-quadrant angle $h=\operatorname{atan2}(b^*,a^*)$. CIE94, CMC, and CIEDE2000 specifically rely on this chroma-hue decomposition to apply perceptual weighting. The comprehensive calculation and boundary cases are described in the <a href="https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf">[CIEDE2000 implementation notes]</a>.</p>
-<h4 id="33-industrial-color-difference-algorithm">3.3 Industrial Color Difference Algorithm</h4>
-<p>The first step in calculating ΔE* and ΔC* involves converting the RGB color space to the Lab color space, which requires <strong>an intermediate transformation to the XYZ color space</strong>. As the source and target color spaces may have different reference white points, <strong>chromatic adaptation</strong> is necessary to ensure an accurate conversion.</p>
-<p>Since the Lab reference white point of both Imatest and IQ-analyer is D50 and the RGB2XYZ transformation matrix is based on D65 illumination, <strong>the D50 chroma adaption</strong> needs to be applied in the calculation.</p>
-<p>Denoted <strong>M1</strong> as the <strong>RGB2XYZ transformation matrix</strong> and <strong>M2</strong> as the <strong>Bradford matrix</strong> used for chroma adaption. The overall Lab conversion flowchart of Imatest and iQ-analyzer are shown below.
-$$
+<p>CIE LCh 是 Lab 座標的圓柱表示方式，其中 L*、C* 與 h* 分別表示<strong>明度</strong>、<strong>彩度</strong>與<strong>色相角</strong>。彩度是色彩點到中性軸的徑向距離，色相則以四象限角度 $h=\operatorname{atan2}(b^*,a^*)$ 計算。CIE94、CMC 與 CIEDE2000 都以這種彩度—色相分解套用感知加權。完整公式與邊界條件可參考 <a href="https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf">[CIEDE2000 implementation notes]</a>。</p>
+<h4 id="33-產業軟體採用的色差演算法">3.3 產業軟體採用的色差演算法</h4>
+<p>計算 ΔE* 與 ΔC* 的第一步，是將 RGB 色彩空間轉換到 Lab；過程中必須先經過 <strong>XYZ 中介色彩空間</strong>。若來源與目標色彩空間的參考白點不同，還必須進行<strong>色適應轉換</strong>，才能得到正確結果。</p>
+<p>在我們的實驗設定中，Lab 的參考白點為 D50，而 RGB-to-XYZ 矩陣以 D65 光源為基準，因此計算時需要套用 D65 至 D50 的色適應轉換。</p>
+<p>以下以 <strong>M1</strong> 表示 <strong>RGB-to-XYZ 轉換矩陣</strong>，以 <strong>M2</strong> 表示色適應使用的 <strong>Bradford 矩陣</strong>：</p>
+<p>$$
 M_1 =
 \begin{bmatrix}
 0.4124564 &amp; 0.3575761 &amp; 0.1804375 \\
@@ -791,16 +782,16 @@ M_2 =
 \end{bmatrix}
 $$</p>
 <ol>
-<li>Imatest: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ Lab</li>
-<li>iQ-analyzer: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ <strong>D50XYZ (M2)</strong> ➝ Lab</li>
+<li>Imatest：sRGB ➝ <strong>D65 XYZ（M1）</strong> ➝ Lab</li>
+<li>iQ-Analyzer：sRGB ➝ <strong>D65 XYZ（M1）</strong> ➝ <strong>D50 XYZ（M2）</strong> ➝ Lab</li>
 </ol>
-<p>In our experiments, we revealed that Imatest and iQ-Analyzer report <strong>different statistical quantities under the same or similar ΔC label</strong>:</p>
+<p>實驗結果顯示，Imatest 與 iQ-Analyzer 雖然使用相同或相似的 ΔC 名稱，實際回報的卻是<strong>不同的統計量</strong>。</p>
 <h5 id="imatest">Imatest</h5>
-<p>Imatest uses an application-specific definition of ΔC: a lightness-excluded chromatic-plane distance rather than the conventional signed difference between two CIELAB chroma coordinates. Its CIE 1976 implementation is</p>
+<p>Imatest 對 ΔC 採用一套應用導向的定義：它計算的是排除明度後的色彩平面距離，而不是傳統 CIELAB 所定義的有號彩度差值。其 CIE 1976 實作為：</p>
 <p>$$
 \Delta C_{ab,\mathrm{Imatest}}^*=\sqrt{(a_2^*-a_1^*)^2+(b_2^*-b_1^*)^2}.
 $$</p>
-<p>For CIEDE2000, Imatest removes the lightness term but retains the chroma term, hue term, and their interaction:</p>
+<p>在 CIEDE2000 中，Imatest 移除明度項，但保留彩度項、色相項及兩者的交互作用：</p>
 <p>$$
 \Delta C_{00,\mathrm{Imatest}}^*=
 \sqrt{
@@ -810,67 +801,67 @@ R_T\left(\frac{\Delta C&rsquo;}{K_C S_C}\right)
 \left(\frac{\Delta H&rsquo;}{K_H S_H}\right)
 }.
 $$</p>
-<p>Thus, the Imatest result is a non-negative magnitude that combines chroma and hue-related errors. Imatest itself notes that this ΔC definition differs from the pure chroma difference $\Delta|C^*|$.</p>
+<p>因此，Imatest 回報的是結合彩度與色相誤差的非負量值。Imatest 官方文件也特別說明，這項 ΔC 定義不同於純彩度差異 $\Delta|C^*|$。</p>
 <h5 id="iq-analyzer">iQ-Analyzer</h5>
-<p>The chroma difference calculated by iQ-Analyzer is the signed difference between two chroma coordinates:</p>
+<p>iQ-Analyzer 計算的是兩個彩度座標之間的有號差值：</p>
 <p>$$
 \Delta C_{ab,\mathrm{iQ}}^*=
 \sqrt{a_2^{*2}+b_2^{*2}}-
 \sqrt{a_1^{*2}+b_1^{*2}}.
 $$</p>
-<p>Its CIEDE2000 output retains only the signed, perceptually weighted chroma component:</p>
+<p>其 CIEDE2000 輸出只保留經感知加權後的有號彩度分量：</p>
 <p>$$
 \Delta C_{00,\mathrm{iQ}}^*= \frac{\Delta C&rsquo;}{K_C S_C}.
 $$</p>
-<p>The difference between chroma coordinates is the reason why the chroma difference calculated by iQ-Analyzer may have <strong>negative values</strong>. With the camera-minus-reference convention used here, a negative value indicates undersaturation and a positive value indicates oversaturation. This direction is directly actionable for saturation gain and 3D-LUT tuning, whereas a norm cannot provide it.</p>
-<p>The difference remains important in CIEDE2000. If</p>
+<p>正因為 iQ-Analyzer 計算的是兩個彩度座標的差值，所以結果可能是<strong>負值</strong>。依照本文採用的「相機量測值減參考值」慣例，負值代表彩度不足，正值代表彩度過高。這個方向資訊可直接用來判斷 saturation gain 或 3D-LUT 的調整方向，而範數無法提供同樣資訊。</p>
+<p>這項差異在 CIEDE2000 中仍然很重要。令</p>
 <p>$$
 x=\frac{\Delta C&rsquo;}{K_C S_C},\qquad
 y=\frac{\Delta H&rsquo;}{K_H S_H},
 $$</p>
-<p>then iQ-Analyzer reports $x$, while Imatest reports $\sqrt{x^2+y^2+R_Txy}$. Unlike the CIE 1976 case, the Imatest magnitude is not guaranteed to be greater than $|x|$. Around the CIEDE2000 blue-region rotation zone ($\bar h&rsquo;\approx275^\circ$), $R_T$ can be negative, so the interaction term may reduce the combined result. For example, $R_T=-1.73$ and $y=0.866x$ give</p>
+<p>則 iQ-Analyzer 回報 $x$，Imatest 回報 $\sqrt{x^2+y^2+R_Txy}$。與 CIE 1976 不同，Imatest 的合成量不一定大於 $|x|$。在 CIEDE2000 的藍色旋轉區域（$\bar h&rsquo;\approx275^\circ$）附近，$R_T$ 可能為負，使交互作用項降低合成結果。例如，當 $R_T=-1.73$、$y=0.866x$ 時：</p>
 <p>$$
 \sqrt{x^2+0.75x^2-1.498x^2}\approx0.50|x|.
 $$</p>
-<p>Therefore, cross-tool comparisons may produce counterintuitive results for some blue color pairs. The exact behavior should be verified using the measured Lab values rather than inferred from the patch name alone.</p>
-<h2 id="4-advantages-of-the-signed-chroma-difference">4. Advantages of the Signed Chroma Difference</h2>
+<p>因此，兩套工具在某些藍色色對上的比較，可能出現違反直覺的結果。是否真的發生，仍應以實際量測的 Lab 數值驗證，而不能只根據色塊名稱推定。</p>
+<h2 id="4-有號彩度差異的優點">4. 有號彩度差異的優點</h2>
 <ol>
-<li><strong>Actionable direction.</strong> A negative value indicates lower chroma and a positive value indicates higher chroma, provided that sample minus reference is used. This maps naturally to the direction of saturation-gain or 3D-LUT adjustment.</li>
-<li><strong>Interpretable attributes.</strong> Chroma and hue describe errors in terms such as too vivid, too weak, or hue-shifted more directly than raw $a^*$ and $b^*$ coordinate changes.</li>
-<li><strong>Compatibility with perceptual decomposition.</strong> CIE94, CMC, and CIEDE2000 explicitly separate lightness, chroma, and hue-related components and apply location-dependent weighting.</li>
-<li><strong>Systematic-bias analysis.</strong> The mean of signed values can expose a global bias, while standard deviation or RMS describes spread. If all 24 patches have $\Delta C=+5$, the signed mean is $+5$ and immediately reveals global oversaturation. If half are $+5$ and half are $-5$, the mean is 0 but the RMS is 5, indicating heterogeneous patch-dependent errors that require further analysis against reference hue.</li>
-<li><strong>Useful diagnostic cues.</strong> Large chroma and hue components can guide the inspection of saturation/gamut processing versus CCM, spectral mismatch, or white balance. This is a diagnostic heuristic rather than a unique identification of the responsible ISP module.</li>
+<li><strong>能直接提供調整方向。</strong> 在「量測值減參考值」的定義下，負值代表彩度不足，正值代表彩度過高，可直接對應 saturation gain 或 3D-LUT 的調整方向。</li>
+<li><strong>較容易用感知語言解釋。</strong> 相較於原始 $a^*$、$b^*$ 座標變化，彩度與色相更容易對應「太鮮豔」、「太淡」或「偏色」等描述。</li>
+<li><strong>可搭配感知分解。</strong> CIE94、CMC 與 CIEDE2000 都會明確分離明度、彩度與色相相關分量，再依色彩位置套用不同權重。</li>
+<li><strong>適合分析系統性偏差。</strong> 有號值的平均能揭露全域偏移，標準差或 RMS 則反映誤差分散程度。若 24 個色塊的 $\Delta C$ 都是 $+5$，平均值 $+5$ 會直接指出整體過飽和；若一半為 $+5$、一半為 $-5$，平均為 0、RMS 為 5，則表示誤差隨色塊而異，還需進一步分析它與參考色相的關係。</li>
+<li><strong>能提供實用的診斷線索。</strong> 彩度或色相分量偏大，可協助優先檢查 saturation／gamut processing，或 CCM、光譜不匹配與白平衡。但這種對應只能作為診斷線索，不能單憑數值唯一判定是哪一個 ISP 模組造成問題。</li>
 </ol>
-<h2 id="5-limitations-of-the-signed-chroma-difference">5. Limitations of the Signed Chroma Difference</h2>
-<h4 id="hue-blind-spot">Hue blind spot</h4>
-<p>A pure hue rotation can have $\Delta C=0$. For example, $(a_1^*,b_1^*)=(20,0)$ and $(a_2^*,b_2^*)=(0,20)$ have equal chroma, so $\Delta C_{ab}^*=0$, even though</p>
+<h2 id="5-有號彩度差異的限制">5. 有號彩度差異的限制</h2>
+<h4 id="無法看見純色相旋轉">無法看見純色相旋轉</h4>
+<p>純色相旋轉可能出現 $\Delta C=0$。例如，$(a_1^*,b_1^*)=(20,0)$ 與 $(a_2^*,b_2^*)=(0,20)$ 的彩度相同，因此 $\Delta C_{ab}^*=0$，但實際上：</p>
 <p>$$
 \sqrt{(\Delta a^*)^2+(\Delta b^*)^2}
 =\Delta H_{ab}^*\approx28.3.
 $$</p>
-<p>Reporting signed ΔC alone would therefore miss a severe hue error.</p>
-<h4 id="neutral-axis-instability">Neutral-axis instability</h4>
-<p>As $C^*\rightarrow0$, hue becomes undefined and $\partial h/\partial(a,b)$ grows approximately as $1/C$. The hue angles of neutral ColorChecker patches can therefore be dominated by measurement noise. The chroma coordinate remains defined, but hue and signed $\Delta H$ require special handling near the neutral axis.</p>
-<h4 id="magnitude-bias-under-noise">Magnitude bias under noise</h4>
-<p>Under a first-order model where $a^*$ and $b^*$ contain independent, isotropic, zero-mean Gaussian noise with standard deviation $\sigma$, the measured chroma magnitude follows a Rice distribution. Its expectation is approximately</p>
+<p>若只回報有號 ΔC，就可能忽略非常嚴重的色相誤差。</p>
+<h4 id="中性軸附近的不穩定性">中性軸附近的不穩定性</h4>
+<p>當 $C^*\rightarrow0$ 時，色相未定義，而且 $\partial h/\partial(a,b)$ 約以 $1/C$ 的速度增大。因此，ColorChecker 中性灰色塊的色相角可能主要反映量測雜訊。彩度座標本身仍有定義，但中性軸附近的色相與有號 $\Delta H$ 必須特別處理。</p>
+<h4 id="雜訊造成的量值偏差">雜訊造成的量值偏差</h4>
+<p>在一階近似模型中，若 $a^*$ 與 $b^*$ 含有彼此獨立、各向同性、零均值且標準差為 $\sigma$ 的高斯雜訊，量測到的彩度會服從 Rice 分布，其期望值近似為：</p>
 <p>$$
 E[\hat C]\approx C_{\mathrm{true}}+\frac{\sigma^2}{2C_{\mathrm{true}}}
 \quad(C_{\mathrm{true}}\gg\sigma),
 $$</p>
-<p>and approaches</p>
+<p>而當真實彩度趨近於零時：</p>
 <p>$$
 E[\hat C]\rightarrow\sigma\sqrt{\frac{\pi}{2}}
 \quad(C_{\mathrm{true}}\rightarrow0).
 $$</p>
-<p>Noisy measurements therefore tend to overestimate chroma, especially for low-chroma patches. In high-ISO images this may partially cancel true undersaturation or create a false positive ΔC for neutral patches. This model is conditional: noise after the nonlinear RGB-to-Lab conversion may be correlated, heteroscedastic, or non-Gaussian and should be validated experimentally.</p>
-<h2 id="6-advantages-and-limitations-of-the-chromatic-plane-norm">6. Advantages and Limitations of the Chromatic-Plane Norm</h2>
-<p>The CIE 1976 chromatic-plane norm $D_{ab}$ is well-defined everywhere, contains no hue-angle singularity, and is a true Euclidean metric in the $a^*b^*$ plane. Under an additive zero-mean Lab-domain noise model, the individual $\Delta a^*$ and $\Delta b^*$ components are linear and easier to propagate. The norm also has no chromatic blind spot: it is zero only when both $a^*$ and $b^*$ match. These properties make it useful as a single-number chromatic pass/fail measure, although full color conformance should use ΔE when lightness error is also important.</p>
-<p>Its disadvantages are equally important. A non-negative norm loses the direction of the chroma bias and cannot separate chroma and hue-related contributions. An unweighted Euclidean norm also does not include the location-dependent perceptual corrections used by CIE94, CMC, or CIEDE2000. Moreover, CIELAB is only approximately perceptually uniform, with known non-uniform behavior for saturated colors and in the blue-violet region.</p>
-<h2 id="reference">Reference</h2>
+<p>也就是說，雜訊會使量測彩度產生系統性高估，且低彩度色塊受到的影響最明顯。在高 ISO 影像中，這種偏差可能抵銷真實的彩度不足，甚至讓中性色塊出現虛假的正 ΔC。不過，這項分析有其適用條件：RGB 經非線性轉換至 Lab 後，雜訊可能具有相關性、異方差或非高斯特性，因此仍需透過實驗確認。</p>
+<h2 id="6-色彩平面範數的優點與限制">6. 色彩平面範數的優點與限制</h2>
+<p>CIE 1976 色彩平面範數 $D_{ab}$ 在所有位置都有明確定義，不會遇到色相角奇異點，而且是 $a^*b^*$ 平面中的真正歐氏度量。在 Lab 空間的加性零均值雜訊模型下，$\Delta a^*$ 與 $\Delta b^*$ 都是線性分量，雜訊傳播也較容易分析。這個範數沒有彩色差異的盲點：只有當 $a^*$ 與 $b^*$ 都完全相同時，結果才會是零。因此，它適合作為單一數值的色彩平面 pass／fail 指標；若明度誤差同樣重要，完整色彩符合性評估仍應使用 ΔE。</p>
+<p>它的限制也很明確。非負範數會失去彩度偏差方向，且無法分離彩度與色相相關的誤差。未加權的歐氏範數也不包含 CIE94、CMC 或 CIEDE2000 所採用、隨色彩位置改變的感知修正。此外，CIELAB 只具有近似的感知均勻性，在高彩度與藍紫色區域仍存在已知的非均勻現象。</p>
+<h2 id="參考資料">參考資料</h2>
 <ol>
 <li>ColorChecker reference table: <a href="https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf">https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf</a></li>
 <li>Imatest Color/Tone Appendix: <a href="https://www.imatest.com/docs/colortone_ref/">https://www.imatest.com/docs/colortone_ref/</a></li>
-<li>iQ-analyzer ColorChecker application: <a href="https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle">https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle</a></li>
+<li>iQ-Analyzer ColorChecker application: <a href="https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle">https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle</a></li>
 <li>The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations: <a href="https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf">https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf</a></li>
 <li>ISO/CIE 11664-6:2022, Colorimetry—Part 6: CIEDE2000 Colour-Difference Formula: <a href="https://www.cie.co.at/publications/colorimetry-part-6-ciede2000-colour-difference-formula-1">https://www.cie.co.at/publications/colorimetry-part-6-ciede2000-colour-difference-formula-1</a></li>
 </ol>
@@ -878,24 +869,24 @@ $$</p>
       </article>
 
       <aside class="proj-toc">
-        <div class="toc-title">On this page</div>
+        <div class="toc-title">本頁內容</div>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-introduction">1. Introduction</a></li>
-    <li><a href="#2-colorchecker-application">2. ColorChecker Application</a></li>
-    <li><a href="#3-color--chroma-difference">3. Color &amp; Chroma Difference</a>
+    <li><a href="#1-簡介">1. 簡介</a></li>
+    <li><a href="#2-colorchecker-的用途">2. ColorChecker 的用途</a></li>
+    <li><a href="#3-色差與彩度差異">3. 色差與彩度差異</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#4-advantages-of-the-signed-chroma-difference">4. Advantages of the Signed Chroma Difference</a></li>
-    <li><a href="#5-limitations-of-the-signed-chroma-difference">5. Limitations of the Signed Chroma Difference</a>
+    <li><a href="#4-有號彩度差異的優點">4. 有號彩度差異的優點</a></li>
+    <li><a href="#5-有號彩度差異的限制">5. 有號彩度差異的限制</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#6-advantages-and-limitations-of-the-chromatic-plane-norm">6. Advantages and Limitations of the Chromatic-Plane Norm</a></li>
-    <li><a href="#reference">Reference</a></li>
+    <li><a href="#6-色彩平面範數的優點與限制">6. 色彩平面範數的優點與限制</a></li>
+    <li><a href="#參考資料">參考資料</a></li>
   </ul>
 </nav>
       </aside>
