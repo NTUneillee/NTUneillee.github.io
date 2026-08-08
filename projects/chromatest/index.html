@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="Implemention details of color and chorma difference algorithms in Imatest and iQ-Analyzer.">
+  <meta name="description" content="Implementation details of color and chroma difference algorithms in Imatest and iQ-Analyzer.">
   <meta name="author" content="Neil Lee">
   <meta name="generator" content="Hugo 0.111.3">
 
@@ -383,7 +383,7 @@
     border-radius: 0 10px 10px 0;
     padding: 1.25rem 1.5rem;
     margin: 0 0 2.25rem;
-    font-size: 0.98rem;
+    font-size: 1.06rem;
     line-height: 1.75;
     color: #555;
   }
@@ -402,20 +402,28 @@
   .proj-content,
   .proj-content p,
   .proj-content li {
-    font-size: 1rem;
+    font-size: 1.08rem;
     line-height: 1.75;
   }
   .proj-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     scroll-margin-top: 90px;
   }
   .proj-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.28rem;
     margin-top: 1.75rem;
     margin-bottom: 0.75rem;
     scroll-margin-top: 90px;
+  }
+  .proj-content h4 {
+    font-size: 1.14rem;
+    line-height: 1.45;
+  }
+  .proj-content h5 {
+    font-size: 1.08rem;
+    line-height: 1.45;
   }
   .proj-content img {
     display: block;
@@ -442,14 +450,22 @@
 
    
   .proj-content mjx-container {
+    display: inline;
+    max-width: none;
+    margin: 0 0.08em;
+    padding: 0;
+    overflow: visible;
+    vertical-align: baseline;
+  }
+
+   
+  .proj-content mjx-container[display="true"] {
     display: block;
+    max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width: 100%;
     -webkit-overflow-scrolling: touch;
-    padding: 2px 0;
-  }
-  .proj-content mjx-container[display="true"] {
+    padding: 0.2rem 0;
     margin: 1rem 0 !important;
   }
 
@@ -462,6 +478,84 @@
   .proj-content li {
     overflow-wrap: break-word;
   }
+
+   
+  .colorchecker-table-wrapper {
+    width: 100%;
+    margin: 1.75rem 0 2rem;
+    text-align: center;
+  }
+  .colorchecker-table-wrapper .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
+  }
+  .proj-content .colorchecker-table {
+    display: inline-table;
+    width: max-content;
+    min-width: 680px;
+    max-width: none;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.92rem;
+  }
+  .proj-content .colorchecker-table th,
+  .proj-content .colorchecker-table td {
+    padding: 6px 9px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    text-align: center !important;
+    vertical-align: middle !important;
+    white-space: nowrap;
+  }
+  .proj-content .colorchecker-table th {
+    background: #e3edf8;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+    font-weight: 600;
+  }
+  .proj-content .colorchecker-table thead tr:nth-child(2) th {
+    border-top: 0;
+  }
+  .proj-content .colorchecker-table tbody tr:last-child td {
+    border-bottom: 2px solid #000;
+  }
+  .proj-content .colorchecker-table .group-divider {
+    border-left: 1px solid #000;
+  }
+  .proj-content .colorchecker-table .separator-top td {
+    border-top: 1px solid #888;
+  }
+  .proj-content .colorchecker-table tbody td:nth-child(2) {
+    min-width: 112px;
+  }
+  .colorchecker-table .color-swatch {
+    display: block;
+    width: 46px;
+    height: 29px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .colorchecker-table-wrapper .table-caption {
+    margin: 0.65rem 0 0;
+    color: #000;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  body.dark-mode .proj-content .colorchecker-table th {
+    background: #e3edf8;
+    color: #000;
+  }
+  body.dark-mode .proj-content .colorchecker-table td {
+    background: #fff;
+    color: #000;
+    border-bottom-color: #ccc;
+  }
+  body.dark-mode .colorchecker-table-wrapper .table-caption { color: #000; }
 
    
   .proj-content table {
@@ -514,41 +608,100 @@
     <div class="proj-layout">
       <article class="proj-content content">
         <blockquote>
-<p>Professional image qualuty analysis softwares such as <strong>Imatest</strong> and <strong>iQ-analyzer</strong> provide objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that <strong>different software employs varying algorithms for calculating the color difference</strong>. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by various softwares. This work will discuss the advantages, disadvantages, and implementation specifics of the two algorithms.</p>
+<p>Professional image quality analysis software such as <strong>Imatest</strong> and <strong>iQ-Analyzer</strong> provides objective, comprehensive, and consistent evaluations of camera image quality. In our practical experience, we have observed that <strong>different software employs varying algorithms for calculating the color difference</strong>. To enable efficient automated image analysis, we conducted extensive experimental studies to uncover the color difference algorithms employed by different software packages. This work discusses the advantages, disadvantages, and implementation details of the two algorithms.</p>
 </blockquote>
-<h2 id="introduction">Introduction</h2>
+<h2 id="1-introduction">1. Introduction</h2>
 <p>The ColorChecker® Patch Classic target is an array of 24 scientifically prepared natural, chromatic, primary and grayscale colored squares. These calibrated patches cover a broad spectrum of colors. When included in a test image, the ColorChecker serves as a reliable reference for comparing the captured output of cameras to the original chart’s accurate color measurements, ensuring precise color reproduction and consistency.</p>
-<p><img src="/images/post/colorchecker.png" alt="colorchecker.png">
-<em>Figure 1. The ground-truth RGB pixel values for each color patch in the The ColorChecker®.</em></p>
-<h2 id="colorchecker-application">ColorChecker Application</h2>
+<h2 id="2-colorchecker-application">2. ColorChecker Application</h2>
 <ol>
-<li>Provides a standard for camera calibration in image color accuracy and auto white balance.</li>
+<li>Provides a standard for camera calibration in color reproduction accuracy and auto white balance.</li>
 <li>Enables an accurate calculation of ΔE* and ΔC* to quantify the image color difference.</li>
 </ol>
-<p><img src="/images/post/ColorCheckerDataD65.png" alt="colorchecker.png"></p>
-<p><em>Figure 2. CIELAB values in illuminate D50 for The ColorChecker® Patch Classic</em></p>
-<h2 id="color--chroma-difference">Color &amp; Chroma Difference</h2>
+<div class="colorchecker-table-wrapper">
+  <div class="table-scroll" role="region" aria-label="ColorChecker Classic sRGB and CIELAB reference values" tabindex="0">
+    <table class="colorchecker-table">
+      <thead>
+        <tr>
+          <th rowspan="2">No.</th>
+          <th colspan="2">Color</th>
+          <th colspan="3" class="group-divider">sRGB</th>
+          <th colspan="3" class="group-divider">CIE L*a*b*</th>
+        </tr>
+        <tr>
+          <th>Patch</th><th>Sample</th>
+          <th class="group-divider">R</th><th>G</th><th>B</th>
+          <th class="group-divider">L*</th><th>a*</th><th>b*</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Dark Skin</td><td><span class="color-swatch" style="background:rgb(115,82,68)" aria-label="Dark Skin color sample"></span></td><td class="group-divider">115</td><td>82</td><td>68</td><td class="group-divider">37.986</td><td>13.555</td><td>14.059</td></tr>
+        <tr><td>2</td><td>Light Skin</td><td><span class="color-swatch" style="background:rgb(194,150,130)" aria-label="Light Skin color sample"></span></td><td class="group-divider">194</td><td>150</td><td>130</td><td class="group-divider">65.711</td><td>18.13</td><td>17.81</td></tr>
+        <tr><td>3</td><td>Blue Sky</td><td><span class="color-swatch" style="background:rgb(98,122,157)" aria-label="Blue Sky color sample"></span></td><td class="group-divider">98</td><td>122</td><td>157</td><td class="group-divider">49.927</td><td>-4.88</td><td>-21.925</td></tr>
+        <tr><td>4</td><td>Foliage</td><td><span class="color-swatch" style="background:rgb(87,108,67)" aria-label="Foliage color sample"></span></td><td class="group-divider">87</td><td>108</td><td>67</td><td class="group-divider">43.119</td><td>-13.095</td><td>21.905</td></tr>
+        <tr><td>5</td><td>Blue Flower</td><td><span class="color-swatch" style="background:rgb(133,128,177)" aria-label="Blue Flower color sample"></span></td><td class="group-divider">133</td><td>128</td><td>177</td><td class="group-divider">55.112</td><td>8.844</td><td>-25.399</td></tr>
+        <tr><td>6</td><td>Bluish Green</td><td><span class="color-swatch" style="background:rgb(103,189,170)" aria-label="Bluish Green color sample"></span></td><td class="group-divider">103</td><td>189</td><td>170</td><td class="group-divider">70.719</td><td>-33.397</td><td>-0.199</td></tr>
+        <tr><td>7</td><td>Orange</td><td><span class="color-swatch" style="background:rgb(214,126,44)" aria-label="Orange color sample"></span></td><td class="group-divider">214</td><td>126</td><td>44</td><td class="group-divider">62.661</td><td>36.067</td><td>57.096</td></tr>
+        <tr><td>8</td><td>Purplish Blue</td><td><span class="color-swatch" style="background:rgb(80,91,166)" aria-label="Purplish Blue color sample"></span></td><td class="group-divider">80</td><td>91</td><td>166</td><td class="group-divider">40.02</td><td>10.41</td><td>-45.964</td></tr>
+        <tr><td>9</td><td>Moderate Red</td><td><span class="color-swatch" style="background:rgb(193,90,99)" aria-label="Moderate Red color sample"></span></td><td class="group-divider">193</td><td>90</td><td>99</td><td class="group-divider">51.124</td><td>48.239</td><td>16.248</td></tr>
+        <tr><td>10</td><td>Purple</td><td><span class="color-swatch" style="background:rgb(94,60,108)" aria-label="Purple color sample"></span></td><td class="group-divider">94</td><td>60</td><td>108</td><td class="group-divider">30.325</td><td>22.976</td><td>-21.587</td></tr>
+        <tr><td>11</td><td>Yellow Green</td><td><span class="color-swatch" style="background:rgb(157,188,64)" aria-label="Yellow Green color sample"></span></td><td class="group-divider">157</td><td>188</td><td>64</td><td class="group-divider">72.532</td><td>-23.709</td><td>57.255</td></tr>
+        <tr><td>12</td><td>Orange Yellow</td><td><span class="color-swatch" style="background:rgb(224,163,46)" aria-label="Orange Yellow color sample"></span></td><td class="group-divider">224</td><td>163</td><td>46</td><td class="group-divider">71.941</td><td>19.363</td><td>67.857</td></tr>
+        <tr><td>13</td><td>Blue</td><td><span class="color-swatch" style="background:rgb(56,61,150)" aria-label="Blue color sample"></span></td><td class="group-divider">56</td><td>61</td><td>150</td><td class="group-divider">28.778</td><td>14.179</td><td>-50.297</td></tr>
+        <tr><td>14</td><td>Green</td><td><span class="color-swatch" style="background:rgb(70,148,73)" aria-label="Green color sample"></span></td><td class="group-divider">70</td><td>148</td><td>73</td><td class="group-divider">55.261</td><td>-38.342</td><td>31.37</td></tr>
+        <tr><td>15</td><td>Red</td><td><span class="color-swatch" style="background:rgb(175,54,60)" aria-label="Red color sample"></span></td><td class="group-divider">175</td><td>54</td><td>60</td><td class="group-divider">42.101</td><td>53.378</td><td>28.19</td></tr>
+        <tr><td>16</td><td>Yellow</td><td><span class="color-swatch" style="background:rgb(231,199,31)" aria-label="Yellow color sample"></span></td><td class="group-divider">231</td><td>199</td><td>31</td><td class="group-divider">81.733</td><td>4.039</td><td>79.819</td></tr>
+        <tr><td>17</td><td>Magenta</td><td><span class="color-swatch" style="background:rgb(187,86,149)" aria-label="Magenta color sample"></span></td><td class="group-divider">187</td><td>86</td><td>149</td><td class="group-divider">51.935</td><td>49.986</td><td>-14.574</td></tr>
+        <tr><td>18</td><td>Cyan</td><td><span class="color-swatch" style="background:rgb(8,133,161)" aria-label="Cyan color sample"></span></td><td class="group-divider">8</td><td>133</td><td>161</td><td class="group-divider">51.038</td><td>-28.631</td><td>-28.638</td></tr>
+        <tr class="separator-top"><td>19</td><td>White</td><td><span class="color-swatch" style="background:rgb(243,243,242)" aria-label="White color sample"></span></td><td class="group-divider">243</td><td>243</td><td>242</td><td class="group-divider">96.539</td><td>-0.425</td><td>1.186</td></tr>
+        <tr><td>20</td><td>Neutral 8</td><td><span class="color-swatch" style="background:rgb(200,200,200)" aria-label="Neutral 8 color sample"></span></td><td class="group-divider">200</td><td>200</td><td>200</td><td class="group-divider">81.257</td><td>-0.638</td><td>-0.335</td></tr>
+        <tr><td>21</td><td>Neutral 6.5</td><td><span class="color-swatch" style="background:rgb(160,160,160)" aria-label="Neutral 6.5 color sample"></span></td><td class="group-divider">160</td><td>160</td><td>160</td><td class="group-divider">66.766</td><td>-0.734</td><td>-0.504</td></tr>
+        <tr><td>22</td><td>Neutral 5</td><td><span class="color-swatch" style="background:rgb(122,122,121)" aria-label="Neutral 5 color sample"></span></td><td class="group-divider">122</td><td>122</td><td>121</td><td class="group-divider">50.867</td><td>-0.153</td><td>-0.27</td></tr>
+        <tr><td>23</td><td>Neutral 3.5</td><td><span class="color-swatch" style="background:rgb(85,85,85)" aria-label="Neutral 3.5 color sample"></span></td><td class="group-divider">85</td><td>85</td><td>85</td><td class="group-divider">35.656</td><td>-0.421</td><td>-1.231</td></tr>
+        <tr><td>24</td><td>Black</td><td><span class="color-swatch" style="background:rgb(52,52,52)" aria-label="Black color sample"></span></td><td class="group-divider">52</td><td>52</td><td>52</td><td class="group-divider">20.461</td><td>-0.079</td><td>-0.973</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-caption"><em>Figure 2. CIELAB values under illuminant D50 for the ColorChecker® Classic.</em></p>
+</div>
+<h2 id="3-color--chroma-difference">3. Color &amp; Chroma Difference</h2>
 <p>Calculating the color and chroma difference of images with the ColorChecker serves as a quantitative measure of a camera’s color reproduction accuracy.</p>
-<p>The <strong>CIE Lab</strong> color space was specifically designed to model human vision and is widely ised for calculating color differences due to the perceptual uniformity: equal distances in the Lab space correspond to equal perceived color differences. In the Lab color space, L*, a*, and b* are represented as the luminance, the color on a green-red scale, and the color on a blue-uellow scale.</p>
-<h4 id="1-the-cie-1976-standard">1. The CIE 1976 standard</h4>
-<p>The absolute difference of color ΔE* and chroma ΔC* are calculated by measuring the Eucliean distance of two Lab coordinates. Compared to the ΔE formula, the chroma difference ΔC is calculated without considering luminance for better focusing on the color inaccuracies <strong>independently of camera exposure error</strong>.</p>
+<p>The <strong>CIE Lab</strong> color space was designed to be approximately perceptually uniform and is widely used for calculating color differences. In the Lab color space, L*, a*, and b* represent lightness, the color on a green-red scale, and the color on a blue-yellow scale, respectively.</p>
+<h4 id="31-the-cie-1976-standard">3.1 The CIE 1976 standard</h4>
+<p>The total color difference ΔE* is calculated by measuring the Euclidean distance between two Lab coordinates:</p>
 <p>$$
 ΔE_{ab}^* = \sqrt{(L_2^* - L_1^*)^2 + (a_2^* - a_1^*)^2 + (b_2^* - b_1^*)^2}
 $$</p>
+<p>The conventional CIELAB chroma difference is the <strong>signed difference between two chroma coordinates</strong>:</p>
 <p>$$
-ΔC_{ab}^*=\sqrt{(a_2^*-a_1^*)^2+(b_2^*-b_1^*)^2}=\sqrt{(ΔE^*)^2+(L_2^*-L_1^*)^2}
+\Delta C_{ab}^*=C_{ab,2}^*-C_{ab,1}^*
+=\sqrt{a_2^{*2}+b_2^{*2}}-\sqrt{a_1^{*2}+b_1^{*2}}
 $$</p>
-<h4 id="2-the-cie-2000-standard">2. The CIE 2000 standard</h4>
-<p>The formulas of ΔE* and ΔC* are revised to better address the perceptual non-uniformity problem. The CIE 2000 standard introuduced two major improvements in the color difference calculation:</p>
+<p>Here, $C_{ab,i}^*=\sqrt{a_i^{*2}+b_i^{*2}}$. Color 1 denotes the reference and color 2 denotes the camera sample. Therefore, $\Delta C_{ab}^*&lt;0$ indicates lower chroma than the reference, while $\Delta C_{ab}^*&gt;0$ indicates higher chroma. Reversing the sample and reference reverses the sign.</p>
+<p>Another useful quantity is the <strong>lightness-excluded chromatic-plane distance</strong>:</p>
+<p>$$
+D_{ab}=\sqrt{(\Delta a^*)^2+(\Delta b^*)^2}
+=\sqrt{(\Delta E_{ab}^*)^2-(\Delta L^*)^2}
+$$</p>
+<p>$D_{ab}$ and $\Delta C_{ab}^*$ are not the same statistical object. The first is a non-negative Euclidean norm in the $a^*b^*$ plane; the second is a signed difference between radial chroma coordinates. Their exact relationship is</p>
+<p>$$
+(\Delta a^*)^2+(\Delta b^*)^2
+=(\Delta C_{ab}^*)^2+(\Delta H_{ab}^*)^2,
+$$</p>
+<p>$$
+\Delta H_{ab}^*=2\sqrt{C_1^*C_2^*}\sin\left(\frac{\Delta h_{ab}}{2}\right).
+$$</p>
+<p>Consequently, $|\Delta C_{ab}^*|\leq D_{ab}$. This distinction is more fundamental than simply describing the methods as rectangular versus polar coordinates: it is a comparison between a <strong>norm</strong> and a <strong>signed radial-coordinate difference</strong>.</p>
+<h4 id="32-the-cie-2000-standard">3.2 The CIE 2000 standard</h4>
+<p>The formulas of ΔE* are revised to better address the perceptual non-uniformity problem. The CIEDE2000 standard introduced three major improvements in the color difference calculation:</p>
 <ol>
-<li>using new color space <strong>LCh</strong> model instead of Lab model.</li>
-<li>adding a <strong>weighting factor</strong> to balance lightness, chroma, and hue components.</li>
-<li>including a <strong>rotational term</strong> to account for interactions between chroma and hue.</li>
+<li>decomposing the difference into <strong>lightness, chroma, and hue-related components</strong>;</li>
+<li>adding <strong>location-dependent weighting factors</strong> to balance these components; and</li>
+<li>including a <strong>rotation term</strong> to account for the interaction between chroma and hue in the blue region.</li>
 </ol>
-<p>The CIE LCh color model is an alternative representation of Lab coordinates. In the LCh color space, L*, C*, and h* are represented as the <strong>luminance</strong>, <strong>chroma</strong> (the saturation of the color), and <strong>hue</strong> (hue angle from 0° to 360° represent the color’s type). Chroma is calculated by the Eucliean distance from the center (neutral gray), and hue angle is calculated by h = arctan( b/a ). The comprehensive calculation of the color difference in CIE 2000 standard can be found in <a href="https://en.wikipedia.org/wiki/Color_difference#:~:text=In%20color%20science%2C%20color%20difference,only%20be%20described%20with%20adjectives.">[here]</a>.</p>
-<h4 id="3-industrial-color-difference-algorithm">3. Industrial Color Difference Algorithm</h4>
+<p>The CIE LCh model is a cylindrical representation of Lab coordinates. In LCh, L*, C*, and h* represent <strong>lightness</strong>, <strong>chroma</strong>, and <strong>hue angle</strong>, respectively. Chroma is the radial distance from the neutral axis, and hue is computed with the four-quadrant angle $h=\operatorname{atan2}(b^*,a^*)$. CIE94, CMC, and CIEDE2000 specifically rely on this chroma-hue decomposition to apply perceptual weighting. The comprehensive calculation and boundary cases are described in the <a href="https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf">[CIEDE2000 implementation notes]</a>.</p>
+<h4 id="33-industrial-color-difference-algorithm">3.3 Industrial Color Difference Algorithm</h4>
 <p>The first step in calculating ΔE* and ΔC* involves converting the RGB color space to the Lab color space, which requires <strong>an intermediate transformation to the XYZ color space</strong>. As the source and target color spaces may have different reference white points, <strong>chromatic adaptation</strong> is necessary to ensure an accurate conversion.</p>
-<p>Since the Lab reference white point of both Imatest and IQ-analyer is D50 and the RGB2XYZ transformation matrix is based on D65 illumination, <strong>the D50 chroma adaption</strong> needs to be applied in the calculation. However, in our experiments, we found that Imatest ignore the D50 Chorma Adaption in its color difference calculation.</p>
+<p>Since the Lab reference white point of both Imatest and IQ-analyer is D50 and the RGB2XYZ transformation matrix is based on D65 illumination, <strong>the D50 chroma adaption</strong> needs to be applied in the calculation.</p>
 <p>Denoted <strong>M1</strong> as the <strong>RGB2XYZ transformation matrix</strong> and <strong>M2</strong> as the <strong>Bradford matrix</strong> used for chroma adaption. The overall Lab conversion flowchart of Imatest and iQ-analyzer are shown below.
 $$
 M_1 =
@@ -570,38 +723,85 @@ $$</p>
 <li>Imatest: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ Lab</li>
 <li>iQ-analyzer: sRGB ➝ <strong>D65XYZ (M1)</strong> ➝ <strong>D50XYZ (M2)</strong> ➝ Lab</li>
 </ol>
-<p><img src="/images/post/LABconversion.svg" alt="LABconversion.svg">
-<em>Figure 3. Overall Lab conversion flowchart. Reference: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/col.20070?casa_token=jdK8lHgpgG8AAAAA%3A5W14hHVFCYE72OGe7KB-hbr-cIoQCZDQj3YGtQWKTs0_2iOjJb0iuDYwalwzqkGhx8YFiwbhecOzn3EF">[Paper]</a></em></p>
-<p>In our research, we revealed that the chroma coordinates of Imatest and iQ-analyzer&rsquo;s algorithms are different,</p>
+<p>In our experiments, we revealed that Imatest and iQ-Analyzer report <strong>different statistical quantities under the same or similar ΔC label</strong>:</p>
+<h5 id="imatest">Imatest</h5>
+<p>Imatest uses an application-specific definition of ΔC: a lightness-excluded chromatic-plane distance rather than the conventional signed difference between two CIELAB chroma coordinates. Its CIE 1976 implementation is</p>
+<p>$$
+\Delta C_{ab,\mathrm{Imatest}}^*=\sqrt{(a_2^*-a_1^*)^2+(b_2^*-b_1^*)^2}.
+$$</p>
+<p>For CIEDE2000, Imatest removes the lightness term but retains the chroma term, hue term, and their interaction:</p>
+<p>$$
+\Delta C_{00,\mathrm{Imatest}}^*=
+\sqrt{
+\left(\frac{\Delta C&rsquo;}{K_C S_C}\right)^2+
+\left(\frac{\Delta H&rsquo;}{K_H S_H}\right)^2+
+R_T\left(\frac{\Delta C&rsquo;}{K_C S_C}\right)
+\left(\frac{\Delta H&rsquo;}{K_H S_H}\right)
+}.
+$$</p>
+<p>Thus, the Imatest result is a non-negative magnitude that combines chroma and hue-related errors. Imatest itself notes that this ΔC definition differs from the pure chroma difference $\Delta|C^*|$.</p>
+<h5 id="iq-analyzer">iQ-Analyzer</h5>
+<p>The chroma difference calculated by iQ-Analyzer is the signed difference between two chroma coordinates:</p>
+<p>$$
+\Delta C_{ab,\mathrm{iQ}}^*=
+\sqrt{a_2^{*2}+b_2^{*2}}-
+\sqrt{a_1^{*2}+b_1^{*2}}.
+$$</p>
+<p>Its CIEDE2000 output retains only the signed, perceptually weighted chroma component:</p>
+<p>$$
+\Delta C_{00,\mathrm{iQ}}^*= \frac{\Delta C&rsquo;}{K_C S_C}.
+$$</p>
+<p>The difference between chroma coordinates is the reason why the chroma difference calculated by iQ-Analyzer may have <strong>negative values</strong>. With the camera-minus-reference convention used here, a negative value indicates undersaturation and a positive value indicates oversaturation. This direction is directly actionable for saturation gain and 3D-LUT tuning, whereas a norm cannot provide it.</p>
+<p>The difference remains important in CIEDE2000. If</p>
+<p>$$
+x=\frac{\Delta C&rsquo;}{K_C S_C},\qquad
+y=\frac{\Delta H&rsquo;}{K_H S_H},
+$$</p>
+<p>then iQ-Analyzer reports $x$, while Imatest reports $\sqrt{x^2+y^2+R_Txy}$. Unlike the CIE 1976 case, the Imatest magnitude is not guaranteed to be greater than $|x|$. Around the CIEDE2000 blue-region rotation zone ($\bar h&rsquo;\approx275^\circ$), $R_T$ can be negative, so the interaction term may reduce the combined result. For example, $R_T=-1.73$ and $y=0.866x$ give</p>
+<p>$$
+\sqrt{x^2+0.75x^2-1.498x^2}\approx0.50|x|.
+$$</p>
+<p>Therefore, cross-tool comparisons may produce counterintuitive results for some blue color pairs. The exact behavior should be verified using the measured Lab values rather than inferred from the patch name alone.</p>
+<h2 id="4-advantages-of-the-signed-chroma-difference">4. Advantages of the Signed Chroma Difference</h2>
 <ol>
-<li>Imatest:
-The chroma difference calculated by Imatest is shown below, which is represented in the <strong>rectangular coordinate</strong>.
-$$
-ΔC_{ab}^*=\sqrt{(a_2^*-a_1^*)^2+(b_2^*-b_1^*)^2}
-$$</li>
+<li><strong>Actionable direction.</strong> A negative value indicates lower chroma and a positive value indicates higher chroma, provided that sample minus reference is used. This maps naturally to the direction of saturation-gain or 3D-LUT adjustment.</li>
+<li><strong>Interpretable attributes.</strong> Chroma and hue describe errors in terms such as too vivid, too weak, or hue-shifted more directly than raw $a^*$ and $b^*$ coordinate changes.</li>
+<li><strong>Compatibility with perceptual decomposition.</strong> CIE94, CMC, and CIEDE2000 explicitly separate lightness, chroma, and hue-related components and apply location-dependent weighting.</li>
+<li><strong>Systematic-bias analysis.</strong> The mean of signed values can expose a global bias, while standard deviation or RMS describes spread. If all 24 patches have $\Delta C=+5$, the signed mean is $+5$ and immediately reveals global oversaturation. If half are $+5$ and half are $-5$, the mean is 0 but the RMS is 5, indicating heterogeneous patch-dependent errors that require further analysis against reference hue.</li>
+<li><strong>Useful diagnostic cues.</strong> Large chroma and hue components can guide the inspection of saturation/gamut processing versus CCM, spectral mismatch, or white balance. This is a diagnostic heuristic rather than a unique identification of the responsible ISP module.</li>
 </ol>
+<h2 id="5-limitations-of-the-signed-chroma-difference">5. Limitations of the Signed Chroma Difference</h2>
+<h4 id="hue-blind-spot">Hue blind spot</h4>
+<p>A pure hue rotation can have $\Delta C=0$. For example, $(a_1^*,b_1^*)=(20,0)$ and $(a_2^*,b_2^*)=(0,20)$ have equal chroma, so $\Delta C_{ab}^*=0$, even though</p>
 <p>$$
-ΔC_{00}^*= ΔE_{00}^* \ \ without \ \ \left( \frac{\Delta L&rsquo;}{K_L S_L} \right)^2
+\sqrt{(\Delta a^*)^2+(\Delta b^*)^2}
+=\Delta H_{ab}^*\approx28.3.
 $$</p>
-<ol start="2">
-<li>iQ-analyzer:
-The chroma difference calculated by iQ-analyzer is shown below, which is represented in the <strong>polar coordinate</strong>.
-$$
-ΔC_{ab}^*= \sqrt{(a_2^*+a_1^*)^2} - \sqrt{(b_2^*+b_1^*)^2}
-$$</li>
-</ol>
+<p>Reporting signed ΔC alone would therefore miss a severe hue error.</p>
+<h4 id="neutral-axis-instability">Neutral-axis instability</h4>
+<p>As $C^*\rightarrow0$, hue becomes undefined and $\partial h/\partial(a,b)$ grows approximately as $1/C$. The hue angles of neutral ColorChecker patches can therefore be dominated by measurement noise. The chroma coordinate remains defined, but hue and signed $\Delta H$ require special handling near the neutral axis.</p>
+<h4 id="magnitude-bias-under-noise">Magnitude bias under noise</h4>
+<p>Under a first-order model where $a^*$ and $b^*$ contain independent, isotropic, zero-mean Gaussian noise with standard deviation $\sigma$, the measured chroma magnitude follows a Rice distribution. Its expectation is approximately</p>
 <p>$$
-ΔC_{00}^*= \frac{\Delta C&rsquo;}{K_C S_C}
+E[\hat C]\approx C_{\mathrm{true}}+\frac{\sigma^2}{2C_{\mathrm{true}}}
+\quad(C_{\mathrm{true}}\gg\sigma),
 $$</p>
-<p>The difference of chroma coordinates is the main reason why the chroma difference calculated by iQ-Analyzer may have <strong>negative values</strong>.</p>
-<h2 id="notes">Notes</h2>
-<p>This study represents the findings and results of a collaborative effort conducted with Allen Tsou in 2023.</p>
+<p>and approaches</p>
+<p>$$
+E[\hat C]\rightarrow\sigma\sqrt{\frac{\pi}{2}}
+\quad(C_{\mathrm{true}}\rightarrow0).
+$$</p>
+<p>Noisy measurements therefore tend to overestimate chroma, especially for low-chroma patches. In high-ISO images this may partially cancel true undersaturation or create a false positive ΔC for neutral patches. This model is conditional: noise after the nonlinear RGB-to-Lab conversion may be correlated, heteroscedastic, or non-Gaussian and should be validated experimentally.</p>
+<h2 id="6-advantages-and-limitations-of-the-chromatic-plane-norm">6. Advantages and Limitations of the Chromatic-Plane Norm</h2>
+<p>The CIE 1976 chromatic-plane norm $D_{ab}$ is well-defined everywhere, contains no hue-angle singularity, and is a true Euclidean metric in the $a^*b^*$ plane. Under an additive zero-mean Lab-domain noise model, the individual $\Delta a^*$ and $\Delta b^*$ components are linear and easier to propagate. The norm also has no chromatic blind spot: it is zero only when both $a^*$ and $b^*$ match. These properties make it useful as a single-number chromatic pass/fail measure, although full color conformance should use ΔE when lightness error is also important.</p>
+<p>Its disadvantages are equally important. A non-negative norm loses the direction of the chroma bias and cannot separate chroma and hue-related contributions. An unweighted Euclidean norm also does not include the location-dependent perceptual corrections used by CIE94, CMC, or CIEDE2000. Moreover, CIELAB is only approximately perceptually uniform, with known non-uniform behavior for saturated colors and in the blue-violet region.</p>
 <h2 id="reference">Reference</h2>
 <ol>
 <li>ColorChecker reference table: <a href="https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf">https://xritephoto.com/documents/literature/en/ColorData-1p_EN.pdf</a></li>
-<li>Imatest ColorChecker application: <a href="https://www.imatest.com/support/docs/22-1/colorcheck_ref/">https://www.imatest.com/support/docs/22-1/colorcheck_ref/</a></li>
+<li>Imatest Color/Tone Appendix: <a href="https://www.imatest.com/docs/colortone_ref/">https://www.imatest.com/docs/colortone_ref/</a></li>
 <li>iQ-analyzer ColorChecker application: <a href="https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle">https://www.image-engineering.de/news/product-news/773-the-iq-analyzer-color-bundle</a></li>
-<li>The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations: <a href="https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf">https://hajim.rochester.edu/ece/sites/gsharma/ciede2000/ciede2000noteCRNA.pdf</a></li>
+<li>The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations: <a href="https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf">https://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf</a></li>
+<li>ISO/CIE 11664-6:2022, Colorimetry—Part 6: CIEDE2000 Colour-Difference Formula: <a href="https://www.cie.co.at/publications/colorimetry-part-6-ciede2000-colour-difference-formula-1">https://www.cie.co.at/publications/colorimetry-part-6-ciede2000-colour-difference-formula-1</a></li>
 </ol>
 
       </article>
@@ -610,14 +810,20 @@ $$</p>
         <div class="toc-title">On this page</div>
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#colorchecker-application">ColorChecker Application</a></li>
-    <li><a href="#color--chroma-difference">Color &amp; Chroma Difference</a>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-colorchecker-application">2. ColorChecker Application</a></li>
+    <li><a href="#3-color--chroma-difference">3. Color &amp; Chroma Difference</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#notes">Notes</a></li>
+    <li><a href="#4-advantages-of-the-signed-chroma-difference">4. Advantages of the Signed Chroma Difference</a></li>
+    <li><a href="#5-limitations-of-the-signed-chroma-difference">5. Limitations of the Signed Chroma Difference</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#6-advantages-and-limitations-of-the-chromatic-plane-norm">6. Advantages and Limitations of the Chromatic-Plane Norm</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
