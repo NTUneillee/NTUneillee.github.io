@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="description" content="We present SAFE, a novel color constancy framework for pure-color scenes with (1) a scene-aware feature modulation network and (2) the Learned Color Space (LCS) that directly addresses the chromaticity collapse problem when scene color distributions become too uniform." />
+        <meta property="og:title" content="SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes" />
+        <meta property="og:description" content="We present SAFE, a novel color constancy framework for pure-color scenes with (1) a scene-aware feature modulation network and (2) the Learned Color Space (LCS) that directly addresses the chromaticity collapse problem when scene color distributions become too uniform." />
+        <meta property="og:url" content="https://ntuneillee.github.io/research/safe/" />
+        
+        <meta property="og:image" content="https://ntuneillee.github.io/academic-assets/images/SAFE_logo.webp" />
+        
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:title" content="SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes" />
+        <meta name="twitter:description" content="We present SAFE, a novel color constancy framework for pure-color scenes with (1) a scene-aware feature modulation network and (2) the Learned Color Space (LCS) that directly addresses the chromaticity collapse problem when scene color distributions become too uniform." />
+        
+        <meta name="twitter:image" content="https://ntuneillee.github.io/academic-assets/images/SAFE_logo.webp" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="keywords" content="Camera Image Quality, Image Processing, Color Science, Deep Learning" />
+        <title>SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes</title>
+
+        <!--Favicon-->
+        <link rel="shortcut icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
+        <link rel="icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
+
+        <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/spf-bulma.min.css" />
+        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/fontawesome.all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/spf-index.css" />
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script defer src="https://ntuneillee.github.io/academic-assets/js/fontawesome.all.min.js"></script>
+
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [["$", "$"]],
+                },
+                chtml: {
+                    scale: 1.1,
+                    mtextInheritFont: true,
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+        <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" integrity="sha256-qoRlVrS5NAnXSSSiMfFXwK8C9obG11Iybe4h2+bQYR4=" crossorigin="anonymous"></script>
+
+        <style>
+             
+            mjx-container {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            mjx-container svg {
+                shape-rendering: geometricPrecision;
+            }
+
+             
+            .method-image-container,
+            .results-image-container {
+                display: inline-block;
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 1rem;
+                background-color: #f5f5f5;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                margin: 0.75rem 0;
+            }
+
+             
+            .hero.is-light .method-image-container,
+            .hero.is-light .results-image-container {
+                border: 1px solid #e0e0e0;
+                background-color: #ffffff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .method-image-container img,
+            .results-image-container img {
+                border-radius: 8px;
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .publication-title {
+                line-height: 1.5 !important;
+                margin-bottom: 0 !important;        
+            }
+
+             
+            .publication-authors .author-block sup {
+                margin-left: 0.1em !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+            }
+
+             
+            .publication-authors .author-block a + sup,
+            .publication-authors .author-block span + sup {
+                margin-left: 0.1em !important;
+            }
+
+             
+            .container.is-max-desktop {
+                max-width: 1080px;
+            }
+
+            .columns.is-centered {
+                justify-content: center;
+            }
+
+             
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                width: 100% !important;
+            }
+
+             
+            .hero-body {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+             
+            .hero.teaser {
+                padding-top: 0;
+                margin-top: 0;
+            }
+
+            .hero.teaser .hero-body {
+                padding-top: 0;
+            }
+
+            .card-container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+             
+            .title.is-1 {
+                font-size: 2.5rem;
+            }
+
+             
+            .publication-authors:has(.eql-cntrb) {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .column.has-text-centered {
+                margin-top: 0;
+                padding-top: 0.5rem;
+            }
+
+             
+            .profile-logo-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .profile-logo-container img {
+                height: auto !important;
+                width: 120px !important;
+                max-width: 120px !important;
+            }
+
+             
+            section#BibTeX pre {
+                overflow-x: auto;
+                white-space: pre;
+                word-wrap: normal;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 1.25rem;
+                border: 1px solid #e0e0e0;
+                border-radius: 4px;
+            }
+
+             
+            section.hero.is-light#BibTeX pre {
+                background-color: #ffffff;
+            }
+
+             
+            section#BibTeX:not(.is-light) pre {
+                background-color: #f5f5f5;
+            }
+
+            #BibTeX code {
+                white-space: pre;
+                word-wrap: normal;
+                display: block;
+            }
+
+            #BibTeX .column {
+                width: 100%;
+            }
+
+             
+            .content mjx-container[jax="CHTML"][display="false"] {
+                display: inline !important;
+                vertical-align: baseline !important;
+                margin: 0 !important;
+            }
+
+            .content mjx-container {
+                line-height: 0 !important;
+            }
+
+             
+            .content mjx-container[jax="CHTML"][display="true"] {
+                overflow-x: auto;
+                overflow-y: hidden;
+                max-width: 100%;
+                display: block !important;
+            }
+
+             
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 1rem 0;
+            }
+
+             
+            .content table {
+                border-collapse: collapse;
+                width: 100%;
+                display: table;
+                border-top: 2px solid #666666;
+                border-bottom: 2px solid #666666;
+            }
+
+            .content table th,
+            .content table td {
+                white-space: nowrap;
+            }
+
+             
+            @media screen and (min-width: 769px) {
+                .hero.teaser .subtitle.content {
+                    font-size: 1rem !important;
+                    line-height: 1.7 !important;
+                }
+
+                .content,
+                .content p,
+                .content li {
+                    font-size: 1rem !important;
+                    line-height: 1.7 !important;
+                }
+            }
+
+             
+            @media screen and (max-width: 768px) {
+                 
+                html {
+                    font-size: 16px !important;
+                }
+
+                body {
+                    font-size: 1rem !important;
+                    line-height: 1.6 !important;
+                }
+
+                 
+                .profile-logo-container {
+                    margin-bottom: 0.5rem;
+                }
+
+                .profile-logo-container img {
+                    height: auto !important;
+                    width: 80px !important;
+                    max-width: 80px !important;
+                }
+
+
+                .hero-body {
+                    padding: 2rem 0.75rem !important;
+                }
+
+                .title.is-1 {
+                    font-size: 1.75rem !important;
+                    line-height: 1.3 !important;
+                    margin-bottom: 1rem !important;
+                }
+
+                .title.is-3 {
+                    font-size: 1.5rem !important;
+                    line-height: 1.3 !important;
+                    margin-bottom: 1rem !important;
+                }
+
+                .title.is-5 {
+                    font-size: 1.125rem !important;
+                    line-height: 1.4 !important;
+                }
+
+                .is-size-4 {
+                    font-size: 1.25rem !important;
+                    line-height: 1.4 !important;
+                }
+
+                .is-size-5 {
+                    font-size: 1.0625rem !important;
+                    line-height: 1.5 !important;
+                }
+
+                .subtitle {
+                    font-size: 1rem !important;
+                    line-height: 1.6 !important;
+                }
+
+                .content,
+                .content p,
+                .content li {
+                    font-size: 1rem !important;
+                    line-height: 1.8 !important;
+                }
+
+                .content h3 {
+                    font-size: 1.25rem !important;
+                    margin-top: 1.5rem !important;
+                    margin-bottom: 0.75rem !important;
+                }
+
+                .content h4 {
+                    font-size: 1.125rem !important;
+                    margin-top: 1.25rem !important;
+                    margin-bottom: 0.75rem !important;
+                }
+
+                .container.is-max-desktop {
+                    padding-left: 0.75rem !important;
+                    padding-right: 0.75rem !important;
+                    max-width: 100% !important;
+                }
+
+                .section {
+                    padding: 2.5rem 0.75rem !important;
+                }
+
+                .columns {
+                    margin: 0 !important;
+                }
+
+                .column {
+                    padding: 0 0.75rem !important;
+                }
+
+                .column.is-half {
+                    width: 100% !important;
+                }
+
+                .column.is-four-fifths {
+                    width: 100% !important;
+                }
+
+                .publication-links .link-block {
+                    display: inline-block;
+                    margin-bottom: 0;
+                    margin-right: 0.5rem;
+                }
+
+                .publication-links .button {
+                    width: auto;
+                    font-size: 1.0625rem !important;
+                    padding: 0.5rem 0.75rem !important;
+                }
+
+                iframe {
+                    width: 100% !important;
+                    height: auto !important;
+                    aspect-ratio: 16 / 9;
+                }
+
+                pre {
+                    font-size: 0.875rem;
+                    overflow-x: auto;
+                    padding: 1rem !important;
+                    margin: 0 !important;
+                    border-radius: 4px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+
+                pre code {
+                    font-size: 0.875rem !important;
+                }
+
+                #BibTeX .column {
+                    padding: 0 0.75rem !important;
+                    width: 100% !important;
+                }
+
+                #BibTeX pre {
+                    margin: 0 !important;
+                    width: 100% !important;
+                }
+
+                .card-container {
+                    padding: 1.5rem !important;
+                    margin-bottom: 2rem !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                }
+
+                .card-container h4 {
+                    font-size: 1.5rem !important;
+                }
+
+                .card-container p,
+                .card-container li {
+                    font-size: 1.25rem !important;
+                }
+
+                 
+                .has-text-justified {
+                    text-align: left !important;
+                }
+
+                 
+                .hero,
+                .section {
+                    overflow-x: hidden !important;
+                }
+
+                img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
+             
+            :root {
+                --rt-best:   #fddede;
+                --rt-second: #ffdfbf;
+                --rt-third:  #fef0c6;
+                --rt-border: #000;        
+            }
+            .results-table-wrapper {
+                width: 100%;
+                margin: 1.2rem 0;
+                text-align: center;        
+            }
+             
+            .results-table-wrapper .table-scroll {
+                width: 100%;
+                overflow-x: auto;
+                text-align: center;
+                -webkit-overflow-scrolling: touch;
+            }
+            .results-table-wrapper .table-caption {
+                font-size: 0.85rem;
+                color: #555;
+                text-align: center;
+                margin: 0 0 0.5rem;
+            }
+            .results-table-wrapper .table-caption strong {
+                color: #222;
+            }
+            .results-table-wrapper .rank-legend {
+                text-align: center;
+                font-size: 0.8rem;
+                color: #666;
+                margin: 0.2rem 0 0.6rem;
+            }
+            .results-table-wrapper .rank-legend span {
+                padding: 1px 6px;
+                border-radius: 3px;
+                margin: 0 2px;
+            }
+            .results-table-wrapper .rank-legend .best   { background: var(--rt-best); }
+            .results-table-wrapper .rank-legend .second { background: var(--rt-second); }
+            .results-table-wrapper .rank-legend .third  { background: var(--rt-third); }
+            .results-table {
+                border-collapse: collapse;
+                display: inline-table;        
+                margin: 0 auto;
+                font-size: 0.85rem;
+                max-width: 100%;
+                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            }
+            .results-table th,
+            .results-table td,
+            .content .results-table th,
+            .content .results-table td {
+                padding: 7px 10px;
+                border-bottom: 1px solid #000;
+                text-align: center;
+                vertical-align: middle !important;    
+                white-space: nowrap;
+                color: #000;
+            }
+             
+            .results-table td:first-child {
+                text-align: left;
+                padding-left: 14px;
+            }
+            .results-table th {
+                background: #e3edf8;              
+                font-weight: 600;
+                border-top: 2px solid #000;
+                font-size: 0.82rem;
+                color: #000;
+            }
+            .results-table thead tr:first-child th {
+                border-bottom: 1px solid #000;
+            }
+             
+            .results-table tbody td,
+            .content .results-table tbody td {
+                border-bottom: 1px solid #ccc;
+            }
+             
+            .results-table tbody tr:last-child td,
+            .content .results-table tbody tr:last-child td {
+                border-bottom: 2px solid #000;
+            }
+             
+            .results-table th.method-col,
+            .results-table tbody td:first-child {
+                border-right: 1px solid #000;
+            }
+             
+            .results-table tbody tr.separator-top td,
+            .content .results-table tbody tr.separator-top td {
+                border-top: 1px solid #888;
+            }
+            .results-table .best   { background: var(--rt-best); }
+            .results-table .second { background: var(--rt-second); }
+            .results-table .third  { background: var(--rt-third); }
+             
+            .results-table .ours-row td {
+                font-weight: 700;
+                color: #000;
+            }
+            .results-table .group-divider {
+                border-left: 1px solid #000;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            
+                            <h1 class="title is-1 publication-title">
+                                SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes
+                            </h1>
+                            
+                            <div class="is-size-4 publication-authors" style="margin-bottom: 0.5rem;">
+                                <span class="conference-block">arXiv 2026</span>
+                            </div>
+                            
+
+                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
+                                
+                                
+                                <span class="author-block"><strong><a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a></strong><sup>1</sup>,
+                                </span>
+                                
+                                <span class="author-block"><a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a><sup>2</sup>,
+                                </span>
+                                
+                                <span class="author-block">Chih-Heng Chang<sup>2</sup>,
+                                </span>
+                                
+                                <span class="author-block"><a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019" target="_blank">Jian-Jiun Ding</a><sup>2</sup>
+                                </span>
+                                
+                                
+                            </div>
+
+                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
+                                
+                                
+                                <span class="author-block"><sup>1</sup>MediaTek Inc.</span>, 
+                                
+                                <span class="author-block"><sup>2</sup>National Taiwan University</span>
+                                
+                                
+                            </div>
+
+                            <div class="column has-text-centered" style="margin-top: 0; padding-top: 0.5rem;">
+                                <div class="publication-links">
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero teaser">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <div class="hero-body">
+                            
+                            <img src="https://ntuneillee.github.io/academic-assets/images/SAFE_logo.webp" alt="SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes" style="width: 100%; display: block;" />
+                            
+                            
+                            <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 3rem; line-height: 1.7;">
+                                We present <strong>SAFE</strong>, a color constancy framework for pure-color scenes that couples two complementary innovations: SAFE, a scene-aware feature modulation network whose scene complexity modulation selectively reweights a structured four-token illumination representation, and the Learned Color Space (LCS), a scene-dependent chromaticity normalization that directly counters the chromaticity collapse to which standard normalizations succumb on pure-color scenes.
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section hero is-light">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column">
+                        <h2 class="title is-3">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
+        <img src="https://ntuneillee.github.io/academic-assets/images/SafeFlowchart.webp" alt="Figure" />
+        
+        
+    </div>
+</div>
+
+<p><strong>Overview of the proposed color constancy framework.</strong>
+Training proceeds in four phases: <strong>(1)</strong> pre-train the SAFE backbone $\phi$ alongside a coarse global $w$-module under the angular loss; <strong>(2)</strong> freeze $\phi^{(1)}$ and search for a scene-dependent color axis that minimizes the teacher&rsquo;s angular error; <strong>(3)</strong> supervise the LCS predictor $\psi$ on the oracle
+in logit space; <strong>(4)</strong> jointly fine-tune $\phi$ and $\psi$
+end-to-end. At inference, the LCS predictor $\psi$ outputs a
+per-image color axis $\mathbf{w}(\mathbf{I})$ that re-parameterizes
+the chromaticity normalization for calculating the four-token illumination
+feature $\mathbf{f}_w$; the SAFE backbone then modulates $\mathbf{f}_w$
+via a scene descriptor to predict the
+illuminant estimate $\hat{\mathbf{y}}$.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section">
+                    <div class="container is-max-desktop">
+                        <div class="columns is-centered">
+                            <div class="column">
+                                <h2 class="title is-3 has-text-centered">Contributions</h2>
+                                <div class="content has-text-justified">
+                                    <ul>
+<li>A four-token illumination feature designthat combines physics-derived cues (specular log-chromaticity, dichromatic principal direction) with chromaticity statistics from original and edge images into a structured 24D representation with clear semantic roles.</li>
+<li>The Scene-Aware Feature Modulation(SAFE) network that adaptively reweights illumination tokens based on scene characteristics, enabling robust and stable behavior across diverse imaging conditions.</li>
+<li>The Learned Color Space(LCS): a scene-dependent chromaticity normalization predicted by a lightweight model from the image and scene complexity features, designed to counter chromaticity collapse on pure-color scenes.</li>
+<li>Experiment results on the public benchmark demonstrate that SAFE consistently improves performance in pure-color scenes. Compared to the best-performing baseline in each metric, it reduces the mean angular error by 10%, the best-25% error by 20%, and the worst-25% error by 5.8%.</li>
+</ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><section class="section hero is-light">
+                    <div class="container is-max-desktop">
+                        <div class="columns is-centered">
+                            <div class="column">
+                                <h2 class="title is-3 has-text-centered">Results</h2>
+                                <div class="content has-text-justified">
+                                    <div class="results-table-wrapper">
+  <p class="table-caption"><strong>Table 1: Evaluation results on the PolyUv2 pure color dataset.</strong> We report the mean angular error (in degrees) based on 3-fold cross-validation. SAFE outperforms existing methods, yielding the lowest mean, median, tri-mean, best-25%, and worst-25% angular errors, underscoring its superior stability.</p>
+  <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
+  <div class="table-scroll">
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th class="method-col">Method</th>
+          <th>Mean</th><th>Med.</th><th>Tri.</th><th>B-25%</th><th>W-25%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>WP [27]</td><td>5.99</td><td>4.37</td><td>4.72</td><td>0.89</td><td>14.08</td></tr>
+        <tr><td>GW [7]</td><td>6.78</td><td>5.53</td><td>5.69</td><td>1.73</td><td>14.08</td></tr>
+        <tr><td>GE [47]</td><td>4.73</td><td>3.38</td><td>3.80</td><td>1.11</td><td>10.52</td></tr>
+        <tr><td>SoG [15]</td><td>5.55</td><td>4.50</td><td>4.74</td><td>1.05</td><td>11.84</td></tr>
+        <tr><td>LSRS [16]</td><td>6.00</td><td>5.02</td><td>5.10</td><td>1.46</td><td>12.52</td></tr>
+        <tr><td>GP [51]</td><td>4.56</td><td>3.51</td><td>3.84</td><td>0.82</td><td>10.01</td></tr>
+        <tr><td>GI [36]</td><td>4.09</td><td>2.81</td><td>3.17</td><td>0.67</td><td>9.65</td></tr>
+        <tr><td>FC<sup>4</sup> [20]</td><td>2.48</td><td>1.79</td><td>2.05</td><td>0.55</td><td>5.57</td></tr>
+        <tr><td>C<sup>4</sup> [52]</td><td>2.23</td><td>1.49</td><td>1.75</td><td>0.51</td><td>5.05</td></tr>
+        <tr><td>C<sup>5</sup> [1]</td><td>2.18</td><td>1.55</td><td>1.78</td><td>0.52</td><td class="third">4.95</td></tr>
+        <tr><td>PCC [53]</td><td>2.39</td><td>1.60</td><td>1.76</td><td>0.51</td><td>5.47</td></tr>
+        <tr><td>ePCC [31]</td><td>2.16</td><td class="third">1.39</td><td>1.61</td><td>0.45</td><td>5.08</td></tr>
+        <tr class="separator-top">
+          <td>SAFE w/o LCS</td>
+          <td class="third">2.12</td><td>1.44</td><td class="third">1.56</td><td class="third">0.43</td><td>5.01</td>
+        </tr>
+        <tr>
+          <td>SAFE w/ LCS (P1)</td>
+          <td class="second">2.03</td><td class="second">1.38</td><td class="second">1.50</td><td class="second">0.39</td><td class="second">4.80</td>
+        </tr>
+        <tr class="ours-row">
+          <td>SAFE w/ LCS (P4)</td>
+          <td class="best">1.94</td><td class="best">1.27</td><td class="best">1.39</td><td class="best">0.36</td><td class="best">4.66</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="results-table-wrapper">
+  <p class="table-caption"><strong>Table 2: Evaluation results on the Gehler-Shi dataset.</strong> We report the mean angular error (in degrees) based on 3-fold cross-validation. The results prove that SAFE is not limited to pure-color scenes, but achieves comparable performance on general scenes.</p>
+  <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
+  <div class="table-scroll">
+    <table class="results-table">
+      <thead>
+        <tr>
+          <th class="method-col">Method</th>
+          <th>Mean</th><th>Med.</th><th>Tri.</th><th>B-25%</th><th>W-25%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>WP [27]</td><td>7.55</td><td>5.68</td><td>6.35</td><td>1.45</td><td>16.12</td></tr>
+        <tr><td>GW [7]</td><td>6.36</td><td>6.28</td><td>6.28</td><td>2.33</td><td>10.58</td></tr>
+        <tr><td>SoG [15]</td><td>4.93</td><td>4.01</td><td>4.23</td><td>1.14</td><td>10.20</td></tr>
+        <tr><td>PCA-CC [10]</td><td>3.52</td><td>2.14</td><td>2.47</td><td>0.50</td><td>8.74</td></tr>
+        <tr><td>Woo <em>et al.</em> [50]</td><td>4.30</td><td>2.86</td><td>3.31</td><td>0.71</td><td>10.14</td></tr>
+        <tr><td>GI [36]</td><td>3.07</td><td>1.87</td><td>2.16</td><td>0.43</td><td>7.62</td></tr>
+        <tr>
+          <td>C<sup>4</sup> [52]</td>
+          <td class="best">1.35</td><td class="best">0.88</td><td class="best">0.99</td><td class="second">0.28</td><td class="best">3.21</td>
+        </tr>
+        <tr>
+          <td>CLCC [32]</td>
+          <td class="second">1.44</td><td class="second">0.92</td><td class="second">1.04</td><td class="best">0.27</td><td class="third">3.48</td>
+        </tr>
+        <tr>
+          <td>GCC [8]</td>
+          <td class="third">1.91</td><td>1.80</td><td>1.84</td><td>0.60</td><td class="second">3.46</td>
+        </tr>
+        <tr><td>PCC [53]</td><td>2.64</td><td>1.61</td><td>1.83</td><td>0.45</td><td>6.62</td></tr>
+        <tr><td>ePCC [31]</td><td>2.45</td><td>1.59</td><td>1.78</td><td>0.44</td><td>5.87</td></tr>
+        <tr class="separator-top"><td>SAFE w/o LCS</td><td>2.35</td><td>1.69</td><td>1.78</td><td>0.47</td><td>5.57</td></tr>
+        <tr><td>SAFE w/ LCS (P1)</td><td>2.33</td><td>1.66</td><td>1.75</td><td>0.47</td><td>5.43</td></tr>
+        <tr class="ours-row">
+          <td>SAFE w/ LCS (P4)</td>
+          <td>2.23</td><td class="third">1.56</td><td class="third">1.69</td><td class="third">0.41</td><td>5.24</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
+        <img src="https://ntuneillee.github.io/academic-assets/images/SafeComparison.webp" alt="**Qualitative comparison on images from the PolyU Pure Color dataset V2.** Images are gamma-corrected for visualization. The angular error (in degree) is reported in the bottom-right corner of each image." />
+        
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Qualitative comparison on images from the PolyU Pure Color dataset V2.</strong> Images are gamma-corrected for visualization. The angular error (in degree) is reported in the bottom-right corner of each image.</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
+        <img src="https://ntuneillee.github.io/academic-assets/images/SAFEwAnalysis.webp" alt="**Scene-dependent LCS deviation versus scene entropy.** (Left figure) The LOWESS smoother with $95\%$ bootstrap confidence band. {(Right figure)} Hexbin density of the same data with the LOWESS smoother overlaid in red. Quantitatively, the lowest-entropy quintile ($n{=}255$) attains $\bar{\Delta}_w = 0.0547$ versus $0.0462$ for the highest-entropy quintile ($18\%$ relative increase on pure-color scenes) and the Pearson correlation $r(H,\Delta_w) = -0.149$ is highly significant ($p &lt; 10^{-7}$, $N{=}1271$). The analysis validates that the LCS design further improves the accuracy of illumination estimation in pure-color scenes." />
+        
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Scene-dependent LCS deviation versus scene entropy.</strong> (Left figure) The LOWESS smoother with $95%$ bootstrap confidence band. {(Right figure)} Hexbin density of the same data with the LOWESS smoother overlaid in red. Quantitatively, the lowest-entropy quintile ($n{=}255$) attains $\bar{\Delta}_w = 0.0547$ versus $0.0462$ for the highest-entropy quintile ($18%$ relative increase on pure-color scenes) and the Pearson correlation $r(H,\Delta_w) = -0.149$ is highly significant ($p &lt; 10^{-7}$, $N{=}1271$). The analysis validates that the LCS design further improves the accuracy of illumination estimation in pure-color scenes.</p>
+        
+    </div>
+</div>
+
+
+<div class="has-text-centered" style="margin: 1.0rem 0;">
+    <div class="method-image-container">
+        
+        <img src="https://ntuneillee.github.io/academic-assets/images/SafeFeatureImportance.webp" alt="**Introspection on the SAFE backbone.** The modulation attention $\alpha(\mathbf{g})$ quantifies how strongly the modulation network preserves each feature dimension; the input projection weight $\lVert W_0[:,j]\rVert_2$ quantifies how much linear weight the backbone allocates to each dimension; and the intrinsic effective contribution quantifies how important each token is to the illumination estimation." />
+        
+        
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Introspection on the SAFE backbone.</strong> The modulation attention $\alpha(\mathbf{g})$ quantifies how strongly the modulation network preserves each feature dimension; the input projection weight $\lVert W_0[:,j]\rVert_2$ quantifies how much linear weight the backbone allocates to each dimension; and the intrinsic effective contribution quantifies how important each token is to the illumination estimation.</p>
+        
+    </div>
+</div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><section class="section" id="BibTeX">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h2 class="title is-3 has-text-centered">BibTeX</h2>
+                        <pre><code>@article{lee2026safe,
+  title={SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes},
+  author={Lee, Yuan-Kang and Chen, Kuan-Lin and Chang, Chih-Heng and Ding, Jian-Jiun},
+  journal={arXiv preprint arXiv:2601.05249},
+  year={2026}
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <footer class="footer">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content has-text-centered">
+                            <p>
+                                This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+                                <br />This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                const tables = document.querySelectorAll('.content > table');
+                tables.forEach(function(table) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'table-wrapper';
+                    table.parentNode.insertBefore(wrapper, table);
+                    wrapper.appendChild(table);
+                });
+            });
+        </script>
+    </body>
+</html>

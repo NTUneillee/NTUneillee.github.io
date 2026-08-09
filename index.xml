@@ -6,7 +6,16 @@
     <description>Recent content on Yuan-Kang Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://ntuneillee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://ntuneillee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes</title>
+      <link>https://ntuneillee.github.io/research/safe/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0800</pubDate>
+      
+      <guid>https://ntuneillee.github.io/research/safe/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</title>
       <link></link>
@@ -58,7 +67,7 @@
       <pubDate>Sat, 15 Mar 2025 10:00:00 +0000</pubDate>
       
       <guid>https://ntuneillee.github.io/news/20250315/</guid>
-      <description>Start a new position as an Image Quality Algorithm Engineer at MediaTek Inc.</description>
+      <description>Start a new position as an Image Quality Research Engineer at MediaTek Inc.</description>
     </item>
     
     <item>

@@ -6,7 +6,16 @@
     <description>Recent content in Deep Learning on Yuan-Kang Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 14 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://ntuneillee.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://ntuneillee.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAFE: Scene-Aware Feature Modulation for Color Constancy with Learned Color Sapce in Pure-Color Scenes</title>
+      <link>https://ntuneillee.github.io/research/safe/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0800</pubDate>
+      
+      <guid>https://ntuneillee.github.io/research/safe/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>BOCCHI: A More Realistic and Challenging Benchmark for Local Motion Blur Detection with MSDCT-UNet</title>
       <link></link>
