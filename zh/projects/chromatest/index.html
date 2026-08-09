@@ -647,7 +647,7 @@
       
       <span class="proj-category">相機影像品質</span>
       
-      <h1 class="proj-title">色彩與彩度差異演算法</h1>
+      <h1 class="proj-title">色差與彩度差算法分析</h1>
       <div class="proj-meta">
         
         <span>2023 年 5 月</span>
@@ -679,7 +679,7 @@
     <div class="proj-layout">
       <article class="proj-content content" data-language="zh">
         <blockquote>
-<p><strong>Imatest</strong> 與 <strong>iQ-Analyzer</strong> 等專業影像品質分析軟體，能以客觀、一致且完整的方式評估相機影像品質。然而，我們在實務工作中發現，<strong>不同軟體計算色差時採用的演算法並不相同</strong>。為了建立高效率的自動化影像分析流程，我們透過大量實驗反推各套軟體實際採用的彩度差異演算法。本文將說明兩種演算法的實作方式、核心差異，以及各自的優點與限制。</p>
+<p><strong>Imatest</strong> 與 <strong>iQ-Analyzer</strong> 等專業影像品質分析軟體，能以客觀、一致且完整的方式評估相機影像品質。然而，我們在實務工作中發現，<strong>不同軟體計算色差與彩度差時採用的演算法並不相同</strong>。為了建立高效率的自動化影像分析流程，我們透過大量實驗反推各套軟體實際採用的彩度差異演算法。本文將說明兩種演算法的實作方式、核心差異，以及各自的優點與限制。</p>
 </blockquote>
 <h2 id="1-簡介">1. 簡介</h2>
 <p>ColorChecker® Classic 是由 24 個經過科學校準的色塊組成，涵蓋自然色、彩色、三原色與灰階色。拍攝測試影像時，只要將 ColorChecker 放入畫面，就能以色卡的標準色彩量測值作為參考，將相機輸出與標準值比較，進而評估相機的色彩還原準確度與一致性。</p>
@@ -723,7 +723,7 @@
       </tbody>
     </table>
   </div>
-  <p class="table-caption"><em>圖 2：ColorChecker® Classic 在 D50 光源下的 CIELAB 參考值。</em></p>
+  <p class="table-caption"><em>表 1：ColorChecker® Classic 在 D50 光源下的 CIELAB 參考值。</em></p>
 </div>
 <h2 id="3-色差與彩度差異">3. 色差與彩度差異</h2>
 <p>利用 ColorChecker 計算影像的色差與彩度差異，可以量化相機的色彩還原準確度。</p>
@@ -785,13 +785,13 @@ $$</p>
 <li>Imatest：sRGB ➝ <strong>D65 XYZ（M1）</strong> ➝ Lab</li>
 <li>iQ-Analyzer：sRGB ➝ <strong>D65 XYZ（M1）</strong> ➝ <strong>D50 XYZ（M2）</strong> ➝ Lab</li>
 </ol>
-<p>實驗結果顯示，Imatest 與 iQ-Analyzer 雖然使用相同或相似的 ΔC 名稱，實際回報的卻是<strong>不同的統計量</strong>。</p>
+<p>實驗結果顯示，Imatest 與 iQ-Analyzer 雖然使用相同的 ΔC 名稱，實際計算出的卻是<strong>不同的統計量</strong>。</p>
 <h5 id="imatest">Imatest</h5>
 <p>Imatest 對 ΔC 採用一套應用導向的定義：它計算的是排除明度後的色彩平面距離，而不是傳統 CIELAB 所定義的有號彩度差值。其 CIE 1976 實作為：</p>
 <p>$$
 \Delta C_{ab,\mathrm{Imatest}}^*=\sqrt{(a_2^*-a_1^*)^2+(b_2^*-b_1^*)^2}.
 $$</p>
-<p>在 CIEDE2000 中，Imatest 移除明度項，但保留彩度項、色相項及兩者的交互作用：</p>
+<p>在 CIEDE2000 中，Imatest 移除明度項，保留了彩度項、色相項及兩者的交互作用：</p>
 <p>$$
 \Delta C_{00,\mathrm{Imatest}}^*=
 \sqrt{
@@ -801,7 +801,7 @@ R_T\left(\frac{\Delta C&rsquo;}{K_C S_C}\right)
 \left(\frac{\Delta H&rsquo;}{K_H S_H}\right)
 }.
 $$</p>
-<p>因此，Imatest 回報的是結合彩度與色相誤差的非負量值。Imatest 官方文件也特別說明，這項 ΔC 定義不同於純彩度差異 $\Delta|C^*|$。</p>
+<p>因此，Imatest 計算的是結合彩度與色相誤差的非負量值。Imatest 官方文件也特別說明，這項 ΔC 定義不同於純彩度差異 $\Delta|C^*|$。</p>
 <h5 id="iq-analyzer">iQ-Analyzer</h5>
 <p>iQ-Analyzer 計算的是兩個彩度座標之間的有號差值：</p>
 <p>$$
