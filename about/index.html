@@ -243,14 +243,6 @@
     
     <li class="nav-item">
       
-      <a class="nav-link" href="https://drive.google.com/file/d/1Lo5kSreG8SxKqzi5TTYDZR-Aw6QyIEnh/view?usp=sharing" target="_blank" rel="noopener">CV</a>
-      
-    </li>
-    
-  
-    
-    <li class="nav-item">
-      
       <a class="nav-link" href="https://ntuneillee.github.io/gallery/">Gallery</a>
       
     </li>
@@ -272,16 +264,48 @@
 <!-- /navigation -->
 
 
-<section class="section-sm">
+<style>
+  .about-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .about-section .about-intro {
+    background: transparent !important;
+  }
+
+  .about-section .about-intro * {
+    font-size: 1rem !important;
+  }
+
+  .experience-title {
+    margin-bottom: 0.3rem;
+  }
+
+  .experience-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.8rem;
+    margin-bottom: 0.35rem;
+    color: #A98B73;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .experience-organization {
+    width: 100%;
+    line-height: 1.55;
+  }
+</style>
+
+<section class="section about-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto">
-        
-        <img src="https://ntuneillee.github.io/images/Profile.jpg" alt="" class="img-fluid d-block rounded-circle mb-5" style="max-width: 200px;">
-        
-        <h4 class="widget-title mb-4">Yuan-Kang Lee</h4>
-        <div class="content text-left mb-5">
-          <p>I am currently an Image Quality Research Engineer at <a href="https://www.mediatek.com">MediaTek Inc</a>. I also serve as a Research Assistant in Computational Photograph Lab at <a href="https://www.nycu.edu.tw/nycu/en/index">National Yang Ming Chiao Tung University</a>,  supervised by <a href="https://yulunalexliu.github.io/">Prof. Yu-Lun Liu</a>. My research focuses specifically on color constancy, image quality assessment, low-level image processing, and computer vision. I received my Master&rsquo;s degree from the <a href="https://gice.ntu.edu.tw/en/">Graduate Institute of Communication Engineering</a> at <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a>, advised by <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019">Prof. Jian-Jiun Ding</a>. Prior to joining MediaTek Inc., I was a Camera Imaging Engineer Intern at <a href="https://www.logitech.com/en-us">Logitech</a> and an Image Processing Engineer Intern at <a href="https://www.bosch.com">Robert BOSCH GmbH</a>.</p>
+      <div class="col-12">
+        <h2 class="mb-4">About me</h2>
+        <div class="content about-intro text-left mb-5">
+          <p>I am currently an Image Quality Research Engineer at <a href="https://www.mediatek.com">MediaTek Inc</a>. I also serve as a Research Assistant in Computational Photograph Lab at <a href="https://www.nycu.edu.tw/nycu/en/index">National Yang Ming Chiao Tung University</a>,  supervised by <a href="https://yulunalexliu.github.io/">Prof. Yu-Lun Liu</a>. My research lies at the intersection of <strong>computational photography</strong> and <strong>low-level computer vision</strong>, with a dedicated focus on color constancy and image quality/aesthetic assessment. I received my Master&rsquo;s degree from the <a href="https://gice.ntu.edu.tw/en/">Graduate Institute of Communication Engineering</a> at <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a>, advised by <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=942019">Prof. Jian-Jiun Ding</a>. Prior to joining MediaTek Inc., I was a Camera Imaging Engineer Intern at <a href="https://www.logitech.com/en-us">Logitech</a> and an Image Processing Engineer Intern at <a href="https://www.bosch.com">Robert BOSCH GmbH</a>.</p>
 
         </div>
         <h4 class="widget-title mb-4">Experience</h4>
@@ -291,14 +315,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/mediatekLogo.png" alt="Mediatek Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Image Quality Research Engineer</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Multimedia Technology Development Division, Mediatek</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Hsinchu, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Mar 2025 ~ Present</p>
-                  </div>
+                <h5 class="experience-title">Image Quality Research Engineer</h5>
+                <div class="experience-meta">
+                  <span>Hsinchu, Taiwan</span>
+                  <span>Mar 2025 ~ Present</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Multimedia Image Quality Engineering Division, Mediatek</p>
               </div>
             </div>
           </li>
@@ -308,14 +330,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/nycuLogo.png" alt="NYCU Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Research Assistant</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Computational Photography Lab, National Yang Ming Chiao Tung University</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Taipei, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Mar 2025 ~ Present</p>
-                  </div>
+                <h5 class="experience-title">Research Assistant</h5>
+                <div class="experience-meta">
+                  <span>Hsinchu, Taiwan</span>
+                  <span>Mar 2025 ~ Present</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Computational Photography Lab, National Yang Ming Chiao Tung University</p>
               </div>
             </div>
           </li>
@@ -325,14 +345,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/ntuLogo.png" alt="NTU Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Graduate Student</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Graduate Institute of Communication Engineering, National Taiwan University</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Taipei, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Sep 2023 ~ Feb 2025</p>
-                  </div>
+                <h5 class="experience-title">Graduate Student</h5>
+                <div class="experience-meta">
+                  <span>Taipei, Taiwan</span>
+                  <span>Sep 2023 ~ Feb 2025</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Graduate Institute of Communication Engineering, National Taiwan University</p>
               </div>
             </div>
           </li>
@@ -342,14 +360,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/logitechLogo.png" alt="Logitech Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Camera Imaging Engineer Intern</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Image Engineering Division, Logitech</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Hsinchu, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Jul 2023 ~ Feb 2025</p>
-                  </div>
+                <h5 class="experience-title">Camera Imaging Engineer Intern</h5>
+                <div class="experience-meta">
+                  <span>Hsinchu, Taiwan</span>
+                  <span>Jul 2023 ~ Feb 2025</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Image Engineering Division, Logitech</p>
               </div>
             </div>
           </li>
@@ -359,14 +375,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/boschLogo.jpg" alt="Bosch Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Image Processing Engineer Intern</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Surveillance Camera Development Division, Robert BOSCH GmbH</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Taipei, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Apr 2022 ~ Jun 2023</p>
-                  </div>
+                <h5 class="experience-title">Image Processing Engineer Intern</h5>
+                <div class="experience-meta">
+                  <span>Taipei, Taiwan</span>
+                  <span>Apr 2022 ~ Jun 2023</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Surveillance Camera Development Division, Robert BOSCH GmbH</p>
               </div>
             </div>
           </li>
@@ -376,14 +390,12 @@
             <div class="d-flex align-items-start">
               <img src="/images/ntuLogo.png" alt="NTU Logo" class="mr-3" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
               <div class="flex-grow-1">
-                <h5 class="mb-2">Undergraduate Student</h5>
-                <div class="d-flex justify-content-between align-items-start">
-                  <p class="text-muted mb-0">Department of Engineering Science (ECE Program), National Taiwan University</p>
-                  <div class="text-right ml-3 flex-shrink-0">
-                    <p class="mb-1 small" style="color: #A98B73; font-weight: 500;">Taipei, Taiwan</p>
-                    <p class="mb-0 small" style="color: #A98B73; font-weight: 500;">Sep 2018 ~ Present</p>
-                  </div>
+                <h5 class="experience-title">Undergraduate Student</h5>
+                <div class="experience-meta">
+                  <span>Taipei, Taiwan</span>
+                  <span>Sep 2018 ~ Present</span>
                 </div>
+                <p class="text-muted mb-0 experience-organization">Department of Engineering Science (ECE Program), National Taiwan University</p>
               </div>
             </div>
           </li>
