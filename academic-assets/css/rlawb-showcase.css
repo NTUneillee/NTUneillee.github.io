@@ -138,7 +138,7 @@ input:focus-visible {
 
 .project-nav__venue {
   color: rgba(255, 255, 255, 0.42);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -148,7 +148,7 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 28px;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   white-space: nowrap;
 }
 
@@ -196,7 +196,7 @@ input:focus-visible {
   display: inline-block;
   margin: 0 0 10px;
   color: var(--gold);
-  font-size: 1.16rem;
+  font-size: 1.22rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -216,7 +216,7 @@ input:focus-visible {
   max-width: 810px;
   margin: 18px auto 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.94rem;
+  font-size: 1.02rem;
   line-height: var(--prose-leading);
 }
 
@@ -236,7 +236,7 @@ input:focus-visible {
   gap: 4px 9px;
   margin: 18px auto 0;
   color: #fff;
-  font-size: 1.12rem;
+  font-size: 1.18rem;
 }
 
 .showcase-author a {
@@ -267,15 +267,15 @@ input:focus-visible {
   flex-wrap: wrap;
   justify-content: center;
   gap: 3px 19px;
-  margin: 8px auto 0;
-  color: rgba(255, 255, 255, 0.42);
-  font-size: 0.96rem;
+  margin: 16px auto 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.02rem;
 }
 
 .showcase-equal {
   margin: 5px 0 0;
   color: rgba(255, 255, 255, 0.35);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
 }
 
 .showcase-links {
@@ -293,7 +293,7 @@ input:focus-visible {
   min-height: 43px;
   padding: 0 17px;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.94rem;
+  font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.055);
@@ -385,7 +385,7 @@ input:focus-visible {
   top: 16px;
   padding: 6px 10px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -405,8 +405,8 @@ input:focus-visible {
 
 .image-compare__hint {
   margin: 12px 0 0;
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.9rem;
 }
 
 .showcase-section {
@@ -426,7 +426,7 @@ input:focus-visible {
 .section-kicker {
   margin: 0 0 10px;
   color: var(--blue-strong);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -453,6 +453,7 @@ input:focus-visible {
 
 .showcase-copy {
   color: var(--ink-soft);
+  font-size: 1.08rem;
   line-height: var(--prose-leading);
 }
 
@@ -519,7 +520,7 @@ input:focus-visible {
 .section-heading > p {
   margin: 0 0 4px;
   color: var(--ink-soft);
-  font-size: 1.01rem;
+  font-size: 1.08rem;
   line-height: var(--prose-leading);
 }
 
@@ -533,7 +534,7 @@ input:focus-visible {
   max-width: 720px;
   margin: 14px 0 0;
   color: var(--ink-soft);
-  font-size: 1.04rem;
+  font-size: 1.1rem;
   line-height: var(--prose-leading);
 }
 
@@ -541,7 +542,7 @@ input:focus-visible {
   max-width: 720px;
   margin: 8px 0 0;
   color: #6f7887;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   font-weight: 500;
   line-height: var(--prose-leading);
 }
@@ -576,7 +577,7 @@ input:focus-visible {
 .segmented-control button {
   padding: 8px 14px;
   color: var(--ink-soft);
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   background: transparent;
   border-radius: 7px;
 }
@@ -642,7 +643,7 @@ input:focus-visible {
   bottom: 9px;
   padding: 5px 9px;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   background: rgba(6, 9, 14, 0.65);
@@ -672,13 +673,13 @@ input:focus-visible {
 
 .dataset-facts span {
   color: var(--ink-soft);
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 500;
 }
 
 .dataset-facts strong {
   color: var(--ink);
-  font-size: clamp(1.3rem, 2.1vw, 1.68rem);
+  font-size: clamp(1.36rem, 2.1vw, 1.76rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -692,7 +693,7 @@ input:focus-visible {
 
 .dataset-facts small {
   color: #7b8493;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 }
 
 .dataset-plots {
@@ -722,7 +723,7 @@ input:focus-visible {
 .wide-figure figcaption {
   padding: 16px 18px 18px;
   color: var(--ink-soft);
-  font-size: 0.86rem;
+  font-size: 0.94rem;
   line-height: var(--prose-leading);
   border-top: 1px solid var(--line);
 }
@@ -749,7 +750,7 @@ input:focus-visible {
   min-height: 38px;
   padding: 0 14px;
   color: rgba(255, 255, 255, 0.52);
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
@@ -780,7 +781,7 @@ input:focus-visible {
 .qualitative-scene__title {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   font-weight: 600;
 }
 
@@ -817,7 +818,7 @@ input:focus-visible {
   bottom: 12px;
   padding: 5px 10px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 500;
   background: rgba(7, 10, 17, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -844,7 +845,7 @@ input:focus-visible {
   flex: 0 0 auto;
   padding: 10px 14px 13px;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 0.96rem;
   background: transparent;
 }
 
@@ -895,7 +896,7 @@ input:focus-visible {
   margin: 0;
   padding: 22px 24px 7px;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 0.96rem;
   text-align: left;
 }
 
@@ -907,7 +908,7 @@ input:focus-visible {
   margin: 0;
   padding: 0 24px 18px;
   color: #727b8c;
-  font-size: 0.8rem;
+  font-size: 0.86rem;
   text-align: left;
 }
 
@@ -937,7 +938,7 @@ input:focus-visible {
   margin: 0 auto;
   color: #111827;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -1024,7 +1025,7 @@ input:focus-visible {
 .process-description {
   margin: 10px 0 0;
   color: var(--ink-soft);
-  font-size: 0.96rem;
+  font-size: 1.03rem;
   line-height: var(--prose-leading);
 }
 
@@ -1055,7 +1056,7 @@ input:focus-visible {
   justify-content: center;
   padding: 9px 6px;
   color: var(--ink-soft);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 600;
   text-align: center;
   background: #f8fafc;
@@ -1126,7 +1127,7 @@ input:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 11px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   line-height: var(--body-leading);
 }
 
@@ -1139,7 +1140,7 @@ input:focus-visible {
   min-height: 1.4em;
   margin: 8px 0 0;
   color: #8ac5ea;
-  font-size: 0.81rem;
+  font-size: 0.87rem;
   text-align: right;
 }
 
@@ -1154,7 +1155,7 @@ input:focus-visible {
   align-items: center;
   justify-content: space-between;
   min-height: 92px;
-  font-size: 0.98rem;
+  font-size: 1.04rem;
 }
 
 .showcase-footer a {
@@ -1220,7 +1221,7 @@ input:focus-visible {
     overflow-x: auto;
     overflow-y: hidden;
     padding-right: 8px;
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     white-space: nowrap;
     scrollbar-width: none;
     scroll-snap-type: x proximity;
@@ -1253,17 +1254,17 @@ input:focus-visible {
 
   .showcase-hero__dek {
     margin-top: 18px;
-    font-size: 0.9rem;
+    font-size: 0.96rem;
     line-height: var(--prose-leading);
   }
 
   .showcase-authors {
     margin-top: 20px;
-    font-size: 0.98rem;
+    font-size: 1.04rem;
   }
 
   .showcase-affiliations {
-    font-size: 0.86rem;
+    font-size: 0.92rem;
   }
 
   .showcase-links {
@@ -1274,7 +1275,7 @@ input:focus-visible {
   .showcase-links a {
     min-height: 38px;
     padding: 0 12px;
-    font-size: 0.84rem;
+    font-size: 0.9rem;
   }
 
   .image-compare {
@@ -1291,7 +1292,7 @@ input:focus-visible {
   .image-compare__label {
     top: 9px;
     padding: 4px 7px;
-    font-size: 0.64rem;
+    font-size: 0.7rem;
   }
 
   .image-compare__label--left { left: 9px; }
@@ -1306,7 +1307,7 @@ input:focus-visible {
   }
 
   .showcase-copy {
-    font-size: 0.98rem;
+    font-size: 1.04rem;
   }
 
   .contribution-list {
@@ -1346,11 +1347,11 @@ input:focus-visible {
   }
 
   .dataset-facts span {
-    font-size: 0.88rem;
+    font-size: 0.94rem;
   }
 
   .dataset-facts strong {
-    font-size: 1.45rem;
+    font-size: 1.52rem;
   }
 
   .dataset-plots {
@@ -1380,7 +1381,7 @@ input:focus-visible {
     width: 100%;
     min-width: 0;
     padding: 0 5px;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     white-space: nowrap;
   }
 
@@ -1399,14 +1400,14 @@ input:focus-visible {
 
   .qualitative-scene__title {
     margin-bottom: 7px;
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 
   .qualitative-pair figcaption {
     right: 7px;
     bottom: 7px;
     padding: 3px 7px;
-    font-size: 0.64rem;
+    font-size: 0.7rem;
   }
 
   .results-content {
@@ -1419,7 +1420,7 @@ input:focus-visible {
   }
 
   .results-table {
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
 
   .wide-figure__media {
@@ -1451,12 +1452,12 @@ input:focus-visible {
 
   .process-stage figcaption {
     min-height: 40px;
-    font-size: 0.74rem;
+    font-size: 0.8rem;
   }
 
   .bibtex-section pre {
     padding: 17px;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
 }
 
