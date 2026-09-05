@@ -1,699 +1,130 @@
 <!doctype html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
-        <meta property="og:title" content="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" />
-        <meta property="og:description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
-        <meta property="og:url" content="https://ntuneillee.github.io/research/rl-awb/" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
+    <meta property="og:title" content="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" />
+    <meta property="og:description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
+    <meta property="og:url" content="https://ntuneillee.github.io/research/rl-awb/" />
+    <meta property="og:image" content="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</title>
+
+    <link rel="shortcut icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" />
+    <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/rlawb-showcase.css?v=19" />
+    <script defer src="https://ntuneillee.github.io/academic-assets/js/fontawesome.all.min.js"></script>
+    <script defer src="https://ntuneillee.github.io/academic-assets/js/rlawb-showcase.js?v=7"></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#overview">Skip to content</a>
+
+    <nav class="project-nav" aria-label="RL-AWB project navigation">
+      <div class="project-nav__inner">
+        <a class="project-nav__brand" href="#top" aria-label="RL-AWB home">
+          <span class="project-nav__mark">RL</span>
+          <span>RL-AWB</span>
+          <span class="project-nav__venue">ECCV 2026</span>
+        </a>
+        <div class="project-nav__links">
+          <a href="#overview">Overview</a>
+          <a href="#method">Method</a>
+          <a href="#levi">LEVI</a>
+          <a href="#qualitative">Qualitative</a>
+          <a href="#results">Results</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="showcase-hero" id="top">
+      <div class="showcase-shell showcase-hero__inner">
         
-        <meta property="og:image" content="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" />
+        <img class="showcase-hero__logo" src="https://ntuneillee.github.io/academic-assets/images/RLAWBprofile.webp" alt="RL-AWB" />
         
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
 
-        <meta name="twitter:title" content="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" />
-        <meta name="twitter:description" content="We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. We also contribute LEVI, the first multi-sensor nighttime dataset for color constancy in this work." />
-        
-        <meta name="twitter:image" content="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="keywords" content="Camera Image Quality, Image Processing, Color Science, Deep Learning" />
-        <title>RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</title>
-
-        <!--Favicon-->
-        <link rel="shortcut icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
-        <link rel="icon" href="https://ntuneillee.github.io/images/fujisan.png?v=5" type="image/x-icon">
-
-        <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
-
-        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/spf-bulma.min.css" />
-        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/fontawesome.all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/spf-index.css" />
-
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script defer src="https://ntuneillee.github.io/academic-assets/js/fontawesome.all.min.js"></script>
-
-        <script>
-            window.MathJax = {
-                tex: {
-                    inlineMath: [["$", "$"]],
-                },
-                chtml: {
-                    scale: 1.1,
-                    mtextInheritFont: true,
-                },
-                svg: {
-                    fontCache: 'global'
-                }
-            };
-        </script>
-        <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" integrity="sha256-qoRlVrS5NAnXSSSiMfFXwK8C9obG11Iybe4h2+bQYR4=" crossorigin="anonymous"></script>
-
-        <style>
-             
-            mjx-container {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-
-            mjx-container svg {
-                shape-rendering: geometricPrecision;
-            }
-
-             
-            .method-image-container,
-            .results-image-container {
-                display: inline-block;
-                border: 1px solid #e0e0e0;
-                border-radius: 12px;
-                padding: 1rem;
-                background-color: #f5f5f5;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                margin: 0.75rem 0;
-            }
-
-             
-            .hero.is-light .method-image-container,
-            .hero.is-light .results-image-container {
-                border: 1px solid #e0e0e0;
-                background-color: #ffffff;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            }
-
-            .method-image-container img,
-            .results-image-container img {
-                border-radius: 8px;
-                max-width: 100%;
-                height: auto;
-                display: block;
-            }
-
-            .publication-title {
-                line-height: 1.5 !important;
-                margin-bottom: 0 !important;        
-            }
-
-             
-            .publication-authors .author-block sup {
-                margin-left: 0.1em !important;
-                margin-right: 0 !important;
-                padding-left: 0 !important;
-            }
-
-             
-            .publication-authors .author-block a + sup,
-            .publication-authors .author-block span + sup {
-                margin-left: 0.1em !important;
-            }
-
-             
-            .container.is-max-desktop {
-                max-width: 1080px;
-            }
-
-            .columns.is-centered {
-                justify-content: center;
-            }
-
-             
-            img {
-                max-width: 100% !important;
-                height: auto !important;
-                width: 100% !important;
-            }
-
-             
-            .hero-body {
-                padding-left: 0;
-                padding-right: 0;
-            }
-
-             
-            .hero.teaser {
-                padding-top: 0;
-                margin-top: 0;
-            }
-
-            .hero.teaser .hero-body {
-                padding-top: 0;
-            }
-
-            .card-container {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-            }
-
-             
-            .title.is-1 {
-                font-size: 2.5rem;
-            }
-
-             
-            .publication-authors:has(.eql-cntrb) {
-                margin-bottom: 0.5rem !important;
-            }
-
-            .column.has-text-centered {
-                margin-top: 0;
-                padding-top: 0.5rem;
-            }
-
-             
-            .profile-logo-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 0.5rem;
-            }
-
-            .profile-logo-container img {
-                height: auto !important;
-                width: 120px !important;
-                max-width: 120px !important;
-            }
-
-             
-            section#BibTeX pre {
-                overflow-x: auto;
-                white-space: pre;
-                word-wrap: normal;
-                width: 100%;
-                display: block;
-                box-sizing: border-box;
-                margin: 0;
-                padding: 1.25rem;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-            }
-
-             
-            section.hero.is-light#BibTeX pre {
-                background-color: #ffffff;
-            }
-
-             
-            section#BibTeX:not(.is-light) pre {
-                background-color: #f5f5f5;
-            }
-
-            #BibTeX code {
-                white-space: pre;
-                word-wrap: normal;
-                display: block;
-            }
-
-            #BibTeX .column {
-                width: 100%;
-            }
-
-             
-            .content mjx-container[jax="CHTML"][display="false"] {
-                display: inline !important;
-                vertical-align: baseline !important;
-                margin: 0 !important;
-            }
-
-            .content mjx-container {
-                line-height: 0 !important;
-            }
-
-             
-            .content mjx-container[jax="CHTML"][display="true"] {
-                overflow-x: auto;
-                overflow-y: hidden;
-                max-width: 100%;
-                display: block !important;
-            }
-
-             
-            .table-wrapper {
-                width: 100%;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin: 1rem 0;
-            }
-
-             
-            .content table {
-                border-collapse: collapse;
-                width: 100%;
-                display: table;
-                border-top: 2px solid #666666;
-                border-bottom: 2px solid #666666;
-            }
-
-            .content table th,
-            .content table td {
-                white-space: nowrap;
-            }
-
-             
-            @media screen and (min-width: 769px) {
-                .hero.teaser .subtitle.content {
-                    font-size: 1rem !important;
-                    line-height: 1.7 !important;
-                }
-
-                .content,
-                .content p,
-                .content li {
-                    font-size: 1rem !important;
-                    line-height: 1.7 !important;
-                }
-            }
-
-             
-            @media screen and (max-width: 768px) {
-                 
-                html {
-                    font-size: 16px !important;
-                }
-
-                body {
-                    font-size: 1rem !important;
-                    line-height: 1.6 !important;
-                }
-
-                 
-                .profile-logo-container {
-                    margin-bottom: 0.5rem;
-                }
-
-                .profile-logo-container img {
-                    height: auto !important;
-                    width: 80px !important;
-                    max-width: 80px !important;
-                }
-
-
-                .hero-body {
-                    padding: 2rem 0.75rem !important;
-                }
-
-                .title.is-1 {
-                    font-size: 1.75rem !important;
-                    line-height: 1.3 !important;
-                    margin-bottom: 1rem !important;
-                }
-
-                .title.is-3 {
-                    font-size: 1.5rem !important;
-                    line-height: 1.3 !important;
-                    margin-bottom: 1rem !important;
-                }
-
-                .title.is-5 {
-                    font-size: 1.125rem !important;
-                    line-height: 1.4 !important;
-                }
-
-                .is-size-4 {
-                    font-size: 1.25rem !important;
-                    line-height: 1.4 !important;
-                }
-
-                .is-size-5 {
-                    font-size: 1.0625rem !important;
-                    line-height: 1.5 !important;
-                }
-
-                .subtitle {
-                    font-size: 1rem !important;
-                    line-height: 1.6 !important;
-                }
-
-                .content,
-                .content p,
-                .content li {
-                    font-size: 1rem !important;
-                    line-height: 1.8 !important;
-                }
-
-                .content h3 {
-                    font-size: 1.25rem !important;
-                    margin-top: 1.5rem !important;
-                    margin-bottom: 0.75rem !important;
-                }
-
-                .content h4 {
-                    font-size: 1.125rem !important;
-                    margin-top: 1.25rem !important;
-                    margin-bottom: 0.75rem !important;
-                }
-
-                .container.is-max-desktop {
-                    padding-left: 0.75rem !important;
-                    padding-right: 0.75rem !important;
-                    max-width: 100% !important;
-                }
-
-                .section {
-                    padding: 2.5rem 0.75rem !important;
-                }
-
-                .columns {
-                    margin: 0 !important;
-                }
-
-                .column {
-                    padding: 0 0.75rem !important;
-                }
-
-                .column.is-half {
-                    width: 100% !important;
-                }
-
-                .column.is-four-fifths {
-                    width: 100% !important;
-                }
-
-                .publication-links .link-block {
-                    display: inline-block;
-                    margin-bottom: 0;
-                    margin-right: 0.5rem;
-                }
-
-                .publication-links .button {
-                    width: auto;
-                    font-size: 1.0625rem !important;
-                    padding: 0.5rem 0.75rem !important;
-                }
-
-                iframe {
-                    width: 100% !important;
-                    height: auto !important;
-                    aspect-ratio: 16 / 9;
-                }
-
-                pre {
-                    font-size: 0.875rem;
-                    overflow-x: auto;
-                    padding: 1rem !important;
-                    margin: 0 !important;
-                    border-radius: 4px !important;
-                    width: 100% !important;
-                    box-sizing: border-box !important;
-                }
-
-                pre code {
-                    font-size: 0.875rem !important;
-                }
-
-                #BibTeX .column {
-                    padding: 0 0.75rem !important;
-                    width: 100% !important;
-                }
-
-                #BibTeX pre {
-                    margin: 0 !important;
-                    width: 100% !important;
-                }
-
-                .card-container {
-                    padding: 1.5rem !important;
-                    margin-bottom: 2rem !important;
-                    margin-left: 0 !important;
-                    margin-right: 0 !important;
-                }
-
-                .card-container h4 {
-                    font-size: 1.5rem !important;
-                }
-
-                .card-container p,
-                .card-container li {
-                    font-size: 1.25rem !important;
-                }
-
-                 
-                .has-text-justified {
-                    text-align: left !important;
-                }
-
-                 
-                .hero,
-                .section {
-                    overflow-x: hidden !important;
-                }
-
-                img {
-                    max-width: 100% !important;
-                    height: auto !important;
-                }
-            }
-
-             
-            :root {
-                --rt-best:   #fddede;
-                --rt-second: #ffdfbf;
-                --rt-third:  #fef0c6;
-                --rt-border: #000;        
-            }
-            .results-table-wrapper {
-                width: 100%;
-                margin: 1.2rem 0;
-                text-align: center;        
-            }
-             
-            .results-table-wrapper .table-scroll {
-                width: 100%;
-                overflow-x: auto;
-                text-align: center;
-                -webkit-overflow-scrolling: touch;
-            }
-            .results-table-wrapper .table-caption {
-                font-size: 0.85rem;
-                color: #555;
-                text-align: center;
-                margin: 0 0 0.5rem;
-            }
-            .results-table-wrapper .table-caption strong {
-                color: #222;
-            }
-            .results-table-wrapper .rank-legend {
-                text-align: center;
-                font-size: 0.8rem;
-                color: #666;
-                margin: 0.2rem 0 0.6rem;
-            }
-            .results-table-wrapper .rank-legend span {
-                padding: 1px 6px;
-                border-radius: 3px;
-                margin: 0 2px;
-            }
-            .results-table-wrapper .rank-legend .best   { background: var(--rt-best); }
-            .results-table-wrapper .rank-legend .second { background: var(--rt-second); }
-            .results-table-wrapper .rank-legend .third  { background: var(--rt-third); }
-            .results-table {
-                border-collapse: collapse;
-                display: inline-table;        
-                margin: 0 auto;
-                font-size: 0.85rem;
-                max-width: 100%;
-                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-            }
-            .results-table th,
-            .results-table td,
-            .content .results-table th,
-            .content .results-table td {
-                padding: 7px 10px;
-                border-bottom: 1px solid #000;
-                text-align: center;
-                vertical-align: middle !important;    
-                white-space: nowrap;
-                color: #000;
-            }
-             
-            .results-table td:first-child {
-                text-align: left;
-                padding-left: 14px;
-            }
-            .results-table th {
-                background: #e3edf8;              
-                font-weight: 600;
-                border-top: 2px solid #000;
-                font-size: 0.82rem;
-                color: #000;
-            }
-            .results-table thead tr:first-child th {
-                border-bottom: 1px solid #000;
-            }
-             
-            .results-table tbody td,
-            .content .results-table tbody td {
-                border-bottom: 1px solid #ccc;
-            }
-             
-            .results-table tbody tr:last-child td,
-            .content .results-table tbody tr:last-child td {
-                border-bottom: 2px solid #000;
-            }
-             
-            .results-table th.method-col,
-            .results-table tbody td:first-child {
-                border-right: 1px solid #000;
-            }
-             
-            .results-table tbody tr.separator-top td,
-            .content .results-table tbody tr.separator-top td {
-                border-top: 1px solid #888;
-            }
-            .results-table .best   { background: var(--rt-best); }
-            .results-table .second { background: var(--rt-second); }
-            .results-table .third  { background: var(--rt-third); }
-             
-            .results-table .ours-row td {
-                font-weight: 700;
-                color: #000;
-            }
-            .results-table .group-divider {
-                border-left: 1px solid #000;
-            }
-        </style>
-    </head>
-
-    <body>
-        <section class="hero">
-            <div class="hero-body">
-                <div class="container is-max-desktop">
-                    <div class="columns is-centered">
-                        <div class="column has-text-centered">
-                            
-                            <div class="profile-logo-container">
-                                <img src="https://ntuneillee.github.io/academic-assets/images/RLAWBprofile.webp" alt="Profile Logo" />
-                            </div>
-                            
-                            <h1 class="title is-1 publication-title">
-                                RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes
-                            </h1>
-                            
-                            <div class="is-size-4 publication-authors" style="margin-bottom: 0.5rem;">
-                                <span class="conference-block">ECCV 2026</span>
-                            </div>
-                            
-
-                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
-                                
-                                
-                                <span class="author-block"><strong><a href="https://ntuneillee.github.io/" target="_blank">Yuan-Kang Lee</a></strong><sup>1,3*</sup>,
-                                </span>
-                                
-                                <span class="author-block"><a href="https://brianchen1120.github.io" target="_blank">Kuan-Lin Chen</a><sup>2,3*</sup>,
-                                </span>
-                                
-                                <span class="author-block"><a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank">Chia-Che Chang</a><sup>1</sup>,
-                                </span>
-                                
-                                <span class="author-block"><a href="https://yulunalexliu.github.io" target="_blank">Yu-Lun Liu</a><sup>3</sup>
-                                </span>
-                                
-                                
-                            </div>
-
-                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.5rem;">
-                                
-                                
-                                <span class="author-block"><sup>1</sup>MediaTek Inc.</span>, 
-                                
-                                <span class="author-block"><sup>2</sup>National Taiwan University</span>, 
-                                
-                                <span class="author-block"><sup>3</sup>National Yang Ming Chiao Tung University</span>
-                                
-                                
-                            </div>
-                            <div class="is-size-5 publication-authors" style="margin-bottom: 0.25rem;">
-                                <span class="eql-cntrb"><small><sup>*</sup>Indicates Equal Contribution</small></span>
-                            </div>
-                            
-
-                            <div class="column has-text-centered" style="margin-top: 0; padding-top: 0.5rem;">
-                                <div class="publication-links">
-                                    
-
-                                    
-                                    <span class="link-block">
-                                        <a href="https://arxiv.org/abs/2601.05249" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon"><i class="ai ai-arxiv"></i></span>
-                                            <span>arXiv</span>
-                                        </a>
-                                    </span>
-                                    
-
-                                    
-                                    <span class="link-block">
-                                        <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon"><i class="fab fa-github"></i></span>
-                                            <span>Code</span>
-                                        </a>
-                                    </span>
-                                    
-
-                                    
-
-                                    
-                                    <span class="link-block">
-                                        <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon"><i class="fas fa-database"></i></span>
-                                            <span>Dataset</span>
-                                        </a>
-                                    </span>
-                                    
-
-                                    
-                                    <span class="link-block">
-                                        <a href="https://drive.google.com/file/d/1l5bt23WyXrWULRXGSYd9pTJaHzxRaHz3/view?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon"><i class="fas fa-image"></i></span>
-                                            <span>Poster</span>
-                                        </a>
-                                    </span>
-                                    
-
-                                    
-                                    <span class="link-block">
-                                        <a href="https://youtu.be/yvEoA_sdBEc?si=BBBE9nK9_eI41e1k" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                                            <span class="icon"><i class="fab fa-youtube"></i></span>
-                                            <span>Video</span>
-                                        </a>
-                                    </span>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="hero teaser">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column">
-                        <div class="hero-body">
-                            
-                            <img src="https://ntuneillee.github.io/academic-assets/images/RLAWB_logo.webp" alt="RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes" style="width: 100%; display: block;" />
-                            
-                            
-                            <div class="subtitle has-text-centered content" style="width: 100%; margin-top: 3rem; line-height: 1.7;">
-                                We present <strong>RL-AWB</strong>, the first framework that integrates reinforcement learning into automatic white balance for nighttime color constancy. Our approach fundamentally differs from existing paradigms by formulating AWB as a sequential decision-making problem, where an RL agent learns adaptive parameter selection policies for a novel statistical illuminant estimator.
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        
-        <section class="section hero is-light">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered has-text-centered">
-                    <div class="column">
-                        <h2 class="title is-3">Abstract</h2>
-                        <div class="content has-text-justified">
-                            <div class="has-text-centered" style="margin: 1.0rem 0;">
+        <p class="showcase-hero__eyebrow">ECCV 2026</p>
+        <h1>Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes</h1>
+        <div class="showcase-hero__dek">We present RL-AWB, the first framework that integrates reinforcement learning into automatic white balance for nighttime color constancy.</div>
+
+        <div class="showcase-authors" aria-label="Authors">
+          
+          <span class="showcase-author">
+            <a href="https://ntuneillee.github.io/" target="_blank" rel="noopener"><strong>Yuan-Kang Lee</strong></a><sup>1,3*</sup>
+          </span><span class="showcase-authors__dot">·</span>
+          
+          <span class="showcase-author">
+            <a href="https://brianchen1120.github.io" target="_blank" rel="noopener">Kuan-Lin Chen</a><sup>2,3*</sup>
+          </span><span class="showcase-authors__dot">·</span>
+          
+          <span class="showcase-author">
+            <a href="https://scholar.google.com.tw/citations?user=FK1RcpoAAAAJ" target="_blank" rel="noopener">Chia-Che Chang</a><sup>1</sup>
+          </span><span class="showcase-authors__dot">·</span>
+          
+          <span class="showcase-author">
+            <a href="https://yulunalexliu.github.io" target="_blank" rel="noopener">Yu-Lun Liu</a><sup>3</sup>
+          </span>
+          
+        </div>
+
+        <div class="showcase-affiliations">
+          
+          <span><sup>1</sup>MediaTek Inc.</span>
+          
+          <span><sup>2</sup>National Taiwan University</span>
+          
+          <span><sup>3</sup>National Yang Ming Chiao Tung University</span>
+          
+        </div>
+        <p class="showcase-equal"><sup>*</sup>Indicates equal contribution</p>
+
+        <div class="showcase-links" aria-label="Project resources">
+          
+          <a href="https://arxiv.org/abs/2601.05249" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i><span>arXiv</span></a>
+          
+          
+          <a href="https://github.com/BrianChen1120/RL-AWB" target="_blank" rel="noopener"><i class="fab fa-github"></i><span>Code</span></a>
+          
+          
+          <a href="https://drive.google.com/drive/folders/1VeqcIhkr83gL_ZF5DMnvFsmXyC4QhSro" target="_blank" rel="noopener"><i class="fas fa-database"></i><span>Dataset</span></a>
+          
+          
+          <a href="https://drive.google.com/file/d/1l5bt23WyXrWULRXGSYd9pTJaHzxRaHz3/view?usp=sharing" target="_blank" rel="noopener"><i class="far fa-image"></i><span>Poster</span></a>
+          
+          
+          <a href="https://youtu.be/yvEoA_sdBEc?si=BBBE9nK9_eI41e1k" target="_blank" rel="noopener"><i class="fab fa-youtube"></i><span>Video</span></a>
+          
+        </div>
+
+        <div class="image-compare" data-image-compare style="--reveal: 50%;">
+          <img class="image-compare__image" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/hero-output.webp?v=2" alt="White-balanced output produced by RL-AWB" />
+          <div class="image-compare__reveal">
+            <img class="image-compare__image" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/hero-input.webp?v=2" alt="Low-light input image before white-balance correction" />
+          </div>
+          <span class="image-compare__label image-compare__label--left">Input</span>
+          <span class="image-compare__label image-compare__label--right">RL-AWB</span>
+          <span class="image-compare__divider" aria-hidden="true"><span><i class="fas fa-arrows-alt-h"></i></span></span>
+          <input class="image-compare__range" type="range" min="0" max="100" value="50" aria-label="Compare the input image with the RL-AWB output" />
+        </div>
+        <p class="image-compare__hint">Drag to compare the low-light input with the RL-AWB correction.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="showcase-section" id="overview">
+        <div class="showcase-shell">
+          <p class="section-kicker">Overview</p>
+          <h2>Nighttime white balance as sequential decision-making</h2>
+          <figure class="overview-teaser">
+            <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/RLAWBteaser.webp?v=1" alt="Comparison of traditional AWB tuning and the proposed RL-AWB framework" loading="lazy" />
+          </figure>
+
+          <div class="showcase-copy showcase-abstract"><div class="has-text-centered" style="margin: 1.0rem 0;">
     <div class="method-image-container">
         
         <img src="https://ntuneillee.github.io/academic-assets/images/RLAWBteaser.webp" alt="Figure" />
@@ -702,97 +133,464 @@
     </div>
 </div>
 
-<p>Nighttime color constancy remains a challenging problem in computational photography due to low-light noise and complex illumination conditions that limit cross-sensor generalization. We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. Our method begins with a statistical algorithm tailored for nighttime scenes, integrating salient gray pixel detection with novel illumination estimation. Building on this foundation, we develop the first deep reinforcement learning approach for color constancy that leverages the statistical algorithm as its core, mimicking professional AWB tuning experts by dynamically optimizing parameters for each image without knowing its ground-truth illumination. To facilitate cross-sensor evaluation, we introduce the first multi-sensor nighttime color constancy dataset. Experiment results demonstrate that our method achieve superior generalization capability across low-light and well-illuminated images.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+<p>Nighttime color constancy remains a challenging problem in computational photography due to low-light noise and complex illumination conditions that limit cross-sensor generalization. We present RL-AWB, a novel framework combining statistical methods with deep reinforcement learning for nighttime white balance. Our method begins with a statistical algorithm tailored for nighttime scenes, integrating salient gray pixel detection with novel illumination estimation. Building on this foundation, we develop the first deep reinforcement learning approach for color constancy that leverages the statistical algorithm as its core, mimicking professional AWB tuning experts by dynamically optimizing parameters for each image without knowing its ground-truth illumination. To facilitate cross-sensor evaluation, we introduce the first multi-sensor nighttime color constancy dataset. Experiment results demonstrate that our method achieve superior generalization capability across low-light and well-illuminated images.</div>
 
-        <section class="section">
-                    <div class="container is-max-desktop">
-                        <div class="columns is-centered">
-                            <div class="column">
-                                <h2 class="title is-3 has-text-centered">Contributions</h2>
-                                <div class="content has-text-justified">
-                                    <ul>
+          <div class="contribution-list">
+            <p class="contribution-list__title">What this work contributes</p>
+            <div class="showcase-copy"><ul>
 <li>We develop <strong>SGP-LRD</strong> (Salient Gray Pixels with Local Reflectance Differences), a nighttime-specific color constancy algorithm that achieves state-of-the-art illumination estimation on public nighttime benchmarks.</li>
 <li>We design the <strong>RL-AWB</strong> framework with Soft Actor-Critic (SAC) training and two-stage curriculum learning, enabling adaptive per-image parameter optimization with exceptional data efficiency.</li>
 <li>We contribute <strong>LEVI</strong> (Low-light Evening Vision Illumination), the first multi-camera nighttime dataset comprising 700 images from two sensors, enabling rigorous cross-sensor color constancy evaluation.</li>
 <li>Extensive experiments demonstrate superior cross-sensor generalization over state-of-the-art with only <strong>5</strong> training images per dataset.</li>
 </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section><section class="section hero is-light">
-                    <div class="container is-max-desktop">
-                        <div class="columns is-centered">
-                            <div class="column">
-                                <h2 class="title is-3 has-text-centered">Method Overview</h2>
-                                <div class="content has-text-justified">
-                                    
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/RLAWBflowchart1.webp" alt="**Overview of the proposed RL-AWB framework.** (A) Given an input image, the proposed nighttime color constancy algorithm SGP-LRD estimates the scene illuminant conditioned on two hyper-parameters (gray-pixel sampling percentage N and Minkowski order p). (B) A SAC agent selects parameter updates based on image statistics and current AWB settings. (C) The policy outputs one action per parameter; actions are sampled, squashed by tanh to [−1, 1], and rescaled to valid ranges. (D) The rescaled actions update the two hyper-parameters and are applied to SGP-LRD to produce the illuminant estimate. Repeat until the termination criterion is met." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Overview of the proposed RL-AWB framework.</strong> (A) Given an input image, the proposed nighttime color constancy algorithm SGP-LRD estimates the scene illuminant conditioned on two hyper-parameters (gray-pixel sampling percentage N and Minkowski order p). (B) A SAC agent selects parameter updates based on image statistics and current AWB settings. (C) The policy outputs one action per parameter; actions are sampled, squashed by tanh to [−1, 1], and rescaled to valid ranges. (D) The rescaled actions update the two hyper-parameters and are applied to SGP-LRD to produce the illuminant estimate. Repeat until the termination criterion is met.</p>
-        
-    </div>
 </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="showcase-section showcase-section--tinted" id="method">
+        <div class="showcase-shell">
+          <div class="section-heading section-heading--stacked">
+            <div>
+              <p class="section-kicker">Method</p>
+              <h2>RL-AWB</h2>
+              <p class="section-lede">A Soft Actor-Critic agent observes illumination- and parameter-related features, then iteratively adapts SGP-LRD for each image.</p>
+            </div>
+          </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section><section class="section">
-                    <div class="container is-max-desktop">
-                        <div class="columns is-centered">
-                            <div class="column">
-                                <h2 class="title is-3 has-text-centered">LEVI Dataset</h2>
-                                <div class="content has-text-justified">
-                                    
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/LEVI%20full.webp" alt="**Sample images from the proposed LEVI dataset with their corresponding Color Checker mask annotations.** The dataset captures diverse nighttime scenes with complex mixed lighting, low illumination, and high ISO conditions." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Sample images from the proposed LEVI dataset with their corresponding Color Checker mask annotations.</strong> The dataset captures diverse nighttime scenes with complex mixed lighting, low illumination, and high ISO conditions.</p>
-        
-    </div>
-</div>
+          <figure class="wide-figure">
+            <div class="wide-figure__media" tabindex="0" aria-label="Scrollable RL-AWB framework diagram">
+              <img src="https://ntuneillee.github.io/academic-assets/images/RLAWBflowchart1.webp" alt="Overview of the proposed RL-AWB framework" loading="lazy" />
+            </div>
+            <figcaption><strong>Framework overview.</strong> SGP-LRD supplies a nighttime-specific estimator; the policy and value networks learn image-adaptive parameter adjustments through a two-stage curriculum.</figcaption>
+          </figure>
 
+          <div class="process-showcase">
+            <div class="process-heading">
+              <div>
+                <p class="section-kicker">Adaptive process</p>
+                <h3>Correction improves step by step</h3>
+                <p class="process-description">The complete trajectory shows the raw input, SGP-LRD initialization, three RL updates, and the corresponding illuminant path.</p>
+                <p class="visualization-note">Images are gamma-corrected for visualization.</p>
+              </div>
+              <div class="segmented-control" aria-label="Choose an adaptive-process scene">
+                <button type="button" data-process-scene="1" class="is-active" aria-pressed="true">Scene 1</button><button type="button" data-process-scene="2" class="" aria-pressed="false">Scene 2</button><button type="button" data-process-scene="3" class="" aria-pressed="false">Scene 3</button><button type="button" data-process-scene="4" class="" aria-pressed="false">Scene 4</button>
+              </div>
+            </div>
 
-<div class="has-text-centered" style="margin: 1.0rem 0;">
-    <div class="method-image-container">
-        
-        <img src="https://ntuneillee.github.io/academic-assets/images/LEVINCCcomparison.webp" alt="**Illuminant distribution and normalized mean luminance histogram over all the collected nighttime images in the LEVI and NCC datasets.** LEVI complements NCC by covering broader lighting conditions and containing more low- luminance nighttime images, offering a new benchmark for low-light color constancy evaluation." />
-        
-        
-        <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.6;"><strong>Illuminant distribution and normalized mean luminance histogram over all the collected nighttime images in the LEVI and NCC datasets.</strong> LEVI complements NCC by covering broader lighting conditions and containing more low- luminance nighttime images, offering a new benchmark for low-light color constancy evaluation.</p>
-        
-    </div>
-</div>
+            
+            <div class="process-grid" aria-live="polite">
+              
+              
+              <figure class="process-stage">
+                <figcaption>Raw input</figcaption>
+                <img
+                  
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-1.webp?v=5"
+                  data-process-stage="1"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="Raw input for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+              
+              <figure class="process-stage">
+                <figcaption>SGP-LRD</figcaption>
+                <img
+                  
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-2.webp?v=5"
+                  data-process-stage="2"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="SGP-LRD for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+              
+              <figure class="process-stage">
+                <figcaption>RL Step 1</figcaption>
+                <img
+                  
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-3.webp?v=5"
+                  data-process-stage="3"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="RL Step 1 for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+              
+              <figure class="process-stage">
+                <figcaption>RL Step 2</figcaption>
+                <img
+                  
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-4.webp?v=5"
+                  data-process-stage="4"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="RL Step 2 for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+              
+              <figure class="process-stage">
+                <figcaption>RL Step 3</figcaption>
+                <img
+                  
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-5.webp?v=5"
+                  data-process-stage="5"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="RL Step 3 for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+              
+              <figure class="process-stage">
+                <figcaption>Tuning process</figcaption>
+                <img
+                  class="process-stage__plot"
+                  src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/scene-1-stage-6.webp?v=5"
+                  data-process-stage="6"
+                  data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/process/"
+                  alt="Tuning process for RL-AWB adaptive-process scene 1"
+                  loading="lazy"
+                />
+              </figure>
+              
+            </div>
+          </div>
+        </div>
+      </section>
 
-<p>Prior to our work, the NCC dataset was the only public nighttime color constancy benchmark, containing 513 images from a single camera. To enable cross-sensor evaluation, we introduce the Low-light Evening Vision Illumination (LEVI) dataset—the first multi-camera nighttime bench- mark comprising 700 linear RAW images from two systems: iPhone 16 Pro (images #1–370, 4320×2160, 12-bit) and Sony ILCE-6400 (images #371–700, 6000×4000, 14-bit), with ISO ranging from 500 to 16,000. Each scene contains a Macbeth Color Checker with manual annotations. Groundtruth illuminants are computed as median RGB values of non-saturated achromatic patches. All images are black-level corrected and converted to linear RGB.</p>
+      <section class="showcase-section" id="levi">
+        <div class="showcase-shell">
+          <div class="section-heading section-heading--stacked">
+            <div>
+              <p class="section-kicker">Dataset</p>
+              <h2>The LEVI dataset</h2>
+              <p class="section-lede">700 nighttime RAW images from two camera systems, with manually annotated ColorChecker masks for cross-sensor evaluation.</p>
+              <p class="visualization-note">Images are gamma-corrected for visualization.</p>
+            </div>
+          </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section><section class="section hero is-light">
-                    <div class="container is-max-desktop">
-                        <div class="columns is-centered">
-                            <div class="column">
-                                <h2 class="title is-3 has-text-centered">Results</h2>
-                                <div class="content has-text-justified">
-                                    <div class="results-table-wrapper">
+          <div class="segmented-control" aria-label="LEVI gallery display">
+            <button class="is-active" type="button" data-dataset-mode="input" aria-pressed="true">RAW input</button>
+            <button type="button" data-dataset-mode="mask" aria-pressed="false">ColorChecker mask</button>
+          </div>
+
+          <div class="dataset-gallery">
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-1-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-1-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-1-mask.webp?v=2"
+                alt="LEVI nighttime sample 1"
+                loading="lazy"
+              />
+              <figcaption>Scene 01</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-2-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-2-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-2-mask.webp?v=2"
+                alt="LEVI nighttime sample 2"
+                loading="lazy"
+              />
+              <figcaption>Scene 02</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-3-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-3-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-3-mask.webp?v=2"
+                alt="LEVI nighttime sample 3"
+                loading="lazy"
+              />
+              <figcaption>Scene 03</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-4-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-4-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-4-mask.webp?v=2"
+                alt="LEVI nighttime sample 4"
+                loading="lazy"
+              />
+              <figcaption>Scene 04</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-5-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-5-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-5-mask.webp?v=2"
+                alt="LEVI nighttime sample 5"
+                loading="lazy"
+              />
+              <figcaption>Scene 05</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-6-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-6-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-6-mask.webp?v=2"
+                alt="LEVI nighttime sample 6"
+                loading="lazy"
+              />
+              <figcaption>Scene 06</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-7-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-7-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-7-mask.webp?v=2"
+                alt="LEVI nighttime sample 7"
+                loading="lazy"
+              />
+              <figcaption>Scene 07</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-8-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-8-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-8-mask.webp?v=2"
+                alt="LEVI nighttime sample 8"
+                loading="lazy"
+              />
+              <figcaption>Scene 08</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-9-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-9-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-9-mask.webp?v=2"
+                alt="LEVI nighttime sample 9"
+                loading="lazy"
+              />
+              <figcaption>Scene 09</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-10-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-10-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-10-mask.webp?v=2"
+                alt="LEVI nighttime sample 10"
+                loading="lazy"
+              />
+              <figcaption>Scene 10</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-11-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-11-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-11-mask.webp?v=2"
+                alt="LEVI nighttime sample 11"
+                loading="lazy"
+              />
+              <figcaption>Scene 11</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-12-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-12-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-12-mask.webp?v=2"
+                alt="LEVI nighttime sample 12"
+                loading="lazy"
+              />
+              <figcaption>Scene 12</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-13-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-13-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-13-mask.webp?v=2"
+                alt="LEVI nighttime sample 13"
+                loading="lazy"
+              />
+              <figcaption>Scene 13</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-14-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-14-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-14-mask.webp?v=2"
+                alt="LEVI nighttime sample 14"
+                loading="lazy"
+              />
+              <figcaption>Scene 14</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-15-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-15-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-15-mask.webp?v=2"
+                alt="LEVI nighttime sample 15"
+                loading="lazy"
+              />
+              <figcaption>Scene 15</figcaption>
+            </figure>
+            
+            <figure>
+              <img
+                src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-16-input.webp?v=2"
+                data-input="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-16-input.webp?v=2"
+                data-mask="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/levi/sample-16-mask.webp?v=2"
+                alt="LEVI nighttime sample 16"
+                loading="lazy"
+              />
+              <figcaption>Scene 16</figcaption>
+            </figure>
+            
+          </div>
+
+          <div class="dataset-facts">
+            <div>
+              <span>iPhone 16 Pro</span>
+              <strong><b>370</b> images</strong>
+              <small>12-bit linear RAW</small>
+            </div>
+            <div>
+              <span>Sony ILCE-6400</span>
+              <strong><b>330</b> images</strong>
+              <small>14-bit linear RAW</small>
+            </div>
+            <div>
+              <span>Capture range</span>
+              <strong><b>ISO</b> 500-16,000</strong>
+              <small>Low-light nighttime scenes</small>
+            </div>
+          </div>
+
+          <div class="dataset-plots">
+            <figure>
+              <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/dataset-illuminants.webp?v=2" alt="Illuminant distributions of NCC and LEVI" loading="lazy" />
+              <figcaption><strong>Broader illuminant coverage.</strong> LEVI complements NCC across challenging nighttime lighting conditions.</figcaption>
+            </figure>
+            <figure>
+              <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/dataset-luminance.webp?v=2" alt="Normalized RAW mean luminance distributions of NCC and LEVI" loading="lazy" />
+              <figcaption><strong>More low-luminance scenes.</strong> The distribution emphasizes the operating regime targeted by RL-AWB.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase-section showcase-section--dark" id="qualitative">
+        <div class="showcase-shell">
+          <div class="section-heading section-heading--stacked section-heading--dark">
+            <div>
+              <p class="section-kicker">Qualitative</p>
+              <h2>Compare corrections, method by method</h2>
+              <p class="section-lede">Select a method to compare its corrections across all four scenes. Reported numbers are angular errors in degrees.</p>
+              <p class="visualization-note">Images are gamma-corrected for visualization.</p>
+            </div>
+          </div>
+
+          <div class="qual-controls">
+            <div class="method-tabs" aria-label="Choose comparison method">
+              <button type="button" data-method="c4">C<sup>4</sup></button>
+              <button type="button" data-method="c5">C<sup>5</sup></button>
+              <button type="button" data-method="fc4">FC<sup>4</sup></button>
+              <button type="button" data-method="pcc">PCC</button>
+              <button type="button" data-method="gcc">GCC</button>
+              <button type="button" data-method="rlawb" class="is-active" aria-pressed="true">RL-AWB</button>
+              <button type="button" data-method="ground-truth">Ground truth</button>
+            </div>
+          </div>
+
+          <div class="qualitative-view" data-active-method="rlawb">
+            
+            <div class="qualitative-scene" data-qual-scene="1">
+              <p class="qualitative-scene__title">Scene 01</p>
+              <div class="qualitative-pair">
+                <figure>
+                  <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-1-input.webp?v=3" alt="Raw input for qualitative scene 1" loading="lazy" />
+                  <figcaption>Raw input</figcaption>
+                </figure>
+                <figure>
+                  <img class="qualitative-output" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-1-rlawb.webp?v=3" data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/" alt="RL-AWB output for qualitative scene 1" loading="lazy" />
+                  <figcaption class="qualitative-output-label">RL-AWB</figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="qualitative-scene" data-qual-scene="2">
+              <p class="qualitative-scene__title">Scene 02</p>
+              <div class="qualitative-pair">
+                <figure>
+                  <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-2-input.webp?v=3" alt="Raw input for qualitative scene 2" loading="lazy" />
+                  <figcaption>Raw input</figcaption>
+                </figure>
+                <figure>
+                  <img class="qualitative-output" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-2-rlawb.webp?v=3" data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/" alt="RL-AWB output for qualitative scene 2" loading="lazy" />
+                  <figcaption class="qualitative-output-label">RL-AWB</figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="qualitative-scene" data-qual-scene="3">
+              <p class="qualitative-scene__title">Scene 03</p>
+              <div class="qualitative-pair">
+                <figure>
+                  <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-3-input.webp?v=3" alt="Raw input for qualitative scene 3" loading="lazy" />
+                  <figcaption>Raw input</figcaption>
+                </figure>
+                <figure>
+                  <img class="qualitative-output" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-3-rlawb.webp?v=3" data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/" alt="RL-AWB output for qualitative scene 3" loading="lazy" />
+                  <figcaption class="qualitative-output-label">RL-AWB</figcaption>
+                </figure>
+              </div>
+            </div>
+            
+            <div class="qualitative-scene" data-qual-scene="4">
+              <p class="qualitative-scene__title">Scene 04</p>
+              <div class="qualitative-pair">
+                <figure>
+                  <img src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-4-input.webp?v=3" alt="Raw input for qualitative scene 4" loading="lazy" />
+                  <figcaption>Raw input</figcaption>
+                </figure>
+                <figure>
+                  <img class="qualitative-output" src="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/scene-4-rlawb.webp?v=3" data-base="https://ntuneillee.github.io/academic-assets/images/rlawb-showcase/qualitative/" alt="RL-AWB output for qualitative scene 4" loading="lazy" />
+                  <figcaption class="qualitative-output-label">RL-AWB</figcaption>
+                </figure>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase-section" id="results">
+        <div class="showcase-shell">
+          <div class="section-heading section-heading--stacked">
+            <div>
+              <p class="section-kicker">Quantitative</p>
+              <h2>Results</h2>
+            </div>
+          </div>
+
+          <div class="results-tabs" role="tablist" aria-label="Result tables">
+            <button type="button" class="is-active" role="tab" aria-selected="true" data-results-tab="0">Statistical methods</button>
+            <button type="button" role="tab" aria-selected="false" data-results-tab="1">Cross-dataset</button>
+            <button type="button" role="tab" aria-selected="false" data-results-tab="2">Gehler-Shi</button>
+          </div>
+          <div class="results-content showcase-copy"><div class="results-table-wrapper">
   <p class="table-caption"><strong>Evaluation of the statistical-based methods on both NCC and LEVI datasets.</strong> Angular error in degrees.</p>
   <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
   <div class="table-scroll">
@@ -911,7 +709,7 @@
   </div>
 </div>
 <div class="results-table-wrapper">
-  <p class="table-caption"><strong>Evaluation results on Gehler-Shi dataset trained on NCC dataset.</strong> FC<sup>4</sup>, C<sup>4</sup>, C<sup>5</sup>, PCC, GCC, ePCC and the proposed RL-AWB are trained on NCC dataset and evaluated on Gehler&ndash;Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
+  <p class="table-caption"><strong>Evaluation results on Gehler-Shi dataset trained on NCC dataset.</strong> FC<sup>4</sup>, C<sup>4</sup>, C<sup>5</sup>, PCC, GCC, ePCC and the proposed RL-AWB are trained on NCC dataset and evaluated on Gehler-Shi dataset. Compared with our SGP-LRD, the proposed RL-AWB framework achieves a reduction of 5.9% in the median angular error and 9.8% in the best-25% angular error, showing that RL-AWB generalizes well across low-light and well-illuminated images.</p>
   <p class="rank-legend">Cells highlighted as <span class="best">1st</span> / <span class="second">2nd</span> / <span class="third">3rd</span> per column.</p>
   <div class="table-scroll">
     <table class="results-table">
@@ -967,55 +765,35 @@
     </div>
 </div>
 
+</div>
+        </div>
+      </section>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section><section class="section" id="BibTeX">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column">
-                        <h2 class="title is-3 has-text-centered">BibTeX</h2>
-                        <pre><code>@article{lee2026rl,
+      
+      <section class="showcase-section bibtex-section" id="bibtex">
+        <div class="showcase-shell">
+          <div class="bibtex-heading">
+            <p class="section-kicker">Citation</p>
+            <div class="bibtex-title-row">
+              <h2>BibTeX</h2>
+              <button type="button" data-copy-bibtex><i class="far fa-copy"></i><span>Copy</span></button>
+            </div>
+          </div>
+          <pre><code>@article{lee2026rl,
   title={RL-AWB: Deep Reinforcement Learning for Auto White Balance Correction in Low-Light Night-time Scenes},
   author={Lee, Yuan-Kang and Chen, Kuan-Lin and Chang, Chia-Che and Liu, Yu-Lun},
   journal={arXiv preprint arXiv:2601.05249},
   year={2026}
 }
 </code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+          <p class="copy-status" aria-live="polite"></p>
+        </div>
+      </section>
+      
+    </main>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-8">
-                        <div class="content has-text-centered">
-                            <p>
-                                This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-                                <br />This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <script>
-            
-            document.addEventListener('DOMContentLoaded', function() {
-                const tables = document.querySelectorAll('.content > table');
-                tables.forEach(function(table) {
-                    const wrapper = document.createElement('div');
-                    wrapper.className = 'table-wrapper';
-                    table.parentNode.insertBefore(wrapper, table);
-                    wrapper.appendChild(table);
-                });
-            });
-        </script>
-    </body>
+    <footer class="showcase-footer">
+      <div class="showcase-shell"><span>RL-AWB · ECCV 2026</span><a href="https://ntuneillee.github.io">Yuan-Kang Lee</a></div>
+    </footer>
+  </body>
 </html>
