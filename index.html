@@ -445,12 +445,16 @@
     }
 
     .hero-profile-links {
+      position: relative;
+      left: 50%;
+      width: calc(100vw - 20px);
       justify-content: center;
-      font-size: clamp(0.78rem, 3.75vw, 0.88rem);
+      font-size: clamp(0.82rem, 4vw, 0.94rem);
+      transform: translateX(-50%);
     }
 
     .hero-profile-link + .hero-profile-link::before {
-      margin-inline: 0.25rem;
+      margin-inline: 0.2rem;
     }
 
   }
