@@ -29,7 +29,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: "Google Sans", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 18px;
+  font-size: 17.5px;
   line-height: var(--body-leading);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -138,7 +138,7 @@ input:focus-visible {
 
 .project-nav__venue {
   color: rgba(255, 255, 255, 0.42);
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -148,7 +148,7 @@ input:focus-visible {
   display: flex;
   align-items: center;
   gap: 28px;
-  font-size: 1.04rem;
+  font-size: 1.01rem;
   white-space: nowrap;
 }
 
@@ -196,7 +196,7 @@ input:focus-visible {
   display: inline-block;
   margin: 0 0 10px;
   color: var(--gold);
-  font-size: 1.3rem;
+  font-size: 1.26rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -205,7 +205,7 @@ input:focus-visible {
 .showcase-hero h1 {
   max-width: 1040px;
   margin: 0 auto;
-  font-size: clamp(1.9rem, 3.4vw, 2.78rem);
+  font-size: clamp(1.86rem, 3.35vw, 2.74rem);
   font-weight: 600;
   line-height: 1.18;
   letter-spacing: -0.045em;
@@ -216,7 +216,7 @@ input:focus-visible {
   max-width: 810px;
   margin: 18px auto 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   line-height: var(--prose-leading);
 }
 
@@ -236,7 +236,7 @@ input:focus-visible {
   gap: 4px 9px;
   margin: 18px auto 0;
   color: #fff;
-  font-size: 1.24rem;
+  font-size: 1.21rem;
 }
 
 .showcase-author a {
@@ -269,13 +269,13 @@ input:focus-visible {
   gap: 3px 19px;
   margin: 16px auto 0;
   color: rgba(255, 255, 255, 0.68);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
 }
 
 .showcase-equal {
   margin: 5px 0 0;
   color: rgba(255, 255, 255, 0.35);
-  font-size: 1rem;
+  font-size: 0.97rem;
 }
 
 .showcase-links {
@@ -293,7 +293,7 @@ input:focus-visible {
   min-height: 43px;
   padding: 0 17px;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 1.06rem;
+  font-size: 1.03rem;
   font-weight: 500;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.055);
@@ -385,7 +385,7 @@ input:focus-visible {
   top: 16px;
   padding: 6px 10px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -406,7 +406,7 @@ input:focus-visible {
 .image-compare__hint {
   margin: 12px 0 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 0.96rem;
+  font-size: 0.93rem;
 }
 
 .showcase-section {
@@ -426,7 +426,7 @@ input:focus-visible {
 .section-kicker {
   margin: 0 0 10px;
   color: var(--blue-strong);
-  font-size: 0.94rem;
+  font-size: 0.91rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -440,7 +440,7 @@ input:focus-visible {
   max-width: 840px;
   margin: 0;
   color: var(--ink);
-  font-size: clamp(2.08rem, 3.6vw, 3.08rem);
+  font-size: clamp(2.04rem, 3.55vw, 3.04rem);
   font-weight: 600;
   line-height: 1.14;
   letter-spacing: -0.04em;
@@ -453,7 +453,7 @@ input:focus-visible {
 
 .showcase-copy {
   color: var(--ink-soft);
-  font-size: 1.14rem;
+  font-size: 1.11rem;
   line-height: var(--prose-leading);
 }
 
@@ -520,7 +520,7 @@ input:focus-visible {
 .section-heading > p {
   margin: 0 0 4px;
   color: var(--ink-soft);
-  font-size: 1.14rem;
+  font-size: 1.11rem;
   line-height: var(--prose-leading);
 }
 
@@ -534,7 +534,7 @@ input:focus-visible {
   max-width: 720px;
   margin: 14px 0 0;
   color: var(--ink-soft);
-  font-size: 1.16rem;
+  font-size: 1.13rem;
   line-height: var(--prose-leading);
 }
 
@@ -542,7 +542,7 @@ input:focus-visible {
   max-width: 720px;
   margin: 8px 0 0;
   color: #6f7887;
-  font-size: 1rem;
+  font-size: 0.97rem;
   font-weight: 500;
   line-height: var(--prose-leading);
 }
@@ -577,7 +577,7 @@ input:focus-visible {
 .segmented-control button {
   padding: 8px 14px;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 0.97rem;
   background: transparent;
   border-radius: 7px;
 }
@@ -643,7 +643,7 @@ input:focus-visible {
   bottom: 9px;
   padding: 5px 9px;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.94rem;
+  font-size: 0.91rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   background: rgba(6, 9, 14, 0.65);
@@ -673,13 +673,13 @@ input:focus-visible {
 
 .dataset-facts span {
   color: var(--ink-soft);
-  font-size: 1.04rem;
+  font-size: 1.01rem;
   font-weight: 500;
 }
 
 .dataset-facts strong {
   color: var(--ink);
-  font-size: clamp(1.44rem, 2.2vw, 1.86rem);
+  font-size: clamp(1.4rem, 2.15vw, 1.81rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -693,7 +693,7 @@ input:focus-visible {
 
 .dataset-facts small {
   color: #7b8493;
-  font-size: 0.94rem;
+  font-size: 0.91rem;
 }
 
 .dataset-plots {
@@ -723,7 +723,7 @@ input:focus-visible {
 .wide-figure figcaption {
   padding: 16px 18px 18px;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 0.97rem;
   line-height: var(--prose-leading);
   border-top: 1px solid var(--line);
 }
@@ -750,7 +750,7 @@ input:focus-visible {
   min-height: 38px;
   padding: 0 14px;
   color: rgba(255, 255, 255, 0.52);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
@@ -781,7 +781,7 @@ input:focus-visible {
 .qualitative-scene__title {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -818,7 +818,7 @@ input:focus-visible {
   bottom: 12px;
   padding: 5px 10px;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 500;
   background: rgba(7, 10, 17, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -845,7 +845,7 @@ input:focus-visible {
   flex: 0 0 auto;
   padding: 10px 14px 13px;
   color: var(--ink-soft);
-  font-size: 1.02rem;
+  font-size: 0.99rem;
   background: transparent;
 }
 
@@ -896,7 +896,7 @@ input:focus-visible {
   margin: 0;
   padding: 22px 24px 7px;
   color: var(--ink-soft);
-  font-size: 1.02rem;
+  font-size: 0.99rem;
   text-align: left;
 }
 
@@ -908,7 +908,7 @@ input:focus-visible {
   margin: 0;
   padding: 0 24px 18px;
   color: #727b8c;
-  font-size: 0.92rem;
+  font-size: 0.89rem;
   text-align: left;
 }
 
@@ -938,7 +938,7 @@ input:focus-visible {
   margin: 0 auto;
   color: #111827;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -1017,7 +1017,7 @@ input:focus-visible {
 
 .process-heading h3 {
   margin: 0;
-  font-size: 1.84rem;
+  font-size: 1.8rem;
   line-height: 1.2;
   letter-spacing: -0.025em;
 }
@@ -1025,7 +1025,7 @@ input:focus-visible {
 .process-description {
   margin: 10px 0 0;
   color: var(--ink-soft);
-  font-size: 1.1rem;
+  font-size: 1.07rem;
   line-height: var(--prose-leading);
 }
 
@@ -1056,7 +1056,7 @@ input:focus-visible {
   justify-content: center;
   padding: 9px 6px;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 0.87rem;
   font-weight: 600;
   text-align: center;
   background: #f8fafc;
@@ -1127,7 +1127,7 @@ input:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 11px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.96rem;
+  font-size: 0.93rem;
   line-height: var(--body-leading);
 }
 
@@ -1140,7 +1140,7 @@ input:focus-visible {
   min-height: 1.4em;
   margin: 8px 0 0;
   color: #8ac5ea;
-  font-size: 0.93rem;
+  font-size: 0.9rem;
   text-align: right;
 }
 
@@ -1155,7 +1155,7 @@ input:focus-visible {
   align-items: center;
   justify-content: space-between;
   min-height: 92px;
-  font-size: 1.1rem;
+  font-size: 1.07rem;
 }
 
 .showcase-footer a {
@@ -1221,7 +1221,7 @@ input:focus-visible {
     overflow-x: auto;
     overflow-y: hidden;
     padding-right: 8px;
-    font-size: 0.9rem;
+    font-size: 0.87rem;
     white-space: nowrap;
     scrollbar-width: none;
     scroll-snap-type: x proximity;
@@ -1248,23 +1248,23 @@ input:focus-visible {
   }
 
   .showcase-hero h1 {
-    font-size: clamp(1.78rem, 8.2vw, 2.34rem);
+    font-size: clamp(1.74rem, 8.15vw, 2.3rem);
     line-height: 1.17;
   }
 
   .showcase-hero__dek {
     margin-top: 18px;
-    font-size: 1.02rem;
+    font-size: 0.99rem;
     line-height: var(--prose-leading);
   }
 
   .showcase-authors {
     margin-top: 20px;
-    font-size: 1.1rem;
+    font-size: 1.07rem;
   }
 
   .showcase-affiliations {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
   }
 
   .showcase-links {
@@ -1275,7 +1275,7 @@ input:focus-visible {
   .showcase-links a {
     min-height: 38px;
     padding: 0 12px;
-    font-size: 0.96rem;
+    font-size: 0.93rem;
   }
 
   .image-compare {
@@ -1286,13 +1286,13 @@ input:focus-visible {
   .image-compare__divider span {
     width: 36px;
     height: 36px;
-    font-size: 0.84rem;
+    font-size: 0.82rem;
   }
 
   .image-compare__label {
     top: 9px;
     padding: 4px 7px;
-    font-size: 0.75rem;
+    font-size: 0.73rem;
   }
 
   .image-compare__label--left { left: 9px; }
@@ -1303,11 +1303,11 @@ input:focus-visible {
   }
 
   .showcase-section h2 {
-    font-size: 2.08rem;
+    font-size: 2.04rem;
   }
 
   .showcase-copy {
-    font-size: 1.1rem;
+    font-size: 1.07rem;
   }
 
   .contribution-list {
@@ -1347,11 +1347,11 @@ input:focus-visible {
   }
 
   .dataset-facts span {
-    font-size: 1rem;
+    font-size: 0.97rem;
   }
 
   .dataset-facts strong {
-    font-size: 1.62rem;
+    font-size: 1.57rem;
   }
 
   .dataset-plots {
@@ -1381,7 +1381,7 @@ input:focus-visible {
     width: 100%;
     min-width: 0;
     padding: 0 5px;
-    font-size: 0.87rem;
+    font-size: 0.85rem;
     white-space: nowrap;
   }
 
@@ -1400,14 +1400,14 @@ input:focus-visible {
 
   .qualitative-scene__title {
     margin-bottom: 7px;
-    font-size: 0.94rem;
+    font-size: 0.91rem;
   }
 
   .qualitative-pair figcaption {
     right: 7px;
     bottom: 7px;
     padding: 3px 7px;
-    font-size: 0.75rem;
+    font-size: 0.73rem;
   }
 
   .results-content {
@@ -1420,7 +1420,7 @@ input:focus-visible {
   }
 
   .results-table {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 
   .wide-figure__media {
@@ -1452,12 +1452,12 @@ input:focus-visible {
 
   .process-stage figcaption {
     min-height: 40px;
-    font-size: 0.86rem;
+    font-size: 0.83rem;
   }
 
   .bibtex-section pre {
     padding: 17px;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
   }
 }
 
