@@ -768,11 +768,7 @@
       max-width: 100%;
     }
     .research-links a {
-      margin-bottom: 0.75rem !important;
-    }
-     
-    .research-item .research-links + p {
-      margin-top: 0.1rem !important;
+      margin: 0 !important;
     }
   }
 
@@ -792,12 +788,14 @@
   }
 
   .research-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-top: 0.5rem;
   }
   .research-links a {
     display: inline-block;
-    margin-right: 0.35rem;
-    margin-bottom: 0.25rem;
+    margin: 0;
     font-size: 0.93rem;
     color: #5b8fc4 !important;
     text-decoration: none;
@@ -829,11 +827,11 @@
     color: #7ba5d1 !important;
   }
   body.dark-mode .research-links a {
-    color: #ffffff !important;
-    border-color: #ffffff;
+    color: #b0b0b0 !important;
+    border-color: #b0b0b0;
   }
   body.dark-mode .research-links a:hover {
-    background-color: #ffffff;
+    background-color: #b0b0b0;
     color: #000000 !important;
   }
 </style>
