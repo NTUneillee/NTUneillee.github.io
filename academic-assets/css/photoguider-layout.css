@@ -31,6 +31,12 @@
   .pg-paper-figure__viewport > a { width: max-content; }
   /* Keep the scientific figure intact, with its caption outside the scroll area. */
   .pg-paper-figure__image { width: 980px !important; max-width: none; }
-  .pg-results-table { font-size: .85rem; }
+  .pg-results-table { font-size: .85rem; min-width: 720px; table-layout: fixed; }
+  .pg-method-col { width: 112px; }
+  .pg-publication-col { width: 104px; }
+  .pg-metric-col { width: 84px; }
+  /* Keep the frozen method column compact, leaving room for numeric columns. */
+  .pg-results-table td:first-child,
+  .pg-results-table th[rowspan]:first-child { white-space: normal; overflow-wrap: anywhere; }
   .pg-results-table caption { padding-inline: 16px; }
 }

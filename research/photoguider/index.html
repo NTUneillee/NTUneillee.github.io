@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/photoguider-showcase.css?v=12" />
     
     <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/rlawb-showcase.css?v=22" />
-    <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/photoguider-layout.css?v=1" />
+    <link rel="stylesheet" href="https://ntuneillee.github.io/academic-assets/css/photoguider-layout.css?v=2" />
     <script defer src="https://ntuneillee.github.io/academic-assets/js/photoguider-showcase.js?v=11"></script>
   </head>
 
@@ -171,32 +171,32 @@
           <p class="section-kicker">2D cropping benchmarks</p>
           <h2>Competitive cropping performance</h2>
 
-          <div class="pg-table-wrap">
+          <div class="pg-table-wrap" role="region" aria-label="Scrollable cropping benchmark results" tabindex="0">
             <table class="pg-results-table">
               <caption>Comparison with state-of-the-art methods on FCDB and FLMS datasets.</caption>
+              <colgroup><col class="pg-method-col" /><col class="pg-publication-col" /><col span="6" class="pg-metric-col" /></colgroup>
               <thead>
                 <tr><th rowspan="2" scope="col">Method</th><th rowspan="2" scope="col">Publication</th><th colspan="2" scope="colgroup">FCDB</th><th colspan="2" scope="colgroup">FLMS</th><th colspan="2" scope="colgroup">Average</th></tr>
                 <tr><th scope="col">BDE↓</th><th scope="col">IoU↑</th><th scope="col">BDE↓</th><th scope="col">IoU↑</th><th scope="col">BDE↓</th><th scope="col">IoU↑</th></tr>
               </thead>
               <tbody>
-                <tr><td>DIC (Wang &amp; Shen, 2017)</td><td>ICCV 2017</td><td>0.090</td><td>0.630</td><td>0.057</td><td>0.810</td><td>0.074</td><td>0.720</td></tr>
-                <tr><td>DIC* (Wang et al., 2019)</td><td>TPAMI 2019</td><td>0.080</td><td>0.650</td><td>0.052</td><td>0.830</td><td>0.066</td><td>0.740</td></tr>
-                <tr><td>A2RL (Li et al., 2018)</td><td>CVPR 2018</td><td>0.089</td><td>0.664</td><td>0.045</td><td>0.821</td><td>0.067</td><td>0.743</td></tr>
-                <tr><td>A3RL (Li et al., 2019)</td><td>TIP 2019</td><td>0.077</td><td>0.696</td><td>-</td><td>0.839</td><td>-</td><td>0.768</td></tr>
-                <tr><td>VPN (Wei et al., 2018)</td><td>CVPR 2018</td><td>0.073</td><td>0.711</td><td>0.044</td><td>0.836</td><td>0.059</td><td>0.774</td></tr>
-                <tr><td>CACNet (Hong et al., 2021)</td><td>CVPR 2021</td><td>0.074</td><td>0.702</td><td class="pg-third">0.037</td><td>0.841</td><td>0.056</td><td>0.772</td></tr>
-                <tr><td>GAIC (Zeng et al., 2022)</td><td>TPAMI 2022</td><td>0.081</td><td>0.674</td><td>0.041</td><td>0.834</td><td>0.061</td><td>0.754</td></tr>
-                <tr><td>CAGR (Zhu et al., 2025)</td><td>TOMM 2025</td><td>0.067</td><td>0.721</td><td class="pg-second">0.033</td><td class="pg-third">0.851</td><td class="pg-third">0.050</td><td>0.786</td></tr>
-                <tr><td>InstructCrop (Sheng et al., 2025)</td><td>MM 2025</td><td>0.070</td><td>0.716</td><td class="pg-second">0.033</td><td>0.847</td><td>0.052</td><td>0.782</td></tr>
-                <tr><td>Cropper (Lee et al., 2025)</td><td>CVPR 2025</td><td class="pg-third">0.062</td><td class="pg-third">0.756</td><td>0.041</td><td>0.821</td><td>0.052</td><td>0.789</td></tr>
-                <tr><td>Venus (Du et al., 2026)</td><td>CVPR 2026</td><td>0.071</td><td>0.713</td><td class="pg-best">0.030</td><td class="pg-best">0.870</td><td>0.051</td><td class="pg-third">0.792</td></tr>
-                <tr><td>CPIC (Zhang et al., 2026b)</td><td>arXiv 2026</td><td class="pg-second">0.058</td><td>0.751</td><td class="pg-third">0.037</td><td>0.842</td><td class="pg-second">0.048</td><td class="pg-second">0.797</td></tr>
+                <tr><td>DIC</td><td>ICCV 2017</td><td>0.090</td><td>0.630</td><td>0.057</td><td>0.810</td><td>0.074</td><td>0.720</td></tr>
+                <tr><td>DIC*</td><td>TPAMI 2019</td><td>0.080</td><td>0.650</td><td>0.052</td><td>0.830</td><td>0.066</td><td>0.740</td></tr>
+                <tr><td>A2RL</td><td>CVPR 2018</td><td>0.089</td><td>0.664</td><td>0.045</td><td>0.821</td><td>0.067</td><td>0.743</td></tr>
+                <tr><td>A3RL</td><td>TIP 2019</td><td>0.077</td><td>0.696</td><td>-</td><td>0.839</td><td>-</td><td>0.768</td></tr>
+                <tr><td>VPN</td><td>CVPR 2018</td><td>0.073</td><td>0.711</td><td>0.044</td><td>0.836</td><td>0.059</td><td>0.774</td></tr>
+                <tr><td>CACNet</td><td>CVPR 2021</td><td>0.074</td><td>0.702</td><td class="pg-third">0.037</td><td>0.841</td><td>0.056</td><td>0.772</td></tr>
+                <tr><td>GAIC</td><td>TPAMI 2022</td><td>0.081</td><td>0.674</td><td>0.041</td><td>0.834</td><td>0.061</td><td>0.754</td></tr>
+                <tr><td>CAGR</td><td>TOMM 2025</td><td>0.067</td><td>0.721</td><td class="pg-second">0.033</td><td class="pg-third">0.851</td><td class="pg-third">0.050</td><td>0.786</td></tr>
+                <tr><td>InstructCrop</td><td>MM 2025</td><td>0.070</td><td>0.716</td><td class="pg-second">0.033</td><td>0.847</td><td>0.052</td><td>0.782</td></tr>
+                <tr><td>Cropper</td><td>CVPR 2025</td><td class="pg-third">0.062</td><td class="pg-third">0.756</td><td>0.041</td><td>0.821</td><td>0.052</td><td>0.789</td></tr>
+                <tr><td>Venus</td><td>CVPR 2026</td><td>0.071</td><td>0.713</td><td class="pg-best">0.030</td><td class="pg-best">0.870</td><td>0.051</td><td class="pg-third">0.792</td></tr>
+                <tr><td>CPIC</td><td>arXiv 2026</td><td class="pg-second">0.058</td><td>0.751</td><td class="pg-third">0.037</td><td>0.842</td><td class="pg-second">0.048</td><td class="pg-second">0.797</td></tr>
                 <tr class="pg-ours pg-method-divider"><td>PhotoGuider (fast)</td><td>2026</td><td class="pg-second">0.058</td><td class="pg-second">0.759</td><td>0.041</td><td>0.835</td><td class="pg-third">0.050</td><td class="pg-second">0.797</td></tr>
                 <tr class="pg-ours"><td>PhotoGuider (full)</td><td>2026</td><td class="pg-best">0.056</td><td class="pg-best">0.766</td><td class="pg-second">0.033</td><td class="pg-second">0.856</td><td class="pg-best">0.044</td><td class="pg-best">0.811</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="pg-table-note">Fast mode runs without an MLLM and keeps the decision layer on CPU. Full mode adds the consultant. PhotoGuider obtains the best reported FCDB result under Cropper's protocol.</p>
 
           <div class="pg-gallery-heading">
             <h3>Our highest-IoU test images</h3>
