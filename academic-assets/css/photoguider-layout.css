@@ -1,0 +1,36 @@
+/* RL-AWB supplies the shared layout; only PhotoGuider-specific adaptations live here. */
+:root {
+  --pg-content: var(--content);
+  --pg-reading: var(--reading);
+  --pg-ink: var(--ink);
+  --pg-ink-soft: var(--ink-soft);
+  --pg-paper: var(--paper);
+  --pg-tint: var(--paper-soft);
+  --pg-night: var(--night);
+  --pg-night-soft: var(--night-soft);
+  --pg-line: var(--line);
+  --pg-blue-strong: var(--blue-strong);
+  --pg-radius: 14px;
+}
+
+/* A text wordmark replaces RL-AWB's logo; the full paper title remains the h1. */
+.pg-project-wordmark { margin: 0 auto 10px; font-size: 2.74rem; font-weight: 600; line-height: 1.18; letter-spacing: -.045em; }
+.pg-hero__videos { margin-top: 34px; }
+.pg-lede { max-width: 720px; }
+.pg-section--dark .pg-lede { color: rgba(255,255,255,.58); }
+.pg-paper-figure { margin-top: 34px; }
+.pg-table-wrap { border-radius: 14px; box-shadow: 0 16px 38px rgba(24,32,51,.07); }
+.pg-results-table caption { padding: 22px 24px; font-size: .99rem; color: var(--ink-soft); }
+.pg-results-table { color: #111827; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: .95rem; }
+.pg-results-table th, .pg-results-table td { padding: 8px 10px; color: #111827; white-space: nowrap; border-bottom-color: #d1d5db; }
+.pg-results-table th { background: #e4edf6; border-bottom-color: #374151; }
+
+@media (max-width: 720px) {
+  .pg-project-wordmark { font-size: 2.3rem; }
+  .pg-hero__videos { margin-top: 30px; }
+  .pg-paper-figure__viewport > a { width: max-content; }
+  /* Keep the scientific figure intact, with its caption outside the scroll area. */
+  .pg-paper-figure__image { width: 980px !important; max-width: none; }
+  .pg-results-table { font-size: .85rem; }
+  .pg-results-table caption { padding-inline: 16px; }
+}
