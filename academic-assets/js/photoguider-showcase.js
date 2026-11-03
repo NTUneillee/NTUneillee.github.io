@@ -1,4 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const copyButton = document.querySelector("[data-copy-bibtex]");
+  const bibtex = document.querySelector(".bibtex-section code");
+  const copyStatus = document.querySelector(".copy-status");
+  if (copyButton && bibtex) {
+    copyButton.addEventListener("click", async () => {
+      const text = bibtex.textContent.trim();
+      let copied = false;
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (_) {
+          copied = false;
+        }
+      }
+      if (!copied) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          copied = document.execCommand("copy");
+        } catch (_) {
+          copied = false;
+        } finally {
+          textarea.remove();
+        }
+      }
+      if (copyStatus) copyStatus.textContent = copied ? "BibTeX copied." : "Copy failed. Please select the text manually.";
+      if (copied) window.setTimeout(() => { if (copyStatus) copyStatus.textContent = ""; }, 2200);
+    });
+  }
   const explanationButtons = [...document.querySelectorAll('[data-expl-scene]')];
   const explanationPanels = [...document.querySelectorAll('[data-expl-panel]')];
   explanationButtons.forEach((button) => {
