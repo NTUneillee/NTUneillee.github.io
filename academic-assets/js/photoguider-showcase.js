@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (dialogScores) {
         dialogScores.replaceChildren();
-        [["S", s], ["C", c], ["A", a], ["I", i]].forEach(([label, value]) => {
+        [["S", s], ["C", c], ["I", i], ["A", a]].forEach(([label, value]) => {
           const pill = document.createElement("span");
           const key = document.createElement("b");
           key.textContent = label;
