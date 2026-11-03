@@ -10,18 +10,15 @@
   <meta name="generator" content="Hugo 0.111.3">
 
   <!-- plugins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700&display=swap">
   
   <link rel="preload" href="https://ntuneillee.github.io/plugins/bootstrap/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://ntuneillee.github.io/plugins/bootstrap/bootstrap.min.css"></noscript>
   
-  <link rel="preload" href="https://ntuneillee.github.io/plugins/slick/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://ntuneillee.github.io/plugins/slick/slick.css"></noscript>
-  
   <link rel="preload" href="https://ntuneillee.github.io/plugins/themify-icons/themify-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://ntuneillee.github.io/plugins/themify-icons/themify-icons.css"></noscript>
-  
-  <link rel="preload" href="https://ntuneillee.github.io/plugins/venobox/venobox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://ntuneillee.github.io/plugins/venobox/venobox.css"></noscript>
   
 
   <!-- Main Stylesheet -->
@@ -47,23 +44,10 @@
   
 
   <!-- MathJax -->
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [["$", "$"]],
-      },
-    };
-  </script>
-  <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" integrity="sha256-qoRlVrS5NAnXSSSiMfFXwK8C9obG11Iybe4h2+bQYR4=" crossorigin="anonymous"></script>
+  
 
 </head>
-<body>
-<!-- preloader start -->
-<div class="preloader">
-  
-</div>
-<!-- preloader end -->
-<!-- navigation -->
+<body><!-- navigation -->
 <style>
   .dropdown-menu {
     padding: 0.25rem 0 !important;
@@ -366,19 +350,19 @@
 
 <!-- JS Plugins -->
 
+
 <script src="https://ntuneillee.github.io/plugins/jQuery/jquery.min.js" defer></script>
+
+
 
 <script src="https://ntuneillee.github.io/plugins/bootstrap/bootstrap.min.js" defer></script>
 
-<script src="https://ntuneillee.github.io/plugins/slick/slick.min.js" defer></script>
 
-<script src="https://ntuneillee.github.io/plugins/venobox/venobox.min.js" defer></script>
 
-<script src="https://ntuneillee.github.io/plugins/search/fuse.min.js" defer></script>
 
-<script src="https://ntuneillee.github.io/plugins/search/mark.js" defer></script>
 
-<script src="https://ntuneillee.github.io/plugins/search/search.js" defer></script>
+
+
 
 <!-- Main Script -->
 
@@ -392,7 +376,8 @@
 	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
 </div>
 <script>
-	(function ($) {
+	document.addEventListener('DOMContentLoaded', function () {
+		if (typeof Cookies === 'undefined') return;
 		const cookieBox = document.getElementById('js-cookie-box');
 		const cookieButton = document.getElementById('js-cookie-button');
 		if (!Cookies.get('cookie-box')) {
@@ -404,7 +389,7 @@
 				cookieBox.classList.add('cookie-box-hide');
 			};
 		}
-	})(jQuery);
+	});
 </script>
 
 
