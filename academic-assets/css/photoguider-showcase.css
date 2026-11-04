@@ -273,7 +273,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .pg-explanation p { margin: 13px 0 0; color: var(--pg-ink-soft); font-size: .95rem; line-height: 1.62; }
 .pg-heatmaps { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; padding: 0 22px 24px; }
 .pg-heatmaps figure { overflow: hidden; margin: 0; border: 1px solid var(--pg-line); border-radius: var(--pg-radius); }
-.pg-heatmaps img { width: 100%; aspect-ratio: 3.89/1; object-fit: cover; object-position: top; }
+/* Reserve the full heatmap height before lazy loading, including on mobile. */
+.pg-heatmaps img { width: 100%; aspect-ratio: 1200/308; object-fit: cover; object-position: top; }
 .pg-heatmaps figcaption { padding: 8px 11px; color: var(--pg-ink-soft); font-size: .8rem; border-top: 1px solid var(--pg-line); }
 
 .pg-browser-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-top: 110px; }
@@ -369,7 +370,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .pg-scene-detail__header > p { text-align: left; }
   .pg-crop-triptych, .pg-dialog-crops { grid-template-columns: 1fr; }
   .pg-heatmaps { grid-template-columns: 1fr; }
-  .pg-heatmaps img { aspect-ratio: auto; object-fit: contain; }
+  .pg-heatmaps img { object-fit: contain; }
   .pg-browser-heading { align-items: flex-start; flex-direction: column; margin-top: 80px; }
   .pg-search { width: 100%; }
   .pg-filter-row { flex-wrap: nowrap; margin-right: -15px; padding-right: 15px; overflow-x: auto; scrollbar-width: none; }
