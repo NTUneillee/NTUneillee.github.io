@@ -30,7 +30,8 @@
 .pg-results-table th { background: #e4edf6; border-bottom-color: #374151; }
 
 @media (max-width: 720px) {
-  .pg-project-wordmark__text { font-size: min(44px, 11vw); }
+  .pg-project-wordmark { gap: 8px; }
+  .pg-project-wordmark__text { font-size: min(51px, calc(17vw - 19px)); }
   .pg-hero__videos { margin-top: 30px; }
   .pg-paper-figure__viewport > a { width: max-content; }
   /* Keep the scientific figure intact, with its caption outside the scroll area. */
