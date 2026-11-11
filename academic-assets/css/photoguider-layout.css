@@ -16,7 +16,7 @@
 /* Approved SVG geometry stays untouched. Both existing header surfaces are dark. */
 .pg-project-wordmark { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 10px; }
 .pg-project-logo { flex: 0 0 auto; width: var(--showcase-logo-height); height: var(--showcase-logo-height); }
-.pg-project-wordmark__text { color: #f2f0ec; font-size: 72px; font-weight: 600; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
+.pg-project-wordmark__text { color: #f2f0ec; font-size: 76px; font-weight: 600; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
 .pg-project-wordmark__accent { color: #b5c4d2; }
 .pg-nav-logo { width: var(--showcase-nav-mark-size); height: var(--showcase-nav-mark-size); flex: 0 0 auto; }
 .pg-hero__videos { margin-top: 34px; }
@@ -30,7 +30,7 @@
 .pg-results-table th { background: #e4edf6; border-bottom-color: #374151; }
 
 @media (max-width: 720px) {
-  .pg-project-wordmark__text { font-size: min(42px, 10.5vw); }
+  .pg-project-wordmark__text { font-size: min(44px, 11vw); }
   .pg-hero__videos { margin-top: 30px; }
   .pg-paper-figure__viewport > a { width: max-content; }
   /* Keep the scientific figure intact, with its caption outside the scroll area. */
