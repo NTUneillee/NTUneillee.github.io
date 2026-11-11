@@ -17,7 +17,7 @@
 .pg-project-wordmark { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 10px; }
 .pg-project-logo { flex: 0 0 auto; width: var(--showcase-logo-height); height: var(--showcase-logo-height); }
 .pg-project-wordmark__text { color: #f2f0ec; font-size: 72px; font-weight: 600; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
-.pg-project-wordmark__accent { color: #9fbad2; }
+.pg-project-wordmark__accent { color: #b5c4d2; }
 .pg-nav-logo { width: var(--showcase-nav-mark-size); height: var(--showcase-nav-mark-size); flex: 0 0 auto; }
 .pg-hero__videos { margin-top: 34px; }
 .pg-lede { max-width: 720px; }
