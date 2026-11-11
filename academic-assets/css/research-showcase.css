@@ -14,6 +14,9 @@
   --reading: 860px;
   --body-leading: 1.68;
   --prose-leading: 25px;
+  /* Match the existing 1600 x 700 RL-AWB wordmark at 195px wide. */
+  --showcase-logo-height: 85.3125px;
+  --showcase-nav-mark-size: 28px;
 }
 
 * {
@@ -127,8 +130,8 @@ input:focus-visible {
 
 .project-nav__mark {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: var(--showcase-nav-mark-size);
+  height: var(--showcase-nav-mark-size);
   place-items: center;
   color: #fff;
   font-size: 0.68rem;
@@ -197,7 +200,8 @@ input:focus-visible {
 }
 
 .showcase-hero__logo {
-  width: min(195px, 44vw);
+  width: auto;
+  height: var(--showcase-logo-height);
   margin: 0 auto 10px;
 }
 
@@ -1199,6 +1203,9 @@ input:focus-visible {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --showcase-logo-height: 67.8125px;
+  }
   html {
     scroll-padding-top: 56px;
   }
@@ -1250,10 +1257,6 @@ input:focus-visible {
 
   .showcase-hero__inner {
     padding: 52px 0 38px;
-  }
-
-  .showcase-hero__logo {
-    width: 155px;
   }
 
   .showcase-hero h1 {

@@ -13,8 +13,12 @@
   --pg-radius: 14px;
 }
 
-/* A text wordmark replaces RL-AWB's logo; the full paper title remains the h1. */
-.pg-project-wordmark { margin: 0 auto 10px; font-size: 2.74rem; font-weight: 600; line-height: 1.18; letter-spacing: -.045em; }
+/* Approved SVG geometry stays untouched. Both existing header surfaces are dark. */
+.pg-project-wordmark { display: flex; align-items: center; justify-content: center; gap: 12px; height: var(--showcase-logo-height); margin: 0 auto 10px; font-size: 2.74rem; font-weight: 600; line-height: 1.18; letter-spacing: -.045em; }
+.pg-project-wordmark__text { color: #f2f0ec; }
+.pg-project-wordmark__accent { color: #c58b60; }
+.pg-project-logo { width: auto; height: var(--showcase-logo-height); flex: 0 0 auto; }
+.pg-nav-logo { width: var(--showcase-nav-mark-size); height: var(--showcase-nav-mark-size); flex: 0 0 auto; }
 .pg-hero__videos { margin-top: 34px; }
 .pg-lede { max-width: 720px; }
 .pg-section--dark .pg-lede { color: rgba(255,255,255,.58); }
