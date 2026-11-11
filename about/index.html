@@ -129,6 +129,57 @@ body.dark-mode .glass-more-panel{background:#25272c}
     width: 100%;
     line-height: 1.55;
   }
+
+  .experience-timeline {
+    --experience-accent: #7a5c48;
+    --experience-line: rgba(38, 38, 38, 0.12);
+    --experience-surface: #fff;
+    margin-bottom: 0;
+    padding-left: 4px;
+  }
+  body.dark-mode .experience-timeline {
+    --experience-accent: #c5a78e;
+    --experience-line: rgba(255, 255, 255, 0.12);
+    --experience-surface: #1a1a1a;
+  }
+  .experience-timeline > li {
+    position: relative;
+    padding: 0 0 1.75rem 1.5rem !important;
+    margin: 0 !important;
+    border: 0 !important;
+  }
+  .experience-timeline > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    bottom: -0.65rem;
+    width: 1px;
+    background: var(--experience-line);
+  }
+  .experience-timeline > li:last-child::before { display: none; }
+  .experience-timeline > li:last-child { padding-bottom: 0 !important; }
+  .experience-timeline > li::after {
+    content: "";
+    position: absolute;
+    left: -3.5px;
+    top: 0.65rem;
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid var(--experience-accent);
+    border-radius: 50%;
+    background: var(--experience-surface);
+  }
+  .experience-timeline > li:nth-child(-n+2)::after { background: var(--experience-accent); }
+  .about-section .experience-timeline .experience-title { color: var(--experience-accent) !important; }
+  .experience-timeline .flex-grow-1 { min-width: 0; }
+  .experience-timeline img { flex-shrink: 0; }
+  .experience-timeline .experience-meta { font-variant-numeric: tabular-nums; }
+  @media (max-width: 575px) {
+    .experience-timeline > li { padding-left: 1.1rem !important; }
+    .experience-timeline img { width: 44px !important; height: 44px !important; margin-right: 12px !important; }
+    .experience-timeline .experience-meta { flex-direction: column; }
+  }
 </style>
 
 <section class="section about-section">
@@ -141,7 +192,7 @@ body.dark-mode .glass-more-panel{background:#25272c}
 
         </div>
         <h4 class="widget-title mb-4">Experience</h4>
-        <ul class="list-unstyled text-left">
+        <ul class="list-unstyled text-left experience-timeline" role="list">
           
           <li class="mb-4 pb-3 border-bottom">
             <div class="d-flex align-items-start">
@@ -275,7 +326,7 @@ body.dark-mode .glass-more-panel{background:#25272c}
 
 <!-- Main Script -->
 
-<script src="https://ntuneillee.github.io/js/script.min.867003cd2cdadb8ac549a851f4d8995d364920e1726447c8b5ff94c5de83ecc6.js" defer></script>
+<script src="https://ntuneillee.github.io/js/script.min.dde7503e71835d595333d7d70d72edc7f35e203d80ab5b6ece6b394ffc2e8af9.js" defer></script>
 
 
 

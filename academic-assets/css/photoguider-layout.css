@@ -1,4 +1,4 @@
-/* RL-AWB supplies the shared layout; only PhotoGuider-specific adaptations live here. */
+/* research-showcase.css supplies the shared layout; only PhotoGuider-specific adaptations live here. */
 :root {
   --pg-content: var(--content);
   --pg-reading: var(--reading);
