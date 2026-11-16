@@ -276,7 +276,9 @@ body.dark-mode .glass-more-panel{background:#25272c}
     transition: opacity 160ms ease;
   }
 
-  .hero-profile-link + .hero-profile-link::before {
+  .hero-profile-links br { display: none; }
+
+  .hero-profile-link ~ .hero-profile-link::before {
     content: "·";
     margin: 0 0.5rem;
     color: inherit;
@@ -380,15 +382,19 @@ body.dark-mode .glass-more-panel{background:#25272c}
     }
 
     .hero-profile-links {
+      display: block;
       position: relative;
       left: 50%;
       width: calc(100vw - 20px);
-      justify-content: center;
+      text-align: center;
       font-size: 0.95rem;
       transform: translateX(-50%);
     }
 
-    .hero-profile-link + .hero-profile-link::before {
+    .hero-profile-links br { display: inline; }
+    .hero-profile-links br + .hero-profile-link::before { content: none; }
+
+    .hero-profile-link ~ .hero-profile-link::before {
       margin-inline: 0.2rem;
     }
 
@@ -508,7 +514,7 @@ body.dark-mode .glass-more-panel{background:#25272c}
           <a class="hero-profile-link" href="https://github.com/NTUneillee" aria-label="GitHub" target="_blank" rel="noopener">GitHub</a>
           
           <a class="hero-profile-link" href="https://www.linkedin.com/in/yuankanglee" aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
-          
+          <br>
           <a class="hero-profile-link" href="https://youtube.com/@yuankanglee?si=hhk37KUuTKCeLKNU" aria-label="YouTube" target="_blank" rel="noopener">YouTube</a>
           
           <a class="hero-profile-link" href="https://x.com/neillee0311?s=11&amp;t=0xAHp-4IzrKsJ5CV2VWzlQ" aria-label="X" target="_blank" rel="noopener">X</a>
